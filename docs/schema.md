@@ -53,7 +53,7 @@ id          | integer   | not null, primary key
 notifier_id | integer   | not null, foreign key (references users), indexed
 owner_id    | integer   | not null, foreign key (references users), indexed
 content_id  | integer   | foreign key (references content), indexed
-type        | string    | not null
+content_type| string    | not null
 read        | boolean   | default: false
 
 
@@ -70,7 +70,7 @@ column name | data type | details
 id          | integer   | not null, primary key
 user_id     | integer   | not null, foreign key (references users), indexed
 content_id  | integer   | not null, foreign key (references content), indexed
-type        | string    | not null
+content_type| string    | not null
 
 ## conversations
 column name | data type | details
