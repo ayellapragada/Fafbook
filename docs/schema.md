@@ -112,6 +112,41 @@ album_id    | integer   | not null, foreign key (references albums), indexed
 user_id     | integer   | not null, foreign key (references users), indexed
 photo       | string    | not null, carrierwave?, or just a url
 
+## groups
+column name | data type | details
+------------|-----------|-----------------------
+id          | integer   | not null, primary key
+name        | string    | not null
+description | text      | not null
+admin_id    | integer   | not null, foreign key (references users), indexed
+
+## groupings
+column name | data type | details
+------------|-----------|-----------------------
+id          | integer   | not null, primary key
+user_id     | integer   | not null, foreign key (references users), indexed
+group_id    | integer   | not null, foreign key (references groups), indexed
+status      | string    | not null, default: "approved"
+
+## events
+column name | data type | details
+------------|-----------|-----------------------
+id          | integer   | not null, primary key
+name        | string    | not null
+host_id     | integer   | not null
+host_type   | string    | not null
+description | text      |
+date        | date      | not null
+time        | time      | not null
+
+## attendances
+column name | data type | details
+------------|-----------|-----------------------
+id          | integer   | not null, primary key
+user_id     | integer   | not null, foreign key (references users), indexed
+event_id    | integer   | not null, foreign key (references events), indexed
+status      | string    | not null, default: "going"
+
 
 ## profiles
 column name     | data type | details

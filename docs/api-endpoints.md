@@ -40,7 +40,7 @@
 ### Timeline
 - `GET /api/timeline` - Posts and comment data for user's own page
 
-# Bonuses 
+# Bonuses
 
 ### Notifications
 - `GET /api/notifications` - Get new / recent notifications for user
@@ -64,8 +64,24 @@
 - `POST /api/albums` - Create a new album
 - `PATCH /api/albums` - Update an album
 - `DELETE /api/albums` - Delete an album
+- `GET /api/albums/:id` - Get one album
 
 ### Photos
 - `POST /api/photos` - Upload a new photo
 - `GET /api/photos/:id` - Get a single photos data
 - `DELETE /api/photos/:id` - Delete one photo
+
+### Groups
+- `POST /api/groups` - Create new group
+- `PATCH /api/groups/:id` - Update a group
+- `DELETE /api/groups/:id` - Delete a group
+- `GET /api/groups/:id` - Get one group
+- `POST /api/groups/:id` - Join a group
+
+### Events
+- `POST /api/events` - Create an event
+- `PATCH /api/events/:id` - Update an event
+- `DELETE /api/events/:id` - Cancel an event
+- `GET /api/events/:id` - Get an event's data
+- `POST /api/events/attendances/:id` - Attend an event
+- `DELETE /api/events/attendances/:id` - Decline an event
