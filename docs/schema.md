@@ -64,6 +64,14 @@ id          | integer   | not null, primary key
 liker_id    | integer   | not null, foreign key (references users), indexed
 content_id  | integer   | foreign key (references content), indexed
 
+## tags
+column name | data type | details
+------------|-----------|-----------------------
+id          | integer   | not null, primary key
+user_id     | integer   | not null, foreign key (references users), indexed
+content_id  | integer   | not null, foreign key (references content), indexed
+type        | string    | not null
+
 ## conversations
 column name | data type | details
 ------------|-----------|-----------------------
@@ -86,7 +94,6 @@ body        | text      | not null, primary key
 convo_id    | integer   | not null, foreign key (references conversations), indexed
 sender_id   | integer   | not null, foreign key (references users), indexed
 
-
 ## albums
 column name | data type | details
 ------------|-----------|-----------------------
@@ -103,6 +110,7 @@ album_id    | integer   | not null, foreign key (references albums), indexed
 user_id     | integer   | not null, foreign key (references users), indexed
 photo       | string    | not null, carrierwave?, or just a url
 
+
 ## profiles
 column name     | data type | details
 ----------------|-----------|-----------------------
@@ -114,3 +122,4 @@ website         | string    |
 language        | string    |
 location        | string    |
 work            | string    |
+user_id         | integer   |
