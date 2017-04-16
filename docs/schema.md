@@ -84,6 +84,7 @@ column name | data type | details
 id          | integer   | not null, primary key
 user_id     | integer   | not null, foreign key (references users), indexed
 convo_id    | integer   | not null, foreign key (references conversations), indexed
+muted       | boolean   | not null, default: false
 
 
 ## messages
@@ -93,6 +94,7 @@ id          | integer   | not null, primary key
 body        | text      | not null, primary key
 convo_id    | integer   | not null, foreign key (references conversations), indexed
 sender_id   | integer   | not null, foreign key (references users), indexed
+read        | boolean   | not null, default: false
 
 ## albums
 column name | data type | details
