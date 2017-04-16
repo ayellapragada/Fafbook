@@ -1,7 +1,7 @@
-# Faafbook
+# Fafbook
 
 ## Minimum Viable Product
-Faafbook is a web application based on Facebook built using Ruby on Rails
+Fafbook is a web application based on Facebook built using Ruby on Rails
 and React/Redux. These are the features this app will have at the minimum:
 
 - [ ] Hosting on Heroku
