@@ -1,5 +1,12 @@
 # Fafbook
 
+[Heroku link][heroku]
+
+[Trello link][trello]
+
+[heroku]: http://www.herokuapp.com
+[trello]: https://trello.com/b/zFzsNMyZ/fafbook
+
 ## Minimum Viable Product
 Fafbook is a web application based on Facebook built using Ruby on Rails
 and React/Redux. These are the features this app will have at the minimum:
@@ -19,11 +26,11 @@ and React/Redux. These are the features this app will have at the minimum:
 * [DB schema][schema]
 * [Sample State][sample-state]
 
-[wireframes]: docs/wireframes
-[components]: docs/component-hierarchy.md
-[sample-state]: docs/sample-state.md
-[api-endpoints]: docs/api-endpoints.md
-[schema]: docs/schema.md
+[wireframes]: wireframes
+[components]: component-hierarchy.md
+[sample-state]: sample-state.md
+[api-endpoints]: api-endpoints.md
+[schema]: schema.md
 
 
 ## Implementation Timeline
@@ -58,5 +65,8 @@ Once approved be able to view their page.
 - [ ] Notifications
 - [ ] Search
 - [ ] Likes
+- [ ] Tags
 - [ ] Messaging
+- [ ] Groups
+- [ ] Events
 - [ ] Profile deactivation
