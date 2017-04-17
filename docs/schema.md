@@ -12,8 +12,8 @@ last_name       | string    | not null
 dob             | date      | not null
 gender          | string    | not null
 about           | text      |
-cover_photo     | string    | carrierwave gem
-profile_photo   | string    | not null, carrierwave gem, default: default_url
+cover_photo     | string    | paperclip gem
+profile_photo   | string    | not null, paperclip gem, default: default_url
 deactivated     | boolean   | not null, default: false
 
 ## friendships
@@ -29,7 +29,8 @@ column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
 author_id   | integer   | not null, foreign key (references users), indexed
-receiver_id | integer   | not null, foreign key (references users), indexed
+parent_id   | integer   | not null, foreign key (references users), indexed
+parent_type | text      | not null
 body        | text      | not null
 photo       | string    |
 type        | string    | not null
@@ -56,19 +57,20 @@ content_id  | integer   | foreign key (references content), indexed
 content_type| string    | not null
 read        | boolean   | default: false
 
-
 ## likes
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
 liker_id    | integer   | not null, foreign key (references users), indexed
 content_id  | integer   | foreign key (references content), indexed
+content_type| string    | not null
 
 ## tags
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
 user_id     | integer   | not null, foreign key (references users), indexed
+tagged_id   | integer   | not null, foreign key (references users), indexed
 content_id  | integer   | not null, foreign key (references content), indexed
 content_type| string    | not null
 
@@ -110,7 +112,7 @@ column name | data type | details
 id          | integer   | not null, primary key
 album_id    | integer   | not null, foreign key (references albums), indexed
 user_id     | integer   | not null, foreign key (references users), indexed
-photo       | string    | not null, carrierwave?, or just a url
+photo       | string    | not null, paperclip?, or just a url
 
 ## groups
 column name | data type | details
@@ -119,6 +121,7 @@ id          | integer   | not null, primary key
 name        | string    | not null
 description | text      | not null
 admin_id    | integer   | not null, foreign key (references users), indexed
+photo       | string    | not null, paperclip?, or just a url
 
 ## memberships
 column name | data type | details
@@ -133,11 +136,11 @@ column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
 name        | string    | not null
-host_id     | integer   | not null
-host_type   | string    | not null
+host_id     | integer   | not null, foreign key (references users), indexed
 description | text      |
 date        | datetime  | not null
 location    | string    | not null
+photo       | string    | not null, paperclip?, or just a url
 
 ## attendances
 column name | data type | details

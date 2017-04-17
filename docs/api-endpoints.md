@@ -44,6 +44,7 @@
 
 ### Notifications
 - `GET /api/notifications` - Get new / recent notifications for user
+- `PATCH /api/notifications/:id` - Mark one notification as read
 - `PATCH /api/notifications` - Mark all notifications as read
 
 ### Likes
