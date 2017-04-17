@@ -1,21 +1,29 @@
+```js
 {
-  session: {
-    currentUser: {
-      id: 1,
-      first_name: 'Billy',
-      last_name: 'Joe',
-      email: 'billyjoe@example.com'
-    },
-    errors: {
-      signUpFormErrors: {
-        email: [],
-        first_name: [],
-        last_name: [],
-        password: [],
-      },
-      logInFormErrors: []
-    }
+  currentUser: {
+    id: 1,
+    first_name: 'Billy',
+    last_name: 'Joe',
+    email: 'billyjoe@example.com'
   },
+
+  forms: {
+    signUp: {
+      errors: []
+    },
+    signIn: {
+      errors: []
+    },
+    post: {
+      errors: []
+    },
+    comment: {
+      errors: []
+    },
+    post: {
+      errors: []
+    }
+  }
 
   user: {
     id: 5,
@@ -32,7 +40,7 @@
       relationship: "Single",
       location: "New York, New York",
       work: "Google"
-    }
+    },
     photoIds: [4, 5, 16, 22]
     photos: {
       4: {
@@ -42,7 +50,6 @@
       },
       { ... }
     },
-
     friendIds: [5, 9, 12]
     friends: {
       3: {
@@ -109,10 +116,7 @@
         }
       },
       { ... }
-    }
-  },
-
-
+    },
   friendships: {
     incomingRequests: {
       2: {
@@ -132,7 +136,6 @@
     },
     notificationCount: 2
   },
-
   search: {
     68: {
       id: 68,
@@ -192,3 +195,4 @@
   }
 
 }
+```

@@ -120,7 +120,7 @@ name        | string    | not null
 description | text      | not null
 admin_id    | integer   | not null, foreign key (references users), indexed
 
-## groupings
+## memberships
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
@@ -136,8 +136,8 @@ name        | string    | not null
 host_id     | integer   | not null
 host_type   | string    | not null
 description | text      |
-date        | date      | not null
-time        | time      | not null
+date        | datetime  | not null
+location    | string    | not null
 
 ## attendances
 column name | data type | details
