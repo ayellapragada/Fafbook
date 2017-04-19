@@ -21,10 +21,6 @@ class Api::UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    
-    if @user.update
-    else
-    end
   end 
 
   def destroy
