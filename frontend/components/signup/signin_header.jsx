@@ -38,14 +38,14 @@ class SigninHeader extends React.Component {
           <div className="fafbook-logo">fafbook</div>
           {this.renderErrors()}
           <div className="signin-form">
-            <label>Email
+            <label className="signin-email">Email
               <input
                 type="text"
                 value={this.state.email}
                 onChange={this.update('email')}
                 className="signin-input"/>
             </label>
-            <label>Password
+            <label className="signin-password">Password
               <input
                 type="password"
                 value={this.state.password}

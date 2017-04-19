@@ -13,3 +13,9 @@
  *= require_tree .
  *= require_self
  */
+
+main {
+  height: 100vh;
+  background-color: white;
+}
+
