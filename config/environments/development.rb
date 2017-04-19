@@ -35,7 +35,9 @@ Rails.application.configure do
   # Checks for improperly declared sprockets dependencies.
   # Raises helpful error messages.
   config.assets.raise_runtime_errors = true
-
+  
+  # Automatically inject the javascript needed for LiveReload
+  config.middleware.insert_after(ActionDispatch::Static, Rack::LiveReload)
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 end

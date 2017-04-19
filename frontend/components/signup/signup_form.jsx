@@ -1,12 +1,22 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { signup } from '../../actions/session_actions';
-import Dropdown from 'react-dropdown';
+import Select from 'react-select';
 
 const options = [
-  'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August',
-  'September', 'October', 'November', 'December']
-
+  { value: 'January', label: "January" },
+  { value: 'February', label: "February" },
+  { value: 'March', label: "March" },
+  { value: 'April', label: "April" },
+  { value: 'May', label: "May" },
+  { value: 'June', label: "June" },
+  { value: 'July', label: "July" },
+  { value: 'August', label: "August" },
+  { value: 'September', label: "September" },
+  { value: 'October', label: "October" },
+  { value: 'November', label: "November" },
+  { value: 'December', label: "December" },
+]
 class SignupForm extends React.Component  {
   constructor(props){
     super(props);
@@ -14,6 +24,7 @@ class SignupForm extends React.Component  {
                  month: "", date:"", year:"", gender: ""};
     
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.setMonth = this.setMonth.bind(this);
   }
 
   update(field) {
@@ -21,6 +32,7 @@ class SignupForm extends React.Component  {
       this.setState({[field]: e.currentTarget.value})
     };
   }
+
 
   handleSubmit(e) {
     e.preventDefault();
@@ -30,6 +42,10 @@ class SignupForm extends React.Component  {
 
   setGender(e) {
     this.setState({gender: e.target.value})
+  }
+
+  setMonth(value) {
+    this.setState({month: value.value})
   }
 
   render() {
@@ -65,6 +81,11 @@ class SignupForm extends React.Component  {
           placeholder="Password"/>
         <div className="signup-birthday">
           Birthday
+          <Select
+            className="signup-year"
+            value={this.state.month}
+            options={options}
+            onChange={this.setMonth}/>
 
           <input
             type="text"
