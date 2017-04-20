@@ -36,9 +36,9 @@ class SigninHeader extends React.Component {
       <div className="signin-header-container">
         <form onSubmit={this.handleSubmit} className="signin-header-box">
           <div className="fafbook-logo">fafbook</div>
-          {this.renderErrors()}
           <div className="signin-form">
             <label className="signin-email">Email
+              <br/>
               <input
                 type="text"
                 value={this.state.email}
@@ -46,13 +46,16 @@ class SigninHeader extends React.Component {
                 className="signin-input"/>
             </label>
             <label className="signin-password">Password
+              <br/>
               <input
                 type="password"
                 value={this.state.password}
                 onChange={this.update("password")}
                 className="signin-input"/>
+              <p id="forgot-password"> Forgot account? </p>
             </label>
-            <input type="submit" value="Submit"/>
+            <input className="signin-submit" type="submit" value="Log In"/>
+          {this.renderErrors()}
           </div>
         </form>
       </div>

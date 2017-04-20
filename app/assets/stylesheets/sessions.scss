@@ -29,13 +29,13 @@
   /* W3C Markup */ 
   background-image: linear-gradient(to right, #46639E 0%, #3B5998 50%, #3F5C9A
   75%, #415E9B 87.5%, #3B5998 100%);
-  border: 9px solid green; 
 }
 
 .signin-header-box {
   margin: 0 10%; 
+  padding: 0;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .signin-input {
@@ -43,11 +43,57 @@
 }
 
 .fafbook-logo {
-  border: 1px solid red; 
   font-size: 50px;
+  margin-top: 2%;
 }
 
 .signin-form {
-  border: 1px solid black;
+  height: 100%;
+  border-collapse: collapse;
+  display: table;
+  margin-top: 1%;
 }
 
+.signin-form > input,
+.signin-form > label {
+  display: block;
+}
+
+.signin-form >label {
+}
+
+.signin-email{
+  float: left;
+  margin-right: 20px;
+}
+
+.signin-password{
+  float:left;
+}
+
+.signin-submit{
+  margin-top: 15px;
+  margin-left: 200px;
+  background-color: #4267b2;
+  color: white;
+  border-radius: 5px;
+}
+
+#forgot-password {
+  color: #9cb4d8;
+  margin-top: 3px;
+  font-size: 12px;
+}
+
+.signin-error {
+  margin-top: 5px;
+  padding: 5px 0;
+  color: #ff5050;
+  clear: both;
+}
+
+.signup-header-container {
+  margin: 0 13.5%; 
+  display: flex;
+  justify-content: space-around;
+}
