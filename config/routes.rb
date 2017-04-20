@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   resource :session, only: [:create, :destroy, :show]
 
   namespace :api, default: { format: :json } do
-    resources :users, except: [:new, :edit]
+    resources :users, except: [:new, :edit] do 
+      resource :profile, only: [:show, :update]
+    end 
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

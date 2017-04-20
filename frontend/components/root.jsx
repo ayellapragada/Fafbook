@@ -4,6 +4,7 @@ import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 
 import App from './app';
 import SignUpPage from './signup/signup_page';
+import Profile from './profile/profile';
 
 const Root = ({ store }) => {
 
@@ -25,7 +26,9 @@ const Root = ({ store }) => {
     <Provider store={ store }>
       <Router history={hashHistory}>
        <Route path="/login" component={SignUpPage} onEnter={_redirectIfLoggedIn}/>
-       <Route path="/" component={App} onEnter={_ensureLoggedIn}/>
+       <Route path="/" component={App} onEnter={_ensureLoggedIn}>
+         <Route path="/profile" component={Profile}/>
+       </Route>
      </Router>
    </Provider>
   )
