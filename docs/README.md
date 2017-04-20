@@ -4,7 +4,7 @@
 
 [Trello link][trello]
 
-[heroku]: http://www.herokuapp.com
+[heroku]: https://fafbook.herokuapp.com/#/
 [trello]: https://trello.com/b/zFzsNMyZ/fafbook
 
 ## Minimum Viable Product
