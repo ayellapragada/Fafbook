@@ -1,11 +1,10 @@
 import React from 'react';
-
+import AboutSideBar from './about_side_bar';
 
 const Profile = ({user}) => {
-  
   return (
     <div>
-      <h3>We got a profile now baby</h3>
+      <AboutSideBar />
     </div>
   )
 };
