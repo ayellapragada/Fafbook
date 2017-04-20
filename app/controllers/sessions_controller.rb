@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
       user_params[:password])
     if @user
       login!(@user)
-      render "api/users/show"
+      render "api/users/show", user: @user
     else
       render json: ["Invalid email/password combination"], status: 401
     end
@@ -13,14 +13,14 @@ class SessionsController < ApplicationController
 
   def show
     @user = current_user
-    render "api/users/show"
+    render "api/users/show", user: @user
   end
 
-  def delete
+  def destroy
     @user = current_user
     if @user
-      logout
-      render "api/users/show"
+      logout!
+      render json: ["Logged Out!"]
     else
       render json: ["No one is logged in"], status: 404
     end

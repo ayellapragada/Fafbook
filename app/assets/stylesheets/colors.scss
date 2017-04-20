@@ -1,0 +1,26 @@
+@mixin background-gradient {
+  background-image: -ms-linear-gradient(left, #46639E 0%, #3B5998 50%, #3F5C9A
+  75%, #415E9B 87.5%, #3B5998 100%);
+
+  /* Mozilla Firefox */ 
+  background-image: -moz-linear-gradient(left, #46639E 0%, #3B5998 50%, #3F5C9A
+  75%, #415E9B 87.5%, #3B5998 100%);
+
+  /* Opera */ 
+  background-image: -o-linear-gradient(left, #46639E 0%, #3B5998 50%, #3F5C9A
+  75%, #415E9B 87.5%, #3B5998 100%);
+
+  /* Webkit (Safari/Chrome 10) */ 
+  background-image: -webkit-gradient(linear, left top, right top, color-stop(0,
+  #46639E), color-stop(50, #3B5998), color-stop(75, #3F5C9A), color-stop(87.5,
+  #415E9B), color-stop(100, #3B5998));
+
+  /* Webkit (Chrome 11+) */ 
+  background-image: -webkit-linear-gradient(left, #46639E 0%, #3B5998 50%,
+  #3F5C9A 75%, #415E9B 87.5%, #3B5998 100%);
+
+  /* W3C Markup */ 
+  background-image: linear-gradient(to right, #46639E 0%, #3B5998 50%, #3F5C9A
+  75%, #415E9B 87.5%, #3B5998 100%);
+
+}

@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { login, logout, signup } from '../../actions/session_actions';
+import {hashHistory} from 'react-router';
 
 class SigninHeader extends React.Component {
   constructor (props){
@@ -69,7 +70,7 @@ const mapStateToProps = (state) => {
   }
 }
 const mapDispatchToProps = (dispatch) => ({
-  login: user => dispatch(login(user)),
+  login: user => dispatch(login(user)).then(() => hashHistory.push('/'))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SigninHeader);

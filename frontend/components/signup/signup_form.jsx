@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { signup } from '../../actions/session_actions';
+import {hashHistory} from 'react-router';
 
 const options = [
   'Jan', 'Feb', 'Mar', 'Apr', 'May', 
@@ -11,7 +12,7 @@ class SignupForm extends React.Component  {
   constructor(props){
     super(props);
     this.state= {fname: "", lname: "", email: "", password: "", 
-                 month: "", date:"", year:"", gender: ""};
+                 month: "", date:"", year:"", gender: false}
     
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -26,7 +27,7 @@ class SignupForm extends React.Component  {
   handleSubmit(e) {
     e.preventDefault();
     const user = this.state;
-    this.props.login(user);
+    this.props.signup(user);
   }
 
   setGender(e) {
@@ -123,8 +124,8 @@ class SignupForm extends React.Component  {
         </div>
         
         <div className="signup-gender" onChange={event => this.setGender(event)}>
-          <input className="signup-gender-choice" type="radio" value="F" name="gender"/> Female
-          <input className="signup-gender-choice" type="radio" value="M" name="gender"/> Male
+          <input className="signup-gender-choice" type="radio" value={false} name="gender"/> Female
+          <input className="signup-gender-choice" type="radio" value={true} name="gender"/> Male
         </div>
         <input type="submit" onSubmit={this.handleSubmit} value="Create Account"/>
       </form>
@@ -133,4 +134,12 @@ class SignupForm extends React.Component  {
   }
 }
 
-export default SignupForm;
+const mapStateToProps = state => ({
+  errors: state.session.errors
+})
+
+const mapDispatchToProps = dispatch => ({
+  signup: (user) => dispatch(signup(user)).then(() => hashHistory.push('/'))
+})
+
+export default connect( mapStateToProps, mapDispatchToProps)(SignupForm);

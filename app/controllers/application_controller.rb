@@ -6,7 +6,8 @@ class ApplicationController < ActionController::Base
   helper_method :current_user, :logged_in?
 
   def user_params
-    params.require(:user).permit(:email, :password)
+    params.require(:user).permit(:email, :password, :fname, :lname,
+                                 :month, :date, :year, :gender)
   end
 
   def current_user
@@ -25,7 +26,7 @@ class ApplicationController < ActionController::Base
   def logout!
     current_user.reset_session_token!
     session[:session_token] = nil
-    @current_user = null
+    @current_user = nil
   end
 
   def require_logged_in

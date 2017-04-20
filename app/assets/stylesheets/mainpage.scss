@@ -1,0 +1,16 @@
+@import "colors.scss";
+.navbar-container {
+  height: 43px;
+  display: flex;
+  justify-content: space-between;
+  @include background-gradient;
+  align-items: center;
+}
+
+.right-navbar {
+  margin-right: 20%;
+}
+
+.left-navbar {
+  margin-left: 20%;
+}

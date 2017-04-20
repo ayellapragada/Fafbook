@@ -1,10 +1,31 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id              :integer          not null, primary key
+#  email           :string           not null
+#  password_digest :string           not null
+#  session_token   :string           not null
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  fname           :string           not null
+#  lname           :string           not null
+#  date            :string           not null
+#  month           :string           not null
+#  year            :string           not null
+#  dob             :date             not null
+#  gender          :boolean          not null
+#
+
 class User < ApplicationRecord
   validates :email, :password_digest, :session_token, presence: true
+  validates :fname, :lname, :date, :month, :year, :dob, presence: true
+  validates :gender, inclusion: { in: [true, false] }
   validates :password, length: { minimum: 6, allow_nil: true }
 
   attr_reader :password
 
-  after_initialize :ensure_session_token
+  after_initialize :ensure_session_token, :create_dob
 
   def self.generate_session_token
     SecureRandom.urlsafe_base64(16)
@@ -14,6 +35,11 @@ class User < ApplicationRecord
     user = User.find_by email: email
     return user if user && user.valid_password?(password)
     nil
+  end
+
+  def create_dob
+    return if self.date == "" && self.month == "" && self.year == ""
+    self.dob = Date.parse("#{self.date}-#{self.month}-#{self.year}")
   end
 
   def valid_password?(password)

@@ -1,8 +1,9 @@
 import React from 'react';
+import Navbar from './navbar/navbar';
 
 const App = ({ children  }) => (
   <div>
-    <h1>fafbook</h1>
+    <Navbar />
     { children }
   </div>
 );
