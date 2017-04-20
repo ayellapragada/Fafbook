@@ -3,7 +3,6 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
  
 .signin-header-container {
-  display: flex;
   height: 83px;
   color: white;
   /* IE10+ */ 
@@ -30,9 +29,25 @@
   /* W3C Markup */ 
   background-image: linear-gradient(to right, #46639E 0%, #3B5998 50%, #3F5C9A
   75%, #415E9B 87.5%, #3B5998 100%);
+  border: 9px solid green; 
+}
+
+.signin-header-box {
+  margin: 0 10%; 
+  display: flex;
+  justify-content: space-between;
 }
 
 .signin-input {
-  display: inline;
+  width: 142px;
+}
+
+.fafbook-logo {
+  border: 1px solid red; 
+  font-size: 50px;
+}
+
+.signin-form {
+  border: 1px solid black;
 }
 
