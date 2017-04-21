@@ -12,7 +12,7 @@ class SignupForm extends React.Component  {
   constructor(props){
     super(props);
     this.state= {fname: "", lname: "", email: "", password: "", 
-                 month: "", date:"", year:"", gender: false}
+                 month: "", date:"", year:"", gender: ""}
     
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -53,6 +53,7 @@ class SignupForm extends React.Component  {
     years.unshift(<option key='y' value='y'>Year</option> );
 
     return(
+      <div className="signup-header-background">
       <div className="signup-header-container">
         <div className="signup-lefthand-words">
           <h3 className="big-booty">
@@ -60,17 +61,23 @@ class SignupForm extends React.Component  {
           </h3>
           <ul className="signup-lefthand-list">
             <li className="signup-lefthand-list-item">
+              <i className="fa fa-newspaper-o" aria-hidden="true"></i>
               <span className="bold-words">
-              See photos and updates</span>from friends in News Feed.</li>
+              See photos and updates</span> from friends in News Feed.</li>
             <li className="signup-lefthand-list-item">
+              <i className="fa fa-share-alt-square" aria-hidden="true"></i>
               <span className="bold-words">
               Share what's new</span> in your life on your Timeline</li>
             <li className="signup-lefthand-list-item">
+              <i className="fa fa-search" aria-hidden="true"></i>
               <span className="bold-words">
               Find more</span> of what you're looking for with fafbook Search</li>
           </ul>
         </div>
         <form onSubmit={this.handleSubmit} className="signUp-form-box">
+        <h3 className="signup-big">Sign Up</h3>
+        <p id="snark"> It's free and always will be.</p>
+        <br/>
        <input
           type="text"
           value={this.state.fname}
@@ -126,13 +133,20 @@ class SignupForm extends React.Component  {
         </div>
         
         <div className=
-              {`signup-input signup-gender ${this.props.errors.gender ? 'signup-errors' : ''}`}
+              {`signup-input signup-gender `}
            onChange={event => this.setGender(event)}>
-          <input className="signup-gender-choice" type="radio" value={false} name="gender"/> Female
-          <input className="signup-gender-choice" type="radio" value={true} name="gender"/> Male
+           <div className={`signup-gender-choice ${this.props.errors.gender ? 'signup-errors' : ''}`} >
+             <input className={`signup-input signup-gender-choice ${this.props.errors.gender ? 'signup-errors' : ''}`} 
+               type="radio" value={false} name="gender"/> Female
+           </div>
+           <div className={`signup-gender-choice ${this.props.errors.gender ? 'signup-errors' : ''}`} >
+             <input className={`signup-input signup-gender-choice ${this.props.errors.gender ? 'signup-errors' : ''}`} 
+               type="radio" value={true} name="gender"/> Male
+           </div>
         </div>
         <input type="submit" onSubmit={this.handleSubmit} value="Create Account"/>
       </form>
+    </div>
     </div>
     ) 
   }

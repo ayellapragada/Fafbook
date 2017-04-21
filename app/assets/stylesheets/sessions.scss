@@ -10,8 +10,9 @@
   @include background-gradient;
 }
 
+.signup-header-container,
 .signin-header-box {
-  margin: 0 25% 0 23%;
+  margin: 0 24%;
   padding: 0;
   display: flex;
   justify-content: space-between;
@@ -101,11 +102,19 @@
 /* Sign Up Form */
 
 .signup-errors {
-  border: 1px solid red;
+  border: 1px solid #ff5050;
 }
 
-.signup-header-container {
-  margin: 0 13.5%; 
-  display: flex;
-  justify-content: space-around;
+.bold-words {
+  font-weight: bold;
 }
+
+.signup-header-background {
+  background-color: #edf0f5;
+}
+
+.signup-gender {
+  display: flex;
+}
+
+

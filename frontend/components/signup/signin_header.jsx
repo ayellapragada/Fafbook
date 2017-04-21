@@ -64,7 +64,7 @@ class SigninHeader extends React.Component {
             <button className="test-button-login" 
               onClick={() => this.props.login({email: "test@password.com", 
                 password: "password"})}
-              >Log in as Test Man!
+              >Demo
              </button>
           </div>
         </form>
