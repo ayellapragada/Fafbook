@@ -56,22 +56,24 @@ class SignupForm extends React.Component  {
       <div className="signup-header-background">
       <div className="signup-header-container">
         <div className="signup-lefthand-words">
-          <h3 className="big-booty">
-            Connect with friends and the world around you on fafbook.
+          <h3 className="signup-connect">
+            Connect with friends and the 
+            <br/>
+            world around you on Fafbook.
           </h3>
           <ul className="signup-lefthand-list">
             <li className="signup-lefthand-list-item">
-              <i className="fa fa-newspaper-o" aria-hidden="true"></i>
+              <i className="fa fa-camera-retro fa-fix" aria-hidden="true"></i>
               <span className="bold-words">
               See photos and updates</span> from friends in News Feed.</li>
             <li className="signup-lefthand-list-item">
               <i className="fa fa-share-alt-square" aria-hidden="true"></i>
               <span className="bold-words">
-              Share what's new</span> in your life on your Timeline</li>
+              Share what's new</span> in your life on your Timeline.</li>
             <li className="signup-lefthand-list-item">
               <i className="fa fa-search" aria-hidden="true"></i>
               <span className="bold-words">
-              Find more</span> of what you're looking for with fafbook Search</li>
+              Find more</span> of what you're looking for with Fafbook Search.</li>
           </ul>
         </div>
         <form onSubmit={this.handleSubmit} className="signUp-form-box">
@@ -83,27 +85,27 @@ class SignupForm extends React.Component  {
           value={this.state.fname}
           onChange={this.update('fname')}
           className={`signup-input signup-fname ${this.props.errors.fname ? 'signup-errors' : ''}`}
-          placeholder="First name"/>
+          placeholder="  First name"/>
         <input
           type="text"
           value={this.state.lname}
           onChange={this.update('lname')}
           className={`signup-input signup-lname ${this.props.errors.lname ? 'signup-errors' : ''}`}
-          placeholder="Last name"/>
+          placeholder="  Last name"/>
         <br/>
         <input
           type="text"
           value={this.state.email}
           onChange={this.update('email')}
           className={`signup-input signup-email ${this.props.errors.email ? 'signup-errors' : ''}`}
-          placeholder="Email"/>
+          placeholder="  Email"/>
         <br/>
         <input
           type="password"
           value={this.state.password}
           onChange={this.update('password')}
           className={`signup-input signup-password ${this.props.errors.password ? 'signup-errors' : ''}`}
-          placeholder="New password"/>
+          placeholder="  New password"/>
         <div className="signup-birthday">
 
           Birthday
