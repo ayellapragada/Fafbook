@@ -23,14 +23,17 @@ class SigninHeader extends React.Component {
   }
 
   renderErrors(){
-    const errors = this.props.errors.map((error, i)=>{
-      return <li className="signin-error" key={`error-${i}`}>{error}</li>
-    })
-    return (
-      <ul>
-        {errors}
-      </ul>
-  )}
+    if (this.props.errors instanceof(Array)) {
+      const errors = this.props.errors.map((error, i)=>{
+        return <li className="signin-error" key={`error-${i}`}>{error}</li>
+      })
+      return (
+        <ul>
+          {errors}
+        </ul>
+      )
+    }
+}
 
   render() {
     return (
@@ -57,19 +60,24 @@ class SigninHeader extends React.Component {
             </label>
             <input className="signin-submit" type="submit" value="Log In"/>
           {this.renderErrors()}
-          <button className="test-button-login" 
-            onClick={() => this.props.login({email: "test@password.com", 
-                                            password: "password"})}
-            >Log in as Test Man!
-          </button>
               <br/>
           </div>
         </form>
+            <button className="test-button-login" 
+              onClick={() => this.props.login({email: "test@password.com", 
+                password: "password"})}
+              >Log in as Test Man!
+              </button>
       </div>
     );
   }
 }
 
+          <button className="test-button-login" 
+            onClick={() => this.props.login({email: "test@password.com", 
+                                            password: "password"})}
+            >Log in as Test Man!
+          </button>
 const mapStateToProps = (state) => {
   return {
     errors: state.session.errors

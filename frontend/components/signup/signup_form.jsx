@@ -75,46 +75,48 @@ class SignupForm extends React.Component  {
           type="text"
           value={this.state.fname}
           onChange={this.update('fname')}
-          className='signup-input signup-fname'
+          className={`signup-input signup-fname ${this.props.errors.fname ? 'signup-errors' : ''}`}
           placeholder="First name"/>
-
         <input
           type="text"
           value={this.state.lname}
           onChange={this.update('lname')}
-          className='signup-input signup-lname'
+          className={`signup-input signup-lname ${this.props.errors.lname ? 'signup-errors' : ''}`}
           placeholder="Last name"/>
         <br/>
         <input
           type="text"
           value={this.state.email}
           onChange={this.update('email')}
-          className='signup-input signup-email'
+          className={`signup-input signup-email ${this.props.errors.email ? 'signup-errors' : ''}`}
           placeholder="Email"/>
         <br/>
         <input
           type="password"
           value={this.state.password}
           onChange={this.update('password')}
-          className='signup-input signup-password'
+          className={`signup-input signup-password ${this.props.errors.password ? 'signup-errors' : ''}`}
           placeholder="New password"/>
         <div className="signup-birthday">
 
           Birthday
           <div className="signup-birthday">
             <select
+              className={`signup-input signup-month ${this.props.errors.month ? 'signup-errors' : ''}`}
               value={this.state.month}
               onChange={this.update('month')}
             >
               {months}
             </select>
             <select
+              className={`signup-input signup-date ${this.props.errors.date ? 'signup-errors' : ''}`}
               value={this.state.date}
               onChange={this.update('date')}
             >
               {days}
             </select>
             <select
+              className={`signup-input signup-year ${this.props.errors.year ? 'signup-errors' : ''}`}
               value={this.state.year}
               onChange={this.update('year')}
             >
@@ -123,7 +125,9 @@ class SignupForm extends React.Component  {
           </div>
         </div>
         
-        <div className="signup-gender" onChange={event => this.setGender(event)}>
+        <div className=
+              {`signup-input signup-gender ${this.props.errors.gender ? 'signup-errors' : ''}`}
+           onChange={event => this.setGender(event)}>
           <input className="signup-gender-choice" type="radio" value={false} name="gender"/> Female
           <input className="signup-gender-choice" type="radio" value={true} name="gender"/> Male
         </div>

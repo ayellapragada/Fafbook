@@ -38,7 +38,7 @@
   display: block;
 }
 
-.signin-form >label {
+.signin-form > label {
 }
 
 .signin-email{
@@ -50,12 +50,15 @@
   float:left;
 }
 
-.signin-submit{
-  margin-top: 15px;
-  margin-left: 200px;
+.signin-submit,
+.test-button-login{
   background-color: #4267b2;
   color: white;
   border-radius: 5px;
+}
+.signin-submit{
+  margin-top: 15px;
+  margin-left: 200px;
 }
 
 #forgot-password {
@@ -69,6 +72,10 @@
   padding: 5px 0;
   color: #ff5050;
   clear: both;
+}
+
+.signup-errors {
+  border: 1px solid red;
 }
 
 .signup-header-container {
