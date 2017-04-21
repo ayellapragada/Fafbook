@@ -11,10 +11,10 @@
 }
 
 .signin-header-box {
-  margin: 0 10%;
+  margin: 0 25% 0 23%;
   padding: 0;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .signin-input {
@@ -31,7 +31,7 @@
   height: 100%;
   border-collapse: collapse;
   display: table;
-  margin-top: 1%;
+  margin-top: 15px;
 }
 
 .signin-form > input,
@@ -39,7 +39,23 @@
   display: block;
 }
 
-.signin-form > label {
+
+.signin-form > input {
+}
+
+.signin-input {
+  margin-top: 7px;
+  margin-bottom: 3px;
+  height: 15px;
+}
+
+.signin-password {
+  margin-right: 15px;
+}
+
+.signin-label {
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 12px;
 }
 
 .signin-email{
@@ -55,11 +71,17 @@
 .test-button-login{
   background-color: #4267b2;
   color: white;
-  border-radius: 5px;
+  border-radius: 1px;
+  border: 1px solid #29487d;
 }
 .signin-submit{
-  margin-top: 15px;
-  margin-left: 200px;
+  margin-top: 17px;
+  margin-left: 5px;
+  height: 24px;
+}
+
+.test-button-login{
+  position: absolute;
 }
 
 #forgot-password {
@@ -74,6 +96,9 @@
   color: #ff5050;
   clear: both;
 }
+
+/* -------------------------------- */
+/* Sign Up Form */
 
 .signup-errors {
   border: 1px solid red;
