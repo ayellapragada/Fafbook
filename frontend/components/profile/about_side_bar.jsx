@@ -1,16 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-const AboutSideBar = ({props}) => (
+const AboutSideBar = (props) => (
   <div className="about-side-bar">
-    <p>{props.fname}</p>
+    <p>{props.user.fname}</p>
   </div>
 ) 
 
 
 const mapStateToProps = state => {
   return({
-    fname: state.session.currentUser.fname
+    user: state.session.currentUser
   })
 } 
 

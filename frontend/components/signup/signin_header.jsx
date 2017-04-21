@@ -57,6 +57,12 @@ class SigninHeader extends React.Component {
             </label>
             <input className="signin-submit" type="submit" value="Log In"/>
           {this.renderErrors()}
+          <button className="test-button-login" 
+            onClick={() => this.props.login({email: "test@password.com", 
+                                            password: "password"})}
+            >Log in as Test Man!
+          </button>
+              <br/>
           </div>
         </form>
       </div>
