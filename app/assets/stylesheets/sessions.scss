@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 @import "colors.scss";
- 
+
 .signin-header-container {
   height: 83px;
   color: white;
@@ -11,7 +11,7 @@
 }
 
 .signin-header-box {
-  margin: 0 10%; 
+  margin: 0 10%;
   padding: 0;
   display: flex;
   justify-content: space-around;
@@ -24,6 +24,7 @@
 .fafbook-logo {
   font-size: 50px;
   margin-top: 2%;
+  font-family: 'Klavika';
 }
 
 .signin-form {

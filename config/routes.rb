@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
   root 'static_pages#root' 
+  get '/api/users/:query', to: 'api/users#index'
 
   resource :session, only: [:create, :destroy, :show]
 
   namespace :api, default: { format: :json } do
-    resources :users, except: [:new, :edit] do 
+    resources :users, except: [:index, :new, :edit] do 
       resource :profile, only: [:show, :update]
     end 
   end
