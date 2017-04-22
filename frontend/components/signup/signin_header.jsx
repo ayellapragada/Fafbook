@@ -59,7 +59,7 @@ class SigninHeader extends React.Component {
                 value={this.state.password}
                 onChange={this.update("password")}
                 className="signin-input"/>
-              <p id="forgot-password"> Forgot account? </p>
+              <p className="forgot-password"> Forgot account? </p>
             </label>
             <input className="signin-submit" type="submit" value=
               {this.props.errors[0] != "Invalid email/password combination" ? "Log In" : "Invalid Login!"}/>

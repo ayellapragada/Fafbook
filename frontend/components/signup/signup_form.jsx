@@ -57,9 +57,11 @@ class SignupForm extends React.Component  {
       <div className="signup-header-container">
         <div className="signup-lefthand-words">
           <h3 className="signup-connect">
-            Connect with friends and the 
-            <br/>
-            world around you on Fafbook.
+            <span className="super-bold">
+              Connect with friends and the 
+              <br/>
+              world around you on Fafbook.
+            </span>
           </h3>
           <ul className="signup-lefthand-list">
             <li className="signup-lefthand-list-item">
@@ -80,6 +82,7 @@ class SignupForm extends React.Component  {
         <h3 className="signup-big">Sign Up</h3>
         <p id="snark"> It's free and always will be.</p>
         <br/>
+        <div className="signup-names">
        <input
           type="text"
           value={this.state.fname}
@@ -92,6 +95,7 @@ class SignupForm extends React.Component  {
           onChange={this.update('lname')}
           className={`signup-input signup-lname ${this.props.errors.lname ? 'signup-errors' : ''}`}
           placeholder="  Last name"/>
+      </div>
         <br/>
         <input
           type="text"
@@ -150,7 +154,12 @@ class SignupForm extends React.Component  {
             </label>
           </div>
         </div>
+        <div className="okay-why">
+          <p className="signup-disclaimer'">By clicking Create Account, you agree to our Terms and that <br/> you have read our Data Policy, including our Cookie Use. You <br/> may receive SMS Notifications from Facebook and can <br/>opt out at any time.</p>
+        </div>
         <input type="submit" className="signup-submit" onSubmit={this.handleSubmit} value="Create Account"/>
+
+        <p className="submit-special-page"><span className="blue">Create a Page </span> for a celebrity, band or business.</p>
       </form>
     </div>
   </div>

@@ -10,14 +10,14 @@
   @include background-gradient;
 }
 
+.signup-header-container,
+.signin-header-box,
 .signin-footer {
-  margin: 0 24%;
+  margin: 0 478px 0 463px;
 }
 
 .signup-header-container,
 .signin-header-box {
-  margin: 0 24%;
-  padding: 0;
   display: flex;
   justify-content: space-between;
 }
@@ -27,18 +27,16 @@
 }
 
 .fafbook-logo {
-  font-size: 50px;
-  margin-top: 2.5%;
+  font-size: 46px;
+  margin-top: 28px ;
   font-family: 'Klavika';
   text-decoration: none;
   color: white;
+  -webkit-font-smoothing: antialiased;
 }
 
 .signin-form {
-  height: 100%;
-  border-collapse: collapse;
-  display: table;
-  margin-top: 15px;
+  margin-top: 16px;
 }
 
 .signin-form > input,
@@ -50,33 +48,30 @@
   cursor: pointer;
 }
 
-.signin-form > input {
-}
-
 .signin-input {
-  margin-top: 7px;
+  margin-top: 6px;
   margin-bottom: 3px;
-  height: 15px;
+  height: 16px;
   border: 1px solid black;
   padding: 3px;
 }
 
 .signin-password {
-  margin-right: 15px;
+  margin-right: 13px;
 }
 
 .signin-label {
+  letter-spacing: -0.23px;
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 12px;
 }
-
+.signin-password,
 .signin-email{
   float: left;
-  margin-right: 20px;
 }
 
-.signin-password{
-  float:left;
+.signin-email{
+  margin-right: 14px;
 }
 
 .signin-submit,
@@ -88,42 +83,73 @@
 }
 
 .signin-submit{
+  font-size: 11.5px;
+  padding: 1px;
   margin-top: 17px;
   margin-left: 5px;
-  height: 24px;
+  height: 25px;
+  letter-spacing: 0.23px;
+  width: 50px;
 }
 
 .test-button-login{
   position: absolute;
 }
 
-#forgot-password {
-  color: #9cb4d8;
-  margin-top: 3px;
-  font-size: 12px;
+.submit-special-page {
+  border-top: 1px solid #dddfe2;
+  margin-top: 10px;
+  padding-top: 10px;
+  margin-bottom: 60px;
 }
 
 .signin-error {
   margin-top: 5px;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
   padding: 5px 0;
   color: #ff5050;
   clear: both;
 }
 
+.forgot-password {
+  color: #9cb4d8;
+  margin-top: 3px;
+  font-size: 12px;
+  letter-spacing: -0.23px;
+}
+
+.submit-special-page {
+  font-size: 12px;
+}
+
+.blue {
+  color: blue;
+}
+
+.signup-names {
+  width: 450px;
+  margin-bottom: -15px;
+}
+
+
 
 /* -------------------------------- */
 /* Sign Up Form */
 
+.signUp-form-box {
+  width: 440px;
+}
 
 .bold-words {
   font-weight: bold;
   color: black;
-  font-size: 18px;
+  font-size: 17px;
+  color: rgb(51, 51, 51);
 }
 
 .signup-header-background {
   background-color: #edf0f5;
-  font-family: 'Cabin', sans-serif;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .signup-gender {
@@ -132,19 +158,28 @@
 
 .signup-connect {
   font-size: 28px;
-  font-weight: bold;
-  margin-top: 14%;
-  margin-bottom: 10%;
+  margin-top: 60px;
+  margin-bottom: 40px;
   line-height: 1.3em;
 }
+
+.super-bold {
+  font-weight: 700;
+  color: rgb(51, 51, 51);
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: -0.5px;
+}
+
 
 .signup-lefthand-list{
 }
 
 .signup-lefthand-list-item{
   display: block;
-  margin: 3% 0;
-  color: gray;
+  -webkit-font-smoothing: antialiased;
+  font-size: 15px;
+  margin: 25px 0;
+  color: #666;
 }
 
 .signup-lefthand-list i {
@@ -155,10 +190,10 @@
 }
 
 .signup-big {
-  font-size: 36px;
+  font-size: 32px;
   font-weight: bold;
-  margin-top: 7%;
-  margin-bottom: 3%;
+  margin-top: 23px;
+  margin-bottom: 20px;
 }
 
 #snark {
@@ -191,9 +226,10 @@
    color:    #999999;
 }
 
-.signup-fname, .signup-lname {
+.signup-fname, .signup-lname, {
   width: 200px;
 }
+
 
 .signup-email, .signup-password {
   width: 415px;
@@ -254,8 +290,6 @@
   border: 1px solid #ff5050;
 }
 
-
-
 /* Signin Footer CSS */
 .signin-footer {
   color: #737373;
@@ -267,3 +301,11 @@
   padding-bottom: 10px;
   border-bottom: 1px solid #dddfe2;
 }
+
+
+.okay-why {
+  color: #777;
+  font-size: 11px;
+  margin: 15px 0;
+}
+
