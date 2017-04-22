@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { login, logout, signup } from '../../actions/session_actions';
-import {hashHistory} from 'react-router';
+import {Link, hashHistory} from 'react-router';
 
 class SigninHeader extends React.Component {
   constructor (props){
@@ -33,13 +33,15 @@ class SigninHeader extends React.Component {
         </ul>
       )
     }
-}
-
+  }
+  
   render() {
     return (
       <div className="signin-header-container">
         <form onSubmit={this.handleSubmit} className="signin-header-box">
-          <div className="fafbook-logo">fafbook</div>
+          <div className="fafbook-logo">
+            <Link to="/" className="fafbook-logo">fafbook</Link>
+          </div>
           <div className="signin-form">
             <label className="signin-email signin-label">Email
               <br/>
@@ -60,12 +62,12 @@ class SigninHeader extends React.Component {
               <p id="forgot-password"> Forgot account? </p>
             </label>
             <input className="signin-submit" type="submit" value=
-              {this.props.errors.length === 0 ? "Log In" : "Invalid Login!"}/>
+              {this.props.errors[0] != "Invalid email/password combination" ? "Log In" : "Invalid Login!"}/>
             <button className="test-button-login" 
-              onClick={() => this.props.login({email: "test@password.com", 
-                password: "password"})}
-              >Demo
-             </button>
+              onClick={() => this.props.login({
+                email: 'test@password.com',
+                password: 'password'
+              })}>Demo </button>
           </div>
         </form>
       </div>
@@ -73,11 +75,6 @@ class SigninHeader extends React.Component {
   }
 }
 
-          <button className="test-button-login" 
-            onClick={() => this.props.login({email: "test@password.com", 
-                                            password: "password"})}
-            >Log in as Test Man!
-          </button>
 const mapStateToProps = (state) => {
   return {
     errors: state.session.errors

@@ -24,3 +24,28 @@
   75%, #415E9B 87.5%, #3B5998 100%);
 }
 
+@mixin create-button-gradient {
+  background-image: -ms-linear-gradient(top, #619F4E 0%, #63A450 75%, #619F4E
+  87.5%, #5D974A 93.75%, #5D974A 100%);
+
+  /* Mozilla Firefox */ 
+  background-image: -moz-linear-gradient(top, #619F4E 0%, #63A450 75%, #619F4E
+  87.5%, #5D974A 93.75%, #5D974A 100%);
+
+  /* Opera */ 
+  background-image: -o-linear-gradient(top, #619F4E 0%, #63A450 75%, #619F4E
+  87.5%, #5D974A 93.75%, #5D974A 100%);
+
+  /* Webkit (Safari/Chrome 10) */ 
+  background-image: -webkit-gradient(linear, left top, left bottom,
+  color-stop(0, #619F4E), color-stop(75, #63A450), color-stop(87.5, #619F4E),
+  color-stop(93.75, #5D974A), color-stop(100, #5D974A));
+
+  /* Webkit (Chrome 11+) */ 
+  background-image: -webkit-linear-gradient(top, #619F4E 0%, #63A450 75%,
+  #619F4E 87.5%, #5D974A 93.75%, #5D974A 100%);
+
+  /* W3C Markup */ 
+  background-image: linear-gradient(to bottom, #619F4E 0%, #63A450 75%, #619F4E
+  87.5%, #5D974A 93.75%, #5D974A 100%);
+}

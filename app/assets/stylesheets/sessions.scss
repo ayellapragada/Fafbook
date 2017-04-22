@@ -10,6 +10,10 @@
   @include background-gradient;
 }
 
+.signin-footer {
+  margin: 0 24%;
+}
+
 .signup-header-container,
 .signin-header-box {
   margin: 0 24%;
@@ -26,6 +30,8 @@
   font-size: 50px;
   margin-top: 2.5%;
   font-family: 'Klavika';
+  text-decoration: none;
+  color: white;
 }
 
 .signin-form {
@@ -40,6 +46,9 @@
   display: block;
 }
 
+.signin-form > label {
+  cursor: pointer;
+}
 
 .signin-form > input {
 }
@@ -48,6 +57,8 @@
   margin-top: 7px;
   margin-bottom: 3px;
   height: 15px;
+  border: 1px solid black;
+  padding: 3px;
 }
 
 .signin-password {
@@ -75,6 +86,7 @@
   border-radius: 1px;
   border: 1px solid #29487d;
 }
+
 .signin-submit{
   margin-top: 17px;
   margin-left: 5px;
@@ -98,17 +110,15 @@
   clear: both;
 }
 
+
 /* -------------------------------- */
 /* Sign Up Form */
 
-.signup-errors {
-  border: 1px solid #ff5050;
-}
 
 .bold-words {
   font-weight: bold;
   color: black;
-  font-size: 24;
+  font-size: 18px;
 }
 
 .signup-header-background {
@@ -162,8 +172,98 @@
   border-radius: 5px;
   border: 1px solid #bdc7d8;
   font-size: 18px;
+  margin: 5px 0;
+}
+
+
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:    #999999;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:    #999999;
+   opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    #999999;
+   opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color:    #999999;
 }
 
 .signup-fname, .signup-lname {
   width: 200px;
+}
+
+.signup-email, .signup-password {
+  width: 415px;
+}
+
+.signup-fname {
+  margin-right: 10px;  
+}
+
+.signup-birthday {
+  margin-bottom: 15px;
+}
+
+.signup-birthday h3{
+  font-size: 18px;
+  margin-top: 20px;
+  margin-bottom: 9px;
+}
+
+
+.signup-birthday-select {
+  border: 1px solid #bdc7d8;
+  height: 30px;
+  font-size: 12px;
+  margin: 1px;
+}
+
+
+.signup-gender-choice {
+  cursor: pointer;
+}
+
+.signup-gender-choice label {
+  margin-right: 25px;
+  font-size: 18px;
+}
+
+.signup-gender-choice input {
+  margin-top: -1px;
+  vertical-align: middle;
+}
+
+.signup-submit {
+  margin: 10px 0;
+  border: 1px solid #3b6e22;
+  border-radius: 5px;
+  color: white;
+  width: 200px;
+  height: 40px;
+  font-size: 19px;
+  font-weight: bold !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  box-shadow: inset 0 1px 1px #a4e388;
+  @include create-button-gradient;
+}
+
+.signup-errors {
+  border: 1px solid #ff5050;
+}
+
+
+
+/* Signin Footer CSS */
+.signin-footer {
+  color: #737373;
+  font-size: 13px;
+}
+
+.signin-footer-languages {
+  margin: 10px 0;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #dddfe2;
 }
