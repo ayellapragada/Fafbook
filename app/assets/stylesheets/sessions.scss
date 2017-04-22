@@ -210,6 +210,10 @@
   margin: 5px 0;
 }
 
+.signup-input {
+  padding-left: 10px;
+}
+
 
 ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
     color:    #999999;
@@ -273,6 +277,7 @@
 }
 
 .signup-submit {
+  cursor: pointer;
   margin: 10px 0;
   border: 1px solid #3b6e22;
   border-radius: 5px;

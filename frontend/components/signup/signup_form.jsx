@@ -88,13 +88,13 @@ class SignupForm extends React.Component  {
           value={this.state.fname}
           onChange={this.update('fname')}
           className={`signup-input signup-fname ${this.props.errors.fname ? 'signup-errors' : ''}`}
-          placeholder="  First name"/>
+          placeholder="First name"/>
         <input
           type="text"
           value={this.state.lname}
           onChange={this.update('lname')}
           className={`signup-input signup-lname ${this.props.errors.lname ? 'signup-errors' : ''}`}
-          placeholder="  Last name"/>
+          placeholder="Last name"/>
       </div>
         <br/>
         <input
@@ -102,14 +102,14 @@ class SignupForm extends React.Component  {
           value={this.state.email}
           onChange={this.update('email')}
           className={`signup-input signup-email ${this.props.errors.email ? 'signup-errors' : ''}`}
-          placeholder="  Email"/>
+          placeholder="Email"/>
         <br/>
         <input
           type="password"
           value={this.state.password}
           onChange={this.update('password')}
           className={`signup-input signup-password ${this.props.errors.password ? 'signup-errors' : ''}`}
-          placeholder="  New password"/>
+          placeholder="New password"/>
         <div className="signup-birthday">
 
           <h3 className="birthday-header">Birthday</h3>

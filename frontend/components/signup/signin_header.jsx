@@ -13,7 +13,7 @@ class SigninHeader extends React.Component {
   update(field) {
     return (e) => {
       this.setState({[field]: e.currentTarget.value}
-    )};
+    );};
   }
 
   handleSubmit(e) {
@@ -25,13 +25,13 @@ class SigninHeader extends React.Component {
   renderErrors(){
     if (this.props.errors instanceof(Array)) {
       const errors = this.props.errors.map((error, i)=>{
-        return <li className="signin-error" key={`error-${i}`}>{error}</li>
-      })
+        return <li className="signin-error" key={`error-${i}`}>{error}</li>;
+      });
       return (
         <ul>
           {errors}
         </ul>
-      )
+      );
     }
   }
   
@@ -62,7 +62,8 @@ class SigninHeader extends React.Component {
               <p className="forgot-password"> Forgot account? </p>
             </label>
             <input className="signin-submit" type="submit" value=
-              {this.props.errors[0] != "Invalid email/password combination" ? "Log In" : "Invalid Login!"}/>
+              {this.props.errors[0] !== "Invalid email/password combination" ?
+                  "Log In" : "Invalid!"}/>
             <button className="test-button-login" 
               onClick={() => this.props.login({
                 email: 'test@password.com',
@@ -78,8 +79,8 @@ class SigninHeader extends React.Component {
 const mapStateToProps = (state) => {
   return {
     errors: state.session.errors
-  }
-}
+  };
+};
 const mapDispatchToProps = (dispatch) => ({
   login: user => dispatch(login(user)).then(() => hashHistory.push('/'))
 });
