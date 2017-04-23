@@ -7,12 +7,11 @@ const LeftNavbar = () => {
   return (
     <div className = "left-navbar">
       <Link to="/" className="fafbook-small-logo-link">
-        <text className="fafbook-small-logo">f
-        </text>
+        <text className="fafbook-small-logo">f</text>
       </Link>
       <div className = "search"/>
     </div>
-  )
-}
+  );
+};
 
 export default LeftNavbar;
