@@ -2,19 +2,27 @@
 #
 # Table name: users
 #
-#  id              :integer          not null, primary key
-#  email           :string           not null
-#  password_digest :string           not null
-#  session_token   :string           not null
-#  created_at      :datetime         not null
-#  updated_at      :datetime         not null
-#  fname           :string           not null
-#  lname           :string           not null
-#  date            :string           not null
-#  month           :string           not null
-#  year            :string           not null
-#  dob             :date             not null
-#  gender          :boolean          not null
+#  id                         :integer          not null, primary key
+#  email                      :string           not null
+#  password_digest            :string           not null
+#  session_token              :string           not null
+#  created_at                 :datetime         not null
+#  updated_at                 :datetime         not null
+#  fname                      :string           not null
+#  lname                      :string           not null
+#  date                       :string           not null
+#  month                      :string           not null
+#  year                       :string           not null
+#  dob                        :date             not null
+#  gender                     :boolean          not null
+#  profile_photo_file_name    :string
+#  profile_photo_content_type :string
+#  profile_photo_file_size    :integer
+#  profile_photo_updated_at   :datetime
+#  cover_photo_file_name      :string
+#  cover_photo_content_type   :string
+#  cover_photo_file_size      :integer
+#  cover_photo_updated_at     :datetime
 #
 
 class User < ApplicationRecord
@@ -23,6 +31,15 @@ class User < ApplicationRecord
   validates :gender, inclusion: { in: [true, false] }
   validates :password, length: { minimum: 6, allow_nil: true }
 
+  def set_picture_respect_to_gender
+    self.gender? ? "defaults/male_default.jpg" : "defaults/female_default.jpg"
+  end
+
+  has_attached_file :profile_photo, default_url: :set_picture_respect_to_gender
+  validates_attachment_content_type :profile_photo, content_type: /\Aimage\/.*\Z/
+
+  has_attached_file :cover_photo, default_url: "defaults/cover_default.jpg"
+  validates_attachment_content_type :profile_photo, content_type: /\Aimage\/.*\Z/
   has_friendship
   has_one :profile
 

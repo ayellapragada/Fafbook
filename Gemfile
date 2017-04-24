@@ -24,11 +24,15 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
-# Easy friendship model
-gem 'has_friendship'
-
 # How to securely work with api keys
 gem 'figaro'
+# Paperclip to handle image uploading
+gem "paperclip", "~>5.0.0"
+# Let paperclip connect to AWS
+gem 'aws-sdk', '>=2.0'
+
+# Easy friendship model
+gem 'has_friendship'
 
 # Use Unicorn as the app server
 # gem 'unicorn'

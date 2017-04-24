@@ -13,6 +13,7 @@
 #  relationship :string           default("")
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
+#  about        :string           default("Hello!")
 #
 
 class Profile < ApplicationRecord

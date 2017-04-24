@@ -13,6 +13,7 @@
 #  relationship :string           default("")
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
+#  about        :string           default("Hello!")
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
