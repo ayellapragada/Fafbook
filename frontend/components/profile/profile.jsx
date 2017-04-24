@@ -1,8 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { fetchUser } from '../../actions/user_actions';
-import AboutSideBar from './about_side_bar';
 import ControlBar from './control_bar';
+import AboutSideBar from './about_side_bar';
+import Photos from './photos';
+import Friends from './friends';
+
 
 
 class Profile extends React.Component {
@@ -17,12 +20,21 @@ class Profile extends React.Component {
 
   render() {
     const user = this.props.user;
+    if (user.id === -1) {
+      return (
+        <div className="profile">
+          <ControlBar user={user} />
+          <div> Not friends with this user </div>
+        </div>
+      );
+    }
     if (user.id){
       return (
         <div className="profile">
-          < ControlBar />
-          < AboutSideBar user={user} />
-
+          <ControlBar user={user} />
+          <AboutSideBar user={user} />
+          <Photos user={user} />
+          <Friends user={user} />
         </div>
       );
     }
