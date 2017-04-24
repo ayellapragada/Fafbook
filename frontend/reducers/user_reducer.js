@@ -10,8 +10,7 @@ const UserReducer = (state = _nullUser, action) => {
   Object.freeze(state);
   switch(action.type) {
     case RECEIVE_VIEWED_USER:
-      const viewedUser = action.user;
-      return merge({}, _nullUser, {viewedUser});
+      return action.user;
     default:
       return state;
   }

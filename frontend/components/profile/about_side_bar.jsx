@@ -1,20 +1,14 @@
 import React from 'react';
-import { connect } from 'react-redux';
 
-const AboutSideBar = (props) => (
-  <div className="about-side-bar">
-    <p>{props.user.fname}</p>
-  </div>
-) 
+const AboutSideBar = (props) => {
+  return(
+    <div className="about-side-bar">
+      <div className="about-intro">
+       <i className="fa fa-globe" aria-hidden="true"></i>
+       Intro
+     </div>
+   </div>
+  );
+};
 
-
-const mapStateToProps = state => {
-  return({
-    user: state.session.currentUser
-  })
-} 
-
-const mapDispatchToProps = dispatch => ({});
-
-
-export default connect(mapStateToProps, mapDispatchToProps)(AboutSideBar);
+export default AboutSideBar;

@@ -20,17 +20,19 @@ const Root = ({ store }) => {
     if (currentUser) {
       replace('/');
     }
-  }
+  };
 
   return (
     <Provider store={ store }>
       <Router history={hashHistory}>
-       <Route path="/login" component={SignUpPage} onEnter={_redirectIfLoggedIn}/>
+        <Route path="/login" 
+          component={SignUpPage} 
+          onEnter={_redirectIfLoggedIn}/>
        <Route path="/" component={App} onEnter={_ensureLoggedIn}>
-         <Route path="/profile" component={Profile}/>
+         <Route path="/profile/:id" component={Profile}/>
        </Route>
      </Router>
    </Provider>
-  )
-}
+  );
+};
 export default Root;

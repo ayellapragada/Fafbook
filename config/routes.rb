@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root 'static_pages#root' 
-  get '/api/users/:query', to: 'api/users#index'
+  get '/api/users/search/:query', to: 'api/users#index'
 
   resource :session, only: [:create, :destroy, :show]
 

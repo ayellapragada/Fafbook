@@ -7,7 +7,7 @@ const Navbar = () =>(
     <LeftNavbar/>
     <RightNavbar/>
   </div>
-) 
+);
 
 
 export default Navbar;
