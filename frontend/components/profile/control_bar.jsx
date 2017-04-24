@@ -1,4 +1,5 @@
 import React from 'react';
+import ActionBar from './action_bar';
 
 const ControlBar = (props) => {
 
@@ -14,7 +15,7 @@ const ControlBar = (props) => {
           className="profile-img"
           src={props.user.profile_url}/>
       </div>
-      <div className="action-bar">Friend Request / Message</div>
+      <ActionBar />
       <div className="profile-nav-bar">Profile Nav Bar</div>
     </div>
   );

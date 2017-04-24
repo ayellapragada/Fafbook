@@ -26,6 +26,8 @@
 #
 
 class User < ApplicationRecord
+  attr_reader :password
+
   validates :email, :password_digest, :session_token, presence: true
   validates :fname, :lname, :date, :month, :year, :dob, presence: true
   validates :gender, inclusion: { in: [true, false] }
@@ -37,13 +39,13 @@ class User < ApplicationRecord
 
   has_attached_file :profile_photo, default_url: :set_picture_respect_to_gender
   validates_attachment_content_type :profile_photo, content_type: /\Aimage\/.*\Z/
-
   has_attached_file :cover_photo, default_url: "defaults/cover_default.jpg"
   validates_attachment_content_type :profile_photo, content_type: /\Aimage\/.*\Z/
-  has_friendship
-  has_one :profile
 
-  attr_reader :password
+  has_friendship
+
+  has_one :profile, dependent: :destroy
+
   after_initialize :ensure_session_token, :create_dob
   after_save :create_profile
 

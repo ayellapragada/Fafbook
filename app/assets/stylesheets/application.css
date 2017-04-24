@@ -20,3 +20,7 @@ main {
   background-color: #e9ebee
 }
 
+
+html {
+  overflow-y:scroll;
+}
