@@ -24,3 +24,7 @@ main {
 html {
   overflow-y:scroll;
 }
+
+.signup-page{
+  min-width: 1600px;
+}

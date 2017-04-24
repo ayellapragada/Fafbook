@@ -1,3 +1,44 @@
 .profile {
   margin: 0 330px;
+  display: flex;
+  flex-direction: column;
+}
+
+.cover-img {
+  height: 205px;
+  width: 851px;
+  position: absolute;
+}
+
+.profile-img {
+  height: 160px;
+  width: 160px;
+  border: 4px solid white;
+  border-radius: 2px;
+  position: absolute;
+  left: 350px;
+  top: 110px;
+  z-index: 5;
+  overflow: scroll;
+}
+
+.profile-header-space {
+  height: 230px;
+  width: 851px;
+}
+
+.profile-cover-header {
+  top: 210px;
+  left: 550px;
+  position: absolute;
+  color: #fff;
+  z-index: 5;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: 500;
+  -webkit-font-smoothing: antialiased;
+  text-shadow: 0 0 3px rgba(0, 0, 0, .4);
+  letter-spacing: -0.24px;
+  text-rendering: optimizeLegibility;
 }

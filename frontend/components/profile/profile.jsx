@@ -17,6 +17,7 @@ class Profile extends React.Component {
     this.props.fetchUser(this.props.userId);
     this.forceUpdate();
   }
+  
 
   render() {
     const user = this.props.user;
@@ -31,17 +32,22 @@ class Profile extends React.Component {
     if (user.id){
       return (
         <div className="profile">
-          <ControlBar user={user} />
-          <AboutSideBar user={user} />
-          <Photos user={user} />
-          <Friends user={user} />
+          <div className="profile-header">
+            <ControlBar user={user} />
+          </div>
+          <div className="profile-header-space"></div>
+          <div className="profile-body">
+            <AboutSideBar user={user} />
+            <Photos user={user} />
+            <Friends user={user} />
+          </div>
         </div>
       );
     }
     else {
       return (
-      <div className="profile">Loading
-      </div>
+        <div className="profile">Loading
+        </div>
       )
     }
   }
