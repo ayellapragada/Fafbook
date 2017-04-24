@@ -45,6 +45,7 @@ class User < ApplicationRecord
 
   attr_reader :password
   after_initialize :ensure_session_token, :create_dob
+  after_save :create_profile
 
   def self.generate_session_token
     SecureRandom.urlsafe_base64(16)
@@ -54,6 +55,11 @@ class User < ApplicationRecord
     user = User.find_by email: email
     return user if user && user.valid_password?(password)
     nil
+  end
+
+  def create_profile
+    @profile = Profile.new(user_id: self.id)
+    @profile.save
   end
 
   def create_dob

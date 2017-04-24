@@ -10,8 +10,6 @@ class Api::UsersController < ApplicationController
 
     if @user.save
       login!(@user)
-      @profile = Profile.new(user_id: @user.id)
-      @profile.save
       render "api/users/show"
     else 
       render json: @user.errors, status: 422 
