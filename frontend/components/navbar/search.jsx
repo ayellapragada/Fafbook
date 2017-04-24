@@ -15,9 +15,11 @@ class Search extends React.Component {
             onChange={this.update}
             className="search-box-input"
             placeholder="Search Fafbook"/>
-          <input type="submit"
-            className="search-submit"
-            value="Search!"/>
+          <button type="submit"
+            className="search-submit">
+            <i className="fa fa-search" aria-hidden="true"></i>
+
+        </button>
         </form>
 
       </div>

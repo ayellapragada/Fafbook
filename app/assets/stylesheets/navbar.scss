@@ -43,7 +43,7 @@
   width: 400px;
   margin-left: 5px;
   padding-left: 5px;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .search-submit {
@@ -64,11 +64,29 @@
 
 .navbar-btn {
   cursor: pointer;
-  margin: 0 10px;
+  margin: 0 8px;
   margin-top: 3px;
   font-size: 20px;
 }
 
 .logout-btn {
-  margin-left: 20px;
+  padding-left: 20px;
+  border-left: 1px solid #365089;
+}
+
+.profile-link,
+.home-link {
+  font-size: 12px;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+  font-family: Helvetica, Arial;
+  padding-top: 4px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.home-link {
+  margin-right: 31px;
+  padding-left: 10px;
+  border-left: 1px solid #365089;
 }
