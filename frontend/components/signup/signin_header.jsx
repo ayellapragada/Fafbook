@@ -8,17 +8,24 @@ class SigninHeader extends React.Component {
     super(props);
     this.state = {email: "", password: ""};
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleGuest = this.handleGuest.bind(this);
   }
 
   update(field) {
     return (e) => {
       this.setState({[field]: e.currentTarget.value}
-    );};
+      );};
   }
 
   handleSubmit(e) {
     e.preventDefault();
     const user = this.state;
+    this.props.login(user);
+  }
+
+  handleGuest(e) {
+    const user = {email:"test@password.com",
+      password: "password"} 
     this.props.login(user);
   }
 
@@ -34,7 +41,7 @@ class SigninHeader extends React.Component {
       );
     }
   }
-  
+
   render() {
     return (
       <div className="signin-header-container">
@@ -64,14 +71,12 @@ class SigninHeader extends React.Component {
             <input className="signin-submit" type="submit" value=
               {this.props.errors[0] !== "Invalid email/password combination" ?
                   "Log In" : "Invalid!"}/>
+              </div>
+            </form>
             <button className="test-button-login" 
-              onClick={() => this.props.login({
-                email: 'test@password.com',
-                password: 'password'
-              })}>Demo </button>
+              onClick={this.handleGuest}
+            >Demo </button>
           </div>
-        </form>
-      </div>
     );
   }
 }

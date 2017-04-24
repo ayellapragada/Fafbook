@@ -17,7 +17,12 @@ class Profile extends React.Component {
     this.props.fetchUser(this.props.userId);
     this.forceUpdate();
   }
-  
+
+  componentWillReceiveProps(nextProps) {
+    if (this.props.userId !== nextProps.userId) {
+      this.props.fetchUser(nextProps.userId);
+    }
+  }
 
   render() {
     const user = this.props.user;

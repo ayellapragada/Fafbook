@@ -49,6 +49,7 @@ class User < ApplicationRecord
   after_initialize :ensure_session_token, :create_dob
   after_save :create_profile
 
+
   def self.generate_session_token
     SecureRandom.urlsafe_base64(16)
   end
