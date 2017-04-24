@@ -6,18 +6,35 @@ import { logout } from '../../actions/session_actions';
 
 const RightNavbar = (props) => {
   if (props.currentUser){
-  return (
-  <div className="right-navbar">
-    <Link 
-      to={"/profile/" + props.currentUser.id}
-    >HI NAVBAR HERE</Link>
-    <button className="logout-button" 
-      onClick={() => props.logout()
-          .then(hashHistory.push('/login'))
-          .then(() => hashHistory.push('/login'))
-      }>
-      Log Out</button>
-    </div>
+    return (
+      <div className="right-navbar">
+        <div className="navbar-btn"
+          to={"/profile/" + props.currentUser.id}>
+          {props.currentUser.fname}
+        </div>
+        <div
+          className="navbar-btn"
+          to="/friendrequests">
+          <i className="fa fa-users" aria-hidden="true"></i>
+        </div>
+        <div
+          className="navbar-btn"
+          to="/messenger">
+          <i className="fa fa-comments" aria-hidden="true"></i>
+        </div>
+        <div
+          className="navbar-btn"
+          to="/notifications">
+          <i className="fa fa-globe" aria-hidden="true"></i>
+        </div>
+        <div className="navbar-btn logout-btn" 
+          onClick={() => props.logout()
+              .then(hashHistory.push('/login'))
+              .then(() => hashHistory.push('/login'))
+          }>
+          <i className="fa fa-sign-out" aria-hidden="true"></i>
+        </div>
+      </div>
     );
   } else {
     return <div></div>;

@@ -4,13 +4,13 @@
 #
 #  id           :integer          not null, primary key
 #  user_id      :integer
-#  phone        :string
-#  education    :string
-#  website      :string
-#  language     :string
-#  location     :string
-#  work         :string
-#  relationship :string
+#  phone        :string           default("")
+#  education    :string           default("")
+#  website      :string           default("")
+#  language     :string           default("")
+#  location     :string           default("")
+#  work         :string           default("")
+#  relationship :string           default("")
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #

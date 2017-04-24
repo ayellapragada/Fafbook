@@ -4,8 +4,10 @@ import RightNavbar from './right_navbar';
 
 const Navbar = () =>(
   <div className='navbar-container'>
-    <LeftNavbar/>
-    <RightNavbar/>
+    <div className='navbar-both'>
+      <LeftNavbar/>
+      <RightNavbar/>
+    </div>
   </div>
 );
 

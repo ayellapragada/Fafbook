@@ -23,7 +23,9 @@ class User < ApplicationRecord
   validates :gender, inclusion: { in: [true, false] }
   validates :password, length: { minimum: 6, allow_nil: true }
 
+  has_friendship
   has_one :profile
+
   attr_reader :password
   after_initialize :ensure_session_token, :create_dob
 

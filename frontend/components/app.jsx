@@ -4,7 +4,9 @@ import Navbar from './navbar/navbar';
 const App = ({ children  }) => (
   <div>
     <Navbar />
-    { children }
+    <div className="background-color-for-all">
+      { children }
+    </div>
   </div>
 );
 

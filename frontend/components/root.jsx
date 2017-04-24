@@ -5,6 +5,7 @@ import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import App from './app';
 import SignUpPage from './signup/signup_page';
 import Profile from './profile/profile';
+import Home from './home/home';
 
 const Root = ({ store }) => {
 
@@ -29,6 +30,7 @@ const Root = ({ store }) => {
           component={SignUpPage} 
           onEnter={_redirectIfLoggedIn}/>
        <Route path="/" component={App} onEnter={_ensureLoggedIn}>
+         <IndexRoute component={Home}/>
          <Route path="/profile/:id" component={Profile}/>
        </Route>
      </Router>

@@ -24,6 +24,12 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+# Easy friendship model
+gem 'has_friendship'
+
+# How to securely work with api keys
+gem 'figaro'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
