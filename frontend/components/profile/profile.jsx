@@ -39,7 +39,10 @@ class Profile extends React.Component {
       );
     }
     else {
-      return <div>Loading</div>;
+      return (
+      <div className="profile">Loading
+      </div>
+      )
     }
   }
 }

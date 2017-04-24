@@ -48,9 +48,11 @@
 
 .search-submit {
   cursor: pointer;
-  height: 25px;
+  height: 26px;
   background-color: #f6f7f9;
+  width: 45px;
   border: 0;
+  position: absolute;
   &:hover{
     background-color: burlywood;
   }

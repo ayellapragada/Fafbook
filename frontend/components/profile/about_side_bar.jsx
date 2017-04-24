@@ -5,10 +5,15 @@ const AboutSideBar = (props) => {
   return(
     <div className="about-side-bar">
       <div className="about-intro">
-        <i className="fa fa-globe" aria-hidden="true"></i>
-        Intro
+        <div className="about-intro-header">
+          <i className="fa fa-globe" aria-hidden="true"></i>
+          Intro
+        </div>
+        <div className="about-intro-body">
+          {props.user.about}
+        </div>
       </div>
-      <OtherInfo />
+      <OtherInfo user={props.user} />
     </div>
   );
 };

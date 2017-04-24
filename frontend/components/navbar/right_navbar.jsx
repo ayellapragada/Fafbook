@@ -16,25 +16,25 @@ const RightNavbar = (props) => {
           to={"/"}>
           Home
         </Link>
-      <div
-        className="navbar-btn">
-        <i className="fa fa-users" aria-hidden="true"></i>
-      </div>
-      <div
-        className="navbar-btn">
-        <i className="fa fa-comments" aria-hidden="true"></i>
-      </div>
-      <div
-        className="navbar-btn">
-        <i className="fa fa-globe" aria-hidden="true"></i>
-      </div>
-      <div className="navbar-btn logout-btn" 
-        onClick={() => props.logout()
-            .then(hashHistory.push('/login'))
-            .then(() => hashHistory.push('/login'))
-        }>
-        <i className="fa fa-sign-out" aria-hidden="true"></i>
-      </div>
+        <div
+          className="navbar-btn">
+          <i className="fa fa-users" aria-hidden="true"></i>
+        </div>
+        <div
+          className="navbar-btn">
+          <i className="fa fa-comments" aria-hidden="true"></i>
+        </div>
+        <div
+          className="navbar-btn">
+          <i className="fa fa-globe" aria-hidden="true"></i>
+        </div>
+        <div className="navbar-btn logout-btn" 
+          onClick={() => props.logout()
+              .then(hashHistory.push('/login'))
+              .then(() => hashHistory.push('/login'))
+          }>
+          <i className="fa fa-sign-out" aria-hidden="true"></i>
+        </div>
       </div>
     );
   } else {
