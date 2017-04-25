@@ -96,6 +96,17 @@
 .profile-nav-link {
   height: 45px;
   border-right: 1px solid #e9eaed;
+  padding: 0 20px;
+  cursor: pointer;
+  color: #365899;
+  font-size: 14.5px;
+  font-weight: bold;
+  line-height: 45px;
+  -webkit-font-smoothing: antialiased;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  &:hover{
+    background-color: #f6f7f9;
+  }
 }
 
 .profile-body {
@@ -103,6 +114,6 @@
 }
 
 .profile-nav-empty {
-  width: 200px;
+  width: 180px;
 }
 
