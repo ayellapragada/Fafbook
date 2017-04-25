@@ -26,6 +26,7 @@ class Profile extends React.Component {
 
   render() {
     const user = this.props.user;
+    debugger
     if (user.id === -1) {
       return (
         <div className="profile">
