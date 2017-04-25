@@ -6,7 +6,9 @@ class Api::FriendshipsController < ApplicationController
     @requester = User.find friendship_params[:currentUserId]
     @requested = User.find friendship_params[:requestedUserId]
     @requester.friend_request(@requested)
-    render 'api/friendships/friendship', status: 'pending'
+
+    @status = 'pending'
+    render 'api/friendships/friendship'
   end
 
   def update
@@ -15,10 +17,12 @@ class Api::FriendshipsController < ApplicationController
 
     if friendship_params[:action] == 'approve'
       @requested.accept_request(@requester)
-    render 'api/friendships/friendship', status: 'approved'
+      @status = 'approved'
+    render 'api/friendships/friendship'
     else 
       @requested.decline_request(@requester)
-    render 'api/friendships/friendship', status: 'denied'
+      @status = 'denied'
+    render 'api/friendships/friendship'
     end
   end
 

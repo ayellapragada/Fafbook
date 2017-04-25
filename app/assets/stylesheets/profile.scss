@@ -32,7 +32,7 @@
 .profile-cover-header {
   top: 160px;
   left: 200px;
-  right: 400px;
+  right: 800px;
   bottom: 65px;
   position: absolute;
   color: #fff;
@@ -126,13 +126,31 @@
 .profile-action-bar {
   position: absolute;
   color: black;
+  right: 539px;
+  left: 540px;
+  top: 160px;
 }
 
 .profile-control-bar {
   position: relative;
 }
 
-.friend-request-button {
+.friend-request-button button {
+  width: 160px;
+  height: 30px;
+  font-family: 'San Francisco', Helvetica, Arial, san-serif;
+  font-size: 12px;
+  font-weight: bold;
+  color: #4b4f56;
+  -webkit-font-smoothing: antialiased;
+}
 
+.friend-request-button i {
+  font-size: 14px;
+  z-index: 200;
+}
+
+.friend-request-button-text {
+  padding-left: 8px;
 }
 
