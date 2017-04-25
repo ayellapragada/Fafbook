@@ -39,7 +39,6 @@ gem 'socialization'
 gem 'acts_as_commentable'
 
 
-
 # Use Unicorn as the app server
 # gem 'unicorn'
 
@@ -53,6 +52,7 @@ group :development, :test do
   gem 'binding_of_caller'
   gem 'pry-rails'
   gem 'annotate'
+  gem 'faker'
 end
 
 group :development do
