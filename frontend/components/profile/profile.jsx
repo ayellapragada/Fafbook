@@ -30,7 +30,8 @@ class Profile extends React.Component {
     if (user.id === -1) {
       return (
         <div className="profile">
-          <ControlBar user={user} status={-1} />
+          <ControlBar user={user} status={-1}
+            realId={this.props.params.id}/>
           <div className="do-you-know-box">
             Do you know {user.fname}?
           </div>
@@ -45,7 +46,8 @@ class Profile extends React.Component {
     else if (user.id === -2) {
       return (
         <div className="profile">
-          <ControlBar user={user} status={-2} />
+          <ControlBar user={user} status={-2} 
+            realId={this.props.params.id}/>
           <div className="do-you-know-box">
             Do you know {user.fname}?
           </div>
@@ -60,7 +62,8 @@ class Profile extends React.Component {
       return (
         <div className="profile">
           <div className="profile-header">
-            <ControlBar user={user} />
+            <ControlBar user={user} status={0} 
+              realId={this.props.params.id}/>
           </div>
           <div className="profile-body">
             <AboutSideBar user={user} />
@@ -70,6 +73,7 @@ class Profile extends React.Component {
         </div>
       );
     }
+
     else {
       return (
         <div className="profile">Loading

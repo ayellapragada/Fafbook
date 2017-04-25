@@ -4,7 +4,6 @@ import ProfileNavBar from './profile_nav_bar';
 import { Link } from 'react-router';
 
 const ControlBar = (props) => {
-
   return (
     <div className="profile-control-bar">
       <div className="profile-cover-photo">
@@ -22,7 +21,7 @@ const ControlBar = (props) => {
           src={props.user.profile_url}/>
       </div>
       <div className="profile-header-space"></div>
-      <ActionBar />
+      <ActionBar status={props.status} realId={props.realId}/>
       <ProfileNavBar />
 
     </div>

@@ -1,5 +1,5 @@
 .profile {
-  margin: 0 330px;
+  margin: 0 200px 0 460px;
   display: flex;
   flex-direction: column;
 }
@@ -18,8 +18,8 @@
   box-shadow: 0 0 0 1px #b3b3b3;
   border-radius: 2px;
   position: absolute;
-  left: 350px;
-  top: 110px;
+  top: 60px;
+  left: 17px;
   z-index: 5;
   overflow: scroll;
 }
@@ -30,8 +30,10 @@
 }
 
 .profile-cover-header {
-  top: 210px;
-  left: 550px;
+  top: 160px;
+  left: 200px;
+  right: 400px;
+  bottom: 65px;
   position: absolute;
   color: #fff;
   z-index: 5;
@@ -114,8 +116,8 @@
 }
 
 .profile-nav-empty {
-  width: 180px;
-  cursor: none;
+  width: 160px;
+  cursor: default;
   &:hover {
     background-color: white;
   }
@@ -123,5 +125,14 @@
 
 .profile-action-bar {
   position: absolute;
-  color: white;
+  color: black;
 }
+
+.profile-control-bar {
+  position: relative;
+}
+
+.friend-request-button {
+
+}
+
