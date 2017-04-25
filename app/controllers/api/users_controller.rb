@@ -21,8 +21,9 @@ class Api::UsersController < ApplicationController
     @profile = @user.profile
     if current_user.id == @user.id || current_user.friends_with?(@user) 
       render 'api/users/show'
-    #elsif current_user.pending_friends.includes?(@user)
-    #  render 'api/users/not_friends', id: '-2'
+    elsif current_user.pending_friends.include?(@user) 
+      @status_code = -2;
+      render 'api/users/not_friends'
     else
       @status_code = -1;
       render 'api/users/not_friends'

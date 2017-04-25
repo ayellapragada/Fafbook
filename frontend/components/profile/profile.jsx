@@ -26,16 +26,37 @@ class Profile extends React.Component {
 
   render() {
     const user = this.props.user;
-    debugger
+
     if (user.id === -1) {
       return (
         <div className="profile">
-          <ControlBar user={user} />
-          <div> Not friends with this user </div>
+          <ControlBar user={user} status={-1} />
+          <div className="do-you-know-box">
+            Do you know {user.fname}?
+          </div>
+          <div className="do-you-know-box-content">
+            To see what {user.gender ? "he" : "she"} shares, 
+            send {user.gender ? "him" : "her"} a friend request.
+          </div>
         </div>
       );
     }
-    if (user.id){
+
+    else if (user.id === -2) {
+      return (
+        <div className="profile">
+          <ControlBar user={user} status={-2} />
+          <div className="do-you-know-box">
+            Do you know {user.fname}?
+          </div>
+          <div className="do-you-know-box-content">
+            Request sent.
+          </div>
+        </div>
+      );
+    }
+
+    else if (user.id > 0){
       return (
         <div className="profile">
           <div className="profile-header">
