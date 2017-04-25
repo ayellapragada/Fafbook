@@ -14,6 +14,8 @@
   height: 160px;
   width: 160px;
   border: 4px solid white;
+  outline: 0px solid #b3b3b3;
+  box-shadow: 0 0 0 1px #b3b3b3;
   border-radius: 2px;
   position: absolute;
   left: 350px;
@@ -23,7 +25,7 @@
 }
 
 .profile-header-space {
-  height: 230px;
+  height: 204px;
   width: 851px;
 }
 
@@ -77,5 +79,30 @@
 .profile-other-info i {
   margin: 0 15px 0 10px;
   color: #a5a9b2;
+}
+
+.profile-nav-bar-container {
+  border: 1px solid #d3d6db;
+  background-color: white;
+  width: 849px;
+}
+
+.profile-nav-bar {
+  display: flex;
+  align-items: space-around;
+}
+
+
+.profile-nav-link {
+  height: 45px;
+  border-right: 1px solid #e9eaed;
+}
+
+.profile-body {
+  margin-top: 15px;
+}
+
+.profile-nav-empty {
+  width: 200px;
 }
 

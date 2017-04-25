@@ -1,5 +1,6 @@
 import React from 'react';
 import ActionBar from './action_bar';
+import ProfileNavBar from './profile_nav_bar';
 import { Link } from 'react-router';
 
 const ControlBar = (props) => {
@@ -20,8 +21,10 @@ const ControlBar = (props) => {
           className="profile-img"
           src={props.user.profile_url}/>
       </div>
+      <div className="profile-header-space"></div>
       <ActionBar />
-      <div className="profile-nav-bar">Profile Nav Bar</div>
+      <ProfileNavBar />
+
     </div>
   );
 };

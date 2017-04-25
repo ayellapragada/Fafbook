@@ -40,7 +40,6 @@ class Profile extends React.Component {
           <div className="profile-header">
             <ControlBar user={user} />
           </div>
-          <div className="profile-header-space"></div>
           <div className="profile-body">
             <AboutSideBar user={user} />
             <Photos user={user} />
