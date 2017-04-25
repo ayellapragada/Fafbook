@@ -47,8 +47,15 @@
 
 .signin-form input,
 .signin-form label {
-  cursor: pointer;
   display: block;
+}
+
+.signin-form label {
+  cursor: pointer;
+}
+
+.signin-form input {
+  cursor: text;
 }
 
 .signin-input {

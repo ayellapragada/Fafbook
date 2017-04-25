@@ -115,6 +115,10 @@
 
 .profile-nav-empty {
   width: 180px;
+  cursor: none;
+  &:hover {
+    background-color: white;
+  }
 }
 
 .profile-action-bar {

@@ -63,7 +63,7 @@ class SigninHeader extends React.Component {
               <label className="signin-password signin-label">
                 Password
                 <input
-                  type="text"
+                  type="password"
                   value={this.state.password}
                   onChange={this.update('password')}
                   className="signin-input"
