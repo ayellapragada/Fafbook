@@ -1,3 +1,3 @@
 json.partial! "api/users/user", user: @user
 json.partial! "api/users/image", user: @user
-json.partial! "api/profile/base_profile", profile: @profile
+json.partial! "api/profiles/base_profile", profile: @profile

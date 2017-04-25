@@ -89,7 +89,7 @@
 
 .profile-nav-bar {
   display: flex;
-  align-items: space-around;
+  align-items: center;
 }
 
 
@@ -117,3 +117,7 @@
   width: 180px;
 }
 
+.profile-action-bar {
+  position: absolute;
+  color: white;
+}
