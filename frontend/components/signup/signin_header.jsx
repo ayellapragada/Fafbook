@@ -45,39 +45,46 @@ class SigninHeader extends React.Component {
   render() {
     return (
       <div className="signin-header-container">
-        <form onSubmit={this.handleSubmit} className="signin-header-box">
+        <div className="signin-header-box">
           <div className="fafbook-logo">
             <Link to="/" className="fafbook-logo">fafbook</Link>
           </div>
           <div className="signin-form">
-            <label className="signin-email signin-label">Email
-              <br/>
-              <input
-                type="text"
-                value={this.state.email}
-                onChange={this.update('email')}
-                className="signin-input"/>
-              <br/>
-            </label>
-            <label className="signin-password signin-label">Password
-              <br/>
-              <input
-                type="password"
-                value={this.state.password}
-                onChange={this.update("password")}
-                className="signin-input"/>
-              <p className="forgot-password"> Forgot account? </p>
-            </label>
-            <input className="signin-submit" type="submit" value=
-              {this.props.errors[0] !== "Invalid email/password combination" ?
-                  "Log In" : "Invalid!"}/>
+            <form className="signin-real-form" onSubmit={this.handleSubmit}>
+              <label className="signin-email signin-label">
+                Email
+                <input
+                  type="text"
+                  value={this.state.email}
+                  onChange={this.update('email')}
+                  className="signin-input"
+                />
+              </label>
+              <label className="signin-password signin-label">
+                Password
+                <input
+                  type="text"
+                  value={this.state.password}
+                  onChange={this.update('password')}
+                  className="signin-input"
+                />
+              <p className="forgot-password"> Forgot password? </p>
+              </label>
+              <input className="signin-submit"
+                type="submit"
+                value= {this.props.errors[0] !== 
+                    "Invalid email/password combination" ?
+                    "Log In" : "Invalid!"} 
+                  />
+                </form>
+                <button className="test-button-login"
+                  onClick={this.handleGuest}>
+                  Demo
+                </button>
               </div>
-            </form>
-            <button className="test-button-login" 
-              onClick={this.handleGuest}
-            >Demo </button>
+            </div>
           </div>
-    );
+    )
   }
 }
 
