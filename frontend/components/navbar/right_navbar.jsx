@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, hashHistory } from 'react-router';
 import { connect } from 'react-redux';
 import { logout } from '../../actions/session_actions';
+import FriendRequests from './friend_requests';
 
 
 const RightNavbar = (props) => {

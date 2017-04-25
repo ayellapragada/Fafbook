@@ -19,3 +19,7 @@ export const denyRequest = (currentUserId, requesterUserId) => dispatch => (
 export const deleteFriend = (currentUserId, requesterUserId) => dispatch => (
   APIUtil.deleteFriend(currentUserId, requesterUserId)
 ) 
+
+export const allFriendRequests = () => (dispatch) => (
+  APIUtil.allFriendRequests()
+)

@@ -1,5 +1,7 @@
 class Api::FriendshipsController < ApplicationController
   def index
+    @friend_requests = current_user.requested_friends
+    render 'api/friendships/friendrequests'
   end 
 
   def create

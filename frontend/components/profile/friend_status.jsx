@@ -7,7 +7,6 @@ class FriendStatus extends React.Component {
   constructor(props) {
     super(props)
     this.state = {requested: props.user.status}
-    debugger
   }
 
 

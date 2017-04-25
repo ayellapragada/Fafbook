@@ -1,3 +1,10 @@
+export const allFriendRequests = () => {
+  return $.ajax({
+    method: 'GET',
+    url: '/api/friendships'
+  });
+};
+
 export const friendRequest = (currentUserId, requestedUserId) => {
   return $.ajax({
     method: 'POST',
