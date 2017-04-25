@@ -5,16 +5,19 @@ import { logout } from '../../actions/session_actions';
 import FriendRequests from './friend_requests';
 
 
-const RightNavbar = (props) => {
-  if (props.currentUser){
+class RightNavbar extends React.Component {
+
+
+  render() {
+
+  if (this.props.currentUser){
     return (
       <div className="right-navbar">
-        <img src={props.currentUser.profile_url}
+        <img src={this.props.currentUser.profile_url}
           className="navbar-profile-photo"/>
         <Link className="navbar-btn profile-link"
-          to={"/profile/" + props.currentUser.id}>
-          {props.currentUser.fname}
-
+          to={"/profile/" + this.props.currentUser.id}>
+          {this.props.currentUser.fname}
         </Link>
         <Link className="navbar-btn home-link"
           to={"/"}>
@@ -33,7 +36,7 @@ const RightNavbar = (props) => {
           <i className="fa fa-globe" aria-hidden="true"></i>
         </div>
         <div className="navbar-btn logout-btn" 
-          onClick={() => props.logout()
+          onClick={() => this.props.logout()
               .then(hashHistory.push('/login'))
               .then(() => hashHistory.push('/login'))
           }>
@@ -46,6 +49,8 @@ const RightNavbar = (props) => {
   }
 };
 
+
+  }
 
 const mapStateToProps = ({ session }) => ({
   currentUser: session.currentUser
