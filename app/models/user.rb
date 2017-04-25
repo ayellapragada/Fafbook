@@ -43,6 +43,7 @@ class User < ApplicationRecord
   validates_attachment_content_type :profile_photo, content_type: /\Aimage\/.*\Z/
 
   has_friendship
+  acts_as_liker
 
   has_one :profile, dependent: :destroy
 

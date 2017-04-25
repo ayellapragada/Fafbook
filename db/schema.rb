@@ -10,10 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170424175402) do
+ActiveRecord::Schema.define(version: 20170425054808) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "comments", force: :cascade do |t|
+    t.string   "title",            limit: 50, default: ""
+    t.text     "comment"
+    t.string   "commentable_type"
+    t.integer  "commentable_id"
+    t.integer  "user_id"
+    t.string   "role",                        default: "comments"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["commentable_id"], name: "index_comments_on_commentable_id", using: :btree
+    t.index ["commentable_type"], name: "index_comments_on_commentable_type", using: :btree
+    t.index ["user_id"], name: "index_comments_on_user_id", using: :btree
+  end
 
   create_table "friendships", force: :cascade do |t|
     t.string   "friendable_type"
@@ -23,6 +37,36 @@ ActiveRecord::Schema.define(version: 20170424175402) do
     t.datetime "updated_at"
     t.integer  "blocker_id"
     t.integer  "status"
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.string   "liker_type"
+    t.integer  "liker_id"
+    t.string   "likeable_type"
+    t.integer  "likeable_id"
+    t.datetime "created_at"
+    t.index ["likeable_id", "likeable_type"], name: "fk_likeables", using: :btree
+    t.index ["liker_id", "liker_type"], name: "fk_likes", using: :btree
+  end
+
+  create_table "mentions", force: :cascade do |t|
+    t.string   "mentioner_type"
+    t.integer  "mentioner_id"
+    t.string   "mentionable_type"
+    t.integer  "mentionable_id"
+    t.datetime "created_at"
+    t.index ["mentionable_id", "mentionable_type"], name: "fk_mentionables", using: :btree
+    t.index ["mentioner_id", "mentioner_type"], name: "fk_mentions", using: :btree
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.text     "body",        null: false
+    t.integer  "author_id"
+    t.integer  "receiver_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["author_id"], name: "index_posts_on_author_id", using: :btree
+    t.index ["receiver_id"], name: "index_posts_on_receiver_id", using: :btree
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -64,5 +108,7 @@ ActiveRecord::Schema.define(version: 20170424175402) do
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
   end
 
+  add_foreign_key "posts", "users", column: "author_id"
+  add_foreign_key "posts", "users", column: "receiver_id"
   add_foreign_key "profiles", "users"
 end

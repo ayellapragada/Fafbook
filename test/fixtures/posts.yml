@@ -1,0 +1,19 @@
+# == Schema Information
+#
+# Table name: posts
+#
+#  id          :integer          not null, primary key
+#  body        :text             not null
+#  author_id   :integer
+#  receiver_id :integer
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  body: MyText
+
+two:
+  body: MyText

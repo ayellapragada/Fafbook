@@ -33,6 +33,12 @@ gem 'aws-sdk', '>=2.0'
 
 # Easy friendship model
 gem 'has_friendship'
+# Not needed yet, but easy likes and mentions for posts and comments 
+gem 'socialization'
+# Comment model that can be attached to posts
+gem 'acts_as_commentable'
+
+
 
 # Use Unicorn as the app server
 # gem 'unicorn'
