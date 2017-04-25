@@ -21,7 +21,7 @@ const ControlBar = (props) => {
           src={props.user.profile_url}/>
       </div>
       <div className="profile-header-space"></div>
-      <ActionBar status={props.status} realId={props.realId}/>
+      <ActionBar user={props.user} />
       <ProfileNavBar />
 
     </div>

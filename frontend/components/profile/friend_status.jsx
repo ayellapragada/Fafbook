@@ -6,29 +6,33 @@ import { friendRequest, deleteFriend } from '../../actions/friend_actions';
 class FriendStatus extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {requested: this.props.status}
+    this.state = {requested: props.user.status}
+    debugger
   }
 
+
   componentWillReceiveProps(nextProps) {
-    if (this.props.viewedUserId != nextProps.viewedUserId) {
-      this.setState({requested: nextProps.status})
+    if (nextProps.user.id != this.props.user.id) {
+      this.setState({requested: nextProps.user.status})
     }
   }
 
   handleClick(e) {
     e.preventDefault(e);
 
-    if ( this.state.requested === -2 ) {
-    } else if (this.state.requested === -1) {
+    if ( this.state.requested === -1 ) {
+      console.log('This should just disable the button.')
+    } else if (this.state.requested === -2) {
       this.props.friendRequest(this.props.currentUser.id, 
         this.props.viewedUserId)
-      this.setState({requested: -2})
-    } else if (this.props.currentUser.id === this.props.viewedUser.id) {
+      this.setState({requested: -1})
+    } else if (this.state.requested === 0) {
       console.log('This eventually leads to modal for user editing');
     } else {
+      console.log('Probably do a double check')
       this.props.deleteFriend(this.props.currentUser.id, 
         this.props.viewedUserId)
-      this.setState({requested: 0});
+      this.setState({requested: -2});
       debugger
     }
   }
@@ -37,15 +41,18 @@ class FriendStatus extends React.Component {
 
   render () {
     let buttonText;
+
     if ( this.state.requested === -2 ) {
-      buttonText = "Friend Request Sent"
-    } else if (this.state.requested === -1) {
       buttonText = "Add Friend"
+    } else if (this.state.requested === -1) {
+      buttonText =  "Friend Request Sent"
     } else if (this.props.currentUser.id === this.props.viewedUser.id) {
       buttonText = "Edit Account"
     } else {
       buttonText = "Delete Friend"
     }
+
+
     return(
       <div className={"friend-request-button " + this.props.color}
         onClick={this.handleClick.bind(this)}>

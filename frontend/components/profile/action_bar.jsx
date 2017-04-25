@@ -6,7 +6,7 @@ const ActionBar = (props) => {
   // Edit Profile, Settings VS Add / Remove friend, Message
   return (
     <div className="profile-action-bar">
-      <FriendStatus status={props.status} realId={props.realId} color="profile-green"/>
+      <FriendStatus user={props.user} color="profile-green"/>
     </div>
   )
 }

@@ -27,11 +27,10 @@ class Profile extends React.Component {
   render() {
     const user = this.props.user;
 
-    if (user.id === -1) {
+    if (user.status === -2) {
       return (
         <div className="profile">
-          <ControlBar user={user} status={-1}
-            realId={this.props.params.id}/>
+          <ControlBar user={user} />
           <div className="do-you-know-box">
             Do you know {user.fname}?
           </div>
@@ -43,11 +42,10 @@ class Profile extends React.Component {
       );
     }
 
-    else if (user.id === -2) {
+    else if (user.status === -1) {
       return (
         <div className="profile">
-          <ControlBar user={user} status={-2} 
-            realId={this.props.params.id}/>
+          <ControlBar user={user} />
           <div className="do-you-know-box">
             Do you know {user.fname}?
           </div>
@@ -62,8 +60,7 @@ class Profile extends React.Component {
       return (
         <div className="profile">
           <div className="profile-header">
-            <ControlBar user={user} status={0} 
-              realId={this.props.params.id}/>
+            <ControlBar user={user} />
           </div>
           <div className="profile-body">
             <AboutSideBar user={user} />

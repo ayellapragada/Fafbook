@@ -19,13 +19,16 @@ class Api::UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @profile = @user.profile
-    if current_user.id == @user.id || current_user.friends_with?(@user) 
+    if current_user.id == @user.id  
+      @status = 0
+    elsif current_user.friends_with?(@user) 
+      @status = 1
       render 'api/users/show'
     elsif current_user.pending_friends.include?(@user) 
-      @status_code = -2;
+      @status = -1
       render 'api/users/not_friends'
     else
-      @status_code = -1;
+      @status = -2
       render 'api/users/not_friends'
     end
   end 
