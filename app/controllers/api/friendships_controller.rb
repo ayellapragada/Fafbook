@@ -12,7 +12,6 @@ class Api::FriendshipsController < ApplicationController
     @requested = User.find friendship_params[:currentUserId]
     @requester = User.find friendship_params[:requesterUserId]
 
-    debugger;
     if friendship_params[:action] == 'approve'
       @requested.accept_request(@requester)
     else 
@@ -21,6 +20,9 @@ class Api::FriendshipsController < ApplicationController
   end
 
   def destroy
+    @current_user = User.find friendship_params[:currentUserId]
+    @unfriended_user = User.find friendship_params[:requesterUserId]
+    @current_user.remove_friend(@unfriended_user)
   end
 
   private 

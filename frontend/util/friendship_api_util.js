@@ -13,3 +13,13 @@ export const updateRequest = (currentUserId, requesterUserId, action) => {
     data: {friendship : {currentUserId, requesterUserId, action}} 
   });
 };
+
+export const deleteFriend = (currentUserId, requesterUserId, action) => {
+  return $.ajax({
+    method: 'DELETE',
+    url: '/api/friendships/0',
+    data: {friendship : {currentUserId, requesterUserId}} 
+  });
+};
+
+
