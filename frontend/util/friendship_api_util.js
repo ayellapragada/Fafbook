@@ -6,10 +6,10 @@ export const friendRequest = (currentUserId, requestedUserId) => {
   });
 };
 
-export const updateRequest = (requestedId, requesterId, action) => {
+export const updateRequest = (currentUserId, requesterUserId, action) => {
   return $.ajax({
     method: 'PATCH',
     url: '/api/friendships/0',
-    data: {friendship : {requestedId, requesterId, action}} 
+    data: {friendship : {currentUserId, requesterUserId, action}} 
   });
 };

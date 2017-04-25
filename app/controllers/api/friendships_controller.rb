@@ -9,7 +9,15 @@ class Api::FriendshipsController < ApplicationController
   end
 
   def update
+    @requested = User.find friendship_params[:currentUserId]
+    @requester = User.find friendship_params[:requesterUserId]
+
     debugger;
+    if friendship_params[:action] == 'approve'
+      @requested.accept_request(@requester)
+    else 
+      @requested.decline_request(@requester)
+    end
   end
 
   def destroy
@@ -20,6 +28,6 @@ class Api::FriendshipsController < ApplicationController
   def friendship_params
     params.require(:friendship).permit(:currentUserId, 
                                        :requestedUserId, 
-                                       :requesterId, :action)
+                                       :requesterUserId, :action)
   end
 end
