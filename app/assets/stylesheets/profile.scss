@@ -42,3 +42,31 @@
   letter-spacing: -0.24px;
   text-rendering: optimizeLegibility;
 }
+
+.about-side-bar {
+  background-color: white;
+  border: 1px solid #d0d1d5;
+  width: 300px;
+  padding: 8px;
+}
+
+.about-intro-body {
+  text-align: center;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #e9ebee;
+  font-size: 14px;
+  margin-bottom: 15px;
+
+}
+
+
+.about-intro-header {
+  font-size: 18px;
+  color: #4b4f56;
+  margin-bottom: 20px;
+}
+
+.about-intro-header i {
+  color: #4267b2;
+  margin-right: 5px;
+}

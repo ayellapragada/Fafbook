@@ -8,7 +8,7 @@ const RightNavbar = (props) => {
   if (props.currentUser){
     return (
       <div className="right-navbar">
-          <img src={props.currentUser.profile_url}
+        <img src={props.currentUser.profile_url}
           className="navbar-profile-photo"/>
         <Link className="navbar-btn profile-link"
           to={"/profile/" + props.currentUser.id}>
