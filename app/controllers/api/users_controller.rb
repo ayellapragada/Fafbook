@@ -41,6 +41,7 @@ class Api::UsersController < ApplicationController
     if current_user != @user
       render json: "Can't edit a different user!"
     elsif @user.update(user_picture_params)
+      prepare_user_for_show(@user)
       render 'api/users/show'
     else 
       render json: @user.errors, status: 422 

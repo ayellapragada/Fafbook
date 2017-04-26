@@ -8,8 +8,17 @@ class EditProfileForm extends React.Component {
   }
 
   render() {
+    debugger;
     return(
-      <h3> This is where editing would go </h3>
+      <div className="edit-profile-form">
+        <form onSubmit={this.handleSubmit}>
+          <input 
+            type="text"
+            className="edit-profile-input"
+            onChange={this.handleChange('about')}
+            value={this.props.user.about}/>
+        </form>
+      </div>
     )
   }
 };
