@@ -1,10 +1,15 @@
 import React from 'react';
+import OpenPicture from '../modals/open_picture';
 
 const Photos = (props) => {
 
   const mappedPhotos = props.user.photos.map((photo) => (
-    <img src={photo.url} className="profile-sidebar-photos" key={photo.id}/>
+    <OpenPicture key={photo.id} url={photo.url} />
   ));
+
+  if (mappedPhotos.length === 0) {
+    mappedPhotos.push("No photos for this user!")
+  };
 
   return(
     <div className="profile-sidebar-section">

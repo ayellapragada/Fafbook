@@ -1,14 +1,19 @@
 import React from 'react';
 import Modal from 'react-modal';
-import EditProfileForm from './edit_profile_form';
+import onClickOutside from 'react-onclickoutside';
 
-class EditProfile extends React.Component {
+class OpenPicture extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {modalIsOpen: false};
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
+  }
+
+
+  handleClickOutside(evt) {
+    this.closeModal();
   }
 
 
@@ -27,30 +32,26 @@ class EditProfile extends React.Component {
 
   render() {
     return (
-      <div className="edit-profile-modal-container">
-        <button onClick={this.openModal}>
-        <i className="fa fa-pencil" aria-hidden="true"></i>
-        Edit Profile</button>
+      <span className="picture-modal-container">
+        <img onClick={this.openModal}
+          className="profile-sidebar-photos"
+          src={this.props.url}/>
         <Modal
           isOpen={this.state.modalIsOpen}
           onAfterOpen={this.afterOpenModal}
           onRequestClose={this.closeModal}
-          contentLabel="Edit Profile"
-          className="edit-profile-modal"
+          contentLabel="Picture"
+          className="picture-modal"
           overlayClassName="modal-overlay"
         >
-          <button 
-            className="modal-close" 
-            onClick={this.closeModal} >
-            close </button>
-          <EditProfileForm />
-
+          <img className="modal-picture-big"
+            src={this.props.url}/>
         </Modal> 
-      </div>
+      </span>
 
     );
   }
 
 }
 
-export default EditProfile;
+export default onClickOutside(OpenPicture);

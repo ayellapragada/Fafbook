@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import DocumentTitle from 'react-document-title';
 import { fetchUser } from '../../actions/user_actions';
 import ControlBar from './control_bar';
 import AboutSideBar from './about_side_bar';
@@ -59,6 +60,7 @@ class Profile extends React.Component {
     else if (user.id > 0){
       return (
         <div className="profile">
+        <DocumentTitle title={`${user.fname} ${user.lname}`} />
           <div className="profile-header">
             <ControlBar user={user} />
           </div>

@@ -1,5 +1,6 @@
 import React from 'react';
-import * as PhotoAPI from '../../util/photo_api_util';
+import { connect } from 'react-redux';
+import { uploadPhoto } from '../../actions/user_actions';
 
 
 class UploadPhotoForm extends React.Component {
@@ -38,7 +39,8 @@ class UploadPhotoForm extends React.Component {
     var formData = new FormData();
     formData.append("photo[caption]", this.state.caption)
     formData.append("photo[picture]", this.state.imageFile)
-    PhotoAPI.createPhoto(formData)
+    this.props.uploadPhoto(formData)
+    this.setState({caption: "", imageFile: null, imageUrl: null})
   }
 
   render() {
@@ -54,4 +56,8 @@ class UploadPhotoForm extends React.Component {
 };
 
 
-export default UploadPhotoForm;
+const mapDispatchToProps = dispatch => ({
+  uploadPhoto: (photo) => dispatch(uploadPhoto(photo))
+})
+
+export default connect(null, mapDispatchToProps)(UploadPhotoForm);

@@ -125,6 +125,9 @@
 
 .profile-action-bar {
   position: absolute;
+  display: flex;
+  justify-content: space-between;
+  width: 250px;
   color: black;
   right: 539px;
   left: 540px;
@@ -135,36 +138,41 @@
   position: relative;
 }
 
+.upload-photo-modal-container button, 
 .edit-profile-btn-container button,
 .friend-request-button button {
   font-family: 'San Francisco', Helvetica, Arial, san-serif;
   font-size: 12px;
   font-weight: bold;
   color: #4b4f56;
+  background-color: #f6f7f9;
+  border: 1px solid #f6f7f9;
   -webkit-font-smoothing: antialiased;
+  height: 30px;
 }
 
 
 .edit-profile-btn-container button {
-  height: 30px;
   width: 100px;
 }
 
 .friend-request-button button {
   width: 160px;
-  height: 30px;
+}
+
+.upload-photo-modal-container button {
+  width: 120px;
 }
 
 
+
+.upload-photo-modal-container i,
 .edit-profile-btn-container i,
 .friend-request-button i {
-  font-size: 14px;
+  font-size: 12px;
   z-index: 200;
-}
-
-.edit-profile-btn-text,
-.friend-request-button-text {
-  padding-left: 8px;
+  color: #90949c;
+  padding-right: 8px;
 }
 
 .profile-sidebar-photos {

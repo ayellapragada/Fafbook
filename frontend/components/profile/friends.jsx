@@ -12,7 +12,7 @@ const Friends = (props) => {
     <div className="profile-sidebar-section">
       <h3 className="profile-sidebar-header">
         <i className="fa fa-users" aria-hidden="true"></i>
-        Friends 
+        Friends · {props.user.friend_count}
       </h3>
       <div className="profile-sidebar-both-container">
         <ul className="profile-sidebar-photos-container">

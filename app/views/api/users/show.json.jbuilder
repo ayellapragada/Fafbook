@@ -3,6 +3,7 @@ json.partial! "api/users/images", user: @user
 json.partial! "api/profiles/base_profile", profile: @profile
 json.status @status
 
+json.friend_count @friends.length
 json.friends @friends do |friend|
   json.partial! "api/users/friend", friend: friend
 end

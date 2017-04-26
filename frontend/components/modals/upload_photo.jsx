@@ -32,7 +32,9 @@ class UploadPhoto extends React.Component {
   render() {
     return (
       <div className="upload-photo-modal-container">
-        <button onClick={this.openModal}>Open Modal</button>
+        <button onClick={this.openModal}>
+          <i className="fa fa-camera-retro" aria-hidden="true"></i>
+          Upload Photo</button>
         <Modal
           isOpen={this.state.modalIsOpen}
           onAfterOpen={this.afterOpenModal}
@@ -43,6 +45,7 @@ class UploadPhoto extends React.Component {
         >
           <button 
             className="modal-close" 
+            onSubmit={this.closeModal}
             onClick={this.closeModal} >
             close </button>
           <UploadPhotoForm />

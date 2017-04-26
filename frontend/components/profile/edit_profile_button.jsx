@@ -1,15 +1,11 @@
 import React from 'react';
+import EditProfile from '../modals/edit_profile';
 
 const EditProfileButton = (props) => {
 
   return (
     <div className="edit-profile-btn-container">
-      <button>
-        <i className="fa fa-pencil" aria-hidden="true"></i>
-        <span className="edit-profile-btn-text">
-          Edit Profile
-        </span>
-      </button>
+        <EditProfile />
     </div>
   );
 };

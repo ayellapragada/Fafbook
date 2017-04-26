@@ -2,7 +2,6 @@ import React from 'react';
 import ActionBar from './action_bar';
 import ProfileNavBar from './profile_nav_bar';
 import { Link } from 'react-router';
-import UploadPhoto from '../modals/upload_photo';
 
 const ControlBar = (props) => {
   return (
@@ -24,7 +23,6 @@ const ControlBar = (props) => {
       <div className="profile-header-space"></div>
       <ActionBar user={props.user} />
       <ProfileNavBar />
-      <UploadPhoto />
     </div>
   );
 };

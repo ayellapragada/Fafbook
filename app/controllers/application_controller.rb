@@ -10,6 +10,18 @@ class ApplicationController < ActionController::Base
                                  :month, :date, :year, :gender)
   end
 
+
+  def profile_params
+    params.require(:profile).permit(:phone, :education, :website, :language,
+                                    :location, :work, :relationship)
+  end
+
+  def prepare_user_for_show(user)
+    @profile = user.profile
+    @friends = @user.friends.order("created_at DESC").limit(9)
+    @photos = @user.photos.order("created_at DESC").limit(9)
+  end
+
   def current_user
     @current_user ||= User.find_by session_token: session[:session_token]
   end

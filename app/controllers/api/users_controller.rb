@@ -17,10 +17,8 @@ class Api::UsersController < ApplicationController
   end 
 
   def show
-    @user = User.includes(:profile, :friends, :photos).find(params[:id])
-    @profile = @user.profile
-    @friends = @user.friends.take(9)
-    @photos = @user.photos.take(9)
+    @user = User.find(params[:id])
+    prepare_user_for_show(@user)
 
     if current_user.id == @user.id  
       @status = 0
@@ -36,13 +34,26 @@ class Api::UsersController < ApplicationController
     end
   end 
 
-  #  def update
-  #    @user = User.find(params[:id])
-  #  end 
+  def update
+    @user = User.find(params[:id])
+    debugger
+
+    if current_user != @user
+      render json: "Can't edit a different user!"
+    elsif @user.update(user_picture_params)
+      render 'api/users/show'
+    else 
+      render json: @user.errors, status: 422 
+    end
+
+  end 
 
   #  def destroy
   #    @user = User.find(params[:id])
   #  end
 
+  def user_picture_params 
+    params.require(:user).permit(:profile_photo, :cover_photo)
+  end
 end
 

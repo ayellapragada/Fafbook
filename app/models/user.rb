@@ -46,11 +46,12 @@ class User < ApplicationRecord
   acts_as_liker
 
   has_one :profile, dependent: :destroy
-  has_many :albums
+  has_many :albums, dependent: :destroy
   has_many :photos, through: :albums
 
-  after_initialize :ensure_session_token, :create_dob
-  after_save :create_dependencies
+  after_initialize :ensure_session_token
+  before_validation :create_dob
+  after_create :fix_names, :create_dependencies
 
 
   def self.generate_session_token
@@ -64,17 +65,29 @@ class User < ApplicationRecord
   end
 
   def create_dependencies
-    @profile = Profile.new(user_id: self.id)
-    @profile.save
-    @timeline = Album.new(user_id: self.id, name: 'Timeline')
-    @timeline.save
-    @profile_photos = Album.new(user_id: self.id, name: 'Profile')
-    @profile_photos.save
+    unless self.profile
+      Profile.create(user_id: self.id)
+    end
+    unless self.albums.find_by(name: 'Timeline') && 
+        self.albums.find_by(name: 'Profile') 
+      Album.create(user_id: self.id, name: 'Timeline')
+      Album.create(user_id: self.id, name: 'Profile')
+    end
   end
 
   def create_dob
     return if self.date == "" && self.month == "" && self.year == ""
     self.dob = Date.parse("#{self.date}-#{self.month}-#{self.year}")
+  end
+
+  def fix_names
+    self.fname = self.fname.strip.capitalize
+    self.lname = self.lname.strip.capitalize
+    self.full_name = "#{fname} #{lname}"
+    self.save
+  end
+
+  def create_full_name
   end
 
   def valid_password?(password)
