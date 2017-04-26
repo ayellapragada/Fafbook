@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170425054808) do
+ActiveRecord::Schema.define(version: 20170426123630) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "albums", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "name",        null: false
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["user_id"], name: "index_albums_on_user_id", using: :btree
+  end
 
   create_table "comments", force: :cascade do |t|
     t.string   "title",            limit: 50, default: ""
@@ -57,6 +66,18 @@ ActiveRecord::Schema.define(version: 20170425054808) do
     t.datetime "created_at"
     t.index ["mentionable_id", "mentionable_type"], name: "fk_mentionables", using: :btree
     t.index ["mentioner_id", "mentioner_type"], name: "fk_mentions", using: :btree
+  end
+
+  create_table "photos", force: :cascade do |t|
+    t.integer  "album_id"
+    t.text     "caption"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.string   "picture_file_name"
+    t.string   "picture_content_type"
+    t.integer  "picture_file_size"
+    t.datetime "picture_updated_at"
+    t.index ["album_id"], name: "index_photos_on_album_id", using: :btree
   end
 
   create_table "posts", force: :cascade do |t|
@@ -108,6 +129,8 @@ ActiveRecord::Schema.define(version: 20170425054808) do
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
   end
 
+  add_foreign_key "albums", "users"
+  add_foreign_key "photos", "albums"
   add_foreign_key "posts", "users", column: "author_id"
   add_foreign_key "posts", "users", column: "receiver_id"
   add_foreign_key "profiles", "users"

@@ -46,9 +46,11 @@ class User < ApplicationRecord
   acts_as_liker
 
   has_one :profile, dependent: :destroy
+  has_many :albums
+  has_many :photos, through: :albums
 
   after_initialize :ensure_session_token, :create_dob
-  after_save :create_profile
+  after_save :create_dependencies
 
 
   def self.generate_session_token
@@ -61,9 +63,13 @@ class User < ApplicationRecord
     nil
   end
 
-  def create_profile
+  def create_dependencies
     @profile = Profile.new(user_id: self.id)
     @profile.save
+    @timeline = Album.new(user_id: self.id, name: 'Timeline')
+    @timeline.save
+    @profile_photos = Album.new(user_id: self.id, name: 'Profile')
+    @profile_photos.save
   end
 
   def create_dob
