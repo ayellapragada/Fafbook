@@ -5,34 +5,30 @@ import { friendRequest, deleteFriend } from '../../actions/friend_actions';
 
 class FriendStatus extends React.Component {
   constructor(props) {
-    super(props)
-    this.state = {requested: props.user.status}
+    super(props);
+    this.state = {requested: props.user.status};
   }
 
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.user.id != this.props.user.id) {
-      this.setState({requested: nextProps.user.status})
+    if (nextProps.user.id !== this.props.user.id) {
+      this.setState({requested: nextProps.user.status});
     }
   }
 
   handleClick(e) {
     e.preventDefault(e);
 
-    if ( this.state.requested === -1 ) {
-      console.log('This should just disable the button.')
-    } else if (this.state.requested === -2) {
+     if (this.state.requested === -2) {
       this.props.friendRequest(this.props.currentUser.id, 
-        this.props.user.id)
-      this.setState({requested: -1})
+        this.props.user.id);
+      this.setState({requested: -1});
     } else if (this.state.requested === 0) {
       console.log('This eventually leads to modal for user editing');
     } else {
-      console.log('Probably do a double check')
       this.props.deleteFriend(this.props.currentUser.id, 
-        this.props.user.id)
+        this.props.user.id);
       this.setState({requested: -2});
-      debugger
     }
   }
 
@@ -42,13 +38,11 @@ class FriendStatus extends React.Component {
     let buttonText;
 
     if ( this.state.requested === -2 ) {
-      buttonText = "Add Friend"
+      buttonText = "Add Friend";
     } else if (this.state.requested === -1) {
-      buttonText =  "Friend Request Sent"
-    } else if (this.props.currentUser.id === this.props.viewedUser.id) {
-      buttonText = "Edit Account"
+      buttonText =  "Friend Request Sent";
     } else {
-      buttonText = "Delete Friend"
+      buttonText = "Delete Friend";
     }
 
 
@@ -62,7 +56,7 @@ class FriendStatus extends React.Component {
           </span>
         </button>
       </div>
-    )
+    );
   }
 
 
@@ -75,16 +69,18 @@ const mapStateToProps = (state, ownProps) => {
     currentUser: state.session.currentUser,
     viewedUser: state.user,
     status: ownProps.status,
-  })
-}
+  });
+};
 
 
 const mapDispatchToProps = (dispatch) =>  {
   return ({
-    friendRequest: (currentUserId, requestedUserId) => (dispatch(friendRequest(currentUserId, requestedUserId))),
-    deleteFriend: (currentUserId, requesterUserId) => (dispatch(deleteFriend(currentUserId, requesterUserId)))
+    friendRequest: (currentUserId, requestedUserId) => (
+      dispatch(friendRequest(currentUserId, requestedUserId))),
+    deleteFriend: (currentUserId, requesterUserId) => (
+      dispatch(deleteFriend(currentUserId, requesterUserId)))
   });
-}
+};
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(FriendStatus);

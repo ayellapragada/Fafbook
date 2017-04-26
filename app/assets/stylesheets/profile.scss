@@ -135,9 +135,8 @@
   position: relative;
 }
 
+.edit-profile-btn-container button,
 .friend-request-button button {
-  width: 160px;
-  height: 30px;
   font-family: 'San Francisco', Helvetica, Arial, san-serif;
   font-size: 12px;
   font-weight: bold;
@@ -145,12 +144,31 @@
   -webkit-font-smoothing: antialiased;
 }
 
+
+.edit-profile-btn-container button {
+  height: 30px;
+  width: 100px;
+}
+
+.friend-request-button button {
+  width: 160px;
+  height: 30px;
+}
+
+
+.edit-profile-btn-container i,
 .friend-request-button i {
   font-size: 14px;
   z-index: 200;
 }
 
+.edit-profile-btn-text,
 .friend-request-button-text {
   padding-left: 8px;
+}
+
+.profile-sidebar-photos {
+  height: 101px;
+  width: 101px;
 }
 

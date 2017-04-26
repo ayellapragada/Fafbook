@@ -19,6 +19,7 @@ class Api::UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @profile = @user.profile
+    @friends = @user.friends.take(9)
     if current_user.id == @user.id  
       @status = 0
     elsif current_user.friends_with?(@user) 
