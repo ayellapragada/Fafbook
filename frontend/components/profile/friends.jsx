@@ -9,14 +9,16 @@ const Friends = (props) => {
     </Link>
   ));
   return(
-    <div className="profile-sidebar-friends">
+    <div className="profile-sidebar-section">
       <h3 className="profile-sidebar-header">
         <i className="fa fa-users" aria-hidden="true"></i>
         Friends 
       </h3>
-      <ul className="profile-sidebar-photos-container">
-        {mappedFriends}
-      </ul>
+      <div className="profile-sidebar-both-container">
+        <ul className="profile-sidebar-photos-container">
+          {mappedFriends}
+        </ul>
+      </div>
     </div>
   );
 

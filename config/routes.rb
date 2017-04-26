@@ -11,6 +11,12 @@ Rails.application.routes.draw do
     resources :posts, only: [:index, :create, :update, :destroy] 
     resources :comments, only: [:create, :update, :destroy]
     resources :friendships, only: [:index, :update, :create, :destroy]
+    resources :photos, only: [:create, :update, :show, :destroy] 
+    
+    # resources :albums, only: [:create, :update, :show, :destroy] 
+       
+    # Don't worry about albums for right now. Let photo controller default to 
+    # Timeline for right now.
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

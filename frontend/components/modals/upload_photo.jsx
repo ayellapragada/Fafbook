@@ -1,5 +1,6 @@
 import React from 'react';
 import Modal from 'react-modal';
+import UploadPhotoForm from './upload_photo_form';
 
 class UploadPhoto extends React.Component {
   constructor(props) {
@@ -21,7 +22,6 @@ class UploadPhoto extends React.Component {
   }
 
   afterOpenModal() {
-    this.subtitle.style.color = '#f00';
   }
 
   closeModal() {
@@ -30,7 +30,6 @@ class UploadPhoto extends React.Component {
 
 
   render() {
-    debugger
     return (
       <div className="upload-photo-modal-container">
         <button onClick={this.openModal}>Open Modal</button>
@@ -42,9 +41,12 @@ class UploadPhoto extends React.Component {
           className="upload-photo-modal"
           overlayClassName="modal-overlay"
         >
-          <h2 ref={subtitle => this.subtitle=subtitle}>Don't know why</h2>
-          <button onClick={this.closeModal}>close</button>
-          <div>I am your photo upload modal</div>
+          <button 
+            className="modal-close" 
+            onClick={this.closeModal} >
+            close </button>
+          <UploadPhotoForm />
+
         </Modal> 
       </div>
 
@@ -53,7 +55,4 @@ class UploadPhoto extends React.Component {
 
 }
 
-
 export default UploadPhoto;
-
-

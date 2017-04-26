@@ -19,7 +19,7 @@ class Photo < ApplicationRecord
   belongs_to :album
   delegate :user, to: :album, allow_nil: true
 
-  has_attached_file :picture, default_url: "/defaults/photo_default.png"
+  has_attached_file :picture, default_url: "defaults/photo_default.png"
   validates_attachment_content_type :picture, content_type: /\Aimage\/.*\z/
 end
 

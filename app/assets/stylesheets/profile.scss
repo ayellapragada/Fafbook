@@ -50,7 +50,7 @@
 .about-side-bar {
   background-color: white;
   border: 1px solid #d0d1d5;
-  width: 270px;
+  width: 295px;
   padding: 8px;
 }
 
@@ -168,7 +168,11 @@
 }
 
 .profile-sidebar-photos {
-  height: 101px;
-  width: 101px;
+  height: 100px;
+  width: 100px;
+  padding: 0 2px;
 }
 
+.profile-sidebar-photos-container {
+  width: 320px;
+}
