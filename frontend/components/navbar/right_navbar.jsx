@@ -3,6 +3,7 @@ import { Link, hashHistory } from 'react-router';
 import { connect } from 'react-redux';
 import { logout } from '../../actions/session_actions';
 import FriendRequests from './friend_requests';
+import onClickOutside from 'react-onclickoutside'
 
 
 class RightNavbar extends React.Component {
@@ -18,6 +19,10 @@ class RightNavbar extends React.Component {
     this.setState({[field]: opposite })
   }
 
+  handleClickOutside (evt) {
+    // Can be used to handle all, messages and notifications later.
+    this.setState({requests: false});
+  }
 
   render() {
     if (this.props.currentUser){
@@ -38,7 +43,9 @@ class RightNavbar extends React.Component {
             className="navbar-btn">
             <i className="fa fa-users" aria-hidden="true"></i>
           </div>
+          <div className="friend-requests-dropdown">
             { this.state.requests && <FriendRequests/> }
+          </div>
           <div
             className="navbar-btn">
             <i className="fa fa-comments" aria-hidden="true"></i>
@@ -73,4 +80,4 @@ const mapDispatchToProps = dispatch => ({
 });
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(RightNavbar);
+export default connect(mapStateToProps, mapDispatchToProps)(onClickOutside(RightNavbar));
