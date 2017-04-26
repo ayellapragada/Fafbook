@@ -23,14 +23,14 @@ class FriendStatus extends React.Component {
       console.log('This should just disable the button.')
     } else if (this.state.requested === -2) {
       this.props.friendRequest(this.props.currentUser.id, 
-        this.props.viewedUserId)
+        this.props.user.id)
       this.setState({requested: -1})
     } else if (this.state.requested === 0) {
       console.log('This eventually leads to modal for user editing');
     } else {
       console.log('Probably do a double check')
       this.props.deleteFriend(this.props.currentUser.id, 
-        this.props.viewedUserId)
+        this.props.user.id)
       this.setState({requested: -2});
       debugger
     }
@@ -74,7 +74,6 @@ const mapStateToProps = (state, ownProps) => {
   return({
     currentUser: state.session.currentUser,
     viewedUser: state.user,
-    viewedUserId: ownProps.realId,
     status: ownProps.status,
   })
 }

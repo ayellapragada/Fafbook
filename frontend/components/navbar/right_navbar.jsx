@@ -7,50 +7,62 @@ import FriendRequests from './friend_requests';
 
 class RightNavbar extends React.Component {
 
+  constructor(props) {
+    super(props);
+    this.state = ({requests: false});
+    this.toggle = this.toggle.bind(this);
+  }
+
+  toggle(field) { 
+    const opposite = !this.state[field]; 
+    this.setState({[field]: opposite })
+  }
+
 
   render() {
+    if (this.props.currentUser){
+      return (
+        <div className="right-navbar">
+          <img src={this.props.currentUser.profile_url}
+            className="navbar-profile-photo"/>
+          <Link className="navbar-btn profile-link"
+            to={"/profile/" + this.props.currentUser.id}>
+            {this.props.currentUser.fname}
+          </Link>
+          <Link className="navbar-btn home-link"
+            to={"/"}>
+            Home
+          </Link>
+          <div
+            onClick={() => this.toggle('requests')}
+            className="navbar-btn">
+            <i className="fa fa-users" aria-hidden="true"></i>
+          </div>
+            { this.state.requests && <FriendRequests/> }
+          <div
+            className="navbar-btn">
+            <i className="fa fa-comments" aria-hidden="true"></i>
+          </div>
+          <div
+            className="navbar-btn">
+            <i className="fa fa-globe" aria-hidden="true"></i>
+          </div>
+          <div className="navbar-btn logout-btn" 
+            onClick={() => this.props.logout()
+                .then(hashHistory.push('/login'))
+                .then(() => hashHistory.push('/login'))
+            }>
+            <i className="fa fa-sign-out" aria-hidden="true"></i>
+          </div>
+        </div>
+      );
+    } else {
+      return <div></div>;
+    }
+  };
 
-  if (this.props.currentUser){
-    return (
-      <div className="right-navbar">
-        <img src={this.props.currentUser.profile_url}
-          className="navbar-profile-photo"/>
-        <Link className="navbar-btn profile-link"
-          to={"/profile/" + this.props.currentUser.id}>
-          {this.props.currentUser.fname}
-        </Link>
-        <Link className="navbar-btn home-link"
-          to={"/"}>
-          Home
-        </Link>
-        <div
-          className="navbar-btn">
-          <i className="fa fa-users" aria-hidden="true"></i>
-        </div>
-        <div
-          className="navbar-btn">
-          <i className="fa fa-comments" aria-hidden="true"></i>
-        </div>
-        <div
-          className="navbar-btn">
-          <i className="fa fa-globe" aria-hidden="true"></i>
-        </div>
-        <div className="navbar-btn logout-btn" 
-          onClick={() => this.props.logout()
-              .then(hashHistory.push('/login'))
-              .then(() => hashHistory.push('/login'))
-          }>
-          <i className="fa fa-sign-out" aria-hidden="true"></i>
-        </div>
-      </div>
-    );
-  } else {
-    return <div></div>;
-  }
-};
 
-
-  }
+}
 
 const mapStateToProps = ({ session }) => ({
   currentUser: session.currentUser
