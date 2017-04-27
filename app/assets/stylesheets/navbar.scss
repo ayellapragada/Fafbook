@@ -69,11 +69,25 @@
   margin: 0 8px;
   margin-top: 3px;
   font-size: 20px;
+  color: #18243d;
+  &:hover {
+    color: #000000;
+  }
 }
 
-.logout-btn {
-  padding-left: 20px;
+.right-navbar-words:hover {
+  color: white;
+  background-color: #355089;
+}
+
+.empty-border {
   border-left: 1px solid #365089;
+  width: 5px;
+  margin-left: 5px;
+}
+
+.help-btn {
+  margin-right: 4px;
 }
 
 .profile-link,
@@ -89,8 +103,6 @@
 
 .home-link {
   margin-right: 31px;
-  padding-left: 10px;
-  border-left: 1px solid #365089;
 }
 
 .navbar-profile-photo {

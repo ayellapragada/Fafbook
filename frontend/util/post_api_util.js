@@ -1,0 +1,43 @@
+export const allPosts = () => {
+  return $.ajax({
+    method: 'GET',
+    url: '/api/posts'
+  });
+};
+
+export const getFeed = (id) => {
+  return $.ajax({
+    method: 'GET',
+    url: `/api/posts/feed/${id}`
+  });
+};
+
+export const createPost = post => {
+  return $.ajax({
+    method: 'POST',
+    url: '/api/posts',
+    post: { post }
+  });
+};
+
+export const getPost = id => {
+  return $.ajax({
+    method: 'GET',
+    url: `/api/posts${id}`
+  });
+};
+
+export const updatePost = post => {
+  return $.ajax({
+    method: 'PATCH',
+    url: `/api/posts${post.id}`,
+    post: { post }
+  });
+};
+
+export const deletePost = id => {
+  return $.ajax({
+    method: 'DELETE',
+    url: `/api/posts${id}`,
+  });
+};

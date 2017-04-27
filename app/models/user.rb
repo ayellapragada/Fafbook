@@ -49,6 +49,8 @@ class User < ApplicationRecord
   has_one :profile, dependent: :destroy
   has_many :albums, dependent: :destroy
   has_many :photos, through: :albums
+  has_many :posts, class_name: "Post", foreign_key: 'author_id'
+  has_many :posts_about, class_name: "Post", foreign_key: 'receiver_id'
 
   after_initialize :ensure_session_token
   before_validation :create_dob

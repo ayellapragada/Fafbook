@@ -30,11 +30,12 @@ class RightNavbar extends React.Component {
         <div className="right-navbar">
           <img src={this.props.currentUser.profile_url}
             className="navbar-profile-photo"/>
-          <Link className="navbar-btn profile-link"
+          <Link className="navbar-btn profile-link right-navbar-words"
             to={"/profile/" + this.props.currentUser.id}>
             {this.props.currentUser.fname}
           </Link>
-          <Link className="navbar-btn home-link"
+          <div className="empty-border"></div>
+          <Link className="navbar-btn home-link right-navbar-words"
             to={"/"}>
             Home
           </Link>
@@ -53,6 +54,10 @@ class RightNavbar extends React.Component {
           <div
             className="navbar-btn">
             <i className="fa fa-globe" aria-hidden="true"></i>
+          </div>
+          <div className="empty-border"></div>
+          <div className="navbar-btn help-btn">
+            <i className="fa fa-question-circle" aria-hidden="true"></i>
           </div>
           <div className="navbar-btn logout-btn" 
             onClick={() => this.props.logout()

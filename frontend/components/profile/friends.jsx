@@ -10,7 +10,7 @@ const Friends = (props) => {
   ));
   return(
     <div className="about-side-bar">
-      <div className="profile-sidebar-header">
+      <div className="profile-sidebar-header profile-sidebar-friends">
         <i className="fa fa-users" aria-hidden="true"></i>
         Friends · {props.user.friend_count}
       </div>
