@@ -51,13 +51,24 @@
 .profile-sidebar-photos-container,
 .about-side-bar {
   width: 300px;
-  margin-top: 20px;
+  margin-bottom: 15px;
 }
 
 .about-side-bar {
   background-color: white;
-  border: 1px solid #d0d1d5;
   padding: 8px;
+  border-top-color: rgb(229, 230, 233);
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-right-color: rgb(223, 224, 228);
+  border-right-style: solid;
+  border-right-width: 1px;
+  border-bottom-color: rgb(208, 209, 213);
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-left-color: rgb(223, 224, 228);
+  border-left-style: solid;
+  border-left-width: 1px;
 }
 
 .about-intro-body {
@@ -104,7 +115,8 @@
 }
 
 .profile-other-info i {
-  margin: 0 15px 0 10px;
+  margin: 0 4px 0 3px;
+  font-size: 12px;
   width: 14px;
   height: 18px;
   color: #a5a9b2;
@@ -205,7 +217,8 @@
 .profile-sidebar-photos {
   height: 95px;
   width: 95px;
-  padding: 0 2px;
+  margin: 0 2px;
+  cursor: pointer;
 }
 
 
