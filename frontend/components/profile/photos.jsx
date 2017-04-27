@@ -12,8 +12,8 @@ const Photos = (props) => {
   };
 
   return(
-    <div className="profile-sidebar-section">
-      <h3 className="profile-sidebar-header">
+    <div className="about-side-bar">
+      <h3 className="profile-sidebar-header profile-sidebar-photos-header">
         <i className="fa fa-picture-o" aria-hidden="true"></i>
         Photos 
       </h3>

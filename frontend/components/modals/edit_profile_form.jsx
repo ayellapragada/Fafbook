@@ -22,6 +22,7 @@ class EditProfileForm extends React.Component {
     const updatedProfile = this.state
     const id = this.props.user.id
     this.props.updateProfile(id, updatedProfile)
+    this.props.closeModal();
   }
 
   handleChange(field) {

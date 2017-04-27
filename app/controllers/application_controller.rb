@@ -12,14 +12,20 @@ class ApplicationController < ActionController::Base
 
 
   def profile_params
-    params.require(:profile).permit(:phone, :education, :website, :language,
+    params.require(:profile).permit(:about, :phone, :education, :website, :language,
                                     :location, :work, :relationship)
   end
 
   def prepare_user_for_show(user)
+    profile_album_id = user.albums.find_by(name: "Profile")
+
+
     @profile = user.profile
-    @friends = @user.friends.order("created_at DESC").limit(9)
-    @photos = @user.photos.order("created_at DESC").limit(9)
+    @friends = user.friends.order("created_at DESC").limit(9)
+    @photos = user.photos
+      .where.not(album_id: profile_album_id)
+      .order("created_at DESC")
+      .limit(9)
   end
 
   def current_user

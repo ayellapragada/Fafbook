@@ -23,6 +23,7 @@
 #  cover_photo_content_type   :string
 #  cover_photo_file_size      :integer
 #  cover_photo_updated_at     :datetime
+#  full_name                  :string
 #
 
 class User < ApplicationRecord

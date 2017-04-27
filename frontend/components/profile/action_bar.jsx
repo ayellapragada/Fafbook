@@ -11,7 +11,11 @@ const ActionBar = (props) => {
     return (
       <div className="profile-action-bar">
         <EditProfileButton user={props.user} />
-        <UploadPhoto />
+        <UploadPhoto 
+          updateProfile={false}
+          buttonType="upload-photo-modal-container"
+          text={"Upload Photo"}/>
+
       </div>
     );
   } else {
