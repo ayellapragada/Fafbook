@@ -1,7 +1,7 @@
 import React from 'react';
 import ActionBar from './action_bar';
 import ProfileNavBar from './profile_nav_bar';
-import UploadPhoto from  '../modals/upload_photo';
+import UpdatePhotos from  '../modals/update_photos';
 import { Link } from 'react-router';
 
 const ControlBar = (props) => {
@@ -15,7 +15,6 @@ const ControlBar = (props) => {
         <img 
           className="cover-img"
           src={props.user.cover_url}/>
-        <UploadPhoto text={'Update your cover photo!'}/>
       </div>
       <div className="profile-profile-photo">
         <img 
@@ -23,6 +22,7 @@ const ControlBar = (props) => {
           src={props.user.profile_url}/>
       </div>
       <div className="profile-header-space"></div>
+        <UpdatePhotos />
       <ActionBar user={props.user} />
       <ProfileNavBar user={props.user}/>
     </div>

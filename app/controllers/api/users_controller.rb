@@ -36,11 +36,11 @@ class Api::UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    debugger
 
     if current_user != @user
       render json: "Can't edit a different user!"
     elsif @user.update(user_picture_params)
+      @status = 0
       prepare_user_for_show(@user)
       render 'api/users/show'
     else 

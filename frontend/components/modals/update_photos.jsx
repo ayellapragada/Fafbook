@@ -25,7 +25,6 @@ class UpdatePhotos extends React.Component {
   }
 
   render() {
-    debugger;
     return (
       <div className={this.props.buttonType}>
         <button onClick={this.openModal}>
@@ -45,6 +44,7 @@ class UpdatePhotos extends React.Component {
             onClick={this.closeModal}>
             close </button>
           <UpdatePhotosForm 
+            pictureType={this.props.pictureType}
             closeModal={this.closeModal} />
         </Modal> 
       </div>

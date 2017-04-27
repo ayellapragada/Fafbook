@@ -5,13 +5,13 @@ export const getUser = (id) => {
   });
 };
 
-export const patchUser = (userId, user, form) => {
+export const patchUser = (user, form) => {
   return $.ajax({
     method: 'PATCH',
-    url: '/api/users/' + userId,
+    url: '/api/users/' + user.id,
+    data: form,
     contentType: false,
     processData: false,
-    data: { user }
   });
 };
 

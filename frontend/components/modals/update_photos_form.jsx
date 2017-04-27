@@ -11,39 +11,63 @@ class UploadPhotoForm extends React.Component {
       cover: null,
     };
 
-    this.updateFile = this.updateFile.bind(this);
+    this.updateProfile = this.updateProfile.bind(this);
+    this.updateCover = this.updateCover.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
 
-  updateFile(field) {
-
-
-    return(e) => { 
-      const file = e.currentTarget.files[0];
-      const fileReader = new FileReader();
-      fileReader.onloadend = () => {
-        this.setState({[field]: file });
-      };
+  updateProfile(e) {
+    const file = e.currentTarget.files[0];
+    const fileReader = new FileReader();
+    fileReader.onloadend = () => {
+      this.setState({profile: file})
     };
+
+    if (file) {
+      fileReader.readAsDataURL(file);
+    }
+
   }
+
+  updateCover(e) {
+    const fileReader = new FileReader();
+    const file = e.currentTarget.files[0];
+    fileReader.onloadend = () => {
+      this.setState({cover: file})
+    };
+
+    if (file) {
+      fileReader.readAsDataURL(file);
+    }
+
+  }
+
 
   handleSubmit(e) {
     e.preventDefault();
     var formData = new FormData();
-    formData.append("user[profile_photo]", this.state.profileFile);
-    formData.append("user[cover_photo]", this.state.coverFile);
+    if (this.state.profile) {
+      formData.append("user[profile_photo]", this.state.profile);
+    }
 
-    this.props.updateUser(this.props.user);
+    if (this.state.cover) {
+      formData.append("user[cover_photo]", this.state.cover);
+    }
+    this.props.updateUser(this.props.user, formData);
     this.setState({caption: "", imageFile: null, imageUrl: null});
     this.props.closeModal();
   }
 
   render() {
     return(
-      <div className="upload-photo-form">
-        <input type="file" onChange={this.updateCaption}/>
-        <input type="file" onChange={this.updateFile}/>
+      <div className={"upload-photo-form"}>
+        <label> Profile Photo
+          <input type="file" onChange={this.updateProfile}/>
+        </label>
+        <label> Cover Photo
+          <input type="file" onChange={this.updateCover}/>
+        </label>
         <button onClick={this.handleSubmit}>Change Photos!</button>
       </div>
     );
@@ -51,12 +75,12 @@ class UploadPhotoForm extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  userId:  state.session.currentUser.id
+  user:  state.session.currentUser
 });
 
 const mapDispatchToProps = dispatch => ({
   updateUser: (userId, user, form) => dispatch(updateUser(userId, user, form))
 });
 
-export default connect(null, mapDispatchToProps)(UploadPhotoForm);
+export default connect(mapStateToProps, mapDispatchToProps)(UploadPhotoForm);
 
