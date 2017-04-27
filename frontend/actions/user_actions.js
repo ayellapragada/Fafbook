@@ -13,17 +13,17 @@ export const fetchUser = id => dispatch => (
   .then(user => dispatch(receiveViewedUser(user)))
 );
 
-export const updateUser = user => dispatch => (
-  APIUtil.patchUser(user)
-  .then(user => dispatch(receiveViewedUser(user)))
-)
+export const updateUser = (userId, user, form) => dispatch => (
+  APIUtil.patchUser(userId, user, form)
+  .then(updatedUser => dispatch(receiveViewedUser(updatedUser)))
+);
 
 export const updateProfile = (id, profile) => dispatch => (
   APIUtil.patchProfile(id, profile)
   .then(user => dispatch(receiveViewedUser(user)))
-)
+);
 
 export const uploadPhoto = (photo) => dispatch => (
   PhotoUtil.createPhoto(photo)
   .then(user => dispatch(receiveViewedUser(user)))
-)
+);

@@ -5,10 +5,12 @@ export const getUser = (id) => {
   });
 };
 
-export const patchUser = (user) => {
+export const patchUser = (userId, user, form) => {
   return $.ajax({
     method: 'PATCH',
-    url: '/api/users/' + user.id,
+    url: '/api/users/' + userId,
+    contentType: false,
+    processData: false,
     data: { user }
   });
 };
@@ -25,5 +27,5 @@ export const searchUsers = (query) => {
   return $.ajax({
     method: 'GET',
     url: '/api/users/' + query
-  })
-}
+  });
+};
