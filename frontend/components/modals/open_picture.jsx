@@ -41,7 +41,7 @@ class OpenPicture extends React.Component {
           onAfterOpen={this.afterOpenModal}
           onRequestClose={this.closeModal}
           contentLabel="Picture"
-          className="picture-modal"
+          className="picture-modal modal"
           overlayClassName="modal-overlay"
         >
           <img className="modal-picture-big"

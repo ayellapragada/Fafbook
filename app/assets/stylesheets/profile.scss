@@ -23,7 +23,7 @@
   position: absolute;
   top: 60px;
   left: 17px;
-  z-index: 5;
+  z-index: 1;
   overflow: scroll;
 }
 
@@ -39,7 +39,7 @@
   bottom: 65px;
   position: absolute;
   color: #fff;
-  z-index: 5;
+  z-index: 1;
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
   text-decoration: none;
   font-size: 24px;
@@ -267,6 +267,7 @@
 }
 
 .profile-update-photos i {
+  font-size: 18px;
   margin-right: 10px;
   color: #b0b1b1;
   position: relative;
@@ -280,7 +281,7 @@
   background-color:rgba(0,0,0,0.7);
   border: 0;
   font-size: 12px;
-  z-index: 10000;
+  z-index: 6;
   background-color: transparent;
   color: #b0b1b1;
 }
@@ -292,8 +293,10 @@
 }
 
 
-.update-cover-hover button:hover,
 .update-photo-hover button:hover {
+  transition: opacity .30s ease-in-out;
+  -moz-transition: opacity .30s ease-in-out;
+  -webkit-transition: opacity .30s ease-in-out;
   opacity: 100;
   background-color:rgba(0,0,0,0.7);
 }

@@ -29,7 +29,10 @@ html {
   min-width: 1600px;
 }
 
-
 body {
   background-color: #e9ebee
+}
+
+.ReactModal__Body--open {
+  overflow: hidden;
 }

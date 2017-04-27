@@ -35,7 +35,7 @@ class UpdatePhotos extends React.Component {
           onAfterOpen={this.afterOpenModal}
           onRequestClose={this.closeModal}
           contentLabel="Upload Photo Modal"
-          className="upload-photo-modal"
+          className="upload-photo-modal modal"
           overlayClassName="modal-overlay"
         >
           <button 

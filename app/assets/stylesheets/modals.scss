@@ -1,0 +1,39 @@
+.modal-overlay {
+  z-index: 100;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+
+
+.modal {
+  position: absolute;
+  top: 135px;
+  left: 565px;
+  right: 565px;
+  bottom: 250px;
+  background-color: #f6f7f9;
+  border-radius: 4px;
+  overflow: auto;
+  outline: none;
+  padding: 20px;
+
+
+  &:focus {
+    outline: 0;
+  }
+
+}
+
+
+.edit-profile-modal {
+  top: 40px;
+  left: 630px;
+  right: 630px;
+  bottom: 20px;
+}
+

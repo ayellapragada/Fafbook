@@ -36,7 +36,7 @@ class EditProfile extends React.Component {
           onAfterOpen={this.afterOpenModal}
           onRequestClose={this.closeModal}
           contentLabel="Edit Profile"
-          className="edit-profile-modal"
+          className="edit-profile-modal modal"
           overlayClassName="modal-overlay"
         >
           <button 
