@@ -31,7 +31,7 @@ const ControlBar = (props) => {
           buttonClass={'update-cover-hover'}
           text={'Update Cover Photo'}
         />
-      
+    </div>
       <ActionBar user={props.user} />
       <ProfileNavBar user={props.user}/>
     </div>
