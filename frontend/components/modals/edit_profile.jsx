@@ -29,8 +29,8 @@ class EditProfile extends React.Component {
     return (
       <div className="edit-profile-modal-container">
         <button onClick={this.openModal}>
-        <i className="fa fa-pencil" aria-hidden="true"></i>
-        Edit Profile</button>
+          <i className="fa fa-pencil" aria-hidden="true"></i>
+          Edit Profile</button>
         <Modal
           isOpen={this.state.modalIsOpen}
           onAfterOpen={this.afterOpenModal}
@@ -47,10 +47,8 @@ class EditProfile extends React.Component {
 
         </Modal> 
       </div>
-
     );
   }
-
 }
 
 export default EditProfile;

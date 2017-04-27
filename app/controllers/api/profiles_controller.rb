@@ -7,7 +7,8 @@ class Api::ProfilesController < ApplicationController
   def update
     @user = User.find(params[:user_id])
     @profile = @user.profile
-    debugger
+    prepare_user_for_show(@user)
+    @status = 0 
     if @profile.update(profile_params)
       render "api/users/show"
     else 

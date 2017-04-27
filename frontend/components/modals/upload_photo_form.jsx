@@ -41,6 +41,7 @@ class UploadPhotoForm extends React.Component {
     formData.append("photo[picture]", this.state.imageFile)
     this.props.uploadPhoto(formData)
     this.setState({caption: "", imageFile: null, imageUrl: null})
+    this.props.closeModal();
   }
 
   render() {

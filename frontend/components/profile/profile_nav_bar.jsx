@@ -23,7 +23,7 @@ const ProfileNavBar = (props) => {
         <li 
           onClick={onClick}
           className="profile-nav-link profile-nav-friends">
-          Friends
+          Friends  <span className='grey'> {props.user.friend_count} </span>
         </li>
         <li 
           onClick={onClick}

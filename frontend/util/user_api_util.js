@@ -9,7 +9,7 @@ export const patchUser = (user) => {
   return $.ajax({
     method: 'PATCH',
     url: '/api/users/' + user.id,
-    data: user
+    data: { user }
   });
 };
 
@@ -17,7 +17,7 @@ export const patchProfile = (id, profile) => {
   return $.ajax({
     method: 'PATCH',
     url: `/api/users/${id}/profile`,
-    data: profile
+    data: { profile }
   });
 };
 

@@ -46,9 +46,9 @@ class UploadPhoto extends React.Component {
           <button 
             className="modal-close" 
             onSubmit={this.closeModal}
-            onClick={this.closeModal} >
+            onClick={this.closeModal}>
             close </button>
-          <UploadPhotoForm />
+          <UploadPhotoForm closeModal={this.closeModal} />
 
         </Modal> 
       </div>

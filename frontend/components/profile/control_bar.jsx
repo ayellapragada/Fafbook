@@ -22,7 +22,7 @@ const ControlBar = (props) => {
       </div>
       <div className="profile-header-space"></div>
       <ActionBar user={props.user} />
-      <ProfileNavBar />
+      <ProfileNavBar user={props.user}/>
     </div>
   );
 };
