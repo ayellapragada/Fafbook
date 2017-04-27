@@ -16,6 +16,10 @@ class ApplicationController < ActionController::Base
                                     :location, :work, :relationship)
   end
 
+  def post_params
+    params.require(:post).permit(:author_id, :receiver_id, :body)
+  end
+
   def prepare_user_for_show(user)
     profile_album_id = user.albums.find_by(name: "Profile")
 
