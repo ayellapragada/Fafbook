@@ -5,7 +5,8 @@ import merge from 'lodash/merge';
 
 const _nullPosts = Object.freeze({
   posts:null,
-  postList: []
+  postList: [],
+  errors: []
 });
 
 const PostsReducer = (state = _nullPosts, action) => {

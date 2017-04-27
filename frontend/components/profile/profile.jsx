@@ -1,11 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import DocumentTitle from 'react-document-title';
-import { fetchUser } from '../../actions/user_actions';
+import { fetchUser, receiveViewedUser } from '../../actions/user_actions';
 import ControlBar from './control_bar';
 import AboutSideBar from './about_side_bar';
 import Photos from './photos';
 import Friends from './friends';
+import Feed from '../feed/feed';
 
 
 
@@ -21,6 +22,7 @@ class Profile extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     if (this.props.userId !== nextProps.userId) {
+      this.props.clearUser();
       this.props.fetchUser(nextProps.userId);
     }
   }
@@ -60,14 +62,21 @@ class Profile extends React.Component {
     else if (user.id > 0){
       return (
         <div className="profile">
-        <DocumentTitle title={`${user.fname} ${user.lname}`} />
+          <DocumentTitle title={`${user.fname} ${user.lname}`} />
           <div className="profile-header">
             <ControlBar user={user} />
           </div>
+
           <div className="profile-body">
-            <AboutSideBar user={user} />
-            <Photos user={user} />
-            <Friends user={user} />
+            <div className="profile-sidebar-not-feed">
+              <AboutSideBar user={user} />
+              <Photos user={user} />
+              <Friends user={user} />
+            </div>
+
+            <div className="profile-feed">
+              <Feed />
+            </div>
           </div>
         </div>
       );
@@ -75,8 +84,7 @@ class Profile extends React.Component {
 
     else {
       return (
-        <div className="profile">Loading
-        </div>
+        <div className="loader">Loading...</div>
       )
     }
   }
@@ -88,7 +96,8 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchUser: (id) => dispatch(fetchUser(id))
+  fetchUser: (id) => dispatch(fetchUser(id)),
+  clearUser: () => dispatch(receiveViewedUser(null))
 });
 
 
