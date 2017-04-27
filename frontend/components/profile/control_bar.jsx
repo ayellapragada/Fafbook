@@ -15,15 +15,12 @@ const ControlBar = (props) => {
         <img 
           className="cover-img"
           src={props.user.cover_url}/>
+        <UploadPhoto text={'Update your cover photo!'}/>
       </div>
       <div className="profile-profile-photo">
         <img 
           className="profile-img"
           src={props.user.profile_url}/>
-        <UploadPhoto
-          text={"Update Profile Photo"}
-          updateProfile={true}
-          buttonType={"update-photo-hover"}/>
       </div>
       <div className="profile-header-space"></div>
       <ActionBar user={props.user} />
