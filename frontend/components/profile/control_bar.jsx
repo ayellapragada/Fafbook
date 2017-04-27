@@ -22,7 +22,16 @@ const ControlBar = (props) => {
           src={props.user.profile_url}/>
       </div>
       <div className="profile-header-space"></div>
-        <UpdatePhotos />
+      <div className="profile-update-photos">
+        <UpdatePhotos 
+          buttonClass={'update-photo-hover'}
+          text={'Update Profile Photo'}
+        />
+        <UpdatePhotos 
+          buttonClass={'update-cover-hover'}
+          text={'Update Cover Photo'}
+        />
+      
       <ActionBar user={props.user} />
       <ProfileNavBar user={props.user}/>
     </div>

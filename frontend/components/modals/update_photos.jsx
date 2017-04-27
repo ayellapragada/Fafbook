@@ -26,10 +26,10 @@ class UpdatePhotos extends React.Component {
 
   render() {
     return (
-      <div className={this.props.buttonType}>
+      <div className={this.props.buttonClass}>
         <button onClick={this.openModal}>
-          <i className="fa fa-camera-retro" aria-hidden="true"></i>
-          {this.props.text}</button>
+          <i className="fa fa-camera-retro always-visible" aria-hidden="true"></i>
+          <span className="hide">{this.props.text}</span></button>
         <Modal
           isOpen={this.state.modalIsOpen}
           onAfterOpen={this.afterOpenModal}
@@ -44,7 +44,6 @@ class UpdatePhotos extends React.Component {
             onClick={this.closeModal}>
             close </button>
           <UpdatePhotosForm 
-            pictureType={this.props.pictureType}
             closeModal={this.closeModal} />
         </Modal> 
       </div>
