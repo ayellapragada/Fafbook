@@ -31,7 +31,13 @@ class CreatePost extends React.Component {
     const nextUserId = nextProps.user.id;
     const name = nextProps.user.fname;
 
-    this.setState({placeHolder: this.setMessage(currentUserId, nextUserId, name)})
+    this.setState(
+
+      {
+        placeHolder: this.setMessage(currentUserId, nextUserId, name),
+        receiver_id: nextUserId 
+      }
+    )
   }
 
   setMessage(userId, otherUserId, name) {

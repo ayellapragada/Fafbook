@@ -17,7 +17,8 @@ class ApplicationController < ActionController::Base
   end
 
   def post_params
-    params.require(:post).permit(:author_id, :receiver_id, :body)
+    params.require(:post).permit(:author_id, :receiver_id, 
+                                 :body, :page_number, :how_many)
   end
 
   def prepare_user_for_show(user)

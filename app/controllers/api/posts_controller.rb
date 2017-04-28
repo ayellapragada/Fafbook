@@ -1,7 +1,6 @@
 class Api::PostsController < ApplicationController
   def index
-    debugger
-#    Posts.where("author_id IN (?) or receiver_id IN (?)", )
+    # Posts.where("author_id IN (?) or receiver_id IN (?)", )
   end
 
   def create
@@ -26,10 +25,22 @@ class Api::PostsController < ApplicationController
   def delete
   end
 
-  def timeline
+  def feed
+    @first = Post
+      .where(receiver_id: params[:id])
+      .includes(:author, :receiver)
+      .order("created_at DESC")
+      .limit(5)
 
+    @posts = @first.map do |post|
+      {
+        author: User.find(post.author_id),
+        receiver: User.find(post.receiver_id)
+      }
+
+    end
+    render 'api/posts/feed'
   end
-
 
 
 end
