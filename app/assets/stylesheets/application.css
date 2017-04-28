@@ -31,6 +31,7 @@ html {
 
 body {
   background-color: #e9ebee
+  letter-spacing: 0.24px;
 }
 
 .ReactModal__Body--open {
