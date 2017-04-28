@@ -6,6 +6,7 @@ export const RECEIVE_POST = "RECEIVE_POST";
 export const REMOVE_POST = "REMOVE_POST";
 export const ADD_NEW_POSTS = "ADD_NEW_POSTS";
 export const RECEIVE_POST_ERRORS ="RECEIVE_POST_ERRORS";
+export const REPLACE_POST = "REPLACE_POST";
 
 export const receiveAllPosts = (posts) => ({
   type: RECEIVE_ALL_POSTS,
@@ -15,6 +16,11 @@ export const receiveAllPosts = (posts) => ({
 export const addNewPosts = (posts) => ({
   type: ADD_NEW_POSTS,
   posts
+});
+
+export const replacePost = post => ({
+  type: REPLACE_POST,
+  post
 });
 
 export const receivePost = post => ({
@@ -75,16 +81,16 @@ export const deletePost = post => dispatch => (
 );
 
 export const createComment = comment => dispatch => (
-  CommenstUtil.postComment(comment)
-  .then(post => dispatch(receivePost(post)))
+  CommentsUtil.postComment(comment)
+  .then(post => dispatch(replacePost(post)))
 );
 
 export const updateComment = comment => dispatch => (
-  CommenstUtil.changeComment(comment)
-  .then(post => dispatch(receivePost(post)))
+  CommentsUtil.changeComment(comment)
+  .then(post => dispatch(replacePost(post)))
 );
 
 export const deleteComment = id => dispatch => (
-  CommenstUtil.postComment(comment)
-  .then(post => dispatch(receivePost(post)))
+  CommentsUtil.postComment(comment)
+  .then(post => dispatch(replacePost(post)))
 );

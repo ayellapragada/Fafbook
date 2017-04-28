@@ -15,9 +15,7 @@ class Post extends React.Component {
 
   checkSubmit(e) {
     if (e.keyCode== 13 && e.shiftKey == false) {
-      debugger
-      e.preventDefault();
-      this.handleSubmit();
+      this.handleSubmit(e);
     } 
   };
 
@@ -30,7 +28,8 @@ class Post extends React.Component {
     e.preventDefault();
     this.props.createComment(
       {post_id: this.props.post.post.id ,
-        comment: this.state.comment});
+        comment: this.state.comment,
+        user_id: this.props.currentUser.id});
     this.setState({comment: ""});
   }
 

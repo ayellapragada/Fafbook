@@ -1,5 +1,9 @@
-import { RECEIVE_ALL_POSTS, RECEIVE_POST,
-  REMOVE_POST, ADD_NEW_POSTS, RECEIVE_POST_ERRORS } from '../actions/post_actions';
+import { 
+  RECEIVE_ALL_POSTS, RECEIVE_POST,
+  REMOVE_POST, ADD_NEW_POSTS, RECEIVE_POST_ERRORS,
+  REPLACE_POST
+} from '../actions/post_actions';
+
 import merge from 'lodash/merge';
 
 
@@ -20,6 +24,17 @@ const PostsReducer = (state = _nullPosts, action) => {
     case RECEIVE_POST:
       list = state.postList.concat(Object.keys(action.post))
       return merge({}, state, { posts: action.post, postList: list, errors: [] })
+    case REPLACE_POST:
+
+      const newPosts = {};
+      Object.keys(state.posts).forEach((id) => {
+        if (id === Object.keys(action.post)[0]) {
+          newPosts[id] = action.post;
+        } else 
+          newPosts[id] = state.posts[id]
+      })
+
+      return merge({}, state, { posts: newPosts, postList: list, errors: [] })
     case REMOVE_POST:
       const newState = merge({}, state)
       debugger // Never actually finished htis since it won't be helpful for a while.
