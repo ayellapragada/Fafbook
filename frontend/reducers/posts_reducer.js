@@ -11,17 +11,23 @@ const _nullPosts = Object.freeze({
 
 const PostsReducer = (state = _nullPosts, action) => {
   Object.freeze(state);
-  debugger
+  var list;
 
   switch(action.type) {
     case RECEIVE_ALL_POSTS:
-      return state;
+      list = Object.keys(action.posts)
+      return merge({}, _nullPosts, { posts: action.posts, postList: list })
     case RECEIVE_POST:
-      return Object.assign({}, state, {posts: action.post, errors: []});
+      list = state.postList.concat(Object.keys(action.post))
+      return merge({}, state, { posts: action.post, postList: list, errors: [] })
     case REMOVE_POST:
+      const newState = merge({}, state)
+      debugger // Never actually finished htis since it won't be helpful for a while.
       return state;
     case ADD_NEW_POSTS:
-      return state;
+      // Used later for infinite scroll.
+      list = state.postList.concat(Object.keys(action.post))
+      return merge({}, state, { posts: action.posts, postList: list, errors: [] })
     case RECEIVE_POST_ERRORS:
       return Object.assign({}, state, {errors: action.errors}); 
     default:
