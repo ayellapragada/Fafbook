@@ -4,6 +4,7 @@ export const RECEIVE_ALL_POSTS = "RECEIVE_ALL_POSTS";
 export const RECEIVE_POST = "RECEIVE_POST";
 export const REMOVE_POST = "REMOVE_POST";
 export const ADD_NEW_POSTS = "ADD_NEW_POSTS";
+export const RECEIVE_POST_ERRORS ="RECEIVE_POST_ERRORS";
 
 export const receiveAllPosts = (posts) => ({
   type: RECEIVE_ALL_POSTS,
@@ -16,13 +17,18 @@ export const addNewPosts = (posts) => ({
 });
 
 export const receivePost = post => ({
-  type: RECEIVE_POST.
+  type: RECEIVE_POST,
   post
 });
 
 export const removePost = post => ({
   type: REMOVE_POST,
   post
+});
+
+export const receivePostErrors = errors => ({
+  type: RECEIVE_POST_ERRORS,
+  errors
 });
 
 export const fetchNewPosts = () => dispatch => (
@@ -47,7 +53,8 @@ export const fetchMoreUserPosts = (id) => dispatch => (
 
 export const createPost = post => dispatch => (
   APIUtil.createPost(post)
-  .then(post => dispatch(receivePost(post)))
+  .then(post => dispatch(receivePost(post)), 
+    err => dispatch(receivePostErrors(err.responseJSON)))
 );
 
 export const fetchPost = id => dispatch => (
@@ -57,7 +64,8 @@ export const fetchPost = id => dispatch => (
 
 export const updatePost =  post => dispatch => (
   APIUtil.updatePost(post)
-  .then(post => dispatch(receivePost(post)))
+  .then(post => dispatch(receivePost(post)),
+    err => dispatch(receivePostErrors(err.responseJSON)))
 );
 
 export const deletePost = post => dispatch => (

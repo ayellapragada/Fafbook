@@ -5,7 +5,6 @@ class Api::PostsController < ApplicationController
   end
 
   def create
-    debugger
     @post = Post.create(post_params)
 
     if @post.save

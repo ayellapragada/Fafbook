@@ -16,7 +16,7 @@ export const createPost = post => {
   return $.ajax({
     method: 'POST',
     url: '/api/posts',
-    post: { post }
+    data: { post }
   });
 };
 
@@ -31,7 +31,7 @@ export const updatePost = post => {
   return $.ajax({
     method: 'PATCH',
     url: `/api/posts${post.id}`,
-    post: { post }
+    data: { post }
   });
 };
 

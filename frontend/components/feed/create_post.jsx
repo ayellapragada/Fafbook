@@ -7,7 +7,7 @@ class CreatePost extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {input: "",
+    this.state = {body: "",
                   author_id: this.props.currentUser.id,
                   receiver_id: this.props.user.id};
 
@@ -17,13 +17,13 @@ class CreatePost extends React.Component {
   }
 
   handleChange(e) {
-    this.setState({input: e.currentTarget.value})
+    this.setState({body: e.currentTarget.value})
   }
 
   handleSubmit(e){
     e.preventDefault();
-    this.props.createPost(this.state);
-    this.setState(input: "");
+    const post = this.state;
+    this.props.createPost(post).then(() => this.setState({body: "" }));
   }
 
   handleClick(e){

@@ -1,10 +1,10 @@
-import { RECEIVE_ALL_POSTS, RECEIVE_POST, 
-  REMOVE_POST, ADD_NEW_POSTS } from '../actions/post_actions';
+import { RECEIVE_ALL_POSTS, RECEIVE_POST,
+  REMOVE_POST, ADD_NEW_POSTS, RECEIVE_POST_ERRORS } from '../actions/post_actions';
 import merge from 'lodash/merge';
 
 
 const _nullPosts = Object.freeze({
-  posts:null,
+  posts: {},
   postList: [],
   errors: []
 });
@@ -16,15 +16,16 @@ const PostsReducer = (state = _nullPosts, action) => {
     case RECEIVE_ALL_POSTS:
       return state;
     case RECEIVE_POST:
-      return state;
+      return Object.assign({}, state, {posts: action.post, errors: []});
     case REMOVE_POST:
       return state;
     case ADD_NEW_POSTS:
       return state;
+    case RECEIVE_POST_ERRORS:
+      return Object.assign({}, state, {errors: action.errors}); 
     default:
       return state;
   }
 };
 
 export default PostsReducer;
-

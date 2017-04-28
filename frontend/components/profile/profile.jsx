@@ -22,7 +22,6 @@ class Profile extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     if (this.props.userId !== nextProps.userId) {
-      this.props.clearUser();
       this.props.fetchUser(nextProps.userId);
     }
   }
@@ -38,7 +37,7 @@ class Profile extends React.Component {
             Do you know {user.fname}?
           </div>
           <div className="do-you-know-box-content">
-            To see what {user.gender ? "he" : "she"} shares, 
+            To see what {user.gender ? "he" : "she"} shares,
             send {user.gender ? "him" : "her"} a friend request.
           </div>
         </div>
