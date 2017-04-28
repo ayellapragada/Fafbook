@@ -26,19 +26,22 @@ class Api::PostsController < ApplicationController
   end
 
   def feed
-    @first = Post
+    posts_with_ids = Post
       .where(receiver_id: params[:id])
       .includes(:author, :receiver)
       .order("created_at DESC")
       .limit(5)
 
-    @posts = @first.map do |post|
+    @posts = posts_with_ids.map do |post|
       {
+        post: post,
         author: User.find(post.author_id),
         receiver: User.find(post.receiver_id)
       }
-
     end
+
+    @posts_array = posts_with_ids.collect(&:id)
+
     render 'api/posts/feed'
   end
 
