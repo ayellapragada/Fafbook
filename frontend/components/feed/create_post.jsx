@@ -7,14 +7,36 @@ class CreatePost extends React.Component {
   constructor(props) {
     super(props);
 
+    const message = this.setMessage(
+      this.props.currentUser.id, 
+      this.props.user.id, 
+      this.props.user.fname);
+
+
     this.state = {body: "",
       author_id: this.props.currentUser.id,
-      receiver_id: this.props.user.id};
+      receiver_id: this.props.user.id,
+      placeHolder: message}
+
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.setState = this.setState.bind(this);
+    this.setMessage = this.setMessage.bind(this);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const currentUserId = this.props.currentUser.id;
+    const nextUserId = nextProps.user.id;
+    const name = nextProps.user.fname;
+
+    this.setState({placeHolder: this.setMessage(currentUserId, nextUserId, name)})
+  }
+
+  setMessage(userId, otherUserId, name) {
+    return userId === otherUserId ?
+      "What's on your mind?" : `Write something to ${name}...`   
   }
 
   handleChange(e) {
@@ -51,7 +73,8 @@ class CreatePost extends React.Component {
                   <img src={this.props.currentUser.profile_url}/>
                   <textarea
                     value={this.state.body}
-                    placeholder="What's on your mind?"
+                    placeholder={this.state.placeHolder}
+
                     onClick={this.handleClick}
                     onChange={this.handleChange} />
                 </div>
