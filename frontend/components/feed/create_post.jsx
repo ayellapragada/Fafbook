@@ -41,7 +41,10 @@ class CreatePost extends React.Component {
   }
 
   setMessage(userId, otherUserId, name) {
-    return userId === otherUserId ?
+    if (!otherUserId){
+      return "What's on your mind?"
+    }
+    return userId == otherUserId ?
       "What's on your mind?" : `Write something to ${name}...`   
   }
 

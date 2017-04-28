@@ -61,8 +61,6 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = dispatch => ({
   fetchNewPosts: () => dispatch(fetchNewPosts()),
   fetchMorePosts: () => dispatch(fetchMorePosts()),
-  fetchUserPosts: (id) => dispatch(fetchUserPosts(id)),
-  fetchMoreUserPosts: (id) => dispatch(fetchMoreUserPosts(id)),
   createComment: (comment) => dispatch(createComment(comment)),
 });
 
