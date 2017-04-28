@@ -112,7 +112,19 @@
 }
 
 .friend-requests-container {
+  position: absolute;
+  top: 43px;
+  right: 530px;
+  background-color: white;
+  height: 300px;
+  width: 300px;
+  border: 1px solid #dddfe2;
+  z-index: 50000;
 
+  ul {
+    padding: 10px 20px 0 85px;
+
+  }
 }
 
 
