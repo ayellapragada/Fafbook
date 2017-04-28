@@ -8,12 +8,13 @@ class CreatePost extends React.Component {
     super(props);
 
     this.state = {body: "",
-                  author_id: this.props.currentUser.id,
-                  receiver_id: this.props.user.id};
+      author_id: this.props.currentUser.id,
+      receiver_id: this.props.user.id};
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.setState = this.setState.bind(this);
   }
 
   handleChange(e) {
@@ -23,7 +24,8 @@ class CreatePost extends React.Component {
   handleSubmit(e){
     e.preventDefault();
     const post = this.state;
-    this.props.createPost(post).then(() => this.setState({body: "" }));
+    this.props.createPost(post)
+      .then(() => this.setState({body: "" }));
   }
 
   handleClick(e){
@@ -42,24 +44,26 @@ class CreatePost extends React.Component {
 
         <div className="create-post-form-container">
           <form onSubmit={this.handleSubmit}>
+
             <div 
               className={"create-post-form-input " + 
                   ((this.props.errors.length > 0 ) ? "errors" : "")}>
-              <img src={this.props.currentUser.profile_url}/>
-              <textarea
-                value={this.state.input}
-                placeholder="What's on your mind?"
-                onClick={this.handleClick}
-                onChange={this.handleChange} />
-            </div>
-            <div className="create-post-form-submit">
-              <button type="submit">Post</button>
-                
-            </div>
-          </form>
-        </div>
+                  <img src={this.props.currentUser.profile_url}/>
+                  <textarea
+                    value={this.state.body}
+                    placeholder="What's on your mind?"
+                    onClick={this.handleClick}
+                    onChange={this.handleChange} />
+                </div>
 
-      </div>
+                <div className="create-post-form-submit">
+                  <button type="submit">Post</button>
+
+                </div>
+              </form>
+            </div>
+
+          </div>
     )
   }
 
