@@ -76,7 +76,7 @@
 
 .about-intro-body {
   text-align: center;
-  padding-bottom: 15px;
+  padding-bottom: 20px;
   border-bottom: 1px solid #e9ebee;
   font-size: 12px;
   margin-bottom: 15px;
@@ -88,7 +88,7 @@
   padding: 5px 0 5px 5px;
   font-size: 16px;
   color: #4b4f56;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 .profile-sidebar-header i,
@@ -157,10 +157,6 @@
   &:hover{
     background-color: #f6f7f9;
   }
-}
-
-.profile-body {
-  margin-top: 15px;
 }
 
 .profile-nav-empty {
@@ -335,6 +331,7 @@
 }
 
 .profile-body {
+  margin-top: 18px;
   width: 851px;
   display: flex;
   justify-content: space-between;

@@ -1,0 +1,49 @@
+.create-post {
+  height: 160px;
+  width: 510px;
+}
+
+.create-post-header-container {
+  height: 35px;
+  background-color: #f6f7f9;
+  border: 1px solid #dddfe2;
+}
+
+.create-post-header {
+  margin: 11px 12px 8px 12px;
+  font-size: 12px;
+  color: #4b4f56;
+  font-weight: bold;
+  i {
+    margin-right: 5px;
+    color: #5e7ebe;
+  }
+}
+
+
+.create-post-form-input {
+  background-color: white;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  textarea{
+    border: 1px solid transparent;
+    height: 64px;
+    line-height: 58px;
+    color: #90949c;
+    width: 90%;
+    font-size: 24px;
+    font-weight: 300;
+    word-wrap: break-word;
+    resize: none;
+
+  }
+  img {
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(0, 0, 0, 0.0980392);
+  }
+}
