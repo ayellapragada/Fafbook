@@ -13,21 +13,34 @@ import Feed from '../feed/feed';
 class Profile extends React.Component {
   constructor(props) {
     super();
+    this.state = {loading: true}
   }
 
   componentDidMount() {
-    this.props.fetchUser(this.props.userId);
-    this.forceUpdate();
+    this.props.fetchUser(this.props.userId)
+      .then( () => this.setState({loading: false}))
   }
 
   componentWillReceiveProps(nextProps) {
     if (this.props.userId !== nextProps.userId) {
-      this.props.fetchUser(nextProps.userId);
+      this.setState({loading: true});
+      this.props.fetchUser(nextProps.userId)
+        .then( () => this.setState({loading: false}))
     }
+  }
+
+  componentWillUnmount() {
+    this.setState({loading: true});
   }
 
   render() {
     const user = this.props.user;
+
+    if (this.state.loading) {
+      return (
+        <div className="loader">Loading...</div>
+      )
+    }
 
     if (user.status === -2) {
       return (
@@ -81,11 +94,6 @@ class Profile extends React.Component {
       );
     }
 
-    else {
-      return (
-        <div className="loader">Loading...</div>
-      )
-    }
   }
 }
 const mapStateToProps = (state, ownProps) => ({

@@ -6,7 +6,7 @@ class Post extends React.Component {
     super(props);
     const dateTime = new Date( Date.parse(this.props.post.post.created_at))
     this.state = {dateTime}
-    debugger
+    
   }
 
 

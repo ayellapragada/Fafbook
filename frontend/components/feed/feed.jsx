@@ -12,11 +12,23 @@ import CreatePost from './create_post';
 
 class Feed extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
+    this.state = {loading: true};
+  }
+
+  componentWillReceiveProps(nextProps){
+    if (this.props.user.id != nextProps.user.id) {
+      this.props.fetchUserPosts(nextProps.user.id);
+    }
   }
 
   componentDidMount() {
-    this.props.fetchUserPosts(this.props.user.id);
+    this.props.fetchUserPosts(this.props.user.id)
+      .then(() => this.setState({loading: false}))
+  }
+
+  componentWillUnmount() {
+    this.setState({loading: true})
   }
 
   render() {

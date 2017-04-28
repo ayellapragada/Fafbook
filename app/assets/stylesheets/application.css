@@ -37,3 +37,12 @@ body {
 .ReactModal__Body--open {
   overflow: hidden;
 }
+
+
+html { 
+  background-color: #e9ebee; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
