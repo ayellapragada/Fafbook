@@ -1,23 +1,30 @@
 import React from 'react';
 import { Link } from 'react-router';
+import Comment from './comment';
 
 class Post extends React.Component {
   constructor(props) {
     super(props);
     const dateTime = new Date( Date.parse(this.props.post.post.created_at))
+    
     this.state = {dateTime: dateTime,
-      comment: "" };
+      comment: "",
+      comments: this.props.post.post.comments};
+
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.checkSubmit = this.checkSubmit.bind(this);
   }
-
 
   checkSubmit(e) {
     if (e.keyCode== 13 && e.shiftKey == false) {
       this.handleSubmit(e);
     } 
   };
+
+  componentWillReceiveProps(nextProps) {
+    this.setState({comments: nextProps.post.post.comments})
+  }
 
   handleChange(e) {
     this.setState({comment: e.currentTarget.value})
@@ -36,6 +43,16 @@ class Post extends React.Component {
 
 
   render(){
+
+    const comments = this.state.comments.map((comment) => {
+      return (
+        <li key={comment.id}>
+          <Comment comment={comment}/>
+        </li>
+      )
+    });
+
+
     return (
       <div className="post-container">
         <div className="post-top">
@@ -87,6 +104,9 @@ class Post extends React.Component {
 
         <div className="post-bottom">
           <div className="post-comments">
+            <ul>
+              {comments}
+            </ul>
           </div>
 
           <div className="post-new-comment">

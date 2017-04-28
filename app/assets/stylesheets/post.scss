@@ -54,6 +54,7 @@
 
 .post-buttons {
   display: flex;
+  border-bottom: 1px solid #e5e5e5;
 }
 
 .post-action-button {
@@ -89,6 +90,19 @@
 
 
 
+.comment-container{
+  font-size: 12px;
+  -webkit-font-smoothing: antialiased;
+  a {
+    color: #365899;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  p {
+    margin-top: 5px;
+  }
+}
 
 
 
@@ -107,10 +121,10 @@
 
 
 
-
+.comment-container,
 .post-new-comment {
   display: flex;
-  padding: 2px 12px 8px 12px;
+  padding: 12px 12px 8px 12px;
   overflow: hidden;
   img {
     width: 32px;
@@ -132,6 +146,4 @@
     }
   }
 }
-
-
 

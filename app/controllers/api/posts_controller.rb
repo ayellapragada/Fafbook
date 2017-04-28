@@ -1,6 +1,23 @@
 class Api::PostsController < ApplicationController
   def index
-    # Posts.where("author_id IN (?) or receiver_id IN (?)", )
+    possible_author_ids = [current_user.id] + current_user.friends.ids 
+    possible_receiver_id = [current_user.id]
+    posts_with_ids = Post
+      .where("author_id IN (?) or receiver_id IN (?)", possible_author_ids, possible_receiver_id)
+      .includes(:author, :receiver, :comments)
+
+    @posts = posts_with_ids.map do |post|
+      {
+        post: post,
+        author: User.find(post.author_id),
+        receiver: User.find(post.receiver_id)
+      }
+    end
+
+    @posts_array = posts_with_ids.collect(&:id)
+
+    render 'api/posts/feed'
+
   end
 
   def create
@@ -28,9 +45,8 @@ class Api::PostsController < ApplicationController
   def feed
     posts_with_ids = Post
       .where(receiver_id: params[:id])
-      .includes(:author, :receiver)
+      .includes(:author, :receiver, :comments)
       .order("created_at DESC")
-      .limit(5)
 
     @posts = posts_with_ids.map do |post|
       {
