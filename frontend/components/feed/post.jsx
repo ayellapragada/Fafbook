@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 import Comment from './comment';
+import { connect } from 'react-redux';
 
 class Post extends React.Component {
   constructor(props) {
@@ -128,4 +129,10 @@ class Post extends React.Component {
 
 }
 
-export default Post;
+const mapStateToProps = state => ({
+  currentUser: state.session.currentUser,
+
+});
+
+
+export default connect (mapStateToProps, null)(Post);

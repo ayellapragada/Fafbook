@@ -28,7 +28,7 @@ class CreatePost extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     const currentUserId = this.props.currentUser.id;
-    const nextUserId = nextProps.user.id || this.props.currentUser.id;
+    const nextUserId = nextProps.user.id;
     const name = nextProps.user.fname;
 
     this.setState(

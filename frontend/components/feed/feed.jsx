@@ -40,7 +40,6 @@ class Feed extends React.Component {
       return  <Post 
         post={post} 
         createComment={this.props.createComment}
-        currentUser={this.props.currentUser}
         key={ post.post.id }/>
     })
 
