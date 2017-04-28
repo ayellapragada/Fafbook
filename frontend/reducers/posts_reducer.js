@@ -14,14 +14,11 @@ const _nullPosts = Object.freeze({
 
 const PostsReducer = (state = _nullPosts, action) => {
   Object.freeze(state);
-  var list;
 
   switch(action.type) {
     case RECEIVE_ALL_POSTS:
-      list = Object.keys(action.posts)
       return merge({}, _nullPosts, { posts: action.posts})
     case RECEIVE_POST:
-      list = state.postList.concat(Object.keys(action.post))
       return merge({}, state, { posts: action.post})
     case REPLACE_POST:
       return merge({}, state, {posts: action.post})

@@ -28,6 +28,12 @@ class Timeline extends React.Component {
     const postsValues = Object.values(this.props.posts);
     const reversedPosts = postsValues.reverse();
 
+    if (!this.props.currentUser) {
+      return (
+        null
+      )
+    }
+
     const posts = reversedPosts.map(post => {
       return  <Post 
         post={post} 
@@ -36,17 +42,23 @@ class Timeline extends React.Component {
         key={ post.post.id }/>
     })
 
-    return (
-      <div className="feed">
-        <CreatePost />
+    if (this.state.loading) {
+      return (
+        <div className="loader">Loading...</div>
+      )
+    } else {
+      return (
+        <div className="feed">
+          <CreatePost text={"Whats on your mind?"} />
 
-        <ul>
-          {posts}
-        </ul>
+          <ul>
+            {posts}
+          </ul>
 
-      </div>
-    )
-  }
+        </div>
+      )
+    }
+  } 
 }
 
 const mapStateToProps = (state) => ({

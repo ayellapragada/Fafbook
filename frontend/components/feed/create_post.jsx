@@ -63,6 +63,11 @@ class CreatePost extends React.Component {
   }
 
   render() {
+    if (!this.props.currentUser) {
+      return (
+       null
+      )
+    }
     return (
       <div className="create-post">
 
@@ -82,8 +87,7 @@ class CreatePost extends React.Component {
                   <img src={this.props.currentUser.profile_url}/>
                   <textarea
                     value={this.state.body}
-                    placeholder={this.state.placeHolder}
-
+                    placeholder={this.props.text || this.state.placeHolder}
                     onClick={this.handleClick}
                     onChange={this.handleChange} />
                 </div>
