@@ -4,7 +4,8 @@ import {
   fetchNewPosts, 
   fetchUserPosts, 
   fetchMorePosts, 
-  fetchMoreUserPosts } from '../../actions/post_actions';
+  fetchMoreUserPosts,
+  createComment } from '../../actions/post_actions';
 
 import Post from './post';
 import CreatePost from './create_post';
@@ -36,7 +37,11 @@ class Feed extends React.Component {
     const reversedPosts = postsValues.reverse();
 
     const posts = reversedPosts.map(post => {
-      return  <Post post={post} key={ post.post.id }/>
+      return  <Post 
+        post={post} 
+        createComment={this.props.createComment}
+        currentUser={this.props.currentUser}
+        key={ post.post.id }/>
     })
 
     return (
@@ -67,6 +72,7 @@ const mapDispatchToProps = dispatch => ({
   fetchMorePosts: () => dispatch(fetchMorePosts()),
   fetchUserPosts: (id) => dispatch(fetchUserPosts(id)),
   fetchMoreUserPosts: (id) => dispatch(fetchMoreUserPosts(id)),
+  createComment: (comment) => dispatch(createComment(comment)),
 });
 
 

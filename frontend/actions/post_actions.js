@@ -1,4 +1,5 @@
 import * as APIUtil from '../util/post_api_util';
+import * as CommentsUtil from '../util/comment_api_util';
 
 export const RECEIVE_ALL_POSTS = "RECEIVE_ALL_POSTS";
 export const RECEIVE_POST = "RECEIVE_POST";
@@ -71,4 +72,19 @@ export const updatePost =  post => dispatch => (
 export const deletePost = post => dispatch => (
   APIUtil.updatePost(post)
   .then(post => dispatch(removePost(post)))
+);
+
+export const createComment = comment => dispatch => (
+  CommenstUtil.postComment(comment)
+  .then(post => dispatch(receivePost(post)))
+);
+
+export const updateComment = comment => dispatch => (
+  CommenstUtil.changeComment(comment)
+  .then(post => dispatch(receivePost(post)))
+);
+
+export const deleteComment = id => dispatch => (
+  CommenstUtil.postComment(comment)
+  .then(post => dispatch(receivePost(post)))
 );

@@ -73,3 +73,65 @@
   }
 
 }
+
+
+
+
+
+
+.post-bottom {
+  background-color: #f6f7f9;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.post-new-comment {
+  display: flex;
+  padding: 2px 12px 8px 12px;
+  overflow: hidden;
+  img {
+    width: 32px;
+    height: 32px;
+    margin-right: 10px;
+    border: 1px solid black;
+  }
+
+  textarea {
+    width: 435px;
+    height: 29px;
+    padding-left: 5px;
+    resize: none;
+    overflow-y: auto;
+    line-height: 25px;
+    border: 1px solid #dddfe2;
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+
+
