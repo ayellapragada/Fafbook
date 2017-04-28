@@ -15,7 +15,7 @@ class CreatePost extends React.Component {
 
     this.state = {body: "",
       author_id: this.props.currentUser.id,
-      receiver_id: this.props.user.id,
+      receiver_id: this.props.user.id || this.props.currentUser.id,
       placeHolder: message}
 
 
@@ -28,7 +28,7 @@ class CreatePost extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     const currentUserId = this.props.currentUser.id;
-    const nextUserId = nextProps.user.id;
+    const nextUserId = nextProps.user.id || this.props.currentUser.id;
     const name = nextProps.user.fname;
 
     this.setState(

@@ -7,6 +7,7 @@ class Api::PostsController < ApplicationController
       .includes(:author, :receiver, :comments)
 
     @posts = posts_with_ids.map do |post|
+      
       {
         post: post,
         author: User.find(post.author_id),
