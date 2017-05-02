@@ -4,6 +4,16 @@ class Search extends React.Component {
   constructor() {
     super();
     this.state = {query: ""};
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.update = this.update.bind(this);
+  }
+
+  update() {
+
+  }
+
+  handleSubmit() {
+
   }
 
   render() {

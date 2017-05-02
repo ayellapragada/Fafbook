@@ -13,19 +13,19 @@ import Feed from '../feed/feed';
 class Profile extends React.Component {
   constructor(props) {
     super();
-    this.state = {loading: true}
+    this.state = {loading: true};
   }
 
   componentDidMount() {
     this.props.fetchUser(this.props.userId)
-      .then( () => this.setState({loading: false}))
+      .then( () => this.setState({loading: false}));
   }
 
   componentWillReceiveProps(nextProps) {
     if (this.props.userId !== nextProps.userId) {
       this.setState({loading: true});
       this.props.fetchUser(nextProps.userId)
-        .then( () => this.setState({loading: false}))
+        .then( () => this.setState({loading: false}));
     }
   }
 
@@ -35,17 +35,18 @@ class Profile extends React.Component {
 
   render() {
     const user = this.props.user;
+    const currentUser = this.props.currentUser;
 
     if (this.state.loading) {
       return (
         <div className="loader">Loading...</div>
-      )
+      );
     }
 
     if (user.status === -2) {
       return (
         <div className="profile">
-          <ControlBar user={user} />
+          <ControlBar user={user} currentUser={currentUser} />
           <div className="do-you-know-box">
             Do you know {user.fname}?
           </div>
@@ -60,7 +61,7 @@ class Profile extends React.Component {
     else if (user.status === -1) {
       return (
         <div className="profile">
-          <ControlBar user={user} />
+          <ControlBar user={user} currentUser={currentUser} />
           <div className="do-you-know-box">
             Do you know {user.fname}?
           </div>
@@ -76,7 +77,7 @@ class Profile extends React.Component {
         <div className="profile">
           <DocumentTitle title={`${user.fname} ${user.lname}`} />
           <div className="profile-header">
-            <ControlBar user={user} />
+          <ControlBar user={user} currentUser={currentUser} />
           </div>
 
           <div className="profile-body">

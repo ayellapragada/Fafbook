@@ -22,6 +22,8 @@ const ControlBar = (props) => {
           src={props.user.profile_url}/>
       </div>
       <div className="profile-header-space"></div>
+
+      {(props.currentUser.id === props.user.id &&
       <div className="profile-update-photos">
         <UpdatePhotos 
           buttonClass={'update-photo-hover'}
@@ -31,7 +33,8 @@ const ControlBar = (props) => {
           buttonClass={'update-cover-hover'}
           text={'Update Cover Photo'}
         />
-    </div>
+      </div>
+      ) }
       <ActionBar user={props.user} />
       <ProfileNavBar user={props.user}/>
     </div>
