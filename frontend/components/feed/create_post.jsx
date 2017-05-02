@@ -16,7 +16,7 @@ class CreatePost extends React.Component {
     this.state = {body: "",
       author_id: this.props.currentUser.id,
       receiver_id: this.props.user.id || this.props.currentUser.id,
-      placeHolder: message}
+      placeHolder: message};
 
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -35,22 +35,22 @@ class CreatePost extends React.Component {
 
       {
         placeHolder: this.setMessage(currentUserId, nextUserId, name),
-        receiver_id: nextUserId,
+        receiver_id: nextUserId || currentUserId,
         errors: []
       }
-    )
+    );
   }
 
   setMessage(userId, otherUserId, name) {
     if (!otherUserId){
-      return "What's on your mind?"
+      return "What's on your mind?";
     }
-    return userId == otherUserId ?
-      "What's on your mind?" : `Write something to ${name}...`   
+    return userId === otherUserId ?
+      "What's on your mind?" : `Write something to ${name}...`;
   }
 
   handleChange(e) {
-    this.setState({body: e.currentTarget.value})
+    this.setState({body: e.currentTarget.value});
   }
 
   handleSubmit(e){
@@ -67,7 +67,7 @@ class CreatePost extends React.Component {
     if (!this.props.currentUser) {
       return (
         null
-      )
+      );
     }
     return (
       <div className="create-post">
@@ -100,7 +100,7 @@ class CreatePost extends React.Component {
         </div>
 
       </div>
-    )
+    );
   }
 
 }
@@ -109,11 +109,11 @@ const mapStateToProps = state => ({
   errors: state.posts.errors,
   currentUser: state.session.currentUser,
   user: state.user
-})
+});
 
 const mapDispatchToProps = dispatch => ({
   createPost: (post) => dispatch(createPost(post))
-})
+});
 
 export default connect( mapStateToProps, mapDispatchToProps)(CreatePost);
 

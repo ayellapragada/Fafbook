@@ -17,11 +17,11 @@ class Timeline extends React.Component {
 
   componentDidMount() {
     this.props.fetchNewPosts()
-      .then(() => this.setState({loading: false}))
+      .then(() => this.setState({loading: false}));
   }
 
   componentWillUnmount() {
-    this.setState({loading: true})
+    this.setState({loading: true});
   }
 
   render() {
@@ -31,7 +31,7 @@ class Timeline extends React.Component {
     if (!this.props.currentUser) {
       return (
         null
-      )
+      );
     }
 
     const posts = reversedPosts.map(post => {
@@ -39,13 +39,13 @@ class Timeline extends React.Component {
         post={post} 
         createComment={this.props.createComment}
         currentUser={this.props.currentUser}
-        key={ post.post.id }/>
-    })
+        key={ post.post.id }/>;
+    });
 
     if (this.state.loading) {
       return (
         <div className="loader">Loading...</div>
-      )
+      );
     } else {
       return (
         <div className="feed">
@@ -56,7 +56,7 @@ class Timeline extends React.Component {
           </ul>
 
         </div>
-      )
+      );
     }
   } 
 }
