@@ -10,8 +10,7 @@
   @include background-gradient;
 }
 
-.signin-header-box,
-.signin-footer {
+.signin-header-box {
   margin: 0 465px 0 463px;
 }
 
@@ -300,6 +299,8 @@
 .signin-footer {
   color: #737373;
   font-size: 13px;
+  background-color: #fff;
+  height: 300px;
 }
 
 .signin-footer-languages {
