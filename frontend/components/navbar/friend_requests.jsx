@@ -16,24 +16,25 @@ class FriendRequests extends React.Component {
     const friends = Object.values(this.props.friends);
     const requests = friends.map((request) => (
       <FriendRequestItem key={request.id} user={request}/>
-    ))
+    ));
 
     if (requests.length === 0) {
       requests.push(
         <li key={'1abc'} className="no-new-requests">
           No new requests
         </li>
-      )
+      );
     }
     return (
       <div className="friend-requests-container">
+        <p> Friend Requests </p>
         <ul>
           {requests}
         </ul>
       </div>
-    )
+    );
   }
-};
+}
 
 const mapStateToProps = (state) => ({
   friends: state.friends
@@ -43,4 +44,4 @@ const mapDispatchToProps = dispatch => ({
   allFriendRequests: () => (dispatch(allFriendRequests()))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(FriendRequests)
+export default connect(mapStateToProps, mapDispatchToProps)(FriendRequests);

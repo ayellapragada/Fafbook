@@ -7,14 +7,21 @@
   margin: 0 10px;
 }
 
+
+.home-left-bar, 
+.home-right-bar {
+  border: 1px solid red;
+
+}
+
 .home-left-bar {
   width: 185px;
-  height: 440px;
-  border: 1px solid red;
 }
 
 .home-right-bar {
-  height: 445px;
   width: 310px;
-  border: 1px solid red;
+}
+
+.inside-home-left-navbar {
+  padding: 5px;
 }

@@ -20,6 +20,23 @@
   width: 24px;
   height: 24px;
   border: 1px solid #4f6ea9;
+  margin-left: 20px;
+
+  display: flex;
+  justify-content: flex-end;
+
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /*Older IE or something */
+  user-select: none; /* Non-prefixed version, currently
+  supported by Chrome and Opera */
+}
+
+.fafbook-small-logo-f {
+  margin-right: 3px;
+  -webkit-font-smoothing: antialiased;
 }
 
 .fafbook-small-logo-link {
@@ -114,19 +131,46 @@
 .friend-requests-container {
   position: absolute;
   top: 43px;
-  right: 530px;
+  right: 540px;
   background-color: white;
-  height: 300px;
-  width: 300px;
+  width: 430px;
   border: 1px solid #dddfe2;
   z-index: 50000;
+  font-size: 12px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
 
-  ul {
-    padding: 10px 20px 0 85px;
-
+  p {
+    font-weight: bold;
+    padding:9px 10px;
+    border-bottom: 1px solid #dddfe2;
   }
 }
 
 
+.friend-requests-item {
+  display: flex;
+  justify-content: space-between;
 
+  a {
+    text-decoration: none;
+    color: #365899;
+    font-weight: bold;
+    &:hover{
+      text-decoration: underline;
+    }
+  }
+
+  img {
+    width: 48px;
+    height: 48px;
+    margin-right: 10px;
+  }
+  margin: 5px 10px;
+}
+
+.friend-request-actions,
+.friend-request-info {
+  display: flex;
+  align-items: center;
+}
 

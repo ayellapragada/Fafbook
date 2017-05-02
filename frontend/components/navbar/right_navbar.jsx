@@ -3,7 +3,7 @@ import { Link, hashHistory } from 'react-router';
 import { connect } from 'react-redux';
 import { logout } from '../../actions/session_actions';
 import FriendRequests from './friend_requests';
-import onClickOutside from 'react-onclickoutside'
+import onClickOutside from 'react-onclickoutside';
 
 
 class RightNavbar extends React.Component {
@@ -16,7 +16,7 @@ class RightNavbar extends React.Component {
 
   toggle(field) { 
     const opposite = !this.state[field]; 
-    this.setState({[field]: opposite })
+    this.setState({[field]: opposite });
   }
 
   handleClickOutside (evt) {
@@ -71,7 +71,7 @@ class RightNavbar extends React.Component {
     } else {
       return <div></div>;
     }
-  };
+  }
 
 
 }
@@ -85,4 +85,6 @@ const mapDispatchToProps = dispatch => ({
 });
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(onClickOutside(RightNavbar));
+export default connect(
+  mapStateToProps, 
+  mapDispatchToProps)(onClickOutside(RightNavbar));

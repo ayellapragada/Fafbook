@@ -6,10 +6,11 @@ import Search from './search';
 const LeftNavbar = () => {
   return (
     <div className = "left-navbar">
-      <div className="fafbook-small-logo">
-        <Link to="/" className="fafbook-small-logo-link">f
-        </Link>
-      </div>
+      <Link to="/" className="fafbook-small-logo-link">
+        <div className="fafbook-small-logo"> 
+          <div className="fafbook-small-logo-f"> f </div>
+        </div>
+      </Link>
       <Search />
     </div>
   );
