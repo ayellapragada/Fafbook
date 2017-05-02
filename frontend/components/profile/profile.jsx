@@ -72,6 +72,21 @@ class Profile extends React.Component {
       );
     }
 
+    else if (user.status === -3) {
+      return (
+        <div className="profile">
+          <ControlBar user={user} currentUser={currentUser} />
+          <div className="do-you-know-box">
+            Do you know {user.fname}?
+          </div>
+          <div className="do-you-know-box-content">
+            Accept or deny this person's friend request!
+          </div>
+        </div>
+      );
+    }
+
+
     else if (user.id > 0){
       return (
         <div className="profile">

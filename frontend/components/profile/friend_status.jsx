@@ -1,6 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { friendRequest, deleteFriend } from '../../actions/friend_actions';
+import { 
+  friendRequest, 
+  deleteFriend, 
+  approveRequest } from '../../actions/friend_actions';
+import { fetchUser } from '../../actions/user_actions';
 
 
 class FriendStatus extends React.Component {
@@ -19,12 +23,15 @@ class FriendStatus extends React.Component {
   handleClick(e) {
     e.preventDefault(e);
 
-     if (this.state.requested === -2) {
-      this.props.friendRequest(this.props.currentUser.id, 
+    if (this.state.requested === -2) {
+      this.props.friendRequest(
+        this.props.currentUser.id, 
         this.props.user.id);
       this.setState({requested: -1});
-    } else if (this.state.requested === 0) {
-      console.log('This eventually leads to modal for user editing');
+    } else if (this.state.requested === -3) {
+      this.props.approveRequest(
+        this.props.currentUser.id,
+        this.props.user.id);
     } else {
       this.props.deleteFriend(this.props.currentUser.id, 
         this.props.user.id);
@@ -40,7 +47,9 @@ class FriendStatus extends React.Component {
     if ( this.state.requested === -2 ) {
       buttonText = "Add Friend";
     } else if (this.state.requested === -1) {
-      buttonText =  "Friend Request Sent";
+      buttonText = "Friend Request Sent";
+    } else if (this.state.requested === -3) {
+      buttonText = "Approve Friend";
     } else {
       buttonText = "Delete Friend";
     }
@@ -77,8 +86,13 @@ const mapDispatchToProps = (dispatch) =>  {
   return ({
     friendRequest: (currentUserId, requestedUserId) => (
       dispatch(friendRequest(currentUserId, requestedUserId))),
+    
     deleteFriend: (currentUserId, requesterUserId) => (
-      dispatch(deleteFriend(currentUserId, requesterUserId)))
+      dispatch(deleteFriend(currentUserId, requesterUserId))),
+
+    approveRequest: (currentUserId, requesterUserId) => (
+      dispatch(approveRequest(currentUserId, requesterUserId))
+      .then(() => dispatch(fetchUser(requesterUserId))))
   });
 };
 

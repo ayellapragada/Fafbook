@@ -29,6 +29,9 @@ class Api::UsersController < ApplicationController
     elsif current_user.pending_friends.include?(@user) 
       @status = -1
       render 'api/users/not_friends'
+    elsif current_user.requested_friends.include?(@user) 
+      @status = -3
+      render 'api/users/not_friends'
     else
       @status = -2
       render 'api/users/not_friends'
