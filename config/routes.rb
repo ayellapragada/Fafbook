@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root 'static_pages#root' 
-  get '/api/users/search/:query', to: 'api/users#index', default: { format: :json }
+  get '/api/search/', to: 'api/users#index', default: { format: :json }
+  get '/api/search/:query', to: 'api/users#index', default: { format: :json }
   get '/api/posts/feed/:id', to: 'api/posts#feed', default: { format: :json }
 
   resource :session, only: [:create, :destroy, :show]

@@ -1,8 +1,7 @@
 class Api::UsersController < ApplicationController
   def index
-    @users = User.all
-    # Getting by using query string in params
-    # Need to eventually make this search. No reason to get EVERY user.
+    @results = User.search_by_full_name(params[:query]).limit(5)
+    render "api/users/search"
   end  
 
   def create

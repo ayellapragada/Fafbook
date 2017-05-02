@@ -26,6 +26,6 @@ export const patchProfile = (id, profile) => {
 export const searchUsers = (query) => {
   return $.ajax({
     method: 'GET',
-    url: '/api/users/' + query
+    url: '/api/search/' + query
   });
 };

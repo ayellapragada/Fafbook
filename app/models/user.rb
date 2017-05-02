@@ -27,6 +27,12 @@
 #
 
 class User < ApplicationRecord
+  include PgSearch
+  pg_search_scope :search_by_full_name, 
+    :against => [:fname, :lname],
+    :using => { tsearch: {prefix: true} }
+
+
   attr_reader :password
 
   validates :email, :password_digest, :session_token, presence: true

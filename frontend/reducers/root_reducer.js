@@ -5,6 +5,7 @@ import SessionReducer from './session_reducer';
 import UserReducer from './user_reducer';
 import FriendsReducer from './friends_reducer';
 import PostsReducer from './posts_reducer';
+import SearchReducer from './search_reducer';
 
 
 const AppReducer = combineReducers({
@@ -12,14 +13,15 @@ const AppReducer = combineReducers({
   user: UserReducer,
   friends: FriendsReducer,
   posts: PostsReducer,
-})
+  search: SearchReducer,
+});
 
 const RootReducer = (state, action) => {
   if (action.type === USER_LOGOUT) {
-    state = undefined
+    state = undefined;
   }
 
   return AppReducer(state, action);
-}
+};
 
 export default RootReducer;

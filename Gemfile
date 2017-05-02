@@ -31,6 +31,9 @@ gem "paperclip", "~>5.0.0"
 # Let paperclip connect to AWS
 gem 'aws-sdk', '>=2.0'
 
+# Good multisearch gem
+gem 'pg_search'
+
 # Easy friendship model
 gem 'has_friendship'
 # Not needed yet, but easy likes and mentions for posts and comments 
