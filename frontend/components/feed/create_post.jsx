@@ -35,7 +35,8 @@ class CreatePost extends React.Component {
 
       {
         placeHolder: this.setMessage(currentUserId, nextUserId, name),
-        receiver_id: nextUserId 
+        receiver_id: nextUserId,
+        errors: []
       }
     )
   }
@@ -65,7 +66,7 @@ class CreatePost extends React.Component {
   render() {
     if (!this.props.currentUser) {
       return (
-       null
+        null
       )
     }
     return (
@@ -82,24 +83,23 @@ class CreatePost extends React.Component {
           <form onSubmit={this.handleSubmit}>
 
             <div 
-              className={"create-post-form-input " + 
-                  ((this.props.errors.length > 0 ) ? "errors" : "")}>
-                  <img src={this.props.currentUser.profile_url}/>
-                  <textarea
-                    value={this.state.body}
-                    placeholder={this.props.text || this.state.placeHolder}
-                    onClick={this.handleClick}
-                    onChange={this.handleChange} />
-                </div>
-
-                <div className="create-post-form-submit">
-                  <button type="submit">Post</button>
-
-                </div>
-              </form>
+              className="create-post-form-input">
+              <img src={this.props.currentUser.profile_url}/>
+              <textarea
+                value={this.state.body}
+                placeholder={this.props.text || this.state.placeHolder}
+                onClick={this.handleClick}
+                onChange={this.handleChange} />
             </div>
 
-          </div>
+            <div className="create-post-form-submit">
+              <button type="submit">Post</button>
+
+            </div>
+          </form>
+        </div>
+
+      </div>
     )
   }
 

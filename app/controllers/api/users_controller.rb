@@ -22,6 +22,7 @@ class Api::UsersController < ApplicationController
 
     if current_user.id == @user.id  
       @status = 0
+      render 'api/users/show'
     elsif current_user.friends_with?(@user) 
       @status = 1
       render 'api/users/show'

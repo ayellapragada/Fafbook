@@ -20,3 +20,10 @@ export const logout = () => {
     url: '/session'
   });
 };
+
+export const updateCurrentUser = () => {
+  return $.ajax({
+    method: 'GET',
+    url: '/session'
+  });
+};

@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { updateUser } from '../../actions/user_actions';
+import { updateCurrentUser } from '../../actions/session_actions.js';
 
 
 class UploadPhotoForm extends React.Component {
@@ -21,7 +22,7 @@ class UploadPhotoForm extends React.Component {
     const file = e.currentTarget.files[0];
     const fileReader = new FileReader();
     fileReader.onloadend = () => {
-      this.setState({profile: file})
+      this.setState({profile: file});
     };
 
     if (file) {
@@ -34,7 +35,7 @@ class UploadPhotoForm extends React.Component {
     const fileReader = new FileReader();
     const file = e.currentTarget.files[0];
     fileReader.onloadend = () => {
-      this.setState({cover: file})
+      this.setState({cover: file});
     };
 
     if (file) {
@@ -54,7 +55,8 @@ class UploadPhotoForm extends React.Component {
     if (this.state.cover) {
       formData.append("user[cover_photo]", this.state.cover);
     }
-    this.props.updateUser(this.props.user, formData);
+    this.props.updateUser(this.props.user, formData)
+      .then(this.props.updateCurrentUser());
     this.setState({caption: "", imageFile: null, imageUrl: null});
     this.props.closeModal();
   }
@@ -79,7 +81,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  updateUser: (userId, user, form) => dispatch(updateUser(userId, user, form))
+  updateUser: (userId, user, form) => dispatch(updateUser(userId, user, form)),
+  updateCurrentUser: () => dispatch(updateCurrentUser())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(UploadPhotoForm);

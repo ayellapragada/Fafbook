@@ -7,6 +7,7 @@ class Comment extends React.Component {
     super(props);
   }
 
+
   render() {
     return(
       <div className="comment-container">
@@ -24,7 +25,7 @@ class Comment extends React.Component {
         </p>
         </div>
       </div>
-    )
+    );
   }
 }
 
