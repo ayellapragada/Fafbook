@@ -49,7 +49,7 @@ class Timeline extends React.Component {
     } else {
       return (
         <div className="feed">
-          <CreatePost text={"Whats on your mind?"} />
+          <CreatePost text={"What's on your mind?"} />
 
           <ul>
             {posts}

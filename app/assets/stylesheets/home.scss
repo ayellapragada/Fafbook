@@ -1,10 +1,10 @@
 .home {
   display: flex;
-  margin: 12px 445px 0 445px;
+  margin: 10px 445px 0 437px;
 }
 
 .timeline {
-  margin: 0 10px;
+  margin: 0 8px;
 }
 
 
@@ -14,7 +14,7 @@
 }
 
 .home-left-bar {
-  width: 185px;
+  width: 203px;
 }
 
 .home-right-bar {
@@ -53,11 +53,21 @@
     margin-right: 7px;
     color: #5d92ff;
   }
+
+  .active {
+    background-color: #f6f7f9;
+    border: 1px solid #dddfe2;
+    font-weight: bold;
+  }
+}
+
+.home-side-nav-user {
+  margin-bottom: 7px;
 }
 
 
 .left-navbar-explore {
-  margin-top: 15px;
+  margin-top: 10px;
   display: flex;
   align-items: center;
   font-size: 12px;

@@ -40,6 +40,7 @@
   width: 100%;
 
   textarea{
+    font-family: Helvetica;
     border: 0px solid transparent;
     padding-left: 3px;
     line-height: 30px;
@@ -103,6 +104,7 @@
     border: 1px solid #4267b2;
     border-radius: 2px;
     padding: 0 25px;
+    cursor: pointer;
     &:hover {
       background-color: #365899;
       border: 1px solid #365899;

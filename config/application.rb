@@ -30,8 +30,6 @@ module Fafbook
         :s3_region => ENV["s3_region"]
       }
     }
-
-
     j
     config.active_record.raise_in_transactional_callbacks = true
   end

@@ -21,7 +21,7 @@ class LeftBar extends React.Component {
           </div>
 
           <div className="left-navbar-main">
-            <Link to="/">
+            <Link to="/" activeClassName="active">
               <i className="fa fa-newspaper-o" aria-hidden="true"></i>
               <p>News Feed</p>
             </Link>
