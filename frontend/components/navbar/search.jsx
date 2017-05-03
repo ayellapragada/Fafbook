@@ -13,6 +13,7 @@ class Search extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.update = this.update.bind(this);
     this.toggleShowResults = this.toggleShowResults.bind(this);
+    this.handleClickOutside = this.handleClickOutside.bind(this);
   }
 
   update(e) {
@@ -37,7 +38,6 @@ class Search extends React.Component {
     this.setState({show: false});
   }
 
-
   render() {
     return(
       <div className="search">
@@ -53,7 +53,9 @@ class Search extends React.Component {
             <i className="fa fa-search" aria-hidden="true"></i>
           </button>
         </form>
-        {this.state.show && <SearchDropDown results={this.props.results}/>}
+        {this.state.show && <SearchDropDown 
+          results={this.props.results}
+          handleClickOutside={this.handleClickOutside}/>}
       </div>
 
     );

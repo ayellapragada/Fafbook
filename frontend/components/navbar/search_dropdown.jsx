@@ -26,9 +26,13 @@ class SearchDropDown extends React.Component {
       searchResults = [<li key="what">No results found.</li>];
     }
 
-
     return (
-      <div className="search-dropdown">
+      <div 
+        onClick={this.props.handleClickOutside}
+        className="search-dropdown">
+        <div className="search-header">
+          Searches
+        </div>
         <ul>
           { searchResults } 
         </ul>

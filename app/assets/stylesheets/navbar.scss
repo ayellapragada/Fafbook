@@ -75,6 +75,27 @@
   }
 }
 
+.search-dropdown {
+  position: absolute;
+  background-color: white;
+  width: 445px;
+  left: 505px;
+  border: 1px solid #dddfe2;
+  z-index: 50000;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
+
+  img {
+    height: 24px;
+    width: 24px;
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+  }
+}
+
+
 
 .right-navbar {
   display: flex;
@@ -178,4 +199,5 @@
   display: flex;
   align-items: center;
 }
+
 
