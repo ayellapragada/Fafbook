@@ -51,6 +51,10 @@
   justify-content: space-between;
 }
 
+.search {
+  position: relative;
+}
+
 .search-box-input{
   height: 20px;
   width: 390px;
@@ -79,7 +83,7 @@
   position: absolute;
   background-color: white;
   width: 445px;
-  left: 505px;
+  left: 5px;
   border: 1px solid #dddfe2;
   z-index: 50000;
   box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
@@ -173,10 +177,14 @@
   z-index: 4;
 }
 
+.friend-requests-dropdown {
+  position: relative;
+}
+
 .friend-requests-container {
   position: absolute;
-  top: 43px;
-  right: 540px;
+  top: 34px;
+  left: -365px;
   background-color: white;
   width: 430px;
   border: 1px solid #dddfe2;
