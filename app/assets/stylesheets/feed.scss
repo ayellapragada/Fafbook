@@ -38,6 +38,7 @@
   align-items: center;
   justify-content: space-around;
   width: 100%;
+
   textarea{
     border: 0px solid transparent;
     padding-left: 3px;
@@ -62,19 +63,15 @@
   textarea:focus:-ms-input-placeholder { color:transparent; } /* IE 10+ */
 
   ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-    font-size: 24px;
     line-height: 59px;
   }
   ::-moz-placeholder { /* Firefox 19+ */
-    font-size: 24px;
     line-height: 59px;
   }
   :-ms-input-placeholder { /* IE 10+ */
-    font-size: 24px;
     line-height: 59px;
   }
   :-moz-placeholder { /* Firefox 18- */
-    font-size: 24px;
     line-height: 59px;
   }
   img {
