@@ -63,7 +63,7 @@
 
 .search-submit {
   cursor: pointer;
-  height: 24px;
+  height: 23px;
   margin-left: -50px;
   border: 1px solid transparent;
   background-color: #f6f7f9;
@@ -87,14 +87,38 @@
   img {
     height: 24px;
     width: 24px;
+    margin-right: 10px;
   }
 
   a {
     display: flex;
     align-items: center;
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+    font-size: 14px;
+
+    &:hover {
+      background-color: #ecf0f7;
+    }
   }
 }
 
+.search-header {
+  padding: 7px;
+  background-color: #f6f7f9;
+  border-bottom: 1px solid #e9eaed;
+  border-top: 1px solid #e9eaed;
+  color: #90949c;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+.empty-search {
+  padding: 7px;
+  font-size: 14px;
+  font-weight: bold;
+}
 
 
 .right-navbar {
@@ -161,12 +185,16 @@
   box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
 
   p, li {
-    padding:9px 10px;
     border-bottom: 1px solid #dddfe2;
   }
 
   p {
+    padding:9px 10px;
     font-weight: bold;
+  }
+
+  li {
+    padding: 2px 10px;
   }
 
 }
@@ -198,6 +226,37 @@
 .friend-request-info {
   display: flex;
   align-items: center;
+}
+
+
+.friend-requests-item-button {
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 3.5px 8px;
+  border-radius: 2px;
+}
+
+.friend-requests-approve {
+  background-color: #4267b2;
+  border: 1px solid #4267b2;
+  color: white;
+  margin-right: 3px;
+
+  &:hover {
+    background-color: #365899;
+    border: 1px solid #365899;
+  }
+}
+
+.friend-requests-deny {
+  background-color: #f6f7f9; 
+  border: 1px solid #bec2c9;
+  color: #4b4f56;
+
+  &:hover {
+    background-color:#e9ebee;
+  }
 }
 
 

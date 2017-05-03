@@ -23,7 +23,11 @@ class SearchDropDown extends React.Component {
       });
 
     } else {
-      searchResults = [<li key="what">No results found.</li>];
+      searchResults = [
+        <li 
+        className="empty-search" 
+        key="what">No results found.
+        </li>];
     }
 
     return (
@@ -31,7 +35,7 @@ class SearchDropDown extends React.Component {
         onClick={this.props.handleClickOutside}
         className="search-dropdown">
         <div className="search-header">
-          Searches
+          SEARCHES
         </div>
         <ul>
           { searchResults } 
