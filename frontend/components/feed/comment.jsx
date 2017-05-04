@@ -1,5 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router';
+import { connect } from 'react-redux';
+import {updateComment, deleteComment} from '../../actions/post_actions';
 
 
 class Comment extends React.Component {
@@ -28,6 +30,12 @@ class Comment extends React.Component {
     );
   }
 }
+
+
+const mapDispatchToProps = dispatch => ({
+  updateComment: (comment) => dispatch(updateComment(comment)),
+  deleteComment: (id) => dispatch(deleteComment(id))
+});
 
 
 export default Comment;

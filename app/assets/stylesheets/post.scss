@@ -11,6 +11,11 @@
 
 .post-header {
   display: flex;
+  justify-content: space-between;
+}
+
+.post-header-information {
+  display: flex;
 }
 
 .post-header-left img {

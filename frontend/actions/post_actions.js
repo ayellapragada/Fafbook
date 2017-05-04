@@ -46,7 +46,7 @@ export const fetchNewPosts = () => dispatch => (
 export const fetchUserPosts = (id) => dispatch => (
   APIUtil.getFeed(id)
   .then(posts => dispatch(receiveAllPosts(posts)))
-)
+);
 
 export const fetchMorePosts = () => dispatch => (
   APIUtil.allPosts()
@@ -56,11 +56,11 @@ export const fetchMorePosts = () => dispatch => (
 export const fetchMoreUserPosts = (id) => dispatch => (
   APIUtil.getFeed(id)
   .then(posts => dispatch(addNewPosts(posts)))
-)
+);
 
 export const createPost = post => dispatch => (
   APIUtil.createPost(post)
-  .then(post => dispatch(receivePost(post)), 
+  .then(newPost => dispatch(receivePost(newPost)), 
     err => dispatch(receivePostErrors(err.responseJSON)))
 );
 
@@ -71,18 +71,18 @@ export const fetchPost = id => dispatch => (
 
 export const updatePost =  post => dispatch => (
   APIUtil.updatePost(post)
-  .then(post => dispatch(receivePost(post)),
+  .then(newPost => dispatch(receivePost(newPost)),
     err => dispatch(receivePostErrors(err.responseJSON)))
 );
 
-export const deletePost = post => dispatch => (
-  APIUtil.updatePost(post)
-  .then(post => dispatch(removePost(post)))
+export const deletePost = id => dispatch => (
+  APIUtil.deletePost(id)
+  .then(newPost => dispatch(removePost(newPost)))
 );
 
 export const createComment = comment => dispatch => (
   CommentsUtil.postComment(comment)
-  .then(post => dispatch(replacePost(post)))
+  .then(newPost => dispatch(replacePost(newPost)))
 );
 
 export const updateComment = comment => dispatch => (
@@ -91,6 +91,6 @@ export const updateComment = comment => dispatch => (
 );
 
 export const deleteComment = id => dispatch => (
-  CommentsUtil.postComment(comment)
+  CommentsUtil.deleteComment(id)
   .then(post => dispatch(replacePost(post)))
 );

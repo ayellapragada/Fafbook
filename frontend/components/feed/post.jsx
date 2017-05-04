@@ -1,35 +1,39 @@
 import React from 'react';
 import { Link } from 'react-router';
-import Comment from './comment';
 import { connect } from 'react-redux';
+import {
+  updatePost, deletePost } from '../../actions/post_actions.js';
+import Comment from './comment';
+import Dropdown from './dropdown';
 
 class Post extends React.Component {
   constructor(props) {
     super(props);
-    const dateTime = new Date( Date.parse(this.props.post.post.created_at))
-    
+    const dateTime = new Date( Date.parse(this.props.post.post.created_at));
+
     this.state = {dateTime: dateTime,
       comment: "",
-      comments: this.props.post.post.comments};
+      comments: this.props.post.post.comments,
+      dropdown: false};
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.checkSubmit = this.checkSubmit.bind(this);
+    this.handleDropdown = this.handleDropdown.bind(this);
   }
 
   checkSubmit(e) {
-    if (e.keyCode== 13 && e.shiftKey == false) {
+    if (e.keyCode === 13 && e.shiftKey === false) {
       this.handleSubmit(e);
     } 
-  };
+  }
 
   componentWillReceiveProps(nextProps) {
-    this.setState({comments: nextProps.post.post.comments})
+    this.setState({comments: nextProps.post.post.comments});
   }
 
   handleChange(e) {
-    this.setState({comment: e.currentTarget.value})
-
+    this.setState({comment: e.currentTarget.value});
   }
 
   handleSubmit(e) {
@@ -41,16 +45,18 @@ class Post extends React.Component {
     this.setState({comment: ""});
   }
 
-
+  handleDropdown() {
+    this.setState({dropdown: !this.state.dropdown});
+  }
 
   render(){
-
     const comments = this.state.comments.map((comment) => {
       return (
         <li key={comment.id}>
-          <Comment comment={comment}/>
+          <Comment 
+            comment={comment}/>
         </li>
-      )
+      );
     });
 
 
@@ -59,20 +65,28 @@ class Post extends React.Component {
         <div className="post-top">
 
           <div className="post-header">
-            <div className="post-header-left">
-              <Link to={`/profile/${this.props.post.author.id}`}>
-                <img src={this.props.post.author.profile_url}/>
-              </Link>
-            </div>
-            <div className="post-header-right">
-              <Link to={`/profile/${this.props.post.author.id}`}>
-                {`${this.props.post.author.fname} ${this.props.post.author.lname}`}
-              </Link>
-              <div className="post-header-date-time">
-                {this.state.dateTime.toDateString()} at &nbsp;
-                {this.state.dateTime.toLocaleTimeString()}
+            <div className="post-header-information">
+              <div className="post-header-left">
+                <Link to={`/profile/${this.props.post.author.id}`}>
+                  <img src={this.props.post.author.profile_url}/>
+                </Link>
+              </div>
+              <div className="post-header-right">
+                <Link to={`/profile/${this.props.post.author.id}`}>
+                  {`${this.props.post.author.fname} 
+                  ${this.props.post.author.lname}`}
+                </Link>
+                <div className="post-header-date-time">
+                  {this.state.dateTime.toDateString()} at &nbsp;
+                  {this.state.dateTime.toLocaleTimeString()}
+                </div>
               </div>
             </div>
+
+            <div className="post-header-edit">
+              {this.state.dropdown && <Dropdown />}
+            </div>
+
           </div>
 
           <div className="post-body">
@@ -124,15 +138,19 @@ class Post extends React.Component {
         </div>
 
       </div>
-    )
+    );
   }
 
 }
 
 const mapStateToProps = state => ({
   currentUser: state.session.currentUser,
+});
 
+const mapDispatchToProps = dispatch => ({
+  updatePost: (post) => dispatch(updatePost(post)),
+  deletePost: (id) => dispatch(deletePost(id)),
 });
 
 
-export default connect (mapStateToProps, null)(Post);
+export default connect (mapStateToProps, mapDispatchToProps)(Post);

@@ -34,12 +34,14 @@ class Api::PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
+    debugger
   end
 
   def show
   end
 
   def delete
+    debugger
   end
 
   def feed
