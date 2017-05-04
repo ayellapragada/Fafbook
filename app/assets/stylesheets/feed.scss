@@ -42,10 +42,9 @@
   textarea{
     font-family: Helvetica;
     border: 0px solid transparent;
-    padding-left: 3px;
-    line-height: 30px;
+    padding: 5px 40px 5px 5px;
     font-size: 14px;
-    height: 68px;
+    height: 45px;
     width: 90%;
     font-weight: 300;
     word-wrap: break-word;
@@ -64,16 +63,16 @@
   textarea:focus:-ms-input-placeholder { color:transparent; } /* IE 10+ */
 
   ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-    line-height: 59px;
+    line-height: 40px;
   }
   ::-moz-placeholder { /* Firefox 19+ */
-    line-height: 59px;
+    line-height: 40px;
   }
   :-ms-input-placeholder { /* IE 10+ */
-    line-height: 59px;
+    line-height: 40px;
   }
   :-moz-placeholder { /* Firefox 18- */
-    line-height: 59px;
+    line-height: 40px;
   }
   img {
     margin-left: 10px;

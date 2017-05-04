@@ -86,6 +86,12 @@
   border-radius: 1px;
   border: 1px solid #29487d;
   margin-top: 15px;
+  cursor: pointer;
+  font-weight: bold;
+
+  &:hover {
+    background-color: #365899;
+  }
 }
 
 .signin-submit{
@@ -94,6 +100,10 @@
   height: 25px;
   letter-spacing: 0.23px;
   width: 50px;
+  cursor: pointer;
+  input {
+    cursor: pointer;
+  }
 }
 
 .test-button-login{
@@ -216,18 +226,18 @@
 
 
 ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
-    color:    #999999;
+  color:    #999999;
 }
 :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-   color:    #999999;
-   opacity:  1;
+  color:    #999999;
+  opacity:  1;
 }
 ::-moz-placeholder { /* Mozilla Firefox 19+ */
-   color:    #999999;
-   opacity:  1;
+  color:    #999999;
+  opacity:  1;
 }
 :-ms-input-placeholder { /* Internet Explorer 10-11 */
-   color:    #999999;
+  color:    #999999;
 }
 
 .signup-fname, .signup-lname, {

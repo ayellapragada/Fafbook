@@ -25,7 +25,7 @@ class SigninHeader extends React.Component {
 
   handleGuest(e) {
     const user = {email:"test@password.com",
-      password: "password"} 
+      password: "password"};
     this.props.login(user);
   }
 
@@ -68,14 +68,13 @@ class SigninHeader extends React.Component {
                   onChange={this.update('password')}
                   className="signin-input"
                 />
-              <p className="forgot-password"> Forgot password? </p>
+                <p className="forgot-password"> Forgot password? </p>
               </label>
-              <input className="signin-submit"
-                type="submit"
-                value= {this.props.errors[0] !== 
+              <button className="signin-submit signin-submit-button"
+                type="submit">{this.props.errors[0] !== 
                     "Invalid email/password combination" ?
-                    "Log In" : "Invalid!"} 
-                  />
+                    "Log In" : "Invalid!"}
+                  </button>
                 </form>
                 <button className="test-button-login"
                   onClick={this.handleGuest}>
@@ -84,7 +83,7 @@ class SigninHeader extends React.Component {
               </div>
             </div>
           </div>
-    )
+    );
   }
 }
 
