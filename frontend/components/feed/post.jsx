@@ -83,7 +83,10 @@ class Post extends React.Component {
               </div>
             </div>
 
-            <div className="post-header-edit">
+            <div 
+              className="edit-dropdown"
+              onClick={this.handleDropdown}>
+              <i className="fa fa-chevron-down" aria-hidden="true"></i>
               {this.state.dropdown && <Dropdown />}
             </div>
 
@@ -128,6 +131,7 @@ class Post extends React.Component {
             <img src={this.props.currentUser.profile_url} />
             <form onSubmit={this.handleSubmit}>
               <textarea
+                id="write-a-comment"
                 value={this.state.comment}
                 placeholder="Write a comment..."
                 onKeyDown={this.checkSubmit} 
