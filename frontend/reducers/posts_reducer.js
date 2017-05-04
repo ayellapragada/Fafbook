@@ -17,18 +17,17 @@ const PostsReducer = (state = _nullPosts, action) => {
 
   switch(action.type) {
     case RECEIVE_ALL_POSTS:
-      return merge({}, _nullPosts, { posts: action.posts})
+      return merge({}, _nullPosts, { posts: action.posts});
     case RECEIVE_POST:
-      return merge({}, state, { posts: action.post})
+      return merge({}, state, { posts: action.post});
     case REPLACE_POST:
-      return merge({}, state, {posts: action.post})
+      return merge({}, state, {posts: action.post});
     case REMOVE_POST:
-      const newState = merge({}, state)
-      debugger // Never actually finished htis since it won't be helpful for a while.
+      const newState = merge({}, state);
       return state;
     case ADD_NEW_POSTS:
       // Used later for infinite scroll.
-      return merge({}, state, { posts: action.posts})
+      return merge({}, state, { posts: action.posts});
     case RECEIVE_POST_ERRORS:
       return Object.assign({}, state, {errors: action.errors}); 
     default:

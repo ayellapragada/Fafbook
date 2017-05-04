@@ -2,8 +2,8 @@
 # Setup project, npm install, bundle install, rake db:setup 
 # Then 3 tabs for webpack, rails server, guard
 
-npm install
-bundle install
-bundle exec rake db:reset
+#npm install
+#bundle install
+#bundle exec rake db:reset
 
 gnome-terminal --tab -e "webpack --watch" --tab -e "bundle exec rails server" --tab -e "bundle exec guard -P livereload" 

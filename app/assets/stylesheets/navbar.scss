@@ -73,9 +73,13 @@
   background-color: #f6f7f9;
   width: 50px;
   position: absolute;
+  color: #696f7c;
   &:hover{
     background-color: #e9ebee;
     border: 1px solid #e9ebee;
+  }
+  i {
+    font-size: 16px;
   }
 }
 
@@ -146,11 +150,17 @@
   background-color: #355089;
 }
 
+
+.empty-border {
+  width: 8px;
+  margin-left: 8px;
+}
+
+.empty-border-left,
 .empty-border {
   border-left: 1px solid #365089;
-  width: 5px;
-  margin-left: 5px;
 }
+
 
 .help-btn {
   margin-right: 4px;
@@ -158,17 +168,32 @@
 
 .profile-link,
 .home-link {
+  margin-top: 0;
   font-size: 12px;
   font-weight: bold;
-  padding-top: 4px;
   color: white;
   text-decoration: none;
   font-family: Helvetica, Arial;
   -webkit-font-smoothing: antialiased;
 }
 
+.profile-link {
+  display: flex;
+  align-items: center;
+  margn: 0 3px;
+  padding-right: 10px;
+  margin-right: 0px;
+
+  img {
+    margin-right: 5px;
+  }
+}
+
 .home-link {
-  margin-right: 31px;
+  margin-right: 12px;
+  margin-left: 5px;
+  padding: 5px;
+  padding-top: 6px;
 }
 
 .navbar-profile-photo {

@@ -56,7 +56,7 @@ class UploadPhotoForm extends React.Component {
       formData.append("user[cover_photo]", this.state.cover);
     }
     this.props.updateUser(this.props.user, formData)
-      .then(this.props.updateCurrentUser());
+      .then( () => this.props.updateCurrentUser());
     this.setState({caption: "", imageFile: null, imageUrl: null});
     this.props.closeModal();
   }

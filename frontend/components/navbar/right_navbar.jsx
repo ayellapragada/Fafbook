@@ -28,13 +28,13 @@ class RightNavbar extends React.Component {
     if (this.props.currentUser){
       return (
         <div className="right-navbar">
-          <img src={this.props.currentUser.profile_url}
-            className="navbar-profile-photo"/>
           <Link className="navbar-btn profile-link right-navbar-words"
             to={"/profile/" + this.props.currentUser.id}>
+            <img src={this.props.currentUser.profile_url}
+              className="navbar-profile-photo"/>
             {this.props.currentUser.fname}
           </Link>
-          <div className="empty-border"></div>
+          <div className="empty-border-left"></div>
           <Link className="navbar-btn home-link right-navbar-words"
             to={"/"}>
             Home
