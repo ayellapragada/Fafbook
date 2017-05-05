@@ -20,15 +20,14 @@ class Dropdown extends React.Component {
   render() {
     return (
       <ul className="edit-delete-dropdown">
+        {this.props.editPossible === true && 
         <div className="edit-delete-dropdown-option"
-             onClick={this.props.handleEditModal}
-        >
+          onClick={this.props.handleEditModal} >
           <li>{`Edit ${this.props.type}`}</li>
-        </div>
+        </div> }
 
-        <div 
-          onClick={this.handleDelete}
-          className="edit-delete-dropdown-option">
+        <div className="edit-delete-dropdown-option"
+          onClick={this.handleDelete}>
           <li>{`Delete ${this.props.type}`}</li>
         </div>
       </ul>

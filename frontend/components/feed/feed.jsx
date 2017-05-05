@@ -14,23 +14,36 @@ import CreatePost from './create_post';
 class Feed extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {loading: true};
+    this.state = {loading: true, page: 0};
+    this.handleScroll = this.handleScroll.bind(this);
   }
 
   componentWillReceiveProps(nextProps){
-    if (this.props.user.id != nextProps.user.id) {
+    if (this.props.user.id !== nextProps.user.id) {
       this.props.fetchUserPosts(nextProps.user.id);
     }
   }
 
   componentDidMount() {
     this.props.fetchUserPosts(this.props.user.id)
-      .then(() => this.setState({loading: false}))
+      .then(() => this.setState({loading: false}));
+    document.addEventListener('scroll', this.handleScroll);
   }
 
   componentWillUnmount() {
-    this.setState({loading: true})
+    this.setState({loading: true});
+    document.removeEventListener('scroll', this.handleScroll);
   }
+
+  handleScroll(e) {
+    if (document.body.scrollHeight ===
+      document.body.scrollTop +        
+      window.innerHeight) {
+      this.setState({page: this.state.page + 1});
+      this.props.fetchMoreUserPosts(this.props.user.id, this.state.page);
+    } 
+  }
+
 
   render() {
     const postsValues = Object.values(this.props.posts);
@@ -40,8 +53,8 @@ class Feed extends React.Component {
       return  <Post 
         post={post} 
         createComment={this.props.createComment}
-        key={ post.post.id }/>
-    })
+        key={ post.post.id }/>;
+    });
 
     return (
       <div className="feed">
@@ -52,7 +65,7 @@ class Feed extends React.Component {
         </ul>
 
       </div>
-    )
+    );
   }
 }
 
@@ -70,7 +83,7 @@ const mapDispatchToProps = dispatch => ({
   fetchNewPosts: () => dispatch(fetchNewPosts()),
   fetchMorePosts: () => dispatch(fetchMorePosts()),
   fetchUserPosts: (id) => dispatch(fetchUserPosts(id)),
-  fetchMoreUserPosts: (id) => dispatch(fetchMoreUserPosts(id)),
+  fetchMoreUserPosts: (id, page) => dispatch(fetchMoreUserPosts(id, page)),
   createComment: (comment) => dispatch(createComment(comment)),
 });
 

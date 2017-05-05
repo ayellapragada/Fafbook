@@ -22,7 +22,7 @@ class EditPost extends React.Component {
     return(
       <div className="create-post-form-container edit-post-container">
         <div 
-          className="create-post-form-input">
+          className="create-post-form-input edit-post-header">
           <img src={this.props.post.author.profile_url}/>
           <textarea
             value={this.state.body}
@@ -33,10 +33,11 @@ class EditPost extends React.Component {
         <div className="update-post-buttons">
           <div className="create-post-form-submit">
             <button onClick={this.handleSubmit}>Update</button>
-            <button 
-              className="cancel-edit-button" 
-              onClick={this.props.handleEditModal}>
-              Cancel</button>
+            <div className="cancel-edit-button">
+              <button 
+                onClick={this.props.handleEditModal}>
+                Cancel</button>
+            </div>
           </div>
         </div>
       </div>

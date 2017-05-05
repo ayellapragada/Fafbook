@@ -12,16 +12,28 @@ import CreatePost from './create_post';
 class Timeline extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {loading: true};
+    this.state = {loading: true, page: 0};
+    this.handleScroll = this.handleScroll.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchNewPosts()
       .then(() => this.setState({loading: false}));
+    document.addEventListener('scroll', this.handleScroll);
   }
 
   componentWillUnmount() {
     this.setState({loading: true});
+    document.removeEventListener('scroll', this.handleScroll);
+  }
+
+  handleScroll(e) {
+    if (document.body.scrollHeight ===
+      document.body.scrollTop +        
+      window.innerHeight) {
+      this.setState({page: this.state.page + 1});
+      this.props.fetchMorePosts(this.state.page);
+    } 
   }
 
   render() {
@@ -50,7 +62,7 @@ class Timeline extends React.Component {
       );
     } else {
       return (
-        <div className="feed">
+        <div className="feed" >
           <CreatePost text={"Write your post here"} />
 
           <ul>
@@ -69,12 +81,9 @@ const mapStateToProps = (state) => ({
   postList: state.posts.postList,
 });
 
-// Going to have to do that thing from the auth posts on others, 
-// Submit / Update :: FetchnewPosts / fetchUserPosts
-
 const mapDispatchToProps = dispatch => ({
   fetchNewPosts: () => dispatch(fetchNewPosts()),
-  fetchMorePosts: () => dispatch(fetchMorePosts()),
+  fetchMorePosts: (page) => dispatch(fetchMorePosts(page)),
   createComment: (comment) => dispatch(createComment(comment)),
 });
 

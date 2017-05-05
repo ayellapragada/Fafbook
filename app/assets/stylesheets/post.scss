@@ -5,6 +5,7 @@
 }
 
 .post-top {
+  height: 100%;
   background-color: white;
   padding: 12px 12px 0 12px;
   position: relative;
@@ -23,6 +24,8 @@
   &:hover {
     color: #b2b5bc;
   }
+}
+.edit-post-header {
 }
 
 .edit-delete-dropdown {
@@ -52,6 +55,7 @@
 
 .update-post-buttons {
   display: flex;
+  width: 100%;
 }
 
 .edit-post-container {
@@ -62,11 +66,11 @@
   bottom: 0;
   z-index: 20;
   overflow: hidden;
-
   textarea {
     overflow: hidden;
   }
 }
+
 
 .post-header-information {
   display: flex;
@@ -146,19 +150,9 @@
 
 }
 
-
-
-
-
-
 .post-bottom {
   background-color: #f6f7f9;
 }
-
-
-
-
-
 
 
 .comment-container{
@@ -200,5 +194,18 @@
       outline: none;
     }
   }
+}
+
+.cancel-edit-button {
+  button {
+    background-color: #f6f7f9;
+    color: #4b4f56;
+    border: 1px solid #ced0d4;
+    &:hover {
+      background-color: #e9ebee;
+      border: 1px solid #ced0d4;
+    }
+  }
+
 }
 

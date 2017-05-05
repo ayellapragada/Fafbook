@@ -2,9 +2,18 @@ class Api::PostsController < ApplicationController
   def index
     possible_author_ids = [current_user.id] + current_user.friends.ids 
     possible_receiver_id = [current_user.id]
+
+    page = params[:page] ||= 0
+    num_posts = params[:num_posts] ||= 5
+    page = page.to_i
+    num_posts = num_posts.to_i
+
     posts_with_ids = Post
       .where("author_id IN (?) or receiver_id IN (?)", possible_author_ids, possible_receiver_id)
       .includes(:author, :receiver, :comments)
+      .order("created_at DESC")
+      .offset(page * num_posts)
+      .limit(num_posts)
 
     @posts = posts_with_ids.map do |post|
       {
@@ -53,10 +62,17 @@ class Api::PostsController < ApplicationController
   end
 
   def feed
+    page = params[:page] ||= 0
+    num_posts = params[:num_posts] ||= 5
+    page = page.to_i
+    num_posts = num_posts.to_i
+
     posts_with_ids = Post
       .where(receiver_id: params[:id])
       .includes(:author, :receiver, :comments)
       .order("created_at DESC")
+      .offset(page * num_posts)
+      .limit(num_posts)
 
     @posts = posts_with_ids.map do |post|
       {

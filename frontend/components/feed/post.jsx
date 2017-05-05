@@ -73,9 +73,9 @@ class Post extends React.Component {
         <div className="post-header-receiver">
           <i className="fa fa-caret-right" aria-hidden="true"></i>
           <Link to={"/profile/" + rId}>
-          {this.props.post.receiver.fname}
-          &nbsp;{this.props.post.receiver.lname}
-        </Link>
+            {this.props.post.receiver.fname}
+            &nbsp;{this.props.post.receiver.lname}
+          </Link>
         </div>
       );
     }
@@ -104,7 +104,7 @@ class Post extends React.Component {
                       {`${this.props.post.author.fname} 
                   ${this.props.post.author.lname}`}
                 </Link>
-                  {postHeaderRightBoth}
+                {postHeaderRightBoth}
               </div>
               <div className="post-header-date-time">
                 {this.state.dateTime.toDateString()} at &nbsp;
@@ -120,6 +120,7 @@ class Post extends React.Component {
             {this.state.dropdown && 
                 <Dropdown 
                   type="post"
+                  editPossible={true}
                   post={this.props.post}
                   handleDropdown={this.handleDropdown}
                   handleEditModal={this.handleEditModal}
@@ -127,58 +128,74 @@ class Post extends React.Component {
               </div>
           }
 
-            </div>
-
-            <div className="post-body">
-              <p>{this.props.post.post.body}</p>
-            </div>
-
-            <div className="post-buttons">
-
-              <div className="post-action-button">
-                <i className="fa fa-thumbs-up" aria-hidden="true"></i>
-                Like
-              </div>
-
-              <div className="post-action-button">
-                <i className="fa fa-comment" aria-hidden="true"></i>
-                Comment
-              </div>
-
-              <div className="post-action-button">
-                <i className="fa fa-share" aria-hidden="true"></i>
-                Share
-              </div>
-
-              <div className="post-likes">
-              </div>
-            </div>
-          </div>
-
-
-
-          <div className="post-bottom">
-            <div className="post-comments">
-              <ul>
-                {comments}
-              </ul>
-            </div>
-
-            <div className="post-new-comment">
-              <img src={this.props.currentUser.profile_url} />
-              <form onSubmit={this.handleSubmit}>
-                <textarea
-                  id="write-a-comment"
-                  value={this.state.comment}
-                  placeholder="Write a comment..."
-                  onKeyDown={this.checkSubmit} 
-                  onChange={this.handleChange}/>
-              </form>
-
-            </div>
-          </div>
+          { this.props.post.author.id !== this.props.currentUser.id && 
+              this.props.post.receiver.id === this.props.currentUser.id &&
+              <div  className="edit-dropdown"
+                onClick={this.handleDropdown}>
+                <i className="fa fa-chevron-down" aria-hidden="true"></i>
+                {this.state.dropdown && 
+                    <Dropdown 
+                      type="post"
+                      post={this.props.post}
+                      editPossible={false}
+                      handleDropdown={this.handleDropdown}
+                      handleEditModal={this.handleEditModal}
+                      deletePost={this.props.deletePost} />}
+                  </div>
+          }
 
         </div>
+
+        <div className="post-body">
+          <p>{this.props.post.post.body}</p>
+        </div>
+
+        <div className="post-buttons">
+
+          <div className="post-action-button">
+            <i className="fa fa-thumbs-up" aria-hidden="true"></i>
+            Like
+          </div>
+
+          <div className="post-action-button">
+            <i className="fa fa-comment" aria-hidden="true"></i>
+            Comment
+          </div>
+
+          <div className="post-action-button">
+            <i className="fa fa-share" aria-hidden="true"></i>
+            Share
+          </div>
+
+          <div className="post-likes">
+          </div>
+        </div>
+      </div>
+
+
+
+      <div className="post-bottom">
+        <div className="post-comments">
+          <ul>
+            {comments}
+          </ul>
+        </div>
+
+        <div className="post-new-comment">
+          <img src={this.props.currentUser.profile_url} />
+          <form onSubmit={this.handleSubmit}>
+            <textarea
+              id="write-a-comment"
+              value={this.state.comment}
+              placeholder="Write a comment..."
+              onKeyDown={this.checkSubmit} 
+              onChange={this.handleChange}/>
+          </form>
+
+        </div>
+      </div>
+
+    </div>
     );
   }
 

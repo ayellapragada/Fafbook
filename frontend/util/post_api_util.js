@@ -1,14 +1,16 @@
-export const allPosts = () => {
+export const allPosts = (page = 0) => {
   return $.ajax({
     method: 'GET',
-    url: '/api/posts'
+    url: '/api/posts',
+    data: { page }
   });
 };
 
-export const getFeed = (id) => {
+export const getFeed = (id, page) => {
   return $.ajax({
     method: 'GET',
-    url: `/api/posts/feed/${id}`
+    url: `/api/posts/feed/${id}`,
+    data: {page}
   });
 };
 

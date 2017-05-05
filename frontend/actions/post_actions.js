@@ -48,13 +48,13 @@ export const fetchUserPosts = (id) => dispatch => (
   .then(posts => dispatch(receiveAllPosts(posts)))
 );
 
-export const fetchMorePosts = () => dispatch => (
-  APIUtil.allPosts()
+export const fetchMorePosts = (page) => dispatch => (
+  APIUtil.allPosts(page)
   .then(posts => dispatch(addNewPosts(posts)))
 );
 
-export const fetchMoreUserPosts = (id) => dispatch => (
-  APIUtil.getFeed(id)
+export const fetchMoreUserPosts = (id, page) => dispatch => (
+  APIUtil.getFeed(id, page)
   .then(posts => dispatch(addNewPosts(posts)))
 );
 
