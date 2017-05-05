@@ -90,7 +90,10 @@ class Post extends React.Component {
               {this.state.dropdown && 
                   <Dropdown 
                     type="post"
+                    post={this.props.post}
                     handleDropdown={this.handleDropdown}
+                    updatePost={this.props.updatePost}
+                    deletePost={this.props.deletePost}
                   />}
             </div>
 

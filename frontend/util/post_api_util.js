@@ -23,14 +23,14 @@ export const createPost = post => {
 export const getPost = id => {
   return $.ajax({
     method: 'GET',
-    url: `/api/posts${id}`
+    url: `/api/posts/${id}`
   });
 };
 
 export const updatePost = post => {
   return $.ajax({
     method: 'PATCH',
-    url: `/api/posts${post.id}`,
+    url: `/api/posts/${post.id}`,
     data: { post }
   });
 };
@@ -38,6 +38,6 @@ export const updatePost = post => {
 export const deletePost = id => {
   return $.ajax({
     method: 'DELETE',
-    url: `/api/posts${id}`,
+    url: `/api/posts/${id}`,
   });
 };

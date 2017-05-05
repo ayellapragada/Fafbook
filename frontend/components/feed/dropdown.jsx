@@ -4,19 +4,26 @@ import onClickOutside from 'react-onclickoutside';
 class Dropdown extends React.Component {
   constructor(props) {
     super(props);
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   handleClickOutside(e) {
     this.props.handleDropdown();
   }
 
+  handleDelete() {
+    this.props.deletePost(this.props.post.post.id);
+  }
+
   render() {
     return (
       <ul className="edit-delete-dropdown">
-        <div className="edit-delete-dropdown-option">
+        <div className="edit-delete-dropdown-option" >
           <li>{`Edit ${this.props.type}`}</li>
         </div>
-        <div className="edit-delete-dropdown-option">
+        <div 
+          onClick={this.handleDelete}
+          className="edit-delete-dropdown-option">
           <li>{`Delete ${this.props.type}`}</li>
         </div>
       </ul>

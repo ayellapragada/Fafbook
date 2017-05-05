@@ -40,8 +40,10 @@ class Api::PostsController < ApplicationController
   def show
   end
 
-  def delete
-    debugger
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy 
+    render 'api/posts/deleted'
   end
 
   def feed
