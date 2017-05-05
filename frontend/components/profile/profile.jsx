@@ -39,7 +39,9 @@ class Profile extends React.Component {
 
     if (this.state.loading) {
       return (
-        <div className="loader">Loading...</div>
+        <div className="profile">
+          <div className="loader">Loading...</div>
+        </div>
       );
     }
 
@@ -92,7 +94,7 @@ class Profile extends React.Component {
         <div className="profile">
           <DocumentTitle title={`${user.fname} ${user.lname}`} />
           <div className="profile-header">
-          <ControlBar user={user} currentUser={currentUser} />
+            <ControlBar user={user} currentUser={currentUser} />
           </div>
 
           <div className="profile-body">

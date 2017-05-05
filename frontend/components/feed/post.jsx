@@ -87,7 +87,11 @@ class Post extends React.Component {
               className="edit-dropdown"
               onClick={this.handleDropdown}>
               <i className="fa fa-chevron-down" aria-hidden="true"></i>
-              {this.state.dropdown && <Dropdown />}
+              {this.state.dropdown && 
+                  <Dropdown 
+                    type="post"
+                    handleDropdown={this.handleDropdown}
+                  />}
             </div>
 
           </div>
