@@ -66,6 +66,20 @@ class Post extends React.Component {
       );
     });
 
+    let postHeaderRightBoth;
+    if (this.props.post.author.id !== this.props.post.receiver.id) {
+      let rId = this.props.post.receiver.id;
+      postHeaderRightBoth = (
+        <div className="post-header-receiver">
+          <i className="fa fa-caret-right" aria-hidden="true"></i>
+          <Link to={"/profile/" + rId}>
+          {this.props.post.receiver.fname}
+          &nbsp;{this.props.post.receiver.lname}
+        </Link>
+        </div>
+      );
+    }
+
 
     return (
       <div className="post-container">
@@ -85,83 +99,86 @@ class Post extends React.Component {
                   </Link>
                 </div>
                 <div className="post-header-right">
-                  <Link to={`/profile/${this.props.post.author.id}`}>
-                    {`${this.props.post.author.fname} 
+                  <div className="post-header-right-people">
+                    <Link to={`/profile/${this.props.post.author.id}`}>
+                      {`${this.props.post.author.fname} 
                   ${this.props.post.author.lname}`}
                 </Link>
-                <div className="post-header-date-time">
-                  {this.state.dateTime.toDateString()} at &nbsp;
-                  {this.state.dateTime.toLocaleTimeString()}
-                </div>
+                  {postHeaderRightBoth}
+              </div>
+              <div className="post-header-date-time">
+                {this.state.dateTime.toDateString()} at &nbsp;
+                {this.state.dateTime.toLocaleTimeString()}
               </div>
             </div>
-
-            <div 
-              className="edit-dropdown"
-              onClick={this.handleDropdown}>
-              <i className="fa fa-chevron-down" aria-hidden="true"></i>
-              {this.state.dropdown && 
-                  <Dropdown 
-                    type="post"
-                    post={this.props.post}
-                    handleDropdown={this.handleDropdown}
-                    handleEditModal={this.handleEditModal}
-                    deletePost={this.props.deletePost}
-                  />}
-                </div>
-
-              </div>
-
-              <div className="post-body">
-                <p>{this.props.post.post.body}</p>
-              </div>
-
-              <div className="post-buttons">
-
-                <div className="post-action-button">
-                  <i className="fa fa-thumbs-up" aria-hidden="true"></i>
-                  Like
-                </div>
-
-                <div className="post-action-button">
-                  <i className="fa fa-comment" aria-hidden="true"></i>
-                  Comment
-                </div>
-
-                <div className="post-action-button">
-                  <i className="fa fa-share" aria-hidden="true"></i>
-                  Share
-                </div>
-
-                <div className="post-likes">
-                </div>
-              </div>
-            </div>
-
-
-
-            <div className="post-bottom">
-              <div className="post-comments">
-                <ul>
-                  {comments}
-                </ul>
-              </div>
-
-              <div className="post-new-comment">
-                <img src={this.props.currentUser.profile_url} />
-                <form onSubmit={this.handleSubmit}>
-                  <textarea
-                    id="write-a-comment"
-                    value={this.state.comment}
-                    placeholder="Write a comment..."
-                    onKeyDown={this.checkSubmit} 
-                    onChange={this.handleChange}/>
-                </form>
-
-              </div>
-            </div>
-
           </div>
+
+          <div 
+            className="edit-dropdown"
+            onClick={this.handleDropdown}>
+            <i className="fa fa-chevron-down" aria-hidden="true"></i>
+            {this.state.dropdown && 
+                <Dropdown 
+                  type="post"
+                  post={this.props.post}
+                  handleDropdown={this.handleDropdown}
+                  handleEditModal={this.handleEditModal}
+                  deletePost={this.props.deletePost}
+                />}
+              </div>
+
+            </div>
+
+            <div className="post-body">
+              <p>{this.props.post.post.body}</p>
+            </div>
+
+            <div className="post-buttons">
+
+              <div className="post-action-button">
+                <i className="fa fa-thumbs-up" aria-hidden="true"></i>
+                Like
+              </div>
+
+              <div className="post-action-button">
+                <i className="fa fa-comment" aria-hidden="true"></i>
+                Comment
+              </div>
+
+              <div className="post-action-button">
+                <i className="fa fa-share" aria-hidden="true"></i>
+                Share
+              </div>
+
+              <div className="post-likes">
+              </div>
+            </div>
+          </div>
+
+
+
+          <div className="post-bottom">
+            <div className="post-comments">
+              <ul>
+                {comments}
+              </ul>
+            </div>
+
+            <div className="post-new-comment">
+              <img src={this.props.currentUser.profile_url} />
+              <form onSubmit={this.handleSubmit}>
+                <textarea
+                  id="write-a-comment"
+                  value={this.state.comment}
+                  placeholder="Write a comment..."
+                  onKeyDown={this.checkSubmit} 
+                  onChange={this.handleChange}/>
+              </form>
+
+            </div>
+          </div>
+
+        </div>
     );
   }
 

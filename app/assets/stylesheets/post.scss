@@ -94,6 +94,19 @@
   }
 }
 
+.post-header-right-people {
+  display: flex;
+  justify-content: space-between;
+  i {
+    margin: 0 10px;
+    color: #aaaaaa;
+  }
+}
+
+.post-header-receiver {
+  display: flex;
+}
+
 .post-header-date-time {
   color: #90949c;
   font-size: 12px;
