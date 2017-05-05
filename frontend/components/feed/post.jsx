@@ -113,7 +113,7 @@ class Post extends React.Component {
             </div>
           </div>
 
-          <div 
+          { this.props.post.author.id === this.props.currentUser.id &&  <div 
             className="edit-dropdown"
             onClick={this.handleDropdown}>
             <i className="fa fa-chevron-down" aria-hidden="true"></i>
@@ -123,9 +123,9 @@ class Post extends React.Component {
                   post={this.props.post}
                   handleDropdown={this.handleDropdown}
                   handleEditModal={this.handleEditModal}
-                  deletePost={this.props.deletePost}
-                />}
+                  deletePost={this.props.deletePost} />}
               </div>
+          }
 
             </div>
 
