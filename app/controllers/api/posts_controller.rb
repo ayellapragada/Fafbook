@@ -34,7 +34,13 @@ class Api::PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-    debugger
+    if @post.update(post_params)
+      @author = @post.author
+      @receiver = @post.receiver
+      render 'api/posts/show'
+    else 
+      render json: @post.errors.full_messages, status: 422
+    end
   end
 
   def show

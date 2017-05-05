@@ -7,6 +7,7 @@
 .post-top {
   background-color: white;
   padding: 12px 12px 0 12px;
+  position: relative;
 }
 
 .post-header {
@@ -46,6 +47,24 @@
       background-color: #4267b2;
       color: white;
     }
+  }
+}
+
+.update-post-buttons {
+  display: flex;
+}
+
+.edit-post-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 20;
+  overflow: hidden;
+
+  textarea {
+    overflow: hidden;
   }
 }
 

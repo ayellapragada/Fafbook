@@ -39,7 +39,6 @@ class OpenPicture extends React.Component {
         <Modal
           isOpen={this.state.modalIsOpen}
           onAfterOpen={this.afterOpenModal}
-          onRequestClose={this.closeModal}
           contentLabel="Picture"
           className="picture-modal modal"
           overlayClassName="modal-overlay"

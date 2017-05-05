@@ -1,9 +1,11 @@
 import React from 'react';
 import onClickOutside from 'react-onclickoutside';
+import Modal from 'react-modal';
 
 class Dropdown extends React.Component {
   constructor(props) {
     super(props);
+
     this.handleDelete = this.handleDelete.bind(this);
   }
 
@@ -18,9 +20,12 @@ class Dropdown extends React.Component {
   render() {
     return (
       <ul className="edit-delete-dropdown">
-        <div className="edit-delete-dropdown-option" >
+        <div className="edit-delete-dropdown-option"
+             onClick={this.props.handleEditModal}
+        >
           <li>{`Edit ${this.props.type}`}</li>
         </div>
+
         <div 
           onClick={this.handleDelete}
           className="edit-delete-dropdown-option">

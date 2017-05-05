@@ -1,10 +1,11 @@
-json.extract! post, :body, :created_at, :id
+json.extract! post, :body, :id
+json.created_at post.updated_at
 
 
 json.comments post.comments do |comment|
   json.id comment.id
   json.body comment.comment
-  json.created_at comment.created_at
+  json.created_at comment.updated_at
   json.fname comment.user.fname
   json.lname comment.user.lname
   json.user_id comment.user.id
