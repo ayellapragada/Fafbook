@@ -5,10 +5,11 @@ export const allConversations = () => {
   });
 };
 
-export const newConversation = () => {
+export const newConversation = (senderId, recipientId) => {
   return $.ajax({
     method: 'POST',
-    url: '/api/conversations'
+    url: '/api/conversations',
+    data: {conversation: {senderId, recipientId}}
   });
 };
 
@@ -26,9 +27,10 @@ export const allMessages = (id) => {
   });
 };
 
-export const sendMessages = (id, message) => {
+export const sendMessages = (conversationId, userId, body) => {
   return $.ajax({
     method: 'POST',
-    url: `/api/conversations/${id}/messages`
+    url: `/api/conversations/${conversationId}/messages`,
+    data: {message : { conversationId, userId, body }}
   });
 };
