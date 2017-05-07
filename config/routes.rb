@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     resources :comments, only: [:create, :update, :destroy]
     resources :friendships, only: [:index, :update, :create, :destroy]
     resources :photos, only: [:create, :update, :show, :destroy] 
+    resources :messages, only: [:index, :create, :show, :destroy]
 
     # resources :albums, only: [:create, :update, :show, :destroy] 
 

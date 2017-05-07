@@ -1,0 +1,14 @@
+.chat-header {
+  display: flex;
+  justify-content: space-between;
+
+  .new-message {
+    color: #365899;
+    cursor: pointer;
+    font-weight: 100;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

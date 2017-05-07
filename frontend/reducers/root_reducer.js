@@ -6,6 +6,8 @@ import UserReducer from './user_reducer';
 import FriendsReducer from './friends_reducer';
 import PostsReducer from './posts_reducer';
 import SearchReducer from './search_reducer';
+import ConversationReducer from './conversation_reducer';
+import ChatReducer from './chat_reducer';
 
 
 const AppReducer = combineReducers({
@@ -14,6 +16,8 @@ const AppReducer = combineReducers({
   friends: FriendsReducer,
   posts: PostsReducer,
   search: SearchReducer,
+  conversations: ConversationReducer,
+  chats: ChatReducer,
 });
 
 const RootReducer = (state, action) => {
