@@ -1,7 +1,7 @@
-class ConversationsController < ApplicationController
-
+class Api::ConversationsController < ApplicationController
   def index 
     @conversations = current_user.conversations
+    debugger
   end
 
   def create 
@@ -19,5 +19,4 @@ class ConversationsController < ApplicationController
   def conversation_params
     params.permit(:sender_id, :recipient_id)
   end
-
 end

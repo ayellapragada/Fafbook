@@ -1,4 +1,4 @@
-class MessagesController < ApplicationController
+class Api::MessagesController < ApplicationController
   before_action do 
     @conversation = Conversation.find(params[:conversation_id])
   end
