@@ -5,19 +5,25 @@ import TimeAgo from 'react-timeago';
 class ConversationItem extends React.Component {
   constructor(props) {
     super(props);
+    this.handleClick = this.handleClick.bind(this);
+    this.otherUser = this.props.currentUser.id === 
+      this.props.conversation.sender.id ?
+      this.props.conversation.recipient : this.props.conversation.sender;
+  }
+
+  handleClick() {
+    this.props.openChat(this.props.conversation, this.otherUser);
+    this.props.toggleChat();
   }
 
   render() {
-    const otherUser = this.props.currentUser.id === 
-      this.props.conversation.sender.id ?
-      this.props.conversation.recipient : this.props.conversation.sender;
 
     return (
-      <li>
+      <li onClick={this.handleClick}>
         <div className="conversation-item">
 
           <div className="conversation-circle-picture">
-            <img src={otherUser.profile_url} />
+            <img src={this.otherUser.profile_url} />
           </div>
 
           <div className="conversation-content-center">
@@ -26,7 +32,7 @@ class ConversationItem extends React.Component {
               <div className="conversation-content-header">
 
                 <div className="conversation-content-name">
-                  {`${otherUser.fname} ${otherUser.lname}`}
+                  {`${this.otherUser.fname} ${this.otherUser.lname}`}
                 </div>
 
                 <div className="conversation-content-time">

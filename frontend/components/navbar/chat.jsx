@@ -1,4 +1,5 @@
 import { fetchAllConversations, } from '../../actions/message_actions';
+import { openChat } from '../../actions/chat_actions.js';
 import React from 'react';
 import { connect } from 'react-redux';
 import ConversationItem from './conversation_item.jsx';
@@ -19,6 +20,8 @@ class Chat extends React.Component {
       <ConversationItem 
         key={conversation.id} 
         currentUser={this.props.currentUser}
+        openChat={this.props.openChat}
+        toggleChat={this.props.toggleChat}
         conversation={conversation} />
     ));
 
@@ -45,7 +48,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchAllConversations: () => dispatch(fetchAllConversations())
+  fetchAllConversations: () => dispatch(fetchAllConversations()),
+  openChat: (chat) => dispatch(openChat(chat))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Chat);
