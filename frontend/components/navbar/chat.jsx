@@ -29,11 +29,11 @@ class Chat extends React.Component {
     ));
 
     return (
-      <div className="friend-requests-container chat-container">
+      <div className="chat-container">
 
         <div className="chat-header">
-          <p>Recent</p>
-          <p className="new-message">New Message</p>
+          <p className="no-bottom-border">Recent</p>
+          <p className="new-message no-bottom-border">New Message</p>
         </div>
 
         <ul>
