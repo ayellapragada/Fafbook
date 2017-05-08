@@ -57,9 +57,9 @@ class User < ApplicationRecord
   has_many :photos, through: :albums
   has_many :posts, class_name: "Post", foreign_key: 'author_id'
   has_many :posts_about, class_name: "Post", foreign_key: 'receiver_id'
-  has_many :conversations, :foreign_key => :sender_id
-
-
+  has_many :conversations, foreign_key: :sender_id
+  has_many :received_conversations, foreign_key: :recipient_id
+  
   after_initialize :ensure_session_token
   before_validation :create_dob
   after_create :fix_names, :create_dependencies
@@ -98,9 +98,6 @@ class User < ApplicationRecord
     self.save
   end
 
-  def create_full_name
-  end
-
   def valid_password?(password)
     BCrypt::Password.new(password_digest).is_password?(password)
   end
@@ -118,5 +115,9 @@ class User < ApplicationRecord
     self.session_token = User.generate_session_token
     self.save!
     self.session_token
+  end
+  
+  def all_conversations 
+    Conversations.where("sender_id = ? OR recipient_id = ?", self.id, self.id)
   end
 end
