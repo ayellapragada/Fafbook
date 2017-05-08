@@ -145,6 +145,14 @@
   }
 }
 
+.active-btn {
+  color: white;
+
+  &:hover {
+    color: white;
+  }
+}
+
 .right-navbar-words:hover {
   color: white;
   background-color: #355089;

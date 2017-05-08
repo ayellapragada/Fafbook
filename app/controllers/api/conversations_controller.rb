@@ -1,7 +1,7 @@
 class Api::ConversationsController < ApplicationController
   def index 
-    @conversations = current_user.conversations
-    debugger
+    @conversations = current_user.conversations 
+    render 'api/conversations/conversations'
   end
 
   def create 

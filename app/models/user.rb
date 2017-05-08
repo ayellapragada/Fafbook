@@ -57,13 +57,15 @@ class User < ApplicationRecord
   has_many :photos, through: :albums
   has_many :posts, class_name: "Post", foreign_key: 'author_id'
   has_many :posts_about, class_name: "Post", foreign_key: 'receiver_id'
-  has_many :conversations, foreign_key: :sender_id
-  has_many :received_conversations, foreign_key: :recipient_id
   
   after_initialize :ensure_session_token
   before_validation :create_dob
   after_create :fix_names, :create_dependencies
 
+
+  def conversations 
+    Conversation.where("sender_id = ? OR recipient_id = ?", self.id, self.id)
+  end
 
   def self.generate_session_token
     SecureRandom.urlsafe_base64(16)

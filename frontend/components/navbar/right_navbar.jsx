@@ -50,7 +50,7 @@ class RightNavbar extends React.Component {
           </Link>
           <div
             onClick={this.toggleRequests}
-            className="navbar-btn">
+            className={`navbar-btn ${this.state.requests ? "active-btn" : ""}`}>
             <i className="fa fa-users" aria-hidden="true"></i>
           </div>
           <div className="friend-requests-dropdown">
@@ -59,7 +59,7 @@ class RightNavbar extends React.Component {
           </div>
           <div
             onClick={this.toggleChat}
-            className="navbar-btn">
+            className={`navbar-btn ${this.state.chat ? "active-btn" : ""}`}>
             <i className="fa fa-comments" aria-hidden="true"></i>
           </div>
           <div
