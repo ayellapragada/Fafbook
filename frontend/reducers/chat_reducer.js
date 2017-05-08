@@ -12,7 +12,7 @@ const ChatReducer = (state = _nullChats, action) => {
     case CLOSE_ALL_CHATS:
       return _nullChats;
     case OPEN_CHAT:
-      return merge([], state, action.chat);
+      return merge([], state, [action.chat]);
     case CLOSE_CHAT:
       const newState = merge([], state);
       delete newState[action.chat.id];
