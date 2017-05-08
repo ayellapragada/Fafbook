@@ -4,6 +4,7 @@ import {
   fetchNewPosts, 
   fetchMorePosts, 
   createComment } from '../../actions/post_actions';
+import { receiveViewedUser } from '../../actions/user_actions';
 
 import Post from './post';
 import CreatePost from './create_post';
@@ -17,6 +18,7 @@ class Timeline extends React.Component {
   }
 
   componentDidMount() {
+    this.props.receiveViewedUser(this.props.currentUser.id);
     this.props.fetchNewPosts()
       .then(() => this.setState({loading: false}));
     document.addEventListener('scroll', this.handleScroll);
@@ -85,6 +87,7 @@ const mapDispatchToProps = dispatch => ({
   fetchNewPosts: () => dispatch(fetchNewPosts()),
   fetchMorePosts: (page) => dispatch(fetchMorePosts(page)),
   createComment: (comment) => dispatch(createComment(comment)),
+  receiveViewedUser: (id) => dispatch(receiveViewedUser(id)),
 });
 
 
