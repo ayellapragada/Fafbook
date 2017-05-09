@@ -1,7 +1,8 @@
 # README
 
 Fafbook - Fafbook ain't facebook.
-[Fafbook live][livesite]
+
+[Fafbook Live.][livesite]
 [livesite]: http://www.fafbook.us/#/
 
 Fafbook is a social networking site inspired by Facebook. It uses a Ruby on
@@ -32,6 +33,8 @@ they able to talk to them.
 Friend requests are handled in a dropdown menu, in a `FriendRequestItem`
 component that links to the User page, and has approve and deny buttons styled
 like Facebook.
+
+![Friend Requests](docs/images/friend_requests.gif)
 
 ### Timelines and Feeds
 
@@ -64,6 +67,8 @@ to make it easier for the reader to know when the comment was made. Both submit
 and read are built into the post itself, for logical flow of action for the
 user.
 
+![New Post and Comment](docs/images/new_post.gif)
+
 ### Search
 
 Search is a standard feature in any networking site, and using the pg_search
@@ -71,6 +76,8 @@ gem, it's possible to search for another user with both the first or last name.
 It's implemented in a dropdown allowing for the user to search from any page,
 without needed to leave the page they're on until they've found what they want
 to search for. 
+
+![Search](docs/images/search.gif)
 
 ## Future Directions for this project
 
