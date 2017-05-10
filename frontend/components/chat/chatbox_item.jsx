@@ -5,7 +5,7 @@ import OpenChatboxItem from './open_chatbox_item.jsx';
 class ChatboxItem extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {open: false};
+    this.state = {open: true};
     this.toggleOpen = this.toggleOpen.bind(this);
   }
 
@@ -19,7 +19,9 @@ class ChatboxItem extends React.Component {
         <div 
           onClick={this.toggleOpen}
           className="chatbox-item">
-          <OpenChatboxItem />
+          <OpenChatboxItem
+            otherUser={this.props.chat.otherUser}
+          />
         </div>
       );
     } else {

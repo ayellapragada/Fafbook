@@ -12,6 +12,8 @@ class Api::MessagesController < ApplicationController
         @messages.last.read = true;
       end 
     end 
+
+    render json: 'MESSAGE INDEX PARTIAL NEEDS TO BE MADE'
   end
 
   def create 

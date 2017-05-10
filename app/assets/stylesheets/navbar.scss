@@ -3,6 +3,10 @@
 .navbar-container {
   background-color: #3b5998;
   height: 43px;
+  position: fixed;
+  z-index: 20;
+  top: 0;
+  width: 51%;
   padding: 0 465px 0 473px;
 }
 
@@ -301,5 +305,9 @@
 }
 
 .special-navbar {
-  padding: 0 435px 0 447px;
+  padding: 0 475px 0 447px;
+  width: 53.6%;
+}
+.navbar-color {
+  background-color: #3b5998;
 }

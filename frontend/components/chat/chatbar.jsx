@@ -11,7 +11,8 @@ class Chatbar extends React.Component {
 
 
   render() {
-    const chatBoxes = this.props.chats.map((chat) => {
+
+    const chatBoxes = Object.values(this.props.chats).map((chat) => {
       return (
         <li key={chat.conversation.id}>
           <ChatboxItem 
@@ -27,19 +28,15 @@ class Chatbar extends React.Component {
     return (
       <div className="chatbar">
         <div className="chat-boxes">
-          <ul>
+          <ul className="chat-boxes-ul">
             {chatBoxes}
+            <div className="chat-main">
+              Chat
+            </div>
           </ul>
         </div>
 
-        { this.props.chats.length > 0 && 
-            <div className="close-chats">
-              <div 
-                onClick={this.props.closeAllChats}>
-                <i className="fa fa-times-circle" aria-hidden="true"></i>
-              </div>
-            </div>
-        } 
+
       </div>
     );
   }

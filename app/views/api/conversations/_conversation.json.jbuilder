@@ -8,5 +8,5 @@ json.recipient do
   json.partial! 'api/users/friend', friend: conversation.recipient
 end
 
-json.time conversation.messages.last.created_at
+json.time conversation.messages.last.created_at 
 json.message conversation.messages.last

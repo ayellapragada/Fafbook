@@ -12,8 +12,8 @@ class ConversationItem extends React.Component {
   }
 
   handleClick() {
-    this.props.openChat( 
-      {conversation :this.props.conversation, otherUser: this.otherUser});
+    this.props.openChat( {[this.props.conversation.id] :
+      {conversation: this.props.conversation, otherUser: this.otherUser}});
     this.props.toggleChat();
   }
 

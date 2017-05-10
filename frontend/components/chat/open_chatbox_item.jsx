@@ -7,7 +7,9 @@ class OpenChatboxItem extends React.Component {
 
   render() {
     return (
-      <div>Test</div>
+      <div className="open-chatbox-item">
+        <div>Test</div>
+      </div>
     );
   }
 }
