@@ -15,7 +15,7 @@ const ChatReducer = (state = _nullChats, action) => {
       return merge({}, state, action.chat);
     case CLOSE_CHAT:
       const newState = merge({}, state);
-      delete newState[action.chat.id];
+      delete newState[action.chat.conversation.id];
       return newState;
     default:
       return state;
