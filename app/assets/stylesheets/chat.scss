@@ -31,22 +31,22 @@
   padding: 10px 60px 5px 15px;
   font-size: 12px;
   font-weight: 800;
-  background-color: #eef0f1;
+  background-color: #f1f2f3;
   cursor: pointer;
   align-self: bottom;
 
   &:hover{
-    background-color: #f3f4f5;
+    background-color: #fafafb;
   }
 }
 
-.chatbox-close {
-  margin-right: 15px;
+.chatbox-closed {
+  margin-left: 15px;
 }
 
 .chat-main {
   padding: 10px 225px 6px 10px;
-  margin-left: 5px;
+  margin-left: 13px;
 }
 
 .chatbox-item {
@@ -61,7 +61,7 @@
   border-radius: 3px 3px 0 0;
   box-shadow: 0 1px 4px rgba(0, 0, 0, .3);
   background-color: #ffffff;
-  margin-right: 10px;
+  margin-left: 12px;
 }
 .chat-container li {
   cursor: pointer;

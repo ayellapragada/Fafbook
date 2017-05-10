@@ -17,11 +17,10 @@ class ChatboxItem extends React.Component {
     if (this.state.open) {
       return (
         <div 
-          onClick={this.toggleOpen}
           className="chatbox-item">
           <OpenChatboxItem
-            otherUser={this.props.chat.otherUser}
-          />
+            toggleOpen={this.toggleOpen}
+            otherUser={this.props.chat.otherUser} />
         </div>
       );
     } else {
