@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link, hashHistory } from 'react-router';
 import { connect } from 'react-redux';
+import onClickOutside from 'react-onclickoutside';
 import { logout } from '../../actions/session_actions';
 import FriendRequests from './friend_requests';
 import Chat from './chat';
-import onClickOutside from 'react-onclickoutside';
 
 
 class RightNavbar extends React.Component {
@@ -15,6 +15,7 @@ class RightNavbar extends React.Component {
     this.toggleRequests = this.toggleRequests.bind(this);
     this.toggleChat = this.toggleChat.bind(this);
   }
+
 
   toggleRequests() {
     this.setState({chat: false});

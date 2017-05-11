@@ -18,6 +18,9 @@ class Api::MessagesController < ApplicationController
     @conversation =  Conversation.find(params[:conversation_id])
     @message = @conversation.messages.new(message_params)
     if @message.save 
+      Pusher.trigger('messages', 'new_message',
+                     {id: @conversation.id})
+
       render 'api/conversations/conversation'
     end 
   end 

@@ -35,6 +35,7 @@
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "lodash": "^4.17.4",
+    "pusher-js": "^4.1.0",
     "react": "^15.5.4",
     "react-document-title": "^2.0.3",
     "react-dom": "^15.5.4",
