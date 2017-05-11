@@ -26,7 +26,6 @@ class Conversation < ActiveRecord::Base
   end 
 
   def start_conversation 
-    debugger
     self.messages.create(body: "#{User.find(self.sender_id).fname} says hi!", 
                       user_id: sender_id)
   end
