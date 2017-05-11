@@ -290,7 +290,7 @@
 }
 
 .message-body {
-  padding: 5px;
+  padding: 5px 8px;
   border-radius: 12px;
 }
 
@@ -316,4 +316,14 @@
   background-color: #f1f0f0;
 }
 
+.notification {
+  position: absolute;
+  top: 7px;
+  left: 1339px;
+  color: white;
+  background-color: #fa3e3e;
+  border-radius: 3px;
+  font-size: 12px;
+  padding: 2px;
+}
 

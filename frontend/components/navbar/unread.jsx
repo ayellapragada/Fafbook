@@ -1,0 +1,47 @@
+import { fetchAllConversations, } from '../../actions/message_actions';
+import React from 'react';
+import { connect } from 'react-redux';
+
+class Unread extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  componentDidMount() {
+    this.props.fetchAllConversations();
+  }
+
+  render() {
+    const unconvertedConversations = Object.values(this.props.conversations);
+    let unreadCount = 0;
+    const currentUser = this.props.currentUser;
+    const conversations = unconvertedConversations.map((conversation) => {
+      if (conversation.message.user_id !== currentUser.id && 
+        !conversation.message.read) {
+        unreadCount += 1;
+      }
+    });
+
+    if (unreadCount) {
+      return (
+        <div className="notification">
+          {unreadCount}
+        </div>
+      );
+    } else {
+      return <div />;
+    }
+  }
+
+}
+
+const mapStateToProps = (state) => ({
+  currentUser: state.session.currentUser,
+  conversations: state.conversations
+});
+
+const mapDispatchToProps = dispatch => ({
+  fetchAllConversations: () => dispatch(fetchAllConversations()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Unread);

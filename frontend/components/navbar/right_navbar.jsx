@@ -5,6 +5,7 @@ import onClickOutside from 'react-onclickoutside';
 import { logout } from '../../actions/session_actions';
 import FriendRequests from './friend_requests';
 import Chat from './chat';
+import Unread from './unread.jsx';
 
 
 class RightNavbar extends React.Component {
@@ -62,6 +63,7 @@ class RightNavbar extends React.Component {
             onClick={this.toggleChat}
             className={`navbar-btn ${this.state.chat ? "active-btn" : ""}`}>
             <i className="fa fa-comments" aria-hidden="true"></i>
+            <Unread />
           </div>
           <div
             className="navbar-btn">
