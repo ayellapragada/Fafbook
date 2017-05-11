@@ -65,7 +65,7 @@
 
 .chat-main {
   padding: 10px 225px 6px 10px;
-  margin-left: 50px;
+  margin-left: 15px;
 }
 
 .chatbox-item {
@@ -74,7 +74,7 @@
 
 .open-chatbox-item {
   width: 255px;
-  height: 325px;
+  height: 330px;
   border: 1px solid #cecfd2;
   border-radius: 3px 3px 0 0;
   box-shadow: 0 1px 4px rgba(0, 0, 0, .3);
@@ -228,4 +228,30 @@
 .chat-boxes-ul {
   display: flex;
   align-items: flex-end;
+}
+
+.chatbox-messages {
+  height: 80%;
+
+}
+
+.send-chat-message {
+  height: 20%;
+  border-top: 1px solid #e5e5e5;
+
+  textarea {
+    box-sizing: border-box;
+    padding: 10px;
+    padding-top: 25px;
+    overflow: hidden;
+    border: none;
+    width: 98%;
+    height: 50%;
+    resize: none;
+    font-size: 12px;
+
+    &:focus {
+      outline: none;
+    }
+  }
 }
