@@ -1,15 +1,17 @@
 import React from 'react';
 import Messages from './messages.jsx';
 import { Link } from 'react-router';
+import onClickOutside from 'react-onclickoutside';
 
 class OpenChatboxItem extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {body: "", user_id: this.props.currentUser.id };
+    this.state = {body: "", user_id: this.props.currentUser.id, active: true};
 
     this.handleCloseChat = this.handleCloseChat.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleActive = this.handleActive.bind(this);
     this.checkSubmit = this.checkSubmit.bind(this);
   }
 
@@ -23,6 +25,14 @@ class OpenChatboxItem extends React.Component {
 
   handleChange(e) {
     this.setState({body: e.currentTarget.value});
+  }
+
+  handleClickOutside(e) {
+    this.setState({active: false});
+  }
+
+  handleActive() {
+    this.setState({active: true});
   }
 
   checkSubmit(e) {
@@ -41,9 +51,13 @@ class OpenChatboxItem extends React.Component {
   }
 
   render() {
+    let activeClassName = `chatbox-header ${this.state.active ? 
+        "active-chatbox" : ""}`;
     return (
-      <div className="open-chatbox-item">
-        <div className="chatbox-header" onClick={this.props.toggleOpen} >
+      <div 
+        className="open-chatbox-item"
+        onClick={this.handleActive}>
+        <div className={activeClassName} onClick={this.props.toggleOpen} >
           <div className="chatbox-header-name">
             <Link to={`/profile/${this.props.otherUser.id}`}>
               {`${this.props.otherUser.fname} ${this.props.otherUser.lname}`}
@@ -75,4 +89,4 @@ class OpenChatboxItem extends React.Component {
   }
 }
 
-export default OpenChatboxItem;
+export default onClickOutside(OpenChatboxItem);

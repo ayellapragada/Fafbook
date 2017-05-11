@@ -40,9 +40,10 @@
 }
 
 .chatbox-closed {
-  width: 100%;
+  width: 75%;
   padding: 10px 10px 6px 10px;
   margin-left: 15px;
+  margin-right: 10px;
   display: flex;
   justify-content: space-between;
 
@@ -121,10 +122,6 @@
     background-color: #edeef1;
   }
 }
-
-
-
-
 
 .chat-header {
   display: flex;
@@ -297,12 +294,26 @@
   border-radius: 12px;
 }
 
+
+.active-chatbox,
 .our-message {
   color: white;
   background-color:#4080ff; 
+  a {
+    color: white;
+  }
+
+  i {
+    color: #c5d9ff;
+  }
+
+  &:hover {
+    background-color: #3e7cf7;
+  }
 }
 
 .their-message {
   background-color: #f1f0f0;
 }
+
 

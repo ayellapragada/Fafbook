@@ -1,12 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import DocumentTitle from 'react-document-title';
-import { fetchUser, receiveViewedUser } from '../../actions/user_actions';
+
 import ControlBar from './control_bar';
 import AboutSideBar from './about_side_bar';
 import Photos from './photos';
 import Friends from './friends';
 import Feed from '../feed/feed';
+import { openChat } from '../../actions/chat_actions.js';
+import { fetchUser, receiveViewedUser } from '../../actions/user_actions';
 import { createNewConversation } from '../../actions/message_actions'; 
 
 class Profile extends React.Component {
@@ -49,6 +51,7 @@ class Profile extends React.Component {
         <div className="profile">
           <ControlBar 
             createNewConversation = {this.props.createNewConversation}
+            openChat = {this.props.openChat}
             user={user} 
             currentUser={currentUser} />
           <div className="do-you-know-box">
@@ -67,6 +70,7 @@ class Profile extends React.Component {
         <div className="profile">
           <ControlBar 
             createNewConversation = {this.props.createNewConversation}
+            openChat = {this.props.openChat}
             user={user} 
             currentUser={currentUser} />
           <div className="do-you-know-box">
@@ -84,6 +88,7 @@ class Profile extends React.Component {
         <div className="profile">
           <ControlBar 
             createNewConversation = {this.props.createNewConversation}
+            openChat = {this.props.openChat}
             user={user} 
             currentUser={currentUser} />
           <div className="do-you-know-box">
@@ -136,6 +141,7 @@ const mapDispatchToProps = dispatch => ({
   clearUser: () => dispatch(receiveViewedUser(null)),
   createNewConversation: (senderId, recipientId) => dispatch(
     createNewConversation(senderId, recipientId)),
+  openChat: (chat) => dispatch(openChat(chat)),
 });
 
 

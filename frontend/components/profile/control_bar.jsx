@@ -11,7 +11,7 @@ const ControlBar = (props) => {
         <Link to={"/profile/"+props.user.id}
           className="profile-cover-header">
           {`${props.user.fname} ${props.user.lname}`}
-        </Link> <img 
+          </Link> <img 
           className="cover-img"
           src={props.user.cover_url}/>
       </div>
@@ -23,19 +23,20 @@ const ControlBar = (props) => {
       <div className="profile-header-space"></div>
 
       {(props.currentUser.id === props.user.id &&
-      <div className="profile-update-photos">
-        <UpdatePhotos 
-          buttonClass={'update-photo-hover'}
-          text={'Update Profile Photo'}
-        />
-        <UpdatePhotos 
-          buttonClass={'update-cover-hover'}
-          text={'Update Cover Photo'}
-        />
-      </div>
+        <div className="profile-update-photos">
+          <UpdatePhotos 
+            buttonClass={'update-photo-hover'}
+            text={'Update Profile Photo'}
+          />
+          <UpdatePhotos 
+            buttonClass={'update-cover-hover'}
+            text={'Update Cover Photo'}
+          />
+        </div>
       ) }
       <ActionBar 
         createNewConversation={props.createNewConversation}
+        openChat = {props.openChat}
         currentUser={props.currentUser}
         user={props.user} />
       <ProfileNavBar user={props.user}/>

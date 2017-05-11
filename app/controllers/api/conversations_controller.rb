@@ -6,8 +6,11 @@ class Api::ConversationsController < ApplicationController
 
   def create 
     if Conversation.between(params[:conversation][:sender_id], params[:conversation][:recipient_id]).present?
-      @Conversation = Conversation.between(params[:conversation][:sender_id],
-                                           params[:conversation][:recipient_id]).first
+      @conversation = Conversation.between(params[:conversation][:sender_id],
+                                           params[:conversation][:recipient_id])
+        .first
+
+      render 'api/conversations/conversation'
     else 
       @conversation = Conversation.create!(sender_id: params[:conversation][:sender_id],
                                            recipient_id: params[:conversation][:recipient_id])

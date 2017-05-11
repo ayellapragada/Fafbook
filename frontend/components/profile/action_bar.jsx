@@ -7,8 +7,14 @@ const ActionBar = (props) => {
 
   // Edit Profile, Settings VS Add / Remove friend, Message
 
-  const handleClick = (propsj) => {
-    props.createNewConversation(props.currentUser.id, props.user.id);
+  const handleClick = () => {
+    props.createNewConversation(props.currentUser.id, props.user.id)
+      .then((chat) => {
+        let id = Object.keys(chat.conversation)[0];
+        let conversation = Object.values(chat.conversation)[0];
+        let otherUser = props.user;
+        props.openChat({[id]: {conversation, otherUser} });
+      });
   };
 
   if (props.user.status === 0) {
