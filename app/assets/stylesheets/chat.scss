@@ -292,6 +292,7 @@
 .message-body {
   padding: 5px 8px;
   border-radius: 12px;
+  word-break: break-all;
 }
 
 
@@ -316,10 +317,15 @@
   background-color: #f1f0f0;
 }
 
+.relative-unread {
+  position: relative;
+}
+
 .notification {
+  border: 1px solid red;
+  bottom: 10px;
+  left: 10px;
   position: absolute;
-  top: 7px;
-  left: 1339px;
   color: white;
   background-color: #fa3e3e;
   border-radius: 3px;

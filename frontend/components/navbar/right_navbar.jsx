@@ -63,7 +63,9 @@ class RightNavbar extends React.Component {
             onClick={this.toggleChat}
             className={`navbar-btn ${this.state.chat ? "active-btn" : ""}`}>
             <i className="fa fa-comments" aria-hidden="true"></i>
-            <Unread />
+            <div className="relative-unread">
+              <Unread />
+            </div>
           </div>
           <div
             className="navbar-btn">
