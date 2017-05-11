@@ -7,21 +7,36 @@ class Messages extends React.Component {
     super(props);
   }
 
+  updateScroll(){
+    const element = document.getElementsByClassName("chatbox-messages")[0];
+    element.scrollTop = element.scrollHeight;
+  }
+
+  componentDidMount() {
+    this.updateScroll();
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    this.updateScroll();
+  }
+
   render() {
-    debugger;
     let messages;
     if (this.props.messages) {
       messages = this.props.messages.map((msg) => {
         return  (
           <MessageItem 
             message={msg} 
+            currentUser={this.props.currentUser}
+            otherUser={this.props.chat.otherUser}
             key={msg.id} />
-        )
+        );
       });
     }
+
     return (
       <div className="chatbox-messages">
-        <div>{messages}</div>
+        <ul>{messages}</ul>
       </div>
     );
   }

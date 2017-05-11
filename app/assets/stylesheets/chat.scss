@@ -232,6 +232,8 @@
 
 .chatbox-messages {
   height: 80%;
+  font-size: 12px;
+  overflow-y: auto;
 
 }
 
@@ -254,3 +256,53 @@
     }
   }
 }
+
+
+.message-item {
+  clear: both;
+  padding: 7px;
+}
+
+.message-picture-container {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.left-message-item {
+  float: left;
+  display: flex;
+  align-items: flex-end;
+  max-width: 85%;
+  img {
+    height: 100%;
+    width: 100%;
+  }
+
+  .message-body {
+    max-width: 75%;
+    margin-left: 5px;
+  }
+}
+
+.right-message-item {
+  float: right;
+  clear: both;
+  max-width: 70%;
+}
+
+.message-body {
+  padding: 5px;
+  border-radius: 12px;
+}
+
+.our-message {
+  color: white;
+  background-color:#4080ff; 
+}
+
+.their-message {
+  background-color: #f1f0f0;
+}
+
