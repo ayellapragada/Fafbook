@@ -9,7 +9,6 @@ class Messages extends React.Component {
 
   updateScroll(){
     this.messagesEnd.scrollIntoView({behavior: "smooth"});
-
   }
 
   componentDidMount() {

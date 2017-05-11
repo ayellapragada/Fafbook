@@ -18,8 +18,10 @@ class Chat extends React.Component {
 
   render() {
     const unconvertedConversations = Object.values(this.props.conversations);
+    const orderedConversations = unconvertedConversations.sort((a, b) =>  (
+      b.order_by - a.order_by));
 
-    const conversations  = unconvertedConversations.map((conversation) => (
+    const conversations = orderedConversations.map((conversation) => (
       <ConversationItem 
         key={conversation.id} 
         currentUser={this.props.currentUser}

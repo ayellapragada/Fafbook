@@ -9,4 +9,5 @@ json.recipient do
 end
 
 json.time conversation.messages.last.created_at 
+json.order_by conversation.messages.last.created_at.to_i
 json.message conversation.messages.last
