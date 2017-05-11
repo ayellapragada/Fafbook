@@ -3,7 +3,8 @@ class Api::MessagesController < ApplicationController
     @conversation = Conversation
       .includes(messages: [:user])
       .find(params[:conversation_id])
-    @messages = @conversation.messages.includes(:user)
+
+    @messages = @conversation.messages
 
     render 'api/conversations/conversation'
   end
