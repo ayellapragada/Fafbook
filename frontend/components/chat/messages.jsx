@@ -8,8 +8,8 @@ class Messages extends React.Component {
   }
 
   updateScroll(){
-    const element = document.getElementsByClassName("chatbox-messages")[0];
-    element.scrollTop = element.scrollHeight;
+    this.messagesEnd.scrollIntoView({behavior: "smooth"});
+
   }
 
   componentDidMount() {
@@ -37,6 +37,9 @@ class Messages extends React.Component {
     return (
       <div className="chatbox-messages">
         <ul>{messages}</ul>
+        <div style={ {float:"left", clear: "both"}  }
+          ref={(el) => { this.messagesEnd = el;  }}>
+        </div>
       </div>
     );
   }
