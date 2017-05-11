@@ -8,6 +8,7 @@ class MessageItem extends React.Component {
 
   render() {
     return (
+      <div>Hey this is a message</div>
     );
   }
 }

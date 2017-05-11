@@ -9,9 +9,15 @@ class Messages extends React.Component {
 
   render() {
     debugger;
-    let messages = 0;
+    let messages;
     if (this.props.messages) {
-      messages = this.props.messages.length;
+      messages = this.props.messages.map((msg) => {
+        return  (
+          <MessageItem 
+            message={msg} 
+            key={msg.id} />
+        )
+      });
     }
     return (
       <div className="chatbox-messages">
