@@ -7,8 +7,7 @@ import AboutSideBar from './about_side_bar';
 import Photos from './photos';
 import Friends from './friends';
 import Feed from '../feed/feed';
-
-
+import { createNewConversation } from '../../actions/message_actions'; 
 
 class Profile extends React.Component {
   constructor(props) {
@@ -94,7 +93,10 @@ class Profile extends React.Component {
         <div className="profile">
           <DocumentTitle title={`${user.fname} ${user.lname}`} />
           <div className="profile-header">
-            <ControlBar user={user} currentUser={currentUser} />
+            <ControlBar 
+              createNewConversation = {this.props.createNewConversation}
+              user={user} 
+              currentUser={currentUser} />
           </div>
 
           <div className="profile-body">
@@ -122,7 +124,9 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = dispatch => ({
   fetchUser: (id) => dispatch(fetchUser(id)),
-  clearUser: () => dispatch(receiveViewedUser(null))
+  clearUser: () => dispatch(receiveViewedUser(null)),
+  createNewConversation: (senderId, recipientId) => dispatch(
+    createNewConversation(senderId, recipientId)),
 });
 
 

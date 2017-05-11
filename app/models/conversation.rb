@@ -15,6 +15,8 @@ class Conversation < ActiveRecord::Base
 
   has_many :messages, dependent: :destroy
 
+  after_create :start_conversation
+
   validates_uniqueness_of :sender_id, :scope => :recipient_id
 
   scope :between, -> (sender_id,recipient_id) do
@@ -22,5 +24,12 @@ class Conversation < ActiveRecord::Base
           (conversations.sender_id = ? AND conversations.recipient_id =?)", 
           sender_id, recipient_id, recipient_id, sender_id)
   end 
+
+  def start_conversation 
+    debugger
+    self.messages.create(body: "#{User.find(self.sender_id).fname} says hi!", 
+                      user_id: sender_id)
+  end
+
 
 end

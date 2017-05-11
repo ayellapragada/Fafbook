@@ -5,11 +5,11 @@ export const allConversations = () => {
   });
 };
 
-export const newConversation = (senderId, recipientId) => {
+export const newConversation = (sender_id, recipient_id) => {
   return $.ajax({
     method: 'POST',
     url: '/api/conversations',
-    data: {conversation: {senderId, recipientId}}
+    data: {conversation: {sender_id, recipient_id}}
   });
 };
 
