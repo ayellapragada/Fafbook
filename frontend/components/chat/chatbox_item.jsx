@@ -24,7 +24,10 @@ class ChatboxItem extends React.Component {
         <div 
           className="chatbox-item">
           <OpenChatboxItem
+            currentUser={this.props.currentUser}
             chat={this.props.chat}
+            getMessages={this.props.getMessages}
+            sendMessage={this.props.sendMessage}
             closeChat={this.props.closeChat}
             toggleOpen={this.toggleOpen}
             otherUser={this.props.chat.otherUser} />

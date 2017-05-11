@@ -5,7 +5,7 @@ import { Link } from 'react-router';
 class OpenChatboxItem extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {message: ""};
+    this.state = {body: "", user_id: this.props.currentUser.id };
 
     this.handleCloseChat = this.handleCloseChat.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -13,12 +13,16 @@ class OpenChatboxItem extends React.Component {
     this.checkSubmit = this.checkSubmit.bind(this);
   }
 
+  componentDidMount() {
+    this.props.getMessages(this.props.chat.conversation.id);
+  }
+
   handleCloseChat() {
     this.props.closeChat(this.props.chat);
   }
 
   handleChange(e) {
-    this.setState({message: e.currentTarget.value});
+    this.setState({body: e.currentTarget.value});
   }
 
   checkSubmit(e) {
@@ -28,7 +32,12 @@ class OpenChatboxItem extends React.Component {
   }
 
   handleSubmit(e) {
-    this.setState({message: ""});
+    this.props.sendMessage(
+      this.props.chat.conversation.id,
+      this.state.user_id,
+      this.state.body
+    );
+    this.setState({body: ""});
   }
 
   render() {
@@ -48,17 +57,20 @@ class OpenChatboxItem extends React.Component {
 
         </div>
 
-        <Messages />
+        <Messages 
+          currentUser={this.props.currentUser}
+          chat={this.props.chat} 
+        />
 
-        <div className="send-chat-message">
-          <textarea 
-            className="send-chat-textarea"
-            value={this.state.message}
-            placeholder="Type a message"
-            onKeyDown={this.checkSubmit} 
-            onChange={this.handleChange} />
-        </div>
+      <div className="send-chat-message">
+        <textarea 
+          className="send-chat-textarea"
+          value={this.state.body}
+          placeholder="Type a message"
+          onKeyDown={this.checkSubmit} 
+          onChange={this.handleChange} />
       </div>
+    </div>
     );
   }
 }

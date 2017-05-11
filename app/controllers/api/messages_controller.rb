@@ -1,10 +1,8 @@
 class Api::MessagesController < ApplicationController
-  before_action do 
-    @conversation = Conversation.find(params[:conversation_id])
-  end
 
 
   def index 
+    @conversation = Conversation.find(params[:conversation_id])
     @messages = @conversation.messages 
 
     if @messages.last 
@@ -13,13 +11,14 @@ class Api::MessagesController < ApplicationController
       end 
     end 
 
-    render json: 'MESSAGE INDEX PARTIAL NEEDS TO BE MADE'
+    render 'api/conversations/conversation'
   end
 
   def create 
+    @conversation =  Conversation.find(params[:conversation_id])
     @message = @conversation.messages.new(message_params)
     if @message.save 
-      render json: 'MAKE MESSAGE JSON PARTIAL STUFF HERE!!!!'
+      render 'api/conversations/conversation'
     end 
   end 
 

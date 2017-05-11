@@ -16,6 +16,7 @@ class Chatbar extends React.Component {
       return (
         <li key={chat.conversation.id}>
           <ChatboxItem 
+            currentUser={this.props.currentUser}
             getMessages={this.props.getMessages}
             sendMessage={this.props.sendMessage}
             currentUser={this.props.currentUser}

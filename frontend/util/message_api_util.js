@@ -27,10 +27,10 @@ export const allMessages = (id) => {
   });
 };
 
-export const sendMessages = (conversationId, userId, body) => {
+export const sendMessages = (conversation_id, user_id, body) => {
   return $.ajax({
     method: 'POST',
-    url: `/api/conversations/${conversationId}/messages`,
-    data: {message : { conversationId, userId, body }}
+    url: `/api/conversations/${conversation_id}/messages`,
+    data: {message : { conversation_id, user_id, body }}
   });
 };
