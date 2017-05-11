@@ -47,7 +47,10 @@ class Profile extends React.Component {
     if (user.status === -2) {
       return (
         <div className="profile">
-          <ControlBar user={user} currentUser={currentUser} />
+          <ControlBar 
+            createNewConversation = {this.props.createNewConversation}
+            user={user} 
+            currentUser={currentUser} />
           <div className="do-you-know-box">
             Do you know {user.fname}?
           </div>
@@ -62,7 +65,10 @@ class Profile extends React.Component {
     else if (user.status === -1) {
       return (
         <div className="profile">
-          <ControlBar user={user} currentUser={currentUser} />
+          <ControlBar 
+            createNewConversation = {this.props.createNewConversation}
+            user={user} 
+            currentUser={currentUser} />
           <div className="do-you-know-box">
             Do you know {user.fname}?
           </div>
@@ -76,7 +82,10 @@ class Profile extends React.Component {
     else if (user.status === -3) {
       return (
         <div className="profile">
-          <ControlBar user={user} currentUser={currentUser} />
+          <ControlBar 
+            createNewConversation = {this.props.createNewConversation}
+            user={user} 
+            currentUser={currentUser} />
           <div className="do-you-know-box">
             Do you know {user.fname}?
           </div>

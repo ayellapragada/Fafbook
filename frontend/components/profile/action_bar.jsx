@@ -7,7 +7,7 @@ const ActionBar = (props) => {
 
   // Edit Profile, Settings VS Add / Remove friend, Message
 
-  const handleClick = () => {
+  const handleClick = (propsj) => {
     props.createNewConversation(props.currentUser.id, props.user.id);
   };
 
@@ -28,7 +28,7 @@ const ActionBar = (props) => {
         <FriendStatus user={props.user} color="profile-green"/>
 
         <div className={"friend-request-button message-friend-button"}
-          onClick={handleClick}>
+          onClick={() => handleClick(props)}>
           <button>
             <i className="fa fa-comments" aria-hidden="true"></i>
             <span className="friend-request-button-text">

@@ -13,7 +13,6 @@ class Api::ConversationsController < ApplicationController
                                            recipient_id: params[:conversation][:recipient_id])
       Pusher.trigger('messages', 'new_message',
                      {id: @conversation.id})
-
       render 'api/conversations/conversation'
     end
   end
