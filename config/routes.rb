@@ -14,8 +14,9 @@ Rails.application.routes.draw do
     resources :comments, only: [:create, :update, :destroy]
     resources :friendships, only: [:index, :update, :create, :destroy]
     resources :photos, only: [:create, :update, :show, :destroy] 
-    resources :messages, only: [:index, :create, :show, :destroy]
-
+    resources :conversations, only: [:index, :create, :destroy] do 
+      resources :messages, only: [:index, :create]
+    end
     # resources :albums, only: [:create, :update, :show, :destroy] 
 
     # Don't worry about albums for right now. Let photo controller default to 

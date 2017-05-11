@@ -7,10 +7,12 @@ const Navbar = (props) => {
   const special = props.location === '/' ? "special-navbar" : "";
 
   return (
-    <div className={'navbar-container ' + special }>
-      <div className='navbar-both'>
-        <LeftNavbar/>
-        <RightNavbar/>
+    <div className='navbar-color'>
+      <div className={'navbar-container ' + special }>
+        <div className='navbar-both'>
+          <LeftNavbar/>
+          <RightNavbar/>
+        </div>
       </div>
     </div>
   );

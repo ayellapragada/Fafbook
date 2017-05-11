@@ -1,28 +1,36 @@
 export const allConversations = () => {
   return $.ajax({
     method: 'GET',
-    url: '/api/messages'
+    url: '/api/conversations'
   });
 };
 
-export const sendMessage = (receipients, body) => {
+export const newConversation = (senderId, recipientId) => {
   return $.ajax({
     method: 'POST',
-    url: '/api/messages',
-    data: { message: {receipients, body} }
+    url: '/api/conversations',
+    data: {conversation: {senderId, recipientId}}
   });
 };
 
-export const getConversation = (id) => {
-  return $.ajax({
-    method: 'GET',
-    url: '/api/messages/' + id,
-  });
-};
-
-export const deleteConversation = (id) => {
+export const removeConversation = (id) => {
   return $.ajax({
     method: 'DELETE',
-    url: '/api/messages/' + id,
+    url: 'api/conversations' + id,
+  });
+};
+
+export const allMessages = (id) => {
+  return $.ajax({
+    method: 'GET',
+    url: `/api/conversations/${id}/messages`
+  });
+};
+
+export const sendMessages = (conversation_id, user_id, body) => {
+  return $.ajax({
+    method: 'POST',
+    url: `/api/conversations/${conversation_id}/messages`,
+    data: {message : { conversation_id, user_id, body }}
   });
 };

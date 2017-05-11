@@ -31,14 +31,22 @@ class CreatePost extends React.Component {
     const nextUserId = nextProps.user.id;
     const name = nextProps.user.fname;
 
-    this.setState(
 
+    this.setState(
       {
         placeHolder: this.setMessage(currentUserId, nextUserId, name),
         receiver_id: nextUserId || currentUserId,
         errors: []
       }
     );
+  }
+
+  componentDidMount(nextProps) {
+
+  }
+
+  componentWillUnmount() {
+    this.setState({receiver_id: this.props.currentUser.id});
   }
 
   setMessage(userId, otherUserId, name) {

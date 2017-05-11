@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link, hashHistory } from 'react-router';
 import { connect } from 'react-redux';
+import onClickOutside from 'react-onclickoutside';
 import { logout } from '../../actions/session_actions';
 import FriendRequests from './friend_requests';
 import Chat from './chat';
-import onClickOutside from 'react-onclickoutside';
 
 
 class RightNavbar extends React.Component {
@@ -15,6 +15,7 @@ class RightNavbar extends React.Component {
     this.toggleRequests = this.toggleRequests.bind(this);
     this.toggleChat = this.toggleChat.bind(this);
   }
+
 
   toggleRequests() {
     this.setState({chat: false});
@@ -50,16 +51,16 @@ class RightNavbar extends React.Component {
           </Link>
           <div
             onClick={this.toggleRequests}
-            className="navbar-btn">
+            className={`navbar-btn ${this.state.requests ? "active-btn" : ""}`}>
             <i className="fa fa-users" aria-hidden="true"></i>
           </div>
           <div className="friend-requests-dropdown">
             { this.state.requests && <FriendRequests/> }
-            { this.state.chat && <Chat /> }
+            { this.state.chat && <Chat toggleChat={this.toggleChat} /> }
           </div>
           <div
             onClick={this.toggleChat}
-            className="navbar-btn">
+            className={`navbar-btn ${this.state.chat ? "active-btn" : ""}`}>
             <i className="fa fa-comments" aria-hidden="true"></i>
           </div>
           <div

@@ -31,10 +31,6 @@ class LeftBar extends React.Component {
             </Link>
 
 
-            <div className="left-navbar-explore">
-              <i className="fa fa-star" aria-hidden="true"></i>
-              <p>Explore</p>!
-            </div>
           </div>
         </div>
       );
@@ -42,6 +38,11 @@ class LeftBar extends React.Component {
     } else {
       return null;
     }
+
+            // <div className="left-navbar-explore">
+            //   <i className="fa fa-star" aria-hidden="true"></i>
+            //   <p>Explore</p>!
+            // </div>
 
   }
 }

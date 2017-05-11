@@ -10,11 +10,9 @@ class Api::CommentsController < ApplicationController
   end
 
   def update
-    debugger
   end
 
   def destroy
-    debugger
   end
 
 

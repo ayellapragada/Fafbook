@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from './navbar/navbar';
 import DocumentTitle from 'react-document-title';
+import Chatbar from './chat/chatbar';
 
 const App = ({ children  }) => {
   return(
@@ -10,6 +11,7 @@ const App = ({ children  }) => {
       <div className="background-color-for-all">
         { children }
       </div>
+      <Chatbar />
     </div>
   );
 };
