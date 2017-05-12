@@ -15,7 +15,6 @@ class Chat extends React.Component {
 
   componentDidMount() {
     this.props.fetchAllConversations();
-    this.props.readConversations();
   }
 
   render() {

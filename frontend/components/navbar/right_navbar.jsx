@@ -3,7 +3,8 @@ import { Link, hashHistory } from 'react-router';
 import { connect } from 'react-redux';
 import onClickOutside from 'react-onclickoutside';
 import { logout } from '../../actions/session_actions';
-import { fetchAllConversations, } from '../../actions/message_actions';
+import { fetchAllConversations, 
+          readConversations } from '../../actions/message_actions';
 import FriendRequests from './friend_requests';
 import Chat from './chat';
 import Unread from './unread.jsx';
@@ -16,6 +17,7 @@ class RightNavbar extends React.Component {
     this.state = ({requests: false, chat: false});
     this.toggleRequests = this.toggleRequests.bind(this);
     this.toggleChat = this.toggleChat.bind(this);
+    this.handleChat = this.handleChat.bind(this);
   }
 
   componentDidMount() {
@@ -33,6 +35,11 @@ class RightNavbar extends React.Component {
     this.setState({requests: false});
     const opposite = !this.state.chat; 
     this.setState({chat: opposite });
+  }
+
+  handleChat() {
+    this.toggleChat();
+    this.props.readConversations();
   }
 
   handleClickOutside (evt) {
@@ -65,7 +72,7 @@ class RightNavbar extends React.Component {
             { this.state.chat && <Chat toggleChat={this.toggleChat} /> }
           </div>
           <div
-            onClick={this.toggleChat}
+            onClick={this.handleChat}
             className={`navbar-btn ${this.state.chat ? "active-btn" : ""}`}>
             <i className="fa fa-comments" aria-hidden="true"></i>
             <div className="relative-unread">
@@ -102,6 +109,7 @@ const mapStateToProps = ({ session }) => ({
 
 const mapDispatchToProps = dispatch => ({
   logout: () => dispatch(logout()).then(hashHistory.push('/login')),
+  readConversations: () => dispatch(readConversations()),
   fetchAllConversations: () => dispatch(fetchAllConversations()),
 });
 
