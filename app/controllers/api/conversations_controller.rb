@@ -5,12 +5,18 @@ class Api::ConversationsController < ApplicationController
   end
 
   def read 
-    @conversations = current_user.conversations.joins(messages: :user) 
-    @conversations.each do |conversation|
-      if conversation.messages.last.user_id != current_user.id
-        conversation.messages.last.update(read: true)
+    @conversations = current_user.conversations.includes(:messages) 
+
+    Conversation.transaction do
+      @conversations.each do |conversation|
+        if conversation.messages.last.user_id != current_user.id && 
+            !conversation.messages.last.read
+          conversation.messages.last.update(read: true)
+        end
       end
     end
+
+    render json: "done"
   end
 
   def create 

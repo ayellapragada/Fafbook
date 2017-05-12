@@ -8,10 +8,6 @@ class Unread extends React.Component {
     super(props);
   }
 
-  componentDidMount() {
-    this.props.fetchAllConversations();
-  }
-
   render() {
     const unconvertedConversations = Object.values(this.props.conversations);
     let unreadCount = 0;
