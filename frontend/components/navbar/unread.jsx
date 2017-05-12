@@ -26,7 +26,8 @@ class Unread extends React.Component {
     if (unreadCount) {
       return (
         <div className="notification">
-          <DocumentTitle title={`${document.title} (${unreadCount})`} />
+          <DocumentTitle 
+            title={`${document.title.split(' (')[0]} (${unreadCount})`} />
           {unreadCount}
         </div>
       );
