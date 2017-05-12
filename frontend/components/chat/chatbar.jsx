@@ -16,8 +16,13 @@ class Chatbar extends React.Component {
   }
 
   componentDidMount() {
+    const currentUser = this.props.currentUser;
     this.chatRoom.bind('new_message', 
-      (data) => this.props.getMessages(data.id));
+      (data) => {
+        if (data.recipient_id === currentUser.id) {
+          this.props.getMessages(data.id);
+        }
+      });
   }
 
   render() {
