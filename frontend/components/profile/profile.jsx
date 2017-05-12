@@ -109,6 +109,7 @@ class Profile extends React.Component {
           <div className="profile-header">
             <ControlBar 
               createNewConversation = {this.props.createNewConversation}
+              openChat = {this.props.openChat}
               user={user} 
               currentUser={currentUser} />
           </div>
