@@ -18,6 +18,10 @@ class RightNavbar extends React.Component {
     this.toggleChat = this.toggleChat.bind(this);
   }
 
+  componentDidMount() {
+    this.props.fetchAllConversations();
+  }
+
 
   toggleRequests() {
     this.setState({chat: false});

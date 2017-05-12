@@ -1,6 +1,7 @@
 import { 
   fetchAllConversations, 
-  createNewConversation } from '../../actions/message_actions';
+  createNewConversation,
+  readConversations } from '../../actions/message_actions';
 
 import { openChat } from '../../actions/chat_actions.js';
 import React from 'react';
@@ -14,6 +15,7 @@ class Chat extends React.Component {
 
   componentDidMount() {
     this.props.fetchAllConversations();
+    this.props.readConversations();
   }
 
   render() {
@@ -54,10 +56,9 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = dispatch => ({
   fetchAllConversations: () => dispatch(fetchAllConversations()),
-
+  readConversations: () => dispatch(readConversations()),
   createNewConversation: (senderId, recipientId) => dispatch(
     createNewConversation(senderId, recipientId)),
-
   openChat: (chat) => dispatch(openChat(chat))
 });
 

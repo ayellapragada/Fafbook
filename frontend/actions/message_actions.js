@@ -24,6 +24,10 @@ export const fetchAllConversations = () => dispatch => (
   .then(conversations => dispatch(receiveAllConversations(conversations)))
 );
 
+export const readConversations = () => dispatch => (
+  APIUtil.readConversations()
+);
+
 export const createNewConversation = (senderId, recipientId) =>  dispatch => (
   APIUtil.newConversation(senderId, recipientId)
   .then(conversation => dispatch(receiveConversation(conversation)))
@@ -43,4 +47,3 @@ export const sendMessage = (conversationId, userId, body) => dispatch => (
   APIUtil.sendMessages(conversationId, userId, body)
   .then(conversation => dispatch(receiveConversation(conversation)))
 );
-
