@@ -1,6 +1,6 @@
 class Api::ConversationsController < ApplicationController
   def index 
-    @conversations = current_user.conversations 
+    @conversations = current_user.conversations.joins(messages: :user) 
     @conversations.each do |conversation|
       if conversation.messages.last.user_id != current_user.id
         conversation.messages.last.update(read: true)
