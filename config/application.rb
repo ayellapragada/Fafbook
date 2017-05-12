@@ -32,5 +32,6 @@ module Fafbook
     }
     j
     config.active_record.raise_in_transactional_callbacks = true
+    config.action_view.logger = nil
   end
 end
