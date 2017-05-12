@@ -3,6 +3,7 @@ import { Link, hashHistory } from 'react-router';
 import { connect } from 'react-redux';
 import onClickOutside from 'react-onclickoutside';
 import { logout } from '../../actions/session_actions';
+import { fetchAllConversations, } from '../../actions/message_actions';
 import FriendRequests from './friend_requests';
 import Chat from './chat';
 import Unread from './unread.jsx';
@@ -96,7 +97,8 @@ const mapStateToProps = ({ session }) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  logout: () => dispatch(logout()).then(hashHistory.push('/login'))
+  logout: () => dispatch(logout()).then(hashHistory.push('/login')),
+  fetchAllConversations: () => dispatch(fetchAllConversations()),
 });
 
 

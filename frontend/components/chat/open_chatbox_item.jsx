@@ -46,8 +46,7 @@ class OpenChatboxItem extends React.Component {
       this.props.chat.conversation.id,
       this.state.user_id,
       this.state.body
-    );
-    this.setState({body: ""});
+    ).then(() => this.setState({body: ""}));
   }
 
   render() {
