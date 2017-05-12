@@ -34,12 +34,5 @@ class Api::MessagesController < ApplicationController
     params.require(:message).permit(:body, :user_id)
   end
 
-  def last_message_read 
-    if @messages.last 
-      if @messages.last.user_id != current_user.id 
-        @messages.last.update(read: true)
-      end 
-    end 
-  end
 
 end

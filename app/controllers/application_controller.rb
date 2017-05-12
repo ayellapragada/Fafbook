@@ -33,6 +33,14 @@ class ApplicationController < ActionController::Base
       .limit(9)
   end
 
+  def last_message_read 
+    if @messages.last 
+      if @messages.last.user_id != current_user.id 
+        @messages.last.update(read: true)
+      end 
+    end 
+  end
+
   def current_user
     @current_user ||= User.find_by session_token: session[:session_token]
   end
