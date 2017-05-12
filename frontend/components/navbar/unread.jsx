@@ -1,6 +1,7 @@
 import { fetchAllConversations, } from '../../actions/message_actions';
 import React from 'react';
 import { connect } from 'react-redux';
+import DocumentTitle from 'react-document-title';
 
 class Unread extends React.Component {
   constructor(props) {
@@ -25,6 +26,7 @@ class Unread extends React.Component {
     if (unreadCount) {
       return (
         <div className="notification">
+          <DocumentTitle title={`${document.title} (${unreadCount})`} />
           {unreadCount}
         </div>
       );
