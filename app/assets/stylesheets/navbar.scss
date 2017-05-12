@@ -2,12 +2,20 @@
 
 .navbar-container {
   background-color: #3b5998;
-  height: 43px;
   position: fixed;
   z-index: 20;
   top: 0;
-  width: 51%;
-  padding: 0 465px 0 473px;
+  width: 51.3%;
+  padding: 0 22% 0 24.7%;
+}
+
+.navbar-color {
+  background-color: #3b5998;
+  top: 0;
+  height: 43px;
+  width: 100%;
+  position: fixed;
+  z-index: 20;
 }
 
 .fafbook-small-logo,
@@ -305,9 +313,6 @@
 }
 
 .special-navbar {
-  padding: 0 475px 0 447px;
+  padding: 0 20% 0 23.5%;
   width: 53.6%;
-}
-.navbar-color {
-  background-color: #3b5998;
 }
