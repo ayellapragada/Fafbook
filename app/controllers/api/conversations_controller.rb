@@ -1,6 +1,6 @@
 class Api::ConversationsController < ApplicationController
   def index 
-    @conversations = current_user.conversations.joins(messages: :user) 
+    @conversations = current_user.conversations.limit(5)
     render 'api/conversations/conversations'
   end
 

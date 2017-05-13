@@ -58,7 +58,7 @@ class Timeline extends React.Component {
 
     if (this.state.loading) {
       return (
-        <div className="profile">
+        <div className="profile loading-profile">
           <div className="loader">Loading...</div>
         </div>
       );
