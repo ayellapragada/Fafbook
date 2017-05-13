@@ -67,6 +67,14 @@
   position: relative;
 }
 
+.search-box {
+  input {
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
 .search-box-input{
   height: 20px;
   width: 390px;
@@ -75,6 +83,7 @@
   padding-left: 5px;
   font-size: 14px;
   border: 1px solid transparent;
+
 }
 
 .search-submit {

@@ -8,6 +8,7 @@ import PostsReducer from './posts_reducer';
 import SearchReducer from './search_reducer';
 import ConversationReducer from './conversation_reducer';
 import ChatReducer from './chat_reducer';
+import ChatSearchReducer from './chat_search_reducer';
 
 
 const AppReducer = combineReducers({
@@ -18,6 +19,7 @@ const AppReducer = combineReducers({
   search: SearchReducer,
   conversations: ConversationReducer,
   chats: ChatReducer,
+  chatSearch: ChatSearchReducer,
 });
 
 const RootReducer = (state, action) => {

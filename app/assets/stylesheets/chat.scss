@@ -140,6 +140,29 @@
 
 }
 
+.new-conversation {
+  border-bottom: 1px solid #dddfe2;
+}
+
+.new-conversation-container {
+  display: flex;
+  justify-content: space-around;
+
+  textarea {
+    width: 100%;
+  }
+}
+
+.chat-dropdown-item {
+  display: flex;
+  align-items: center;
+  img {
+    height: 15px;
+    width: 15px;
+  }
+}
+
+
 .conversation-item {
   margin: 3px 0;
   display: flex;
@@ -334,4 +357,3 @@
   font-size: 12px;
   padding: 2px;
 }
-

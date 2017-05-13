@@ -1,6 +1,6 @@
 class Api::UsersController < ApplicationController
   def index
-    @results = User.search_by_full_name(params[:query]).limit(10)
+    @results = User.search_by_full_name(params[:query]).limit(5)
     render "api/users/search"
   end  
 

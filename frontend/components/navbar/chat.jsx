@@ -7,14 +7,21 @@ import { openChat } from '../../actions/chat_actions.js';
 import React from 'react';
 import { connect } from 'react-redux';
 import ConversationItem from './conversation_item.jsx';
+import NewConversation from './new_conversation.jsx';
 
 class Chat extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {newMessage: false};
+    this.handleNewMessage = this.handleNewMessage.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchAllConversations();
+  }
+
+  handleNewMessage() {
+    this.setState({newMessage: !this.state.newMessage});
   }
 
   render() {
@@ -33,12 +40,13 @@ class Chat extends React.Component {
 
     return (
       <div className="chat-container">
-
         <div className="chat-header">
           <p className="no-bottom-border">Recent</p>
-          <p className="new-message no-bottom-border">New Message</p>
+          <p 
+            onClick={this.handleNewMessage}
+            className="new-message no-bottom-border">New Message</p>
         </div>
-
+        {this.state.newMessage && <NewConversation />}
         <ul>
           {conversations}
         </ul>
