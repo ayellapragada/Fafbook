@@ -22,8 +22,7 @@ class Chat extends React.Component {
   }
 
   handleRead() {
-    this.props.readConversations()
-      .then(() => this.props.fetchAllConversations());
+    this.props.readConversations();
   }
 
   handleNewMessage() {

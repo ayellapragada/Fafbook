@@ -5,7 +5,7 @@ class Api::ConversationsController < ApplicationController
   end
 
   def read 
-    @conversations = current_user.conversations.includes(:messages) 
+    @conversations = current_user.conversations.limit(5)
 
     @conversations.each do |conversation|
       if conversation.messages.last.user_id != current_user.id && 
