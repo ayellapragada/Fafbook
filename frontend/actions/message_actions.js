@@ -26,6 +26,7 @@ export const fetchAllConversations = () => dispatch => (
 
 export const readConversations = () => dispatch => (
   APIUtil.readConversations()
+  .then(conversations => dispatch(receiveAllConversations(conversations)))
 );
 
 export const createNewConversation = (senderId, recipientId) =>  dispatch => (

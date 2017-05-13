@@ -14,9 +14,14 @@ class Chat extends React.Component {
     super(props);
     this.state = {newMessage: false};
     this.handleNewMessage = this.handleNewMessage.bind(this);
+    this.handleRead = this.handleRead.bind(this);
   }
 
   componentDidMount() {
+    this.props.fetchAllConversations();
+  }
+
+  handleRead() {
     this.props.readConversations()
       .then(() => this.props.fetchAllConversations());
   }
@@ -43,9 +48,14 @@ class Chat extends React.Component {
       <div className="chat-container">
         <div className="chat-header">
           <p className="no-bottom-border">Recent</p>
-          <p 
-            onClick={this.handleNewMessage}
-            className="new-message no-bottom-border">New Message</p>
+          <div className="controls">
+            <p 
+              className="new-message no-bottom-border"
+              onClick={this.handleRead}>Mark As Read</p>
+            <p 
+              onClick={this.handleNewMessage}
+              className="new-message no-bottom-border">New Message</p>
+          </div>
         </div>
         {this.state.newMessage && <NewConversation 
           toggleChat={this.props.toggleChat} />}

@@ -18,38 +18,46 @@ class ConversationItem extends React.Component {
   }
 
   render() {
+    let messageUnread = 
+      this.props.conversation.message.read ?  "msg-read" : "msg-unread";
+
+      if (this.props.conversation.message.user_id === this.props.currentUser.id)
+    messageUnread = "msg-read";
 
     return (
-      <li onClick={this.handleClick}>
-        <div className="conversation-item">
+      <div className={messageUnread}>
+        <li onClick={this.handleClick}>
+          <div className="conversation-item">
 
-          <div className="conversation-circle-picture">
-            <img src={this.otherUser.profile_url} />
-          </div>
+            <div className="conversation-circle-picture">
+              <img src={this.otherUser.profile_url} />
+            </div>
 
-          <div className="conversation-content-center">
+            <div className="conversation-content-center">
 
-            <div className="conversation-content">
-              <div className="conversation-content-header">
+              <div className="conversation-content">
+                <div className="conversation-content-header">
 
-                <div className="conversation-content-name">
-                  {`${this.otherUser.fname} ${this.otherUser.lname}`}
+                  <div className="conversation-content-name">
+                    {`${this.otherUser.fname} ${this.otherUser.lname}`}
+                  </div>
+
+                  <div className="conversation-content-time">
+                    <TimeAgo date={this.props.conversation.time}/>
+                  </div>
+
                 </div>
 
-                <div className="conversation-content-time">
-                  <TimeAgo date={this.props.conversation.time}/>
+                <div className="conversation-content-message">
+                  { this.props.conversation.message.body }
                 </div>
-
-              </div>
-
-              <div className="conversation-content-message">
-                { this.props.conversation.message.body }
               </div>
             </div>
-          </div>
 
-        </div>
-      </li>
+          </div>
+        </li>
+      </div>
+
     );
   }
 }
