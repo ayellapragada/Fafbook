@@ -2,7 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { 
   getChatResults, 
-  clearChatResults } from '../../actions/chat_actions.js';
+  clearChatResults,
+  openChat} from '../../actions/chat_actions.js';
+import { createNewConversation } from '../../actions/message_actions.js';
 import ChatDropdown from './chat_dropdown.jsx';
 
 class NewConversation extends React.Component {
@@ -29,8 +31,13 @@ class NewConversation extends React.Component {
   render() {
     const dropdowns = Object.values(this.props.chatSearch).map((res) => {
       return (
-        <li>
-          <ChatDropdown res={res} key={res.id} />
+        <li key={res.id}>
+          <ChatDropdown 
+            openChat={this.props.openChat}
+            currentUser={this.props.currentUser}
+            toggleChat={this.props.toggleChat}
+            createNewConversation={this.props.createNewConversation}
+            res={res} />
         </li>
       );
     });
@@ -51,11 +58,15 @@ class NewConversation extends React.Component {
 
 
 const mapStateToProps = state => ({
-  chatSearch: state.chatSearch
+  chatSearch: state.chatSearch,
+  currentUser: state.session.currentUser
 });
 
 const mapDispatchToProps = dispatch => ({
   getChatResults: (query) => dispatch(getChatResults(query)),
+  createNewConversation: (senderId, recipientId) => dispatch(
+    createNewConversation(senderId, recipientId)),
+  openChat: (chat) => dispatch(openChat(chat)),
   clearChatResults: () => dispatch(clearChatResults())
 });
 

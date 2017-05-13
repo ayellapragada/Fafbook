@@ -46,7 +46,8 @@ class Chat extends React.Component {
             onClick={this.handleNewMessage}
             className="new-message no-bottom-border">New Message</p>
         </div>
-        {this.state.newMessage && <NewConversation />}
+        {this.state.newMessage && <NewConversation 
+          toggleChat={this.props.toggleChat} />}
         <ul>
           {conversations}
         </ul>
