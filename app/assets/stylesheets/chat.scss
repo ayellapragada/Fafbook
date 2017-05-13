@@ -149,7 +149,13 @@
   justify-content: space-around;
 
   textarea {
+    border: 1px solid transparent;
+    resize: none;
     width: 100%;
+
+    &:focus {
+      outline: none;
+    }
   }
 }
 
@@ -356,4 +362,9 @@
   border-radius: 3px;
   font-size: 12px;
   padding: 2px;
+}
+
+.conversations-container {
+  overflow-y: auto;
+  max-height: 400px;
 }

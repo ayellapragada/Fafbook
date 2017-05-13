@@ -49,7 +49,7 @@ class Chat extends React.Component {
         </div>
         {this.state.newMessage && <NewConversation 
           toggleChat={this.props.toggleChat} />}
-        <ul>
+        <ul className="conversations-container">
           {conversations}
         </ul>
 
