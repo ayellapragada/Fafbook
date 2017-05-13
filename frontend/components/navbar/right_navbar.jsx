@@ -39,7 +39,6 @@ class RightNavbar extends React.Component {
 
   handleChat() {
     this.toggleChat();
-    this.props.readConversations();
   }
 
   handleClickOutside (evt) {
