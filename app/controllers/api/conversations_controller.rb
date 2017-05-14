@@ -1,11 +1,11 @@
 class Api::ConversationsController < ApplicationController
   def index 
-    @conversations = current_user.conversations.limit(5)
+    @conversations = current_user.conversations.order('updated_at DESC').limit(5)
     render 'api/conversations/conversations'
   end
 
   def read 
-    @conversations = current_user.conversations.limit(5)
+    @conversations = current_user.conversations.order('updated_at DESC').limit(5)
 
     @conversations.each do |conversation|
       if conversation.messages.last.user_id != current_user.id && 
