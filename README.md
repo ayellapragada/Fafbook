@@ -80,6 +80,14 @@ to search for.
 
 ![Search](docs/images/search.gif)
 
+### Messaging
+
+Messaging between users is required for any social networking site like
+Facebook, where the entire point is to interact with other users. I added in
+real time using the Pusher API. This system allows for a user to have up
+multiple chats, to minimize chat windows, and to mark messages as read.
+It also have notifications displayed in a subtle but obvious way. 
+
 ## Future Directions for this project
 
 In addition to what's been done already, I will continue to work on this
@@ -90,11 +98,6 @@ project.
 While all the necessary information is done for a profile, and to interact with
 them, the main 3 sections of a user profile of photos, friends, and about, can
 be expanded.
-
-### Messaging
-
-One of the key features of Facebook is the ability to real time chat with
-someone at any time. I will implement this using the Pusher API.
 
 ### Notifications 
 
