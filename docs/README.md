@@ -62,11 +62,9 @@ Once approved be able to view their page.
 
 
 ### Bonus Features (TBD)
-- [ ] Notifications
-- [ ] Search
+- [x] Search
+- [x] Messaging
 - [ ] Likes
+- [ ] Notifications
 - [ ] Tags
-- [ ] Messaging
-- [ ] Groups
-- [ ] Events
 - [ ] Profile deactivation
