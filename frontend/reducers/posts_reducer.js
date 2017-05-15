@@ -27,7 +27,6 @@ const PostsReducer = (state = _nullPosts, action) => {
       delete newState.posts[action.post.id];
       return newState;
     case ADD_NEW_POSTS:
-      // Used later for infinite scroll.
       return merge({}, state, { posts: action.posts});
     case RECEIVE_POST_ERRORS:
       return Object.assign({}, state, {errors: action.errors}); 

@@ -2,10 +2,14 @@ import React from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import {
-  updatePost, deletePost } from '../../actions/post_actions.js';
+  updatePost, 
+  deletePost,
+  toggleLikeOnPost,
+} from '../../actions/post_actions.js';
 import Comment from './comment';
 import Dropdown from './dropdown';
 import EditPost from './edit_post';
+import Likes from './likes';
 
 class Post extends React.Component {
   constructor(props) {
@@ -15,6 +19,7 @@ class Post extends React.Component {
     this.state = {dateTime: dateTime,
       comment: "",
       comments: this.props.post.post.comments,
+      likes: this.props.post.post.likes,
       editModal: false,
       dropdown: false};
 
@@ -24,6 +29,7 @@ class Post extends React.Component {
     this.handleDropdown = this.handleDropdown.bind(this);
     this.handleEditModal = this.handleEditModal.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.handleLike = this.handleLike.bind(this);
   }
 
   checkSubmit(e) {
@@ -33,7 +39,8 @@ class Post extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    this.setState({comments: nextProps.post.post.comments});
+    this.setState({comments: nextProps.post.post.comments,
+    likes: this.props.post.post.likes});
   }
 
   handleChange(e) {
@@ -61,6 +68,10 @@ class Post extends React.Component {
     this.commentInput.focus();
   }
 
+  handleLike() {
+    this.props.toggleLikeOnPost(this.props.post.post.id);
+  }
+
   render(){
     const comments = this.state.comments.map((comment) => {
       return (
@@ -85,6 +96,8 @@ class Post extends React.Component {
       );
     }
 
+    let likeButtonColor = this.props.post.post.liked ? 
+      "liked-post post-action-button" : "post-action-button";
 
     return (
       <div className="post-container">
@@ -157,7 +170,7 @@ ${this.props.post.author.lname}`}
 
         <div className="post-buttons">
 
-          <div className="post-action-button">
+          <div onClick={this.handleLike} className={likeButtonColor}>
             <i className="fa fa-thumbs-up" aria-hidden="true"></i>
             Like
           </div>
@@ -168,14 +181,15 @@ ${this.props.post.author.lname}`}
           </div>
 
 
-          <div className="post-likes">
-          </div>
         </div>
       </div>
 
-
-
       <div className="post-bottom">
+        <div className="post-likes">
+          {this.state.likes.length > 0 && 
+              <Likes likes={this.state.likes} />
+          }
+        </div>
         <div className="post-comments">
           <ul>
             {comments}
@@ -214,6 +228,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   updatePost: (post) => dispatch(updatePost(post)),
   deletePost: (id) => dispatch(deletePost(id)),
+  toggleLikeOnPost: (id) => dispatch(toggleLikeOnPost(id))
 });
 
 

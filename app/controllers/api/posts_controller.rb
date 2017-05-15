@@ -52,7 +52,12 @@ class Api::PostsController < ApplicationController
     end
   end
 
-  def show
+  def like 
+    @post = Post.find(params[:id])
+    current_user.toggle_like!(@post)
+    @author = @post.author
+    @receiver = @post.receiver
+    render 'api/posts/show'
   end
 
   def destroy

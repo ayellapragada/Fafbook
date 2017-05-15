@@ -151,6 +151,14 @@
 
 }
 
+.liked-post {
+  color: #5890ff;
+
+  &:hover {
+    color: #4673cc;
+  }
+}
+
 .post-bottom {
   background-color: #f6f7f9;
 }

@@ -94,3 +94,8 @@ export const deleteComment = id => dispatch => (
   CommentsUtil.deleteComment(id)
   .then(post => dispatch(replacePost(post)))
 );
+
+export const toggleLikeOnPost = id => dispatch => (
+  APIUtil.toggleLike(id)
+  .then(post => dispatch(replacePost(post)))
+);

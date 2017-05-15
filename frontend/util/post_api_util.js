@@ -43,3 +43,10 @@ export const deletePost = id => {
     url: `/api/posts/${id}`,
   });
 };
+
+export const toggleLike = id => {
+  return $.ajax({
+    method: 'GET',
+    url: `/api/likepost/${id}`
+  });
+};
