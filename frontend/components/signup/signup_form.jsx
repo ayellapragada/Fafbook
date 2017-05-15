@@ -159,7 +159,6 @@ class SignupForm extends React.Component  {
             </div>
             <input type="submit" className="signup-submit" onSubmit={this.handleSubmit} value="Create Account"/>
 
-            <p className="submit-special-page"><span className="blue">Create a Page </span> for a celebrity, band or business.</p>
           </form>
         </div>
       </div>

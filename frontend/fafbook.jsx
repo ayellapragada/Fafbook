@@ -15,9 +15,6 @@ document.addEventListener('DOMContentLoaded', () => {
     store = configureStore(store);
   }
 
-  window.store = store;
-  window.allFriendRequests = allFriendRequests;
-
   const root = document.getElementById('root');
   ReactDOM.render(<Root store={ store }/>, root);
 });

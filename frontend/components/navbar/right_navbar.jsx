@@ -42,7 +42,6 @@ class RightNavbar extends React.Component {
   }
 
   handleClickOutside (evt) {
-    // Can be used to handle all, messages and notifications later.
     this.setState({requests: false, chat: false});
   }
 
@@ -79,10 +78,6 @@ class RightNavbar extends React.Component {
               <Unread />
             </div>
           </div>
-          <div
-            className="navbar-btn">
-            <i className="fa fa-globe" aria-hidden="true"></i>
-          </div>
           <div className="empty-border"></div>
           <div className="navbar-btn logout-btn" 
             onClick={() => this.props.logout()
@@ -97,8 +92,9 @@ class RightNavbar extends React.Component {
     }
   }
 
-  // <div className="navbar-btn help-btn">
-  //   <i className="fa fa-question-circle" aria-hidden="true"></i>
+  // <div
+  //   className="navbar-btn">
+  //   <i className="fa fa-globe" aria-hidden="true"></i>
   // </div>
 
 }
