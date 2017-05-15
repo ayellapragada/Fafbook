@@ -8,6 +8,7 @@ import Pusher from 'pusher-js';
 class Chatbar extends React.Component {
   constructor() {
     super();
+    this.handleClick = this.handleClick.bind(this);
   }
 
   componentWillMount() {
@@ -23,6 +24,10 @@ class Chatbar extends React.Component {
           this.props.getMessages(data.id);
         }
       });
+  }
+
+  handleClick() {
+    document.getElementById('chat-dropdown').click();
   }
 
   render() {
@@ -46,7 +51,7 @@ class Chatbar extends React.Component {
         <div className="chat-boxes">
           <ul className="chat-boxes-ul">
             {chatBoxes}
-            <div className="chat-main">
+            <div onClick={this.handleClick} className="chat-main">
               Chat
             </div>
           </ul>
