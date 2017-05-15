@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import onClickOutside from 'react-onclickoutside';
 import { logout } from '../../actions/session_actions';
 import { fetchAllConversations, 
-          readConversations } from '../../actions/message_actions';
+  readConversations } from '../../actions/message_actions';
 import FriendRequests from './friend_requests';
 import Chat from './chat';
 import Unread from './unread.jsx';
@@ -84,9 +84,6 @@ class RightNavbar extends React.Component {
             <i className="fa fa-globe" aria-hidden="true"></i>
           </div>
           <div className="empty-border"></div>
-          <div className="navbar-btn help-btn">
-            <i className="fa fa-question-circle" aria-hidden="true"></i>
-          </div>
           <div className="navbar-btn logout-btn" 
             onClick={() => this.props.logout()
                 .then(() => hashHistory.push('/login'))
@@ -100,6 +97,9 @@ class RightNavbar extends React.Component {
     }
   }
 
+  // <div className="navbar-btn help-btn">
+  //   <i className="fa fa-question-circle" aria-hidden="true"></i>
+  // </div>
 
 }
 
