@@ -23,6 +23,7 @@ class Post extends React.Component {
     this.checkSubmit = this.checkSubmit.bind(this);
     this.handleDropdown = this.handleDropdown.bind(this);
     this.handleEditModal = this.handleEditModal.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   checkSubmit(e) {
@@ -54,6 +55,10 @@ class Post extends React.Component {
 
   handleEditModal() {
     this.setState({editModal: !this.state.editModal});
+  }
+
+  handleClick() {
+    this.commentInput.focus();
   }
 
   render(){
@@ -102,7 +107,7 @@ class Post extends React.Component {
                   <div className="post-header-right-people">
                     <Link to={`/profile/${this.props.post.author.id}`}>
                       {`${this.props.post.author.fname} 
-                  ${this.props.post.author.lname}`}
+${this.props.post.author.lname}`}
                 </Link>
                 {postHeaderRightBoth}
               </div>
@@ -157,15 +162,11 @@ class Post extends React.Component {
             Like
           </div>
 
-          <div className="post-action-button">
+          <div onClick={this.handleClick} className="post-action-button">
             <i className="fa fa-comment" aria-hidden="true"></i>
             Comment
           </div>
 
-          <div className="post-action-button">
-            <i className="fa fa-share" aria-hidden="true"></i>
-            Share
-          </div>
 
           <div className="post-likes">
           </div>
@@ -185,6 +186,7 @@ class Post extends React.Component {
           <img src={this.props.currentUser.profile_url} />
           <form onSubmit={this.handleSubmit}>
             <textarea
+              ref={(input) => {this.commentInput = input;}}
               id="write-a-comment"
               value={this.state.comment}
               placeholder="Write a comment..."
@@ -199,6 +201,10 @@ class Post extends React.Component {
     );
   }
 
+  // <div className="post-action-button">
+  //   <i className="fa fa-share" aria-hidden="true"></i>
+  //   Share
+  // </div>
 }
 
 const mapStateToProps = state => ({

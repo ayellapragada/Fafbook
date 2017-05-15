@@ -14,6 +14,10 @@ class NewConversation extends React.Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
+  componentDidMount() {
+    this.input.focus();
+  }
+
   componentDidUpdate(prevProps, prevState) {
     if (prevState.query !== this.state.query) {
       this.props.getChatResults(this.state.query);
@@ -46,6 +50,7 @@ class NewConversation extends React.Component {
       <div className="new-conversation">
         <div className="new-conversation-container">
           <textarea
+            ref={(input) => {this.input = input;}}
             value={this.state.query}
             placeholder="Search a user!"
             onChange={this.handleChange}/>
