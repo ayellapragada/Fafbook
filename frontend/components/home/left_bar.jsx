@@ -5,6 +5,11 @@ import { Link } from 'react-router';
 class LeftBar extends React.Component {
   constructor(props) {
     super(props);
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
+    document.getElementById('chat-dropdown').click();
   }
 
   render() {
@@ -25,7 +30,7 @@ class LeftBar extends React.Component {
               <i className="fa fa-newspaper-o" aria-hidden="true"></i>
               <p>News Feed</p>
             </Link>
-            <Link to="/">
+            <Link to="/" onClick={this.handleClick}>
               <i className="fa fa-comments" aria-hidden="true"></i>
               <p>Messenger</p>
             </Link>

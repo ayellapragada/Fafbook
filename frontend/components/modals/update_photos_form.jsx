@@ -64,12 +64,16 @@ class UploadPhotoForm extends React.Component {
   render() {
     return(
       <div className={"upload-photo-form"}>
+        <div className="profile-upload">
         <label> Profile Photo
           <input type="file" onChange={this.updateProfile}/>
         </label>
+      </div>
+      <div className="cover-upload">
         <label> Cover Photo
           <input type="file" onChange={this.updateCover}/>
         </label>
+      </div>
         <button onClick={this.handleSubmit}>Change Photos!</button>
       </div>
     );
