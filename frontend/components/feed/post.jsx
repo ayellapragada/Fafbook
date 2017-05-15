@@ -186,9 +186,6 @@ ${this.props.post.author.lname}`}
 
       <div className="post-bottom">
         <div className="post-likes">
-          {this.state.likes.length > 0 && 
-              <Likes likes={this.state.likes} />
-          }
         </div>
         <div className="post-comments">
           <ul>
