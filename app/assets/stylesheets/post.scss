@@ -172,10 +172,22 @@
   white-space: nowrap;
 
   i {
-    margin-right: 5px;
+    color: white;
+    font-size: 10px;
   }
 }
 
+.fa-icon-circle {
+  background:#5890ff;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 4px;
+  vertical-align: middle;
+  padding: 2px;
+  margin-right: 5px;
+}
 
 .comment-container{
   font-size: 12px;

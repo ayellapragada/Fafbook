@@ -17,7 +17,9 @@ class Likes extends React.Component {
       let user = this.props.likes[0];
       return (
         <div>
-          <i className="fa fa-thumbs-up" aria-hidden="true"></i>
+          <span className="fa-icon-circle">
+            <i className="fa fa-thumbs-up" aria-hidden="true"></i>
+          </span>
           {`${user.fname} ${user.lname}`} 
         </div>
       );
@@ -26,7 +28,9 @@ class Likes extends React.Component {
       let user2 = this.props.likes[1];
       return (
         <div>
-          <i className="fa fa-thumbs-up" aria-hidden="true"></i>
+          <span className="fa-icon-circle">
+            <i className="fa fa-thumbs-up" aria-hidden="true"></i>
+          </span>
           {`${user1.fname} ${user1.lname}`} and&nbsp;
           {`${user2.fname} ${user2.lname}`} 
         </div>
@@ -37,7 +41,9 @@ class Likes extends React.Component {
       let user3 = this.props.likes[2];
       return (
         <div>
-          <i className="fa fa-thumbs-up" aria-hidden="true"></i>
+          <span className="fa-icon-circle">
+            <i className="fa fa-thumbs-up" aria-hidden="true"></i>
+          </span>
           {`${user1.fname} ${user1.lname}`},&nbsp;
           {`${user2.fname} ${user2.lname}`} and&nbsp;
           {`${user3.fname} ${user3.lname}`}
@@ -50,7 +56,9 @@ class Likes extends React.Component {
       let user4 = this.props.likes[3];
       return (
         <div>
-          <i className="fa fa-thumbs-up" aria-hidden="true"></i>
+          <span className="fa-icon-circle">
+            <i className="fa fa-thumbs-up" aria-hidden="true"></i>
+          </span>
           {`${user1.fname} ${user1.lname}`},&nbsp;
           {`${user2.fname} ${user2.lname}`},&nbsp;
           {`${user3.fname} ${user3.lname}`} and&nbsp;
@@ -62,7 +70,9 @@ class Likes extends React.Component {
       let user2 = this.props.likes[1];
       return (
         <div>
-          <i className="fa fa-thumbs-up" aria-hidden="true"></i>
+          <span className="fa-icon-circle">
+            <i className="fa fa-thumbs-up" aria-hidden="true"></i>
+          </span>
           {`${user1.fname} ${user1.lname}`},&nbsp;
           {`${user2.fname} ${user2.lname}`} and&nbsp;
           {this.props.likes.length - 2} other people like this.
