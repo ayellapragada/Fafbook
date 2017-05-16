@@ -18,4 +18,8 @@ class Post < ApplicationRecord
 
   acts_as_commentable
   acts_as_likeable
+  acts_as_notifiable :users,
+    targets: -> (post, key)  {
+    ([post.receiver] - [post.author]).uniq
+  }
 end

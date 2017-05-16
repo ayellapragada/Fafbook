@@ -38,12 +38,12 @@ gem 'pg_search'
 gem 'has_friendship'
 # Comment model that can be attached to posts
 gem 'acts_as_commentable'
-
-# Not needed yet, but easy likes and mentions for posts and comments 
+# Easy likes and mentions for posts and comments 
 gem 'socialization'
-
 # For realtime chat and notifications
 gem 'pusher'
+# Notification manager
+gem 'activity_notification'
 
 
 # Use Unicorn as the app server

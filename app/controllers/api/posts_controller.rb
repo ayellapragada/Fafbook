@@ -33,6 +33,7 @@ class Api::PostsController < ApplicationController
     @post = Post.create(post_params)
 
     if @post.save
+      @post.notify :users, key: "post.body"
       @author = User.find(post_params[:author_id])
       @receiver = User.find(post_params[:receiver_id])
       render 'api/posts/show'

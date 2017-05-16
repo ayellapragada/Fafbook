@@ -52,6 +52,7 @@ class User < ApplicationRecord
 
   has_friendship
   acts_as_liker
+  acts_as_target
 
   has_one :profile, dependent: :destroy
   has_many :albums, dependent: :destroy
