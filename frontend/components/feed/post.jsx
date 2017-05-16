@@ -107,24 +107,18 @@ class Post extends React.Component {
       <div className="post-container">
         <div className="post-top">
 
-          {this.state.editModal && 
-              <EditPost 
-                post={this.props.post}
-                updatePost={this.props.updatePost}
-                handleEditModal={this.handleEditModal}
-              />}
 
-            <div className="post-header">
-              <div className="post-header-information">
-                <div className="post-header-left">
+          <div className="post-header">
+            <div className="post-header-information">
+              <div className="post-header-left">
+                <Link to={`/profile/${this.props.post.author.id}`}>
+                  <img src={this.props.post.author.profile_url}/>
+                </Link>
+              </div>
+              <div className="post-header-right">
+                <div className="post-header-right-people">
                   <Link to={`/profile/${this.props.post.author.id}`}>
-                    <img src={this.props.post.author.profile_url}/>
-                  </Link>
-                </div>
-                <div className="post-header-right">
-                  <div className="post-header-right-people">
-                    <Link to={`/profile/${this.props.post.author.id}`}>
-                      {`${this.props.post.author.fname} 
+                    {`${this.props.post.author.fname} 
 ${this.props.post.author.lname}`}
                 </Link>
                 {postHeaderRightBoth}
@@ -168,6 +162,14 @@ ${this.props.post.author.lname}`}
           }
 
         </div>
+
+        {this.state.editModal && 
+            <EditPost 
+              post={this.props.post}
+              updatePost={this.props.updatePost}
+              handleEditModal={this.handleEditModal}
+            />
+        }
 
         <div className="post-body">
           <p className={viewPost}>{this.props.post.post.body}</p>
