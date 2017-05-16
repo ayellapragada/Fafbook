@@ -46,6 +46,7 @@ class Profile extends React.Component {
       );
     }
 
+
     if (user.status === -2) {
       return (
         <div className="profile">
