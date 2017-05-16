@@ -99,9 +99,14 @@ class Post extends React.Component {
     let likeButtonColor = this.props.post.post.liked ? 
       "liked-post post-action-button" : "post-action-button";
 
+
+    const viewPost = this.state.editModal ? "hidden" : "";
+    const viewEdit = this.state.editModal ? "" : "hidden";
+
     return (
       <div className="post-container">
         <div className="post-top">
+
           {this.state.editModal && 
               <EditPost 
                 post={this.props.post}
@@ -165,7 +170,12 @@ ${this.props.post.author.lname}`}
         </div>
 
         <div className="post-body">
-          <p>{this.props.post.post.body}</p>
+          <p className={viewPost}>{this.props.post.post.body}</p>
+          <textarea
+            className={viewEdit}
+            value={this.state.body}
+            placeholder={this.props.post.post.body}
+            onChange={this.handleChange} />
         </div>
 
         <div className="post-buttons">
@@ -216,11 +226,8 @@ ${this.props.post.author.lname}`}
     );
   }
 
-  // <div className="post-action-button">
-  //   <i className="fa fa-share" aria-hidden="true"></i>
-  //   Share
-  // </div>
 }
+
 
 const mapStateToProps = state => ({
   currentUser: state.session.currentUser,
