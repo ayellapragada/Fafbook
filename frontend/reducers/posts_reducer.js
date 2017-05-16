@@ -1,7 +1,7 @@
 import { 
   RECEIVE_ALL_POSTS, RECEIVE_POST,
   REMOVE_POST, ADD_NEW_POSTS, RECEIVE_POST_ERRORS,
-  REPLACE_POST
+  REPLACE_POST, REPLACE_LIKES
 } from '../actions/post_actions';
 
 import merge from 'lodash/merge';
@@ -26,6 +26,12 @@ const PostsReducer = (state = _nullPosts, action) => {
       const newState = merge({}, state);
       delete newState.posts[action.post.id];
       return newState;
+    case REPLACE_LIKES:
+      const newerState = merge({}, state);
+      delete newerState.posts[Object.keys(action.post)[0]];
+      const finalState = merge( {}, newerState, { posts: action.post });
+
+      return finalState;
     case ADD_NEW_POSTS:
       return merge({}, state, { posts: action.posts});
     case RECEIVE_POST_ERRORS:

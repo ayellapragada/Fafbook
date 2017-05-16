@@ -19,9 +19,9 @@ class Post extends React.Component {
     this.state = {dateTime: dateTime,
       comment: "",
       comments: this.props.post.post.comments,
-      likes: this.props.post.post.likes,
       editModal: false,
       dropdown: false};
+
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -40,7 +40,7 @@ class Post extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     this.setState({comments: nextProps.post.post.comments,
-    likes: this.props.post.post.likes});
+      likes: this.props.post.post.likes});
   }
 
   handleChange(e) {
@@ -185,30 +185,34 @@ ${this.props.post.author.lname}`}
       </div>
 
       <div className="post-bottom">
-        <div className="post-likes">
-        </div>
-        <div className="post-comments">
-          <ul>
-            {comments}
-          </ul>
-        </div>
+        {this.props.post.post.likes.length > 0 &&
+            <div className="post-likes">
+              <Likes 
+                likes={this.props.post.post.likes}
+                liked={this.props.post.post.liked} />
+            </div>}
+            <div className="post-comments">
+              <ul>
+                {comments}
+              </ul>
+            </div>
 
-        <div className="post-new-comment">
-          <img src={this.props.currentUser.profile_url} />
-          <form onSubmit={this.handleSubmit}>
-            <textarea
-              ref={(input) => {this.commentInput = input;}}
-              id="write-a-comment"
-              value={this.state.comment}
-              placeholder="Write a comment..."
-              onKeyDown={this.checkSubmit} 
-              onChange={this.handleChange}/>
-          </form>
+            <div className="post-new-comment">
+              <img src={this.props.currentUser.profile_url} />
+              <form onSubmit={this.handleSubmit}>
+                <textarea
+                  ref={(input) => {this.commentInput = input;}}
+                  id="write-a-comment"
+                  value={this.state.comment}
+                  placeholder="Write a comment..."
+                  onKeyDown={this.checkSubmit} 
+                  onChange={this.handleChange}/>
+              </form>
+
+            </div>
+          </div>
 
         </div>
-      </div>
-
-    </div>
     );
   }
 

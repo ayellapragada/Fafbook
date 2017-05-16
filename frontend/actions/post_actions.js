@@ -7,6 +7,7 @@ export const REMOVE_POST = "REMOVE_POST";
 export const ADD_NEW_POSTS = "ADD_NEW_POSTS";
 export const RECEIVE_POST_ERRORS ="RECEIVE_POST_ERRORS";
 export const REPLACE_POST = "REPLACE_POST";
+export const REPLACE_LIKES = "REPLACE_LIKES";
 
 export const receiveAllPosts = (posts) => ({
   type: RECEIVE_ALL_POSTS,
@@ -20,6 +21,11 @@ export const addNewPosts = (posts) => ({
 
 export const replacePost = post => ({
   type: REPLACE_POST,
+  post
+});
+
+export const replaceLikes = post => ({
+  type: REPLACE_LIKES,
   post
 });
 
@@ -97,5 +103,5 @@ export const deleteComment = id => dispatch => (
 
 export const toggleLikeOnPost = id => dispatch => (
   APIUtil.toggleLike(id)
-  .then(post => dispatch(replacePost(post)))
+  .then(post => dispatch(replaceLikes(post)))
 );

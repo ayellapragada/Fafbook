@@ -131,7 +131,6 @@
 
 .post-buttons {
   display: flex;
-  border-bottom: 1px solid #e5e5e5;
 }
 
 .post-action-button {
@@ -161,6 +160,20 @@
 
 .post-bottom {
   background-color: #f6f7f9;
+  border-top: 1px solid #e5e5e5;
+}
+
+.post-likes {
+  color: #365899;
+  font-size: 12px;
+  padding: 12px 12px 8px 12px;
+  border-bottom: 1px solid #e5e5e5;
+  word-wrap: break-word;
+  white-space: nowrap;
+
+  i {
+    margin-right: 5px;
+  }
 }
 
 
