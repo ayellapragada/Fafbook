@@ -17,6 +17,17 @@ class Api::ConversationsController < ApplicationController
     render 'api/conversations/conversations'
   end
 
+  def read_one 
+    @conversations = current_user.conversations.order('updated_at DESC').limit(5)
+    @conversation = Conversation.find(params[:id])
+    if @conversation.messages.last.user_id != current_user.id && 
+        !@conversation.messages.last.read
+      @conversation.messages.last.update(read: true)
+    end
+
+    render 'api/conversations/conversations'
+  end
+
   def create 
     if Conversation.between(params[:conversation][:sender_id], params[:conversation][:recipient_id]).present?
       @conversation = Conversation.between(params[:conversation][:sender_id],

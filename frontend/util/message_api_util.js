@@ -13,6 +13,13 @@ export const newConversation = (sender_id, recipient_id) => {
   });
 };
 
+export const readConversation = (id) => {
+  return $.ajax({
+    method: 'GET',
+    url: 'api/conversations/read/' + id,
+  });
+};
+
 export const readConversations = () => {
   return $.ajax({
     method: 'GET',

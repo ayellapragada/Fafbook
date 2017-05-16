@@ -94,10 +94,13 @@ class User < ApplicationRecord
     self.dob = Date.parse("#{self.date}-#{self.month}-#{self.year}")
   end
 
+
   def fix_names
     self.fname = self.fname.strip.capitalize
     self.lname = self.lname.strip.capitalize
     self.full_name = "#{fname} #{lname}"
+
+    self.email = self.email.strip.downcase
     self.save
   end
 

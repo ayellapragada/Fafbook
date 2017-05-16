@@ -2,6 +2,8 @@ import React from 'react';
 import Messages from './messages.jsx';
 import { Link } from 'react-router';
 import onClickOutside from 'react-onclickoutside';
+import { connect } from 'react-redux';
+import { readConversation } from '../../actions/message_actions.js';
 
 class OpenChatboxItem extends React.Component {
   constructor(props) {
@@ -16,7 +18,7 @@ class OpenChatboxItem extends React.Component {
   }
 
   componentDidMount() {
-    this.props.getMessages(this.props.chat.conversation.id);
+    this.props.readConversation(this.props.chat.conversation.id);
   }
 
   handleCloseChat() {
@@ -88,4 +90,10 @@ class OpenChatboxItem extends React.Component {
   }
 }
 
-export default onClickOutside(OpenChatboxItem);
+const mapDispatchToProps = dispatch => ({
+  readConversation: (id) => dispatch(readConversation(id)),
+});
+
+export default connect(
+  null, 
+  mapDispatchToProps)(onClickOutside(OpenChatboxItem));

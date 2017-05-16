@@ -155,7 +155,7 @@ class SignupForm extends React.Component  {
               </div>
             </div>
             <div className="okay-why">
-              <p className="signup-disclaimer'">By clicking Create Account, you agree to our Terms and that <br/> you have read our Data Policy, including our Cookie Use. You <br/> may receive SMS Notifications from Facebook and can <br/>opt out at any time.</p>
+              <p className="signup-disclaimer'">By clicking Create Account, you agree to our Terms and that <br/> you have read our Data Policy, including our Cookie Use. You <br/> may receive SMS Notifications from Fafbook and can <br/>opt out at any time.</p>
             </div>
             <input type="submit" className="signup-submit" onSubmit={this.handleSubmit} value="Create Account"/>
 

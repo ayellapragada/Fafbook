@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get '/api/posts/feed/:id', to: 'api/posts#feed', default: { format: :json }
   get '/api/likepost/:id', to: 'api/posts#like', default: { format: :json }
   get '/api/conversations/read', to: 'api/conversations#read', default: { format: :json }
+  get '/api/conversations/read/:id', to: 'api/conversations#read_one', default: { format: :json }
 
   resource :session, only: [:create, :destroy, :show]
 
