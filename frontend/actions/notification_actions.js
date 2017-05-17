@@ -7,7 +7,7 @@ export const receiveNotifications = (notifications) => ({
   notifications
 });
 
-export const getAllNotifications = (id) => dispatch => (
-  allNotifications(id)
+export const getAllNotifications = () => dispatch => (
+  allNotifications()
   .then(notifications => dispatch(receiveNotifications(notifications)))
 );

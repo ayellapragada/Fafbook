@@ -7,9 +7,6 @@ Rails.application.routes.draw do
   get '/api/conversations/read', to: 'api/conversations#read', default: { format: :json }
   get '/api/conversations/read/:id', to: 'api/conversations#read_one', default: { format: :json }
 
-  notify_to :users, only: [:open, :open_all], 
-    controller: 'api/notifications', default: { format: :json }
-
   resource :session, only: [:create, :destroy, :show]
 
   namespace :api, default: { format: :json } do
@@ -20,6 +17,7 @@ Rails.application.routes.draw do
     resources :comments, only: [:create, :update, :destroy]
     resources :friendships, only: [:index, :update, :create, :destroy]
     resources :photos, only: [:create, :update, :show, :destroy] 
+    resources :notifications, only: [:index]
     resources :conversations, only: [:index, :create, :destroy] do 
       resources :messages, only: [:index, :create]
     end

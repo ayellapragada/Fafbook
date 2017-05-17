@@ -8,7 +8,7 @@ class Notifications extends React.Component {
   }
 
   componentDidMount() {
-    this.props.getAllNotifications(this.props.currentUser.id);
+    this.props.getAllNotifications();
   }
 
   render() {
@@ -25,7 +25,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  getAllNotifications: (id) => dispatch(getAllNotifications(id)),
+  getAllNotifications: () => dispatch(getAllNotifications()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Notifications);

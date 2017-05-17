@@ -1,6 +1,6 @@
-export const allNotifications = (id) => {
+export const allNotifications = () => {
   return $.ajax({
     method: 'GET',
-    url: `users/${id}/notifications/open_all`
+    url: `api/notifications`
   });
 };
