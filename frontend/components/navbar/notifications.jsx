@@ -24,7 +24,13 @@ class Notifications extends React.Component {
     const notifications = Object.values(this.props.notifications).reverse();
 
     const formatNotif = notifications.map((notif) => {
-      return <NotificationItem key={notif.id} notif={notif} />;
+      return (
+        <NotificationItem 
+          key={notif.id} 
+          notif={notif} 
+          readNotification={this.props.readNotification}
+        />
+      );
     });
 
     return (
@@ -51,7 +57,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = dispatch => ({
   getAllNotifications: () => dispatch(getAllNotifications()),
   readNotifications: () => dispatch(readNotifications()),
-  readNotification: (id) => dispatch(readNotification()),
+  readNotification: (id) => dispatch(readNotification(id)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Notifications);

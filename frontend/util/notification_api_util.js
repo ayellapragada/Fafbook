@@ -8,7 +8,7 @@ export const allNotifications = () => {
 export const readNotification = (id) => {
   return $.ajax({
     method: 'GET',
-    url: 'api/notifications/read/' + id,
+    url: `api/notifications/read/${id}`,
   });
 };
 

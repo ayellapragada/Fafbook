@@ -5,6 +5,11 @@ import TimeAgo from 'react-timeago';
 class NotificationItem extends React.Component {
   constructor(props) {
     super(props);
+    this.handleReadOne = this.handleReadOne.bind(this);
+  }
+
+  handleReadOne() {
+    this.props.readNotification(this.props.notif.id);
   }
 
   render() {
@@ -20,7 +25,7 @@ class NotificationItem extends React.Component {
             </div>
           </Link>
 
-          <div className="notification-content">
+          <div className="notification-content" onClick={this.handleReadOne}>
             <div className="notification-body">
               <span className="bold">
                 {`${user.fname} ${user.lname}`}&nbsp;

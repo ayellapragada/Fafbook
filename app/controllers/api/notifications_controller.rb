@@ -13,8 +13,9 @@ class Api::NotificationsController < ApplicationController
   end
 
   def read_one 
-    @notifications = current_user.conversations.order('updated_at DESC').limit(5)
-    debugger
+    @notifications = current_user.notifications.order('updated_at DESC').limit(5)
+    @notification = ActivityNotification::Notification.find(params[:id])
+    @notification.open! if @notification.unopened?
     render 'api/notifications/notifications'
   end
 end
