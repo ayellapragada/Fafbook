@@ -38,7 +38,8 @@ class LeftBar extends React.Component {
               <p>MY OTHER LINKS</p>
             </div>
 
-            <a className="front-website"href="www.akshithyellapragada.com">
+            <a className="front-website"
+              href="http://www.akshithyellapragada.com">
               <i className="fa fa-user" aria-hidden="true"></i>
               <p>Website</p>
             </a>
