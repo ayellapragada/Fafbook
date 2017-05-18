@@ -11,7 +11,8 @@ const ControlBar = (props) => {
         <Link to={"/profile/"+props.user.id}
           className="profile-cover-header">
           {`${props.user.fname} ${props.user.lname}`}
-          </Link> <img 
+        </Link> 
+        <img 
           className="cover-img"
           src={props.user.cover_url}/>
       </div>

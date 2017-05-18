@@ -104,7 +104,7 @@ export const updateComment = comment => dispatch => (
 
 export const deleteComment = id => dispatch => (
   CommentsUtil.deleteComment(id)
-  .then(post => dispatch(replacePost(post)))
+  .then(post => dispatch(replaceLikes(post)))
 );
 
 export const toggleLikeOnPost = id => dispatch => (

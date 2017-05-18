@@ -5,7 +5,10 @@ const Friends = (props) => {
 
   const mappedFriends = props.user.friends.map((friend) => (
     <Link to={"/profile/" + friend.id} key={friend.id}>
-      <img src={friend.profile_url} className="profile-sidebar-photos"/>
+      <img 
+        title={`${friend.fname} ${friend.lname}`}
+        src={friend.profile_url} 
+        className="profile-sidebar-photos"/>
     </Link>
   ));
   return(

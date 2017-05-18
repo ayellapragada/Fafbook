@@ -231,6 +231,26 @@
   }
 }
 
+.comment-outer-container {
+  display: flex;
+  justify-content: space-between;
+  &:hover .comment-crud {
+
+    opacity: 100;
+    cursor: pointer;
+  }
+}
+
+.comment-crud {
+  margin: 12px;
+  font-size: 12px;
+  opacity: 0;
+  color: #bfc2ca;
+  &:hover {
+    color: #808590;
+  }
+}
+
 .cancel-edit-button {
   button {
     background-color: #f6f7f9;
