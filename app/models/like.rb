@@ -11,4 +11,13 @@
 #
 
 class Like < Socialization::ActiveRecordStores::Like
+  belongs_to :user, class_name: 'User', foreign_key: 'liker_id'
+  belongs_to :post, class_name: 'Post', foreign_key: 'likeable_id'
+
+  acts_as_notifiable :users,
+    targets: -> (like, key)  {
+    ([like.post.author] + [like.post.receiver] - [like.user]).uniq
+  },notifier: -> (like, key) {
+    like.user
+  }
 end

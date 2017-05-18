@@ -55,7 +55,30 @@ class Api::PostsController < ApplicationController
 
   def like 
     @post = Post.find(params[:id])
-    current_user.toggle_like!(@post)
+    if current_user.likes?(@post)
+      @like = Like
+        .where(likeable_id: @post.id)
+        .where(liker_id: current_user.id)
+        .where(likeable_type: 'Post')
+        .first
+      @notification = ActivityNotification::Notification
+        .where(notifiable_type: "Socialization::ActiveRecordStores::Like")
+        .where(notifiable_id: @like.id)
+        .where(notifier_id: current_user.id)
+        .first
+
+      @notification.destroy
+
+      current_user.unlike!(@post)
+    else
+      current_user.like!(@post)
+      @like = Like
+        .where(likeable_id: @post.id)
+        .where(liker_id: current_user.id)
+        .where(likeable_type: 'Post')
+        .first
+      @like.notify :users, key: "liked a post involving you"
+    end
     @author = @post.author
     @receiver = @post.receiver
     render 'api/posts/show'
