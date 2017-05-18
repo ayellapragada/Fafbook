@@ -9,9 +9,11 @@ class NotificationItem extends React.Component {
 
   render() {
     const user = this.props.notif.notifier;
+    let notifUnopened = this.props.notif.unopened ?  "msg-unread" : "msg-read";
+
     return (
-      <li>
-        <div className="notification-item">
+      <li className={notifUnopened}>
+        <div className={"notification-item"}>
           <Link to={`/profile/${user.id}`}>
             <div className="friend-request-info">
               <img src={user.profile_url} />
