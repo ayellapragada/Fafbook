@@ -13,13 +13,18 @@ import Chat from './chat';
 import UnrespondedRequests from './unresponded_requests.jsx';
 import Unread from './unread.jsx';
 import Unopened from './unopened.jsx';
+import DocumentTitle from 'react-document-title';
 
 
 class RightNavbar extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = ({requests: false, chat: false, notifications: false});
+    this.state = (
+      { requests: false, 
+        chat: false, 
+        notifications: false
+      });
     this.toggleRequests = this.toggleRequests.bind(this);
     this.toggleChat = this.toggleChat.bind(this);
     this.handleChat = this.handleChat.bind(this);
@@ -62,7 +67,6 @@ class RightNavbar extends React.Component {
     if (this.props.currentUser){
       return (
         <div className="right-navbar">
-
           <Link className="navbar-btn profile-link right-navbar-words"
             to={"/profile/" + this.props.currentUser.id}>
             <img src={this.props.currentUser.profile_url}

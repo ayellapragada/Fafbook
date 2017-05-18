@@ -37,6 +37,7 @@ class Unread extends React.Component {
       }
     });
 
+
     if (unreadCount) {
       return (
         <div className="notification">
