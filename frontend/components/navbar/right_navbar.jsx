@@ -5,9 +5,11 @@ import onClickOutside from 'react-onclickoutside';
 import { logout } from '../../actions/session_actions';
 import { fetchAllConversations, 
   readConversations } from '../../actions/message_actions';
+import { allFriendRequests } from '../../actions/friend_actions';
 import FriendRequests from './friend_requests';
 import Chat from './chat';
 import Unread from './unread.jsx';
+import UnrespondedRequests from './unresponded_requests.jsx';
 import Notifications from './notifications.jsx';
 
 
@@ -24,6 +26,7 @@ class RightNavbar extends React.Component {
 
   componentDidMount() {
     this.props.fetchAllConversations();
+    this.props.allFriendRequests();
   }
 
   toggleRequests() {
@@ -74,6 +77,9 @@ class RightNavbar extends React.Component {
             onClick={this.toggleRequests}
             className={`navbar-btn ${this.state.requests ? "active-btn" : ""}`}>
             <i className="fa fa-users" aria-hidden="true"></i>
+            <div className="relative-unread">
+              <UnrespondedRequests />
+            </div>
           </div>
 
           <div className="friend-requests-dropdown">
@@ -125,6 +131,7 @@ const mapStateToProps = ({ session }) => ({
 const mapDispatchToProps = dispatch => ({
   logout: () => dispatch(logout()).then(hashHistory.push('/login')),
   readConversations: () => dispatch(readConversations()),
+  allFriendRequests: () => (dispatch(allFriendRequests())),
   fetchAllConversations: () => dispatch(fetchAllConversations()),
 });
 
