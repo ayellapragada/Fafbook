@@ -27,5 +27,13 @@ class Comment < ActiveRecord::Base
 
   # NOTE: Comments belong to a user
   belongs_to :user
+  belongs_to :post, class_name: "Post", foreign_key: :commentable_id
+
   acts_as_likeable
+  acts_as_notifiable :users,
+    targets: -> (comment, key)  {
+    ([comment.post.receiver] + [comment.post.author] - [comment.user]).uniq
+  },notifier: -> (comment, key) {
+    comment.user
+  }
 end

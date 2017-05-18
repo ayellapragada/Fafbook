@@ -13,7 +13,7 @@ class Notifications extends React.Component {
   }
 
   render() {
-    const notifications = Object.values(this.props.notifications);
+    const notifications = Object.values(this.props.notifications).reverse();
 
     const formatNotif = notifications.map((notif) => {
       return <NotificationItem key={notif.id} notif={notif} />;
