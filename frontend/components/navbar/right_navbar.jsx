@@ -66,9 +66,16 @@ class RightNavbar extends React.Component {
   render() {
     if (this.props.currentUser){
       let sum = Object.values(this.props.counts).reduce((a,b) => a + b, 0);
-      let title = sum ? 
-        `${document.title.split(' (')[0]} (${sum})` :
-        `${document.title.split(' (')[0]}`;
+      let title;
+      if (location.pathname === "/" && sum > 0) {
+        title = `Fafbook (${sum})`;
+      } else if (location.pathname === "/") {
+        title = `Fafbook`;
+      }  else {
+        title = sum ? 
+          `${document.title.split(' (')[0]} (${sum})` :
+          `${document.title.split(' (')[0]}`;
+      }
 
       return (
         <div className="right-navbar">

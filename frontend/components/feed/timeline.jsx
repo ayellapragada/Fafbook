@@ -5,7 +5,6 @@ import {
   fetchMorePosts, 
   createComment } from '../../actions/post_actions';
 import { receiveViewedUser } from '../../actions/user_actions';
-import DocumentTitle from 'react-document-title';
 
 import Post from './post';
 import CreatePost from './create_post';
@@ -66,7 +65,6 @@ class Timeline extends React.Component {
     } else {
       return (
         <div className="feed" >
-          <DocumentTitle title="Fafbook" />
           <CreatePost text={"Write your post here"} />
 
           <ul>
