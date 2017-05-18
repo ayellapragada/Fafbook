@@ -66,8 +66,7 @@ class Api::PostsController < ApplicationController
         .where(notifiable_id: @like.id)
         .where(notifier_id: current_user.id)
         .first
-
-      @notification.destroy
+      @notification.destroy if @notification
 
       current_user.unlike!(@post)
     else

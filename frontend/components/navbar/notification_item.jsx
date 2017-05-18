@@ -23,7 +23,7 @@ class NotificationItem extends React.Component {
               <span className="bold">
                 {`${user.fname} ${user.lname}`}&nbsp;
               </span>
-              {`${this.props.notif.key}!`}
+              {`${this.props.notif.key}.`}
             </div>
             <div>
               <TimeAgo date={this.props.notif.created_at}/>
