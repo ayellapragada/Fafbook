@@ -6,7 +6,7 @@ class Api::CommentsController < ApplicationController
 
     @author = User.find(@post.author_id)
     @receiver = User.find(@post.receiver_id)
-
+    notification_trigger([@receiver.id])
     render 'api/posts/show'
   end
 

@@ -41,6 +41,11 @@ class ApplicationController < ActionController::Base
     end 
   end
 
+  def notification_trigger(recipient_ids)
+    Pusher.trigger('notifications', 'new_notification',
+                   {recipient_ids: recipient_ids})
+  end
+
   def current_user
     @current_user ||= User.find_by session_token: session[:session_token]
   end

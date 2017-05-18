@@ -9,7 +9,7 @@ const NotificationsReducer = (state = _nullNotifications, action) => {
 
   switch(action.type) {
     case RECEIVE_NOTIFICATIONS: 
-      return merge({}, action.notifications);
+      return Object.assign({}, action.notifications);
     default:
       return state;
   }

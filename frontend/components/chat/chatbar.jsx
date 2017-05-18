@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { closeChat, closeAllChats } from '../../actions/chat_actions.js';
 import { getMessages, sendMessage } from '../../actions/message_actions.js';
 import ChatboxItem from './chatbox_item';
-import Pusher from 'pusher-js';
 
 class Chatbar extends React.Component {
   constructor() {
@@ -11,20 +10,6 @@ class Chatbar extends React.Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
-  componentWillMount() {
-    this.pusher = new Pusher('7e8e957ce7d0485a1034');
-    this.chatRoom = this.pusher.subscribe('messages');
-  }
-
-  componentDidMount() {
-    const currentUser = this.props.currentUser;
-    this.chatRoom.bind('new_message', 
-      (data) => {
-        if (data.recipient_id === currentUser.id) {
-          this.props.getMessages(data.id);
-        }
-      });
-  }
 
   handleClick() {
     document.getElementById('chat-dropdown').click();

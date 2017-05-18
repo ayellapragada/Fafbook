@@ -1,6 +1,7 @@
 import React from 'react';
 import { allFriendRequests } from '../../actions/friend_actions';
 import { connect } from 'react-redux';
+import DocumentTitle from 'react-document-title';
 import Pusher from 'pusher-js';
 
 class UnrespondedRequests extends React.Component {

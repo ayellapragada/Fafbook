@@ -36,6 +36,7 @@ class Api::PostsController < ApplicationController
       @post.notify :users, key: "posted on your wall"
       @author = User.find(post_params[:author_id])
       @receiver = User.find(post_params[:receiver_id])
+      notification_trigger([@receiver.id])
       render 'api/posts/show'
     else 
       render json: @post.errors.full_messages, status: 422
@@ -80,6 +81,7 @@ class Api::PostsController < ApplicationController
     end
     @author = @post.author
     @receiver = @post.receiver
+    notification_trigger([current_user.id])
     render 'api/posts/show'
   end
 

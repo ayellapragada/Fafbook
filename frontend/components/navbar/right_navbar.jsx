@@ -6,11 +6,13 @@ import { logout } from '../../actions/session_actions';
 import { fetchAllConversations, 
   readConversations } from '../../actions/message_actions';
 import { allFriendRequests } from '../../actions/friend_actions';
+import { getAllNotifications } from '../../actions/notification_actions.js';
 import FriendRequests from './friend_requests';
-import Chat from './chat';
-import Unread from './unread.jsx';
-import UnrespondedRequests from './unresponded_requests.jsx';
 import Notifications from './notifications.jsx';
+import Chat from './chat';
+import UnrespondedRequests from './unresponded_requests.jsx';
+import Unread from './unread.jsx';
+import Unopened from './unopened.jsx';
 
 
 class RightNavbar extends React.Component {
@@ -27,6 +29,7 @@ class RightNavbar extends React.Component {
   componentDidMount() {
     this.props.fetchAllConversations();
     this.props.allFriendRequests();
+    this.props.getAllNotifications();
   }
 
   toggleRequests() {
@@ -103,6 +106,9 @@ class RightNavbar extends React.Component {
             className=
             {`navbar-btn ${this.state.notifications ? "active-btn" : ""}`}>
             <i className="fa fa-globe" aria-hidden="true"></i>
+            <div className="relative-unread">
+              <Unopened />
+            </div>
           </div>
 
           <div className="empty-border"></div>
@@ -133,6 +139,7 @@ const mapDispatchToProps = dispatch => ({
   readConversations: () => dispatch(readConversations()),
   allFriendRequests: () => (dispatch(allFriendRequests())),
   fetchAllConversations: () => dispatch(fetchAllConversations()),
+  getAllNotifications: () => dispatch(getAllNotifications()),
 });
 
 
