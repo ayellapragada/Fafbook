@@ -4,6 +4,7 @@ import {
   getAllNotifications,
   readNotification,
   readNotifications } from '../../actions/notification_actions.js';
+import { viewPost } from '../../actions/post_actions.js';
 import NotificationItem from './notification_item.jsx';
 
 class Notifications extends React.Component {
@@ -58,6 +59,7 @@ const mapDispatchToProps = dispatch => ({
   getAllNotifications: () => dispatch(getAllNotifications()),
   readNotifications: () => dispatch(readNotifications()),
   readNotification: (id) => dispatch(readNotification(id)),
+  viewPost: (post) => dispatch(viewPost(post)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Notifications);

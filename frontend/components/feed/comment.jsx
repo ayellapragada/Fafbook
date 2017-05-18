@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import {updateComment, deleteComment} from '../../actions/post_actions';
 import TimeAgo from 'react-timeago';
 
-
 class Comment extends React.Component {
   constructor(props) {
     super(props);
@@ -35,6 +34,9 @@ class Comment extends React.Component {
   }
 }
 
+const mapStateToProps = state => ({
+  currentUser: state.session.currentUser
+});
 
 const mapDispatchToProps = dispatch => ({
   updateComment: (comment) => dispatch(updateComment(comment)),
@@ -42,4 +44,4 @@ const mapDispatchToProps = dispatch => ({
 });
 
 
-export default Comment;
+export default connect(mapStateToProps, mapDispatchToProps)(Comment);

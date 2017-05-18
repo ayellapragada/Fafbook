@@ -14,6 +14,14 @@ class Api::CommentsController < ApplicationController
   end
 
   def destroy
+    debugger
+    @comment = Comment.find(params[:id])
+    @comment.destroy
+    # Also find and destroy the related notification
+
+    @author = User.find(@post.author_id)
+    @receiver = User.find(@post.receiver_id)
+    render 'api/posts/show'
   end
 
 

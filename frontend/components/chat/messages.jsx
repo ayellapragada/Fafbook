@@ -50,4 +50,9 @@ const mapStateToProps = (state, ownProps) => {
   });
 };
 
-export default connect(mapStateToProps, null)(Messages);
+const mapDispatchToProps = (dispatch) => {
+  return ({
+  });
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Messages);

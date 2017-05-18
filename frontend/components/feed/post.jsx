@@ -231,7 +231,7 @@ ${this.props.post.author.lname}`}
 }
 
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state, ownProps) => ({
   currentUser: state.session.currentUser,
 });
 
