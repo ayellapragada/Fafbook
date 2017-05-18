@@ -262,10 +262,25 @@
 
 }
 
+.friend-requests-item {
+  justify-content: space-between;
+}
 
+.notification-item {
+  align-items: center;
+}
+
+.notification-body {
+  margin-bottom: 5px;
+}
+
+.bold {
+  font-weight: 900;
+}
+
+.notification-item,
 .friend-requests-item {
   display: flex;
-  justify-content: space-between;
 
   a {
     text-decoration: none;

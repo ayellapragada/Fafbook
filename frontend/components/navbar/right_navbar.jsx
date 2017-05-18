@@ -49,7 +49,7 @@ class RightNavbar extends React.Component {
   }
 
   handleClickOutside (evt) {
-    this.setState({requests: false, chat: false});
+    this.setState({requests: false, chat: false, notifications: false});
   }
 
   render() {
