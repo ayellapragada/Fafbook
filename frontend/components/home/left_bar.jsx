@@ -20,8 +20,7 @@ class LeftBar extends React.Component {
             <Link 
               to={`/profile/${this.props.currentUser.id}`}>
               <img src={this.props.currentUser.profile_url}/>
-              {`${this.props.currentUser.fname}
-                ${this.props.currentUser.lname}`}
+              {`${this.props.currentUser.fname} ${this.props.currentUser.lname}`}
             </Link>
           </div>
 
@@ -35,6 +34,30 @@ class LeftBar extends React.Component {
               <p>Messenger</p>
             </Link>
 
+            <div className="left-navbar-explore">
+              <p>MY OTHER LINKS</p>
+            </div>
+
+            <a className="front-website"href="www.akshithyellapragada.com">
+              <i className="fa fa-user" aria-hidden="true"></i>
+              <p>Website</p>
+            </a>
+            <a className="front-github" href="https://github.com/ayellapragada">
+              <i className="fa fa-github" aria-hidden="true"></i>
+              <p>Github</p>
+            </a>
+            <a 
+              className="front-linkedin"
+              href="https://www.linkedin.com/in/akshith-yellapragada/">
+              <i className="fa fa-linkedin" aria-hidden="true"></i>
+              <p>LinkedIn</p>
+            </a>
+            <a 
+              className="front-angellist" 
+              href="https://angel.co/akshith-yellapragada">
+              <i className="fa fa-angellist" aria-hidden="true"></i>
+              <p>AngelList</p>
+            </a>
 
           </div>
         </div>
@@ -44,10 +67,6 @@ class LeftBar extends React.Component {
       return null;
     }
 
-            // <div className="left-navbar-explore">
-            //   <i className="fa fa-star" aria-hidden="true"></i>
-            //   <p>Explore</p>!
-            // </div>
 
   }
 }

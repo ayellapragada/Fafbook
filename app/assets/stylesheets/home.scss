@@ -66,8 +66,9 @@
   display: flex;
   align-items: center;
   font-size: 12px;
+  font-weight: 600;
   text-decoration: none;
-  color: black;
+  color: #4b4f56;
   padding: 5px;
   border: 1px solid transparent;
 
@@ -75,4 +76,28 @@
     color: #9b6638;
   }
 
+}
+
+.front-website {
+  i {
+    color: #4acaa8;
+  }
+}
+
+.front-linkedin {
+  i {
+    color: #0077B5;
+  }
+}
+
+.front-github {
+  i {
+    color: black;
+  }
+}
+
+.front-angellist {
+  i {
+    color: black;
+  }
 }
