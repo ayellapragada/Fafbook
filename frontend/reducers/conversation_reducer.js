@@ -7,7 +7,7 @@ import merge from 'lodash/merge';
 
 const _nullConversations = {};
 
-const ConversationReducer = (state= _nullConversations, action) => {
+const ConversationReducer = (state = _nullConversations, action) => {
   Object.freeze(state);
 
   switch(action.type) {

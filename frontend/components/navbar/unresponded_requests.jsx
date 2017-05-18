@@ -1,7 +1,7 @@
 import React from 'react';
 import { allFriendRequests } from '../../actions/friend_actions';
+import { countAction } from '../../actions/count_actions.js';
 import { connect } from 'react-redux';
-import DocumentTitle from 'react-document-title';
 import Pusher from 'pusher-js';
 
 class UnrespondedRequests extends React.Component {
@@ -28,6 +28,7 @@ class UnrespondedRequests extends React.Component {
   render() {
     const friends = Object.values(this.props.friends).length;
 
+    this.props.countAction(friends, 'UNRESPONDED');
     if (friends) {
       return (
         <div className="notification">
@@ -46,7 +47,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  allFriendRequests: () => (dispatch(allFriendRequests()))
+  allFriendRequests: () => (dispatch(allFriendRequests())),
+  countAction: (count, type) => dispatch(countAction(count, type)),
 });
 
 export default connect(

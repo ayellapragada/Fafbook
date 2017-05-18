@@ -65,8 +65,15 @@ class RightNavbar extends React.Component {
 
   render() {
     if (this.props.currentUser){
+      let sum = Object.values(this.props.counts).reduce((a,b) => a + b, 0);
+      let title = sum ? 
+        `${document.title.split(' (')[0]} (${sum})` :
+        `${document.title.split(' (')[0]}`;
+
       return (
         <div className="right-navbar">
+          <DocumentTitle 
+            title={title} />
           <Link className="navbar-btn profile-link right-navbar-words"
             to={"/profile/" + this.props.currentUser.id}>
             <img src={this.props.currentUser.profile_url}
@@ -82,7 +89,7 @@ class RightNavbar extends React.Component {
 
           <div
             onClick={this.toggleRequests}
-            className={`navbar-btn ${this.state.requests ? "active-btn" : ""}`}>
+            className={`navbar-btn ${this.state.requests || this.props.counts.unresponded ? "active-btn" : ""}`}>
             <i className="fa fa-users" aria-hidden="true"></i>
             <div className="relative-unread">
               <UnrespondedRequests />
@@ -98,7 +105,7 @@ class RightNavbar extends React.Component {
           <div
             id="chat-dropdown"
             onClick={this.handleChat}
-            className={`navbar-btn ${this.state.chat ? "active-btn" : ""}`}>
+            className={`navbar-btn ${this.state.chat || this.props.counts.unread ? "active-btn" : ""}`}>
             <i className="fa fa-comments" aria-hidden="true"></i>
             <div className="relative-unread">
               <Unread />
@@ -108,7 +115,7 @@ class RightNavbar extends React.Component {
           <div
             onClick={this.toggleNotifications}
             className=
-            {`navbar-btn ${this.state.notifications ? "active-btn" : ""}`}>
+            {`navbar-btn ${this.state.notifications || this.props.counts.unopened? "active-btn" : ""}`}>
             <i className="fa fa-globe" aria-hidden="true"></i>
             <div className="relative-unread">
               <Unopened />
@@ -134,8 +141,9 @@ class RightNavbar extends React.Component {
 
 }
 
-const mapStateToProps = ({ session }) => ({
-  currentUser: session.currentUser
+const mapStateToProps = ({ session, counts }) => ({
+  currentUser: session.currentUser,
+  counts
 });
 
 const mapDispatchToProps = dispatch => ({

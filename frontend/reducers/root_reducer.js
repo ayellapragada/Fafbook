@@ -10,6 +10,7 @@ import ConversationReducer from './conversation_reducer';
 import ChatReducer from './chat_reducer';
 import ChatSearchReducer from './chat_search_reducer';
 import NotificationsReducer from './notifications_reducer.js';
+import CountReducer from './count_reducer.js';
 
 
 const AppReducer = combineReducers({
@@ -22,6 +23,7 @@ const AppReducer = combineReducers({
   chats: ChatReducer,
   chatSearch: ChatSearchReducer,
   notifications: NotificationsReducer,
+  counts: CountReducer,
 });
 
 const RootReducer = (state, action) => {

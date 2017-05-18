@@ -1,9 +1,9 @@
 import { 
   fetchAllConversations, 
   getMessages } from '../../actions/message_actions';
+import { countAction } from '../../actions/count_actions.js';
 import React from 'react';
 import { connect } from 'react-redux';
-import DocumentTitle from 'react-document-title';
 import Pusher from 'pusher-js';
 
 class Unread extends React.Component {
@@ -37,12 +37,11 @@ class Unread extends React.Component {
       }
     });
 
+    this.props.countAction(unreadCount, 'UNREAD');
 
     if (unreadCount) {
       return (
         <div className="notification">
-          <DocumentTitle 
-            title={`${document.title.split(' (')[0]} (${unreadCount})`} />
           {unreadCount}
         </div>
       );
@@ -61,6 +60,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = dispatch => ({
   fetchAllConversations: () => dispatch(fetchAllConversations()),
   getMessages: (id) => dispatch(getMessages(id)),
+  countAction: (count, type) => dispatch(countAction(count, type)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Unread);

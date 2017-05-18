@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { getAllNotifications } from '../../actions/notification_actions.js';
+import { countAction } from '../../actions/count_actions.js';
 import Pusher from 'pusher-js';
 
 class Unopened extends React.Component {
@@ -33,6 +34,8 @@ class Unopened extends React.Component {
       if (notif.unopened) { unopened ++;}
     });
 
+    this.props.countAction(unopened, 'UNOPENED');
+
     if (unopened) {
       return (
         <div className="notification">
@@ -53,6 +56,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = dispatch => ({
   getAllNotifications: () => dispatch(getAllNotifications()),
+  countAction: (count, type) => dispatch(countAction(count, type)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Unopened);
