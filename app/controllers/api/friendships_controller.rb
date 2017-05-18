@@ -9,6 +9,9 @@ class Api::FriendshipsController < ApplicationController
     @requested = User.find friendship_params[:requestedUserId]
     @requester.friend_request(@requested)
 
+    Pusher.trigger('requests', 'new_request',
+                   {requested_id: @requested.id})
+
     @status = 'pending'
     render 'api/friendships/friendship'
   end
@@ -20,11 +23,11 @@ class Api::FriendshipsController < ApplicationController
     if friendship_params[:action] == 'approve'
       @requested.accept_request(@requester)
       @status = 'approved'
-    render 'api/friendships/friendship'
+      render 'api/friendships/friendship'
     else 
       @requested.decline_request(@requester)
       @status = 'denied'
-    render 'api/friendships/friendship'
+      render 'api/friendships/friendship'
     end
   end
 
