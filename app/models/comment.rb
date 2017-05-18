@@ -32,7 +32,10 @@ class Comment < ActiveRecord::Base
   acts_as_likeable
   acts_as_notifiable :users,
     targets: -> (comment, key)  {
-    ([comment.post.receiver] + [comment.post.author] - [comment.user]).uniq
+    ([comment.post.receiver] +
+     [comment.post.author] +
+     comment.post.commented_users -
+     [comment.user]).uniq
   },notifier: -> (comment, key) {
     comment.user
   }

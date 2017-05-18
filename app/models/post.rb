@@ -25,4 +25,12 @@ class Post < ApplicationRecord
   },notifier: -> (post, key) {
     post.author
   }
+
+  def commented_users 
+    final = self.comments.includes(:user).inject([]) do |result, comment|
+      result << comment.user 
+    end
+
+    final.uniq
+  end
 end

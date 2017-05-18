@@ -68,7 +68,6 @@ class SigninHeader extends React.Component {
                   onChange={this.update('password')}
                   className="signin-input"
                 />
-                <p className="forgot-password"> Forgot password? </p>
               </label>
               <button className="signin-submit signin-submit-button"
                 type="submit">{this.props.errors[0] !== 
