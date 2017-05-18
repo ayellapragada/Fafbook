@@ -25,16 +25,18 @@ const Root = ({ store }) => {
 
   return (
     <Provider store={ store }>
-      <Router history={hashHistory}>
+      <Router 
+        onUpdate={() => window.scrollTo(0, 0)} 
+        history={hashHistory}>
         <Route path="/login" 
           component={SignUpPage} 
           onEnter={_redirectIfLoggedIn}/>
-       <Route path="/" component={App} onEnter={_ensureLoggedIn}>
-         <IndexRoute component={Home}/>
-         <Route path="/profile/:id" component={Profile}/>
-       </Route>
-     </Router>
-   </Provider>
+        <Route path="/" component={App} onEnter={_ensureLoggedIn}>
+          <IndexRoute component={Home}/>
+          <Route path="/profile/:id" component={Profile}/>
+        </Route>
+      </Router>
+    </Provider>
   );
 };
 export default Root;

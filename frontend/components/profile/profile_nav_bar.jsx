@@ -4,7 +4,7 @@ const ProfileNavBar = (props) => {
 
   const onClick = (e) => {
     e.preventDefault();
-  }
+  };
 
   return (
     <div className="profile-nav-bar-container">
@@ -37,7 +37,7 @@ const ProfileNavBar = (props) => {
         </li>
       </ul>
     </div>
-  )
-}
+  );
+};
 
 export default ProfileNavBar;
