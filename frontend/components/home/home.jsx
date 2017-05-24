@@ -8,6 +8,7 @@ const Home = () => {
 
   return(
     <div className="home">
+      <div className="left-bar-placeholder"></div>
       <div className="home-left-bar">
         <LeftBar />
       </div>

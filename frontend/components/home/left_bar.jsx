@@ -16,6 +16,7 @@ class LeftBar extends React.Component {
     if (this.props.currentUser) {
       return (
         <div className="inside-home-left-navbar">
+          <div className="left-bar-placeholder"></div>
           <div className="home-side-nav-user">
             <Link 
               to={`/profile/${this.props.currentUser.id}`}>
