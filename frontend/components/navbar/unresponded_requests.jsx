@@ -14,6 +14,11 @@ class UnrespondedRequests extends React.Component {
     this.chatRoom = this.pusher.subscribe('requests');
   }
 
+  componentWillUnmount() {
+    this.chatRoom.unbind();
+    this.pusher.unsubscribe(this.chatRoom);
+  }
+
   componentDidMount() {
     const currentUser = this.props.currentUser;
 

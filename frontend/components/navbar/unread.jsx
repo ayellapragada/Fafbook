@@ -16,6 +16,11 @@ class Unread extends React.Component {
     this.chatRoom = this.pusher.subscribe('messages');
   }
 
+  componentWillUnmount() {
+    this.chatRoom.unbind();
+    this.pusher.unsubscribe(this.chatRoom);
+  }
+
   componentDidMount() {
     const currentUser = this.props.currentUser;
     this.chatRoom.bind('new_message', 

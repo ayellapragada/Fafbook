@@ -14,6 +14,11 @@ class Unopened extends React.Component {
     this.chatRoom = this.pusher.subscribe('notifications');
   }
 
+  componentWillUnmount() {
+    this.chatRoom.unbind();
+    this.pusher.unsubscribe(this.chatRoom);
+  }
+
   componentDidMount() {
     const currentUser = this.props.currentUser;
 
