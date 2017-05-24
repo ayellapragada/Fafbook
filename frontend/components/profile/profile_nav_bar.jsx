@@ -10,11 +10,6 @@ const ProfileNavBar = (props) => {
     <div className="profile-nav-bar-container">
       <ul className="profile-nav-bar">
         <li className="profile-nav-link profile-nav-empty"></li>
-        <li 
-          onClick={onClick}
-          className="profile-nav-link profile-nav-timeline">
-          Timeline
-        </li>
       </ul>
     </div>
   );
@@ -22,23 +17,28 @@ const ProfileNavBar = (props) => {
 
 export default ProfileNavBar;
 
-//         <li 
-//           onClick={onClick}
-//           className="profile-nav-link profile-nav-about">
-//           About
-//         </li>
-//         <li 
-//           onClick={onClick}
-//           className="profile-nav-link profile-nav-friends">
-//           Friends  <span className='grey'> {props.user.friend_count} </span>
-//         </li>
-//         <li 
-//           onClick={onClick}
-//           className="profile-nav-link profile-nav-photos">
-//           Photos
-//         </li>
-//         <li 
-//           onClick={onClick}
-//           className="profile-nav-link profile-nav-more">
-//           More
-//         </li>
+// <li 
+//   onClick={onClick}
+//   className="profile-nav-link profile-nav-timeline">
+//   Timeline
+// </li>
+// <li 
+//   onClick={onClick}
+//   className="profile-nav-link profile-nav-about">
+//   About
+// </li>
+// <li 
+//   onClick={onClick}
+//   className="profile-nav-link profile-nav-friends">
+//   Friends  <span className='grey'> {props.user.friend_count} </span>
+// </li>
+// <li 
+//   onClick={onClick}
+//   className="profile-nav-link profile-nav-photos">
+//   Photos
+// </li>
+// <li 
+//   onClick={onClick}
+//   className="profile-nav-link profile-nav-more">
+//   More
+// </li>
