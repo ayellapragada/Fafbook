@@ -276,19 +276,32 @@
 .send-chat-message {
   height: 20%;
   border-top: 1px solid #e5e5e5;
+  display: flex;
 
   textarea {
     box-sizing: border-box;
     padding: 10px;
     overflow: hidden;
     border: none;
-    width: 98%;
+    width: 90%;
     height: 50%;
     resize: none;
     font-size: 10px;
 
     &:focus {
       outline: none;
+    }
+  }
+
+
+  i {
+    margin-top: 10px;
+    cursor: pointer;
+    color: #a2a5ac;
+    font-size: 14px;
+
+    &:hover {
+      color: #1e1e16;
     }
   }
 }
@@ -379,4 +392,16 @@
 
 .msg-unread {
   background-color: #edf2fa;
+}
+
+.emoji-relative {
+  position: relative;
+}
+
+.emoji-fixed {
+  position: absolute;
+  width: 266px;
+  bottom: 25px;
+  left: 260px;
+  z-index: 2;
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import Messages from './messages.jsx';
 import { Link } from 'react-router';
+import { Picker } from 'emoji-mart';
 import onClickOutside from 'react-onclickoutside';
 import { connect } from 'react-redux';
 import { readConversation } from '../../actions/message_actions.js';
@@ -8,13 +9,19 @@ import { readConversation } from '../../actions/message_actions.js';
 class OpenChatboxItem extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {body: "", user_id: this.props.currentUser.id, active: true};
+    this.state = {
+      body: "", 
+      user_id: this.props.currentUser.id, 
+      emoji: false,
+      active: true};
 
     this.handleCloseChat = this.handleCloseChat.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleActive = this.handleActive.bind(this);
+    this.handleEmoji  = this.handleEmoji.bind(this);
     this.checkSubmit = this.checkSubmit.bind(this);
+    this.addEmoji = this.addEmoji.bind(this);
   }
 
   componentDidMount() {
@@ -25,12 +32,21 @@ class OpenChatboxItem extends React.Component {
     this.props.closeChat(this.props.chat);
   }
 
+  handleEmoji() {
+    this.setState({emoji: !this.state.emoji});
+  }
+
+  addEmoji(emoji) {
+    const newBody = `${this.state.body}${emoji.colons}`;
+    this.setState({body: newBody});
+  }
+
   handleChange(e) {
     this.setState({body: e.currentTarget.value});
   }
 
   handleClickOutside(e) {
-    this.setState({active: false});
+    this.setState({active: false, emoji: false});
   }
 
   handleActive() {
@@ -53,7 +69,7 @@ class OpenChatboxItem extends React.Component {
 
   render() {
     let activeClassName = `chatbox-header ${this.state.active ? 
-        "active-chatbox" : ""}`;
+"active-chatbox" : ""}`;
     return (
       <div 
         className="open-chatbox-item"
@@ -78,13 +94,29 @@ class OpenChatboxItem extends React.Component {
         />
 
       <div className="send-chat-message">
+        { this.state.emoji && 
+            <div className="emoji-relative">
+              <div className="emoji-fixed">
+                <Picker
+                  emoji="busts_in_silhouette"
+                  emojiSize={16}
+                  title="Fafbook!"
+                  onClick={(emoji) => this.addEmoji(emoji)}
+                />
+              </div>
+            </div>
+        }
         <textarea 
           className="send-chat-textarea"
           value={this.state.body}
           placeholder="Type a message"
           onKeyDown={this.checkSubmit} 
           onChange={this.handleChange} />
+        <div onClick={this.handleEmoji}>
+          <i className="fa fa-smile-o" aria-hidden="true"></i>
+        </div>
       </div>
+
     </div>
     );
   }
