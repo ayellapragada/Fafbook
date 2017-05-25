@@ -100,6 +100,7 @@ class OpenChatboxItem extends React.Component {
                 <Picker
                   emoji="busts_in_silhouette"
                   emojiSize={16}
+                  exclude={['flags']}
                   set="emojione"
                   title="Fafbook!"
                   onClick={(emoji) => this.addEmoji(emoji)}

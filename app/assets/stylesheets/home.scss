@@ -15,6 +15,7 @@
 .home-left-bar,
 .left-bar-placeholder {
   width: 19%;
+  min-width: 200px;
 }
 
 .home-right-bar {
@@ -40,6 +41,7 @@
     align-items: center;
     font-size: 12px;
     text-decoration: none;
+    min-width: 160px;
     color: black;
     padding: 5px;
     border: 1px solid transparent;

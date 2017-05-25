@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 import TimeAgo from 'react-timeago';
+import { Emojione } from 'react-emoji-render';
 
 class ConversationItem extends React.Component {
   constructor(props) {
@@ -21,8 +22,8 @@ class ConversationItem extends React.Component {
     let messageUnread = 
       this.props.conversation.message.read ?  "msg-read" : "msg-unread";
 
-      if (this.props.conversation.message.user_id === this.props.currentUser.id)
-    messageUnread = "msg-read";
+    if (this.props.conversation.message.user_id === this.props.currentUser.id)
+      messageUnread = "msg-read";
 
     return (
       <div className={messageUnread}>
@@ -49,7 +50,7 @@ class ConversationItem extends React.Component {
                 </div>
 
                 <div className="conversation-content-message">
-                  { this.props.conversation.message.body }
+                  {<Emojione text={this.props.conversation.message.body}/>}
                 </div>
               </div>
             </div>

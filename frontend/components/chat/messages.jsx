@@ -33,6 +33,8 @@ class Messages extends React.Component {
       });
     }
 
+
+
     return (
       <div className="chatbox-messages">
         <ul>{messages}</ul>
