@@ -37,7 +37,7 @@ class OpenChatboxItem extends React.Component {
   }
 
   addEmoji(emoji) {
-    const newBody = `${this.state.body}${emoji.colons}`;
+    const newBody = `${this.state.body}${emoji.native}`;
     this.setState({body: newBody});
   }
 
@@ -100,8 +100,7 @@ class OpenChatboxItem extends React.Component {
                 <Picker
                   emoji="busts_in_silhouette"
                   emojiSize={16}
-                  exclude={['flags']}
-                  set="emojione"
+                  set="twitter"
                   title="Fafbook!"
                   onClick={(emoji) => this.addEmoji(emoji)}
                 />

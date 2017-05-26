@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 import TimeAgo from 'react-timeago';
-import { Emojione } from 'react-emoji-render';
+import emoji from 'react-easy-emoji';
 
 class ConversationItem extends React.Component {
   constructor(props) {
@@ -50,7 +50,7 @@ class ConversationItem extends React.Component {
                 </div>
 
                 <div className="conversation-content-message">
-                  {<Emojione text={this.props.conversation.message.body}/>}
+                  {emoji(this.props.conversation.message.body)}
                 </div>
               </div>
             </div>
