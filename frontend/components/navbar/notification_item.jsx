@@ -16,6 +16,9 @@ class NotificationItem extends React.Component {
     const user = this.props.notif.notifier;
     let notifUnopened = this.props.notif.unopened ?  "msg-unread" : "msg-read";
 
+    let bodyMessage;
+
+
     return (
       <li className={notifUnopened}>
         <div className={"notification-item"}>

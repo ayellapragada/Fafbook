@@ -33,7 +33,7 @@ class Api::PostsController < ApplicationController
     @post = Post.create(post_params)
 
     if @post.save
-      @post.notify :users, key: "posted on your wall"
+      @post.notify :users, key: @post.id
       @author = User.find(post_params[:author_id])
       @receiver = User.find(post_params[:receiver_id])
       notification_trigger([@receiver.id])
@@ -77,7 +77,7 @@ class Api::PostsController < ApplicationController
         .where(liker_id: current_user.id)
         .where(likeable_type: 'Post')
         .first
-      @like.notify :users, key: "liked a post involving you"
+      @like.notify :users, key: @post.id
     end
     @author = @post.author
     @receiver = @post.receiver
@@ -88,6 +88,13 @@ class Api::PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy 
+    @notification = ActivityNotification::Notification
+      .where(notifiable_type: "Post")
+      .where(notifiable_id: @post.id)
+      .where(notifier_id: current_user.id)
+      .first
+    @notification.destroy if @notification
+    notification_trigger([@post.receiver.id])
     render 'api/posts/deleted'
   end
 
