@@ -21,7 +21,7 @@ class LeftBar extends React.Component {
             <Link 
               to={`/profile/${this.props.currentUser.id}`}>
               <img src={this.props.currentUser.profile_url}/>
-             {`${this.props.currentUser.fname} ${this.props.currentUser.lname}`}
+              {`${this.props.currentUser.fname} ${this.props.currentUser.lname}`}
             </Link>
           </div>
 
@@ -60,7 +60,18 @@ class LeftBar extends React.Component {
               <i className="fa fa-angellist" aria-hidden="true"></i>
               <p>AngelList</p>
             </a>
-
+            <a 
+              className="front-tetris" 
+              href="https://www.akshithyellapragada.com/TetrisParty/">
+              <i className="fa fa-trophy" aria-hidden="true"></i>
+              <p>Tetris</p>
+            </a>
+            <a 
+              className="front-easysave" 
+              href="https://github.com/ayellapragada/EasySave">
+              <i className="fa fa-database" aria-hidden="true"></i>
+              <p>Easy Save</p>
+            </a>
           </div>
         </div>
       );
