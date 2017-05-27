@@ -30,15 +30,13 @@ class NotificationItem extends React.Component {
     }
 
     return (
-      <li className={notifUnopened}>
-        <div className={"notification-item"}>
-          <Link to={`/profile/${user.id}`}>
+      <Link className="no-line-notif" to={`/posts/${this.props.notif.key}`}>
+        <li className={notifUnopened}>
+          <div className={"notification-item"}>
             <div className="friend-request-info">
               <img src={user.profile_url} />
             </div>
-          </Link>
 
-          <Link to={`/posts/${this.props.notif.key}`}>
             <div className="notification-content" onClick={this.handleReadOne}>
               <div className="notification-body">
                 <span className="bold">
@@ -50,9 +48,9 @@ class NotificationItem extends React.Component {
                 <TimeAgo date={this.props.notif.created_at}/>
               </div>
             </div>
-          </Link>
-        </div>
-      </li>
+          </div>
+        </li>
+      </Link>
     );
   }
 }
