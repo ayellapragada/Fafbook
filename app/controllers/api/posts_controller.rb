@@ -14,7 +14,7 @@ class Api::PostsController < ApplicationController
       .order("created_at DESC")
       .offset(page * num_posts)
       .limit(num_posts)
-@posts = posts_with_ids.map do |post|
+    @posts = posts_with_ids.map do |post|
       {
         post: post,
         author: User.find(post.author_id),
@@ -51,6 +51,13 @@ class Api::PostsController < ApplicationController
     else 
       render json: @post.errors.full_messages, status: 422
     end
+  end
+
+  def show 
+    @post = Post.find(params[:id])
+    @author = @post.author
+    @receiver = @post.receiver
+    render 'api/posts/show'
   end
 
   def like 

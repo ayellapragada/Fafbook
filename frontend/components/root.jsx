@@ -6,6 +6,7 @@ import App from './app';
 import SignUpPage from './signup/signup_page';
 import Profile from './profile/profile';
 import Home from './home/home';
+import SoloPost from './post/solo_post.jsx';
 
 const Root = ({ store }) => {
 
@@ -33,7 +34,7 @@ const Root = ({ store }) => {
           onEnter={_redirectIfLoggedIn}/>
         <Route path="/" component={App} onEnter={_ensureLoggedIn}>
           <IndexRoute component={Home}/>
-          <Route path="/posts/:id" component={Profile}/>
+          <Route path="/posts/:id" component={SoloPost}/>
           <Route path="/profile/:id" component={Profile}/>
         </Route>
       </Router>

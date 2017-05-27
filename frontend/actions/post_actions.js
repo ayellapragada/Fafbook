@@ -81,6 +81,13 @@ export const fetchPost = id => dispatch => (
   .then(post => dispatch(receivePost(post)))
 );
 
+export const viewOnePost = id => dispatch => (
+  APIUtil.getPost(id)
+  .then(post => dispatch(viewPost(post)))
+);
+
+
+
 export const updatePost =  post => dispatch => (
   APIUtil.updatePost(post)
   .then(newPost => dispatch(receivePost(newPost)),
