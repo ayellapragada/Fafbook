@@ -33,6 +33,7 @@ const Root = ({ store }) => {
           onEnter={_redirectIfLoggedIn}/>
         <Route path="/" component={App} onEnter={_ensureLoggedIn}>
           <IndexRoute component={Home}/>
+          <Route path="/posts/:id" component={Profile}/>
           <Route path="/profile/:id" component={Profile}/>
         </Route>
       </Router>

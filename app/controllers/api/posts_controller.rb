@@ -14,8 +14,7 @@ class Api::PostsController < ApplicationController
       .order("created_at DESC")
       .offset(page * num_posts)
       .limit(num_posts)
-
-    @posts = posts_with_ids.map do |post|
+@posts = posts_with_ids.map do |post|
       {
         post: post,
         author: User.find(post.author_id),

@@ -21,7 +21,7 @@ class LeftBar extends React.Component {
             <Link 
               to={`/profile/${this.props.currentUser.id}`}>
               <img src={this.props.currentUser.profile_url}/>
-              {`${this.props.currentUser.fname} ${this.props.currentUser.lname}`}
+             {`${this.props.currentUser.fname} ${this.props.currentUser.lname}`}
             </Link>
           </div>
 

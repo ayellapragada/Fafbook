@@ -17,7 +17,17 @@ class NotificationItem extends React.Component {
     let notifUnopened = this.props.notif.unopened ?  "msg-unread" : "msg-read";
 
     let bodyMessage;
-
+    switch(this.props.notif.notifiable_type) {
+      case "Comment":
+        bodyMessage = "commented on a post.";
+        break;
+      case "Post":
+        bodyMessage = "wrote a post on your wall.";
+        break;
+      case "Socialization::ActiveRecordStores::Like":
+        bodyMessage = "liked a post.";
+        break;
+    }
 
     return (
       <li className={notifUnopened}>
@@ -28,17 +38,19 @@ class NotificationItem extends React.Component {
             </div>
           </Link>
 
-          <div className="notification-content" onClick={this.handleReadOne}>
-            <div className="notification-body">
-              <span className="bold">
-                {`${user.fname} ${user.lname}`}&nbsp;
-              </span>
-              {`${this.props.notif.key}.`}
+          <Link to={`/posts/${this.props.notif.key}`}>
+            <div className="notification-content" onClick={this.handleReadOne}>
+              <div className="notification-body">
+                <span className="bold">
+                  {`${user.fname} ${user.lname}`}&nbsp;
+                </span>
+                {bodyMessage}
+              </div>
+              <div className="conversation-content-time">
+                <TimeAgo date={this.props.notif.created_at}/>
+              </div>
             </div>
-            <div>
-              <TimeAgo date={this.props.notif.created_at}/>
-            </div>
-          </div>
+          </Link>
         </div>
       </li>
     );
