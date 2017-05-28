@@ -19,14 +19,18 @@
 }
 
 .home-right-bar {
-  margin-left: 5px;
+  margin-left: 10px;
   width: 100%;
-  height: 500px;
-  padding: 10px;
+  max-width: 300px;
+}
+
+.trending-twitter {
+  width: 100%;
   box-sizing: border-box;
   background-color: white;
   border: 1px solid;
   border-color: #e5e6e9 #dfe0e4 #d0d1d5;
+
 }
 
 .inside-home-left-navbar {
@@ -128,4 +132,51 @@
   i {
     color: red;
   }
+
+}
+
+
+.trending-twitter {
+  font-size: 12px;
+}
+
+.trending-header {
+  border-bottom: 1px solid #e5e5e5;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  color: #90949c;
+  font-weight: 700;
+  font-size: 14px;
+  background-color: #f6f7f9;
+
+
+  i {
+    margin-right: 10px;
+    color: #1da1f2;
+    font-size: 18px;
+  }
+}
+
+.trending-tweet {
+  margin: 10px 0;
+
+  a {
+    text-decoration: none;
+    color: #3658a5;
+    font-weight: 700;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  i {
+    margin-right: 5px;
+    color: #5890ff;
+  }
+}
+
+.trending-tweets {
+  padding: 10px;
 }

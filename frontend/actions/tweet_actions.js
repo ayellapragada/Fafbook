@@ -9,5 +9,7 @@ export const receiveTrendingTweets = tweets => ({
 
 export const getTrendingTweets = () => dispatch => (
   APIUtil.trendingTweets()
-  .then(tweets => dispatch(receiveTrendingTweets(tweets)))
+  .then(tweets => {
+    dispatch(receiveTrendingTweets(tweets));
+  })
 );

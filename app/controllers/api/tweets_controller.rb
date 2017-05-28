@@ -7,7 +7,6 @@ class Api::TweetsController < ApplicationController
       config.access_token_secret = ENV['twitter_access_token_secret']
     end
 
-    @tweets = client.trends(2459115).to_a.take(20)
-    render 'api/tweets/tweets'
+    render json: client.trends(2459115, count: 20)
   end
 end
