@@ -17,12 +17,6 @@ const ProfileNavBar = (props) => {
             Timeline
           </li>
         </Link>
-        <Link to={`/profile/${props.user.id}/about`}>
-          <li 
-            className="profile-nav-link profile-nav-about">
-            About
-          </li>
-        </Link>
         <Link to={`/profile/${props.user.id}/friends`}>
           <li 
             className="profile-nav-link profile-nav-friends">
@@ -44,3 +38,10 @@ const ProfileNavBar = (props) => {
 };
 
 export default ProfileNavBar;
+
+// <Link to={`/profile/${props.user.id}/about`}>
+//   <li 
+//     className="profile-nav-link profile-nav-about">
+//     About
+//   </li>
+// </Link>

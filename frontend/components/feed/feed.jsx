@@ -1,9 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { fetchUser } from '../../actions/user_actions.js';
 import { 
-  fetchNewPosts, 
   fetchUserPosts, 
-  fetchMorePosts, 
   fetchMoreUserPosts,
   createComment } from '../../actions/post_actions';
 
@@ -23,10 +22,12 @@ class Feed extends React.Component {
   componentWillReceiveProps(nextProps){
     if (this.props.user.id !== nextProps.user.id) {
       this.props.fetchUserPosts(nextProps.user.id);
+      this.props.fetchUser(nextProps.user.id);
     }
   }
 
   componentDidMount() {
+    this.props.fetchUser(this.props.user.id);
     this.props.fetchUserPosts(this.props.user.id)
       .then(() => this.setState({loading: false}));
     document.addEventListener('scroll', this.handleScroll);
@@ -91,8 +92,7 @@ const mapStateToProps = (state) => ({
 // Submit / Update :: FetchnewPosts / fetchUserPosts
 
 const mapDispatchToProps = dispatch => ({
-  fetchNewPosts: () => dispatch(fetchNewPosts()),
-  fetchMorePosts: () => dispatch(fetchMorePosts()),
+  fetchUser: (id) => dispatch(fetchUser(id)),
   fetchUserPosts: (id) => dispatch(fetchUserPosts(id)),
   fetchMoreUserPosts: (id, page) => dispatch(fetchMoreUserPosts(id, page)),
   createComment: (comment) => dispatch(createComment(comment)),

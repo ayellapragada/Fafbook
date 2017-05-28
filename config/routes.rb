@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   get '/api/search/:query', to: 'api/users#index', default: { format: :json }
   get '/api/posts/feed/:id', to: 'api/posts#feed', default: { format: :json }
   get '/api/likepost/:id', to: 'api/posts#like', default: { format: :json }
+  get '/api/users/:id/photos', to: 'api/users#photos', default: { format: :json }
+  get '/api/users/:id/friends', to: 'api/users#friends', default: { format: :json }
   get '/api/conversations/read', to: 'api/conversations#read', default: { format: :json }
   get '/api/conversations/read/:id', to: 'api/conversations#read_one', default: { format: :json }
   get '/api/notifications/read', to: 'api/notifications#read', default: { format: :json }

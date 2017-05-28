@@ -21,16 +21,16 @@ class ApplicationController < ActionController::Base
                                  :body, :page_number, :how_many)
   end
 
-  def prepare_user_for_show(user)
+  def prepare_user_for_show(user, friend_count = 9, photo_count = 9)
     profile_album_id = user.albums.find_by(name: "Profile")
 
 
     @profile = user.profile
-    @friends = user.friends.order("created_at DESC").limit(9)
+    @friends = user.friends.order("created_at DESC").limit(friend_count)
     @photos = user.photos
       .where.not(album_id: profile_album_id)
       .order("created_at DESC")
-      .limit(9)
+      .limit(photo_count)
   end
 
   def last_message_read 

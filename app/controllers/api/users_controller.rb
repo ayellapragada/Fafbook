@@ -52,6 +52,19 @@ class Api::UsersController < ApplicationController
 
   end 
 
+  def photos
+    @user = User.find(params[:id])
+    prepare_user_for_show(@user, 9, @user.photos.count)
+    render 'api/users/show'
+  end
+
+  def friends
+    @user = User.find(params[:id])
+    prepare_user_for_show(@user, @user.friends.count, 9)
+    render 'api/users/show'
+  end
+
+
   #  def destroy
   #    @user = User.find(params[:id])
   #  end

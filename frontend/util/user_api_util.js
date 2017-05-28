@@ -5,6 +5,20 @@ export const getUser = (id) => {
   });
 };
 
+export const getUserPhotos = (id) => {
+  return $.ajax({
+    method: 'GET',
+    url: `/api/users/${id}/photos`
+  });
+};
+
+export const getUserFriends = (id) => {
+  return $.ajax({
+    method: 'GET',
+    url: `/api/users/${id}/friends`
+  });
+};
+
 export const patchUser = (user, form) => {
   return $.ajax({
     method: 'PATCH',

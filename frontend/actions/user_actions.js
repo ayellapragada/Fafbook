@@ -13,6 +13,16 @@ export const fetchUser = id => dispatch => (
   .then(user => dispatch(receiveViewedUser(user)))
 );
 
+export const fetchUserPhotos = id => dispatch => (
+  APIUtil.getUserPhotos(id)
+  .then(user => dispatch(receiveViewedUser(user)))
+);
+
+export const fetchUserFriends = id => dispatch => (
+  APIUtil.getUserFriends(id)
+  .then(user => dispatch(receiveViewedUser(user)))
+);
+
 export const updateUser = (user, form) => dispatch => (
   APIUtil.patchUser(user, form)
   .then(updatedUser => dispatch(receiveViewedUser(updatedUser)))
