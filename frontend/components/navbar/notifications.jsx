@@ -29,6 +29,7 @@ class Notifications extends React.Component {
         <NotificationItem 
           key={notif.id} 
           notif={notif} 
+          toggleNotifications={this.props.toggleNotifications}
           readNotification={this.props.readNotification}
         />
       );

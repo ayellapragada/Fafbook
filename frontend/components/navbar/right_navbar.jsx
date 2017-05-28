@@ -106,7 +106,7 @@ class RightNavbar extends React.Component {
           <div className="friend-requests-dropdown">
             { this.state.requests && <FriendRequests/> }
             { this.state.chat && <Chat toggleChat={this.toggleChat} /> }
-            { this.state.notifications && <Notifications /> }
+            { this.state.notifications && <Notifications toggleNotifications={this.toggleNotifications}/> }
           </div>
 
           <div

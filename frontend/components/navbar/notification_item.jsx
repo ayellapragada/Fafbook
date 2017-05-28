@@ -10,6 +10,7 @@ class NotificationItem extends React.Component {
 
   handleReadOne() {
     this.props.readNotification(this.props.notif.id);
+    this.props.toggleNotifications();
   }
 
   render() {
@@ -31,13 +32,13 @@ class NotificationItem extends React.Component {
 
     return (
       <Link className="no-line-notif" to={`/posts/${this.props.notif.key}`}>
-        <li className={notifUnopened}>
+        <li onClick={this.handleReadOne} className={notifUnopened}>
           <div className={"notification-item"}>
             <div className="friend-request-info">
               <img src={user.profile_url} />
             </div>
 
-            <div className="notification-content" onClick={this.handleReadOne}>
+            <div className="notification-content" >
               <div className="notification-body">
                 <span className="bold">
                   {`${user.fname} ${user.lname}`}&nbsp;
