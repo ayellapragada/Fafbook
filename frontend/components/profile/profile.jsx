@@ -102,6 +102,7 @@ class Profile extends React.Component {
       );
     }
 
+    // So instead of <Feed /> below, we make it { children } or some shit.
 
     else if (user.id > 0){
       return (

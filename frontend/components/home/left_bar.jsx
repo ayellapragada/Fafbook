@@ -36,7 +36,7 @@ class LeftBar extends React.Component {
             </Link>
 
             <div className="left-navbar-explore">
-              <p>MY OTHER LINKS</p>
+              <p>CONNECT WITH ME</p>
             </div>
 
             <a className="front-website"
@@ -60,6 +60,10 @@ class LeftBar extends React.Component {
               <i className="fa fa-angellist" aria-hidden="true"></i>
               <p>AngelList</p>
             </a>
+
+            <div className="left-navbar-explore">
+              <p>MY OTHER LINKS</p>
+            </div>
             <a 
               className="front-tetris" 
               href="https://www.akshithyellapragada.com/TetrisParty/">
