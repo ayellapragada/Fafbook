@@ -117,14 +117,8 @@ class Profile extends React.Component {
           </div>
 
           <div className="profile-body">
-            <div className="profile-sidebar-not-feed">
-              <AboutSideBar user={user} />
-              <Photos user={user} />
-              <Friends user={user} />
-            </div>
-
             <div className="profile-feed">
-              <Feed />
+              { this.props.children }
             </div>
           </div>
         </div>

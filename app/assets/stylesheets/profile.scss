@@ -144,6 +144,10 @@
 .profile-nav-bar {
   display: flex;
   align-items: center;
+
+  a {
+    text-decoration: none;
+  }
 }
 
 
@@ -340,6 +344,7 @@
   display: flex;
   justify-content: space-between;
 }
+
 .message-friend-button {
   button {
     border-left: none;
@@ -350,4 +355,10 @@
 
 .loading-profile {
   width: 20em;
+}
+
+.profile-feed-fix {
+  width: 851px;
+  display: flex;
+  justify-content: space-between;
 }

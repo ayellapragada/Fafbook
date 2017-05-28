@@ -9,7 +9,9 @@ import {
 
 import Post from './post';
 import CreatePost from './create_post';
-
+import AboutSideBar from '../profile/about_side_bar';
+import Photos from '../profile/photos';
+import Friends from '../profile/friends';
 
 class Feed extends React.Component {
   constructor(props) {
@@ -56,14 +58,23 @@ class Feed extends React.Component {
         key={ post.post.id }/>;
     });
 
+    const user = this.props.user;
+
     return (
-      <div className="feed">
-        <CreatePost />
+      <div className="profile-feed-fix">
+        <div className="profile-sidebar-not-feed">
+          <AboutSideBar user={user} />
+          <Photos user={user} />
+          <Friends user={user} />
+        </div>
+        <div className="feed">
+          <CreatePost />
 
-        <ul>
-          {posts}
-        </ul>
+          <ul>
+            {posts}
+          </ul>
 
+        </div>
       </div>
     );
   }

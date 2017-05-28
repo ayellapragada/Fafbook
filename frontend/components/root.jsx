@@ -1,10 +1,17 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import { Router, Route, IndexRoute, hashHistory } from 'react-router';
+import { 
+  Router, Route, 
+  IndexRoute, hashHistory, 
+  IndexRedirect } from 'react-router';
 
 import App from './app';
 import SignUpPage from './signup/signup_page';
 import Profile from './profile/profile';
+import AllFriends from './profile/all_friends';
+import AllPhotos from './profile/all_photos';
+import AllAboutMe from './profile/all_about_me';
+import Feed from './feed/feed.jsx';
 import Home from './home/home';
 import SoloPost from './post/solo_post.jsx';
 
@@ -35,7 +42,13 @@ const Root = ({ store }) => {
         <Route path="/" component={App} onEnter={_ensureLoggedIn}>
           <IndexRoute component={Home}/>
           <Route path="/posts/:id" component={SoloPost}/>
-          <Route path="/profile/:id" component={Profile}/>
+          <Route path="/profile/:id" component={Profile} >
+            <IndexRedirect to="/profile/:id/feed" />
+            <Route path="/profile/:id/feed" component={Feed}/>
+            <Route path="/profile/:id/about" component={AllAboutMe}/>
+            <Route path="/profile/:id/friends" component={AllFriends}/>
+            <Route path="/profile/:id/photos" component={AllPhotos}/>
+          </Route>
         </Route>
       </Router>
     </Provider>
