@@ -55,12 +55,34 @@ class Api::UsersController < ApplicationController
   def photos
     @user = User.find(params[:id])
     prepare_user_for_show(@user, 9, @user.photos.count)
+    if current_user.id == @user.id  
+      @status = 0
+    elsif current_user.friends_with?(@user) 
+      @status = 1
+    elsif current_user.pending_friends.include?(@user) 
+      @status = -1
+    elsif current_user.requested_friends.include?(@user) 
+      @status = -3
+    else
+      @status = -2
+    end
     render 'api/users/show'
   end
 
   def friends
     @user = User.find(params[:id])
     prepare_user_for_show(@user, @user.friends.count, 9)
+    if current_user.id == @user.id  
+      @status = 0
+    elsif current_user.friends_with?(@user) 
+      @status = 1
+    elsif current_user.pending_friends.include?(@user) 
+      @status = -1
+    elsif current_user.requested_friends.include?(@user) 
+      @status = -3
+    else
+      @status = -2
+    end
     render 'api/users/show'
   end
 
