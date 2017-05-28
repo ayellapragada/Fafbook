@@ -1,14 +1,11 @@
 import React from 'react';
+import Tweets from './tweets.jsx';
 
 class RightBar extends React.Component {
   render() {
     return (
       <div className="inside-home-right-navbar">
-
-        <div className="right-navbar-trending">
-          Trending.
-        </div>
-
+        <Tweets />
       </div>
     );
   }

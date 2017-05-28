@@ -23,6 +23,8 @@ Rails.application.routes.draw do
     resources :conversations, only: [:index, :create, :destroy] do 
       resources :messages, only: [:index, :create]
     end
+
+    resources :tweets, only: [:index]
     # resources :albums, only: [:create, :update, :show, :destroy] 
 
     # Don't worry about albums for right now. Let photo controller default to 

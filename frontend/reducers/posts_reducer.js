@@ -32,7 +32,6 @@ const PostsReducer = (state = _nullPosts, action) => {
       const newerState = merge({}, state);
       delete newerState.posts[Object.keys(action.post)[0]];
       const finalState = merge( {}, newerState, { posts: action.post });
-
       return finalState;
     case ADD_NEW_POSTS:
       return merge({}, state, { posts: action.posts});

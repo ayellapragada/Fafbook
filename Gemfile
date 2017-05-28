@@ -44,6 +44,8 @@ gem 'socialization'
 gem 'pusher'
 # Notification manager
 gem 'activity_notification'
+# Twitter gem for trending
+gem 'twitter'
 
 
 # Use Unicorn as the app server
