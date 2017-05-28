@@ -25,7 +25,9 @@
 }
 
 .trending-twitter {
+  font-size: 12px;
   width: 100%;
+  min-width: 290px;
   box-sizing: border-box;
   background-color: white;
   border: 1px solid;
@@ -135,10 +137,6 @@
 
 }
 
-
-.trending-twitter {
-  font-size: 12px;
-}
 
 .trending-header {
   border-bottom: 1px solid #e5e5e5;
