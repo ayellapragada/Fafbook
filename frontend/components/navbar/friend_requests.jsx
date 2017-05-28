@@ -1,10 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import FriendRequestItem from './friend_request_item';
+import { allFriendRequests } from '../../actions/friend_actions';
 
 class FriendRequests extends React.Component {
   constructor(props) {
     super(props);
+  }
+
+  componentDidMount() {
+    this.props.allFriendRequests();
   }
 
   render() {
@@ -36,6 +41,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
+  allFriendRequests: () => (dispatch(allFriendRequests())),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(FriendRequests);
