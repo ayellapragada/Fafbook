@@ -124,8 +124,10 @@ ${this.props.post.author.lname}`}
                 {postHeaderRightBoth}
               </div>
               <div className="post-header-date-time">
-                {this.state.dateTime.toDateString()} at &nbsp;
-                {this.state.dateTime.toLocaleTimeString()}
+                <Link to={`/posts/${this.props.post.post.id}`}>
+                  {this.state.dateTime.toDateString()} at &nbsp;
+                  {this.state.dateTime.toLocaleTimeString()}
+                </Link>
               </div>
             </div>
           </div>
