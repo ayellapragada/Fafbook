@@ -37,9 +37,10 @@ export const patchProfile = (id, profile) => {
   });
 };
 
-export const searchUsers = (query) => {
+export const searchUsers = (query, friendsOnly = false) => {
   return $.ajax({
     method: 'GET',
-    url: '/api/search/' + query
+    url: '/api/search/' + query,
+    data: { friendsOnly }
   });
 };

@@ -30,6 +30,6 @@ export const clearChatResults = () => ({
 });
 
 export const getChatResults = (query) => dispatch => (
-  searchUsers(query).then(results => dispatch(receiveChatResults(results)))
+  searchUsers(query, true).then(results => dispatch(receiveChatResults(results)))
 );
 

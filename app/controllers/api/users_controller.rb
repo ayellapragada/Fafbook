@@ -1,6 +1,10 @@
 class Api::UsersController < ApplicationController
   def index
-    @results = User.search_by_full_name(params[:query]).limit(5)
+    if params[:friendsOnly] === "true"
+      @results = current_user.friends.search_by_full_name(params[:query]).limit(5)
+    else
+      @results = User.search_by_full_name(params[:query]).limit(5)
+    end
     render "api/users/search"
   end  
 
