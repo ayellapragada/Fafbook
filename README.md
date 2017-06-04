@@ -24,6 +24,8 @@ photos are also viewable in the side bar. The `friends` component also links to
 their friends, and the `photos` component on click displays a modal with that
 photo in a larger size. 
 
+There are 3 separate tabs for a user, one to show their feed and a summary of their profile, one to show all their photos, and one to show all of their friends as well, each with links to open the friend page, or open the photo in a modal.
+
 ### Friends 
 
 The only people who can interact with you in anyway are those people who you're
@@ -86,21 +88,19 @@ Messaging between users is required for any social networking site like
 Facebook, where the entire point is to interact with other users. I added in
 real time using the Pusher API. This system allows for a user to have up
 multiple chats, to minimize chat windows, and to mark messages as read.
-It also have notifications displayed in a subtle but obvious way. 
+
+
+### Notifications 
+
+Similar to messaging, notifications are now also done in real time, whenever a user writes a post, likes a post, or comments on a post. Comments on posts send out notifications to all other users who commented on that post.
+
 
 ## Future Directions for this project
 
 In addition to what's been done already, I will continue to work on this
 project.
 
-### A more complete user profile page. 
+### Improved CSS 
 
-While all the necessary information is done for a profile, and to interact with
-them, the main 3 sections of a user profile of photos, friends, and about, can
-be expanded.
+The last big step is to improve the css, by adding in responsiveness for different screen sizes, and optimizing the site for mobile. 
 
-### Notifications 
-
-Similar to messaging, notifications of when someone interacts with you, either
-by a friend request, post or comment need to be sent out in real time as well.
-Using the same Pusher API, I'd like to complete that.
