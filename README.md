@@ -1,6 +1,6 @@
 # README
 
-Fafbook - Fafbook ain't facebook.
+Fafbook - Fafbook ain't Facebook.
 
 [Fafbook][livesite]
 
