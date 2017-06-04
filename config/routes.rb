@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   root 'static_pages#root' 
+
   get '/api/search/', to: 'api/users#index', default: { format: :json }
   get '/api/search/:query', to: 'api/users#index', default: { format: :json }
+  get '/api/friendsearch/', to: 'api/users#friend_search', default: { format: :json }
+  get '/api/friendsearch/:query', to: 'api/users#friend_search', default: { format: :json }
+
   get '/api/posts/feed/:id', to: 'api/posts#feed', default: { format: :json }
   get '/api/likepost/:id', to: 'api/posts#like', default: { format: :json }
   get '/api/users/:id/photos', to: 'api/users#photos', default: { format: :json }

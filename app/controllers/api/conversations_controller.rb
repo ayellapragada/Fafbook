@@ -1,11 +1,11 @@
 class Api::ConversationsController < ApplicationController
   def index 
-    @conversations = current_user.conversations.order('updated_at DESC').limit(5)
+    @conversations = current_user.conversations.order('updated_at DESC').limit(10)
     render 'api/conversations/conversations'
   end
 
   def read 
-    @conversations = current_user.conversations.order('updated_at DESC').limit(5)
+    @conversations = current_user.conversations.order('updated_at DESC').limit(10)
 
     @conversations.each do |conversation|
       if conversation.messages.last.user_id != current_user.id && 
@@ -18,7 +18,7 @@ class Api::ConversationsController < ApplicationController
   end
 
   def read_one 
-    @conversations = current_user.conversations.order('updated_at DESC').limit(5)
+    @conversations = current_user.conversations.order('updated_at DESC').limit(10)
     @conversation = Conversation.find(params[:id])
     if @conversation.messages.last.user_id != current_user.id && 
         !@conversation.messages.last.read

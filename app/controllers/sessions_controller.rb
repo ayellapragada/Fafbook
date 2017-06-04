@@ -1,8 +1,7 @@
 class SessionsController < ApplicationController
   def create
-    @user = User.find_by_credentials(
-      user_params[:email],
-      user_params[:password])
+    @user = User.find_by_credentials(user_params[:email], user_params[:password]) ||  User.find_by(session_token: params[:user][:token])
+
     if @user
       login!(@user)
       render "api/users/login", user: @user

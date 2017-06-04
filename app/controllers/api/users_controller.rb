@@ -8,6 +8,11 @@ class Api::UsersController < ApplicationController
     render "api/users/search"
   end  
 
+  def friend_search 
+    @results = current_user.friends.search_by_full_name(params[:query]).limit(5)
+    render "api/users/search"
+  end
+
   def create
     @user = User.new(user_params)
 

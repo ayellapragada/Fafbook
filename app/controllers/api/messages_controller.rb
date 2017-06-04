@@ -18,6 +18,7 @@ class Api::MessagesController < ApplicationController
 
     last_message_read
 
+
     @message = @conversation.messages.new(message_params)
     if @message.save 
       recipient = @conversation.sender_id == @message.user_id ? @conversation.recipient_id : @conversation.sender_id
