@@ -29,6 +29,12 @@ class SigninHeader extends React.Component {
     this.props.login(user);
   }
 
+  handleGuestTwo(e) {
+    const user = {email:"test1@password.com",
+      password: "password"};
+    this.props.login(user);
+  }
+
   renderErrors(){
     if (this.props.errors instanceof(Array)) {
       const errors = this.props.errors.map((error, i)=>{
@@ -77,7 +83,11 @@ class SigninHeader extends React.Component {
                 </form>
                 <button className="test-button-login"
                   onClick={this.handleGuest}>
-                  Demo
+                  Demo 1
+                </button>
+                <button className="test-button-login"
+                  onClick={this.handleGuestTwo}>
+                  Demo 2
                 </button>
               </div>
             </div>
