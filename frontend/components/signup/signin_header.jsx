@@ -9,6 +9,7 @@ class SigninHeader extends React.Component {
     this.state = {email: "", password: ""};
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleGuest = this.handleGuest.bind(this);
+    this.handleGuestTwo = this.handleGuestTwo.bind(this);
   }
 
   update(field) {
