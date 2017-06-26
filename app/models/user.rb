@@ -40,6 +40,7 @@ class User < ApplicationRecord
   validates :fname, :lname, :date, :month, :year, :dob, presence: true
   validates :gender, inclusion: { in: [true, false] }
   validates :password, length: { minimum: 6, allow_nil: true }
+  validates :fname, :lname,  length: { maximum: 20 }
 
   def set_picture_respect_to_gender
     self.gender? ? "defaults/male_default.jpg" : "defaults/female_default.jpg"
