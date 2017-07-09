@@ -25,6 +25,13 @@ class SoloPost extends React.Component {
   }
 
   render() {
+    if (this.state.loading) {
+      return (
+        <div className="profile loading-profile">
+          <div className="loader">Loading...</div>
+        </div>
+      );
+    }
     const posts = Object.values(this.props.posts).map(post => {
       return  <Post 
         post={post} 
