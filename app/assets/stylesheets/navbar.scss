@@ -5,10 +5,8 @@
   position: fixed;
   z-index: 20;
   top: 0;
-  width: 51.3%;
-  padding: 0 22% 0 24.7%;
+  width: 100%;
 }
-
 
 .navbar-color {
   background-color: #3b5998;
@@ -17,6 +15,7 @@
   width: 100%;
   position: fixed;
   z-index: 20;
+  display: flex;
 }
 
 .fafbook-small-logo,
@@ -56,12 +55,17 @@
 
 .left-navbar {
   display: flex;
+  margin-left: 12%;
+}
+
+.right-navbar {
+  margin-right: 12%;
 }
 
 .navbar-both {
   padding-top: 9px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .search {
@@ -351,9 +355,4 @@
   &:hover {
     background-color:#e9ebee;
   }
-}
-
-.special-navbar {
-  padding: 0 20% 0 23.5%;
-  width: 53.6%;
 }

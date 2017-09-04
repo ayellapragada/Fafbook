@@ -8,6 +8,8 @@ const Home = () => {
 
   return(
     <div className="home">
+      <div className="empty-home-div">
+      </div>
       <div className="left-bar-placeholder"></div>
       <div className="home-left-bar">
         <LeftBar />
@@ -17,6 +19,8 @@ const Home = () => {
       </div>
       <div className="home-right-bar">
         <RightBar />
+      </div>
+      <div className="empty-home-div">
       </div>
     </div>
   );

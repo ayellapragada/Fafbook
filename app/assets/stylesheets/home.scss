@@ -1,6 +1,10 @@
 .home {
   display: flex;
-  margin: 53px 23% 0 23%;
+  margin-top: 53px;
+  justify-content: center;
+}
+
+.empty-home-div {
 }
 
 .timeline {
@@ -8,8 +12,7 @@
 }
 
 .home-left-bar {
-  width: 19%;
-  min-width: 200px;
+  width: 15%;
 }
 
 .home-right-bar {
@@ -21,7 +24,6 @@
 .trending-twitter {
   font-size: 12px;
   width: 100%;
-  min-width: 290px;
   box-sizing: border-box;
   background-color: white;
   border: 1px solid;
