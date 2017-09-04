@@ -1,7 +1,3 @@
-// Place all the styles related to the Sessions controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
 @import "colors.scss";
 
 .signin-header-container {
@@ -11,14 +7,14 @@
 }
 
 .signin-header-box {
-  margin: 0 23.6% 0 24%;
-  min-width: 1000px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 
 
 .signup-header-container {
-  margin: 0 23% 0 24%;
-  min-width: 1000px;
+  justify-content: space-around;
 }
 
 .signin-form,
@@ -26,7 +22,6 @@
 .signin-header-box, 
 .signup-header-container {
   display: flex;
-  justify-content: space-between;
 }
 
 .signin-form {
