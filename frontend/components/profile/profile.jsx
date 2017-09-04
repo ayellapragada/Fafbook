@@ -49,18 +49,20 @@ class Profile extends React.Component {
 
     if (user.status === -2) {
       return (
-        <div className="profile">
-          <ControlBar 
-            createNewConversation = {this.props.createNewConversation}
-            openChat = {this.props.openChat}
-            user={user} 
-            currentUser={currentUser} />
-          <div className="do-you-know-box">
-            Do you know {user.fname}?
-          </div>
-          <div className="do-you-know-box-content">
-            To see what {user.gender ? "he" : "she"} shares,
-            send {user.gender ? "him" : "her"} a friend request.
+        <div className="profile-container">
+          <div className="profile">
+            <ControlBar 
+              createNewConversation = {this.props.createNewConversation}
+              openChat = {this.props.openChat}
+              user={user} 
+              currentUser={currentUser} />
+            <div className="do-you-know-box">
+              Do you know {user.fname}?
+            </div>
+            <div className="do-you-know-box-content">
+              To see what {user.gender ? "he" : "she"} shares,
+              send {user.gender ? "him" : "her"} a friend request.
+            </div>
           </div>
         </div>
       );
@@ -68,17 +70,19 @@ class Profile extends React.Component {
 
     else if (user.status === -1) {
       return (
-        <div className="profile">
-          <ControlBar 
-            createNewConversation = {this.props.createNewConversation}
-            openChat = {this.props.openChat}
-            user={user} 
-            currentUser={currentUser} />
-          <div className="do-you-know-box">
-            Do you know {user.fname}?
-          </div>
-          <div className="do-you-know-box-content">
-            Request sent.
+        <div className="profile-container">
+          <div className="profile">
+            <ControlBar 
+              createNewConversation = {this.props.createNewConversation}
+              openChat = {this.props.openChat}
+              user={user} 
+              currentUser={currentUser} />
+            <div className="do-you-know-box">
+              Do you know {user.fname}?
+            </div>
+            <div className="do-you-know-box-content">
+              Request sent.
+            </div>
           </div>
         </div>
       );
@@ -86,17 +90,19 @@ class Profile extends React.Component {
 
     else if (user.status === -3) {
       return (
-        <div className="profile">
-          <ControlBar 
-            createNewConversation = {this.props.createNewConversation}
-            openChat = {this.props.openChat}
-            user={user} 
-            currentUser={currentUser} />
-          <div className="do-you-know-box">
-            Do you know {user.fname}?
-          </div>
-          <div className="do-you-know-box-content">
-            Accept or deny this person's friend request!
+        <div className="profile-container">
+          <div className="profile">
+            <ControlBar 
+              createNewConversation = {this.props.createNewConversation}
+              openChat = {this.props.openChat}
+              user={user} 
+              currentUser={currentUser} />
+            <div className="do-you-know-box">
+              Do you know {user.fname}?
+            </div>
+            <div className="do-you-know-box-content">
+              Accept or deny this person's friend request!
+            </div>
           </div>
         </div>
       );
@@ -106,19 +112,21 @@ class Profile extends React.Component {
 
     else if (user.id > 0){
       return (
-        <div className="profile">
-          <DocumentTitle title={`${user.fname} ${user.lname}`} />
-          <div className="profile-header">
-            <ControlBar 
-              createNewConversation = {this.props.createNewConversation}
-              openChat = {this.props.openChat}
-              user={user} 
-              currentUser={currentUser} />
-          </div>
+        <div className="profile-container">
+          <div className="profile">
+            <DocumentTitle title={`${user.fname} ${user.lname}`} />
+            <div className="profile-header">
+              <ControlBar 
+                createNewConversation = {this.props.createNewConversation}
+                openChat = {this.props.openChat}
+                user={user} 
+                currentUser={currentUser} />
+            </div>
 
-          <div className="profile-body">
-            <div className="profile-feed">
-              { this.props.children }
+            <div className="profile-body">
+              <div className="profile-feed">
+                { this.props.children }
+              </div>
             </div>
           </div>
         </div>

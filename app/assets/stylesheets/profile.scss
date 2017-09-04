@@ -2,9 +2,13 @@
   cursor: pointer;
 }
 .profile {
-  margin: 43px 20% 0 24%;
   display: flex;
   flex-direction: column;
+}
+
+.profile-container {
+  display: flex;
+  justify-content: space-around;
 }
 
 .cover-img {
