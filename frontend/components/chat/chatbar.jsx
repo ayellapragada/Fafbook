@@ -37,7 +37,7 @@ class Chatbar extends React.Component {
           <ul className="chat-boxes-ul">
             {chatBoxes}
             <div onClick={this.handleClick} className="chat-main">
-              Chat (Global)
+              Chat 
             </div>
           </ul>
         </div>
