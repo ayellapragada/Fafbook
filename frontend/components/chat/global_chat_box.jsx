@@ -1,11 +1,13 @@
 import React from 'react';
 
-const GlobalChatBox = () => {
+class GlobalChatBox extends React.Component {
 
-  return (
-    <div className="global-chat-box">
-    </div>
-  );
-};
+  render() {
+    return (
+      <div className="global-chat-box">
+      </div>
+    );
+  }
+}
 
 export default GlobalChatBox;

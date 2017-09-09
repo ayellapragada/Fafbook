@@ -411,8 +411,12 @@
 
 .global-chat-box {
   margin-left: 15px;
-  height: calc(100vh - 43px);
-  border: 1px solid red;
+  border: 1px solid #ccc;
+
+  height: calc(100vh - 75px);
+  height: -o-calc(100vh - 75px); /* opera */
+  height: -webkit-calc(100vh - 75px); /* google */
+  height: -moz-calc(100vh - 75px); /* firefox */
 }
 
 .global-chat-box-duo {
