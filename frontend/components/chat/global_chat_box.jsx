@@ -4,7 +4,6 @@ const GlobalChatBox = () => {
 
   return (
     <div className="global-chat-box">
-      Hi
     </div>
   );
 };

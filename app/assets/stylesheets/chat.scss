@@ -411,6 +411,8 @@
 
 .global-chat-box {
   margin-left: 15px;
+  height: calc(100vh - 43px);
+  border: 1px solid red;
 }
 
 .global-chat-box-duo {
