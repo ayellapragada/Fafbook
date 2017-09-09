@@ -3,16 +3,18 @@ import { connect } from 'react-redux';
 import { closeChat, closeAllChats } from '../../actions/chat_actions.js';
 import { getMessages, sendMessage } from '../../actions/message_actions.js';
 import ChatboxItem from './chatbox_item';
+import GlobalChatBox from './global_chat_box';
 
 class Chatbar extends React.Component {
   constructor() {
     super();
+    this.state = { show: true };
     this.handleClick = this.handleClick.bind(this);
   }
 
 
   handleClick() {
-    document.getElementById('chat-dropdown').click();
+    this.setState({ show: !this.state.show });
   }
 
   render() {
@@ -20,7 +22,7 @@ class Chatbar extends React.Component {
     const chatBoxes = Object.values(this.props.chats).map((chat) => {
       return (
         <li key={chat.conversation.id}>
-          <ChatboxItem 
+          <ChatboxItem
             currentUser={this.props.currentUser}
             getMessages={this.props.getMessages}
             sendMessage={this.props.sendMessage}
@@ -36,8 +38,11 @@ class Chatbar extends React.Component {
         <div className="chat-boxes">
           <ul className="chat-boxes-ul">
             {chatBoxes}
-            <div onClick={this.handleClick} className="chat-main">
-              Chat 
+            <div className="global-chat-box-duo">
+              {this.state.show && <GlobalChatBox />}
+              <div onClick={this.handleClick} className="chat-main">
+                Chat
+              </div>
             </div>
           </ul>
         </div>

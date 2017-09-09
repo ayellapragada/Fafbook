@@ -408,3 +408,12 @@
   left: 260px;
   z-index: 2;
 }
+
+.global-chat-box {
+  margin-left: 15px;
+}
+
+.global-chat-box-duo {
+  display: flex;
+  flex-direction: column;
+}
