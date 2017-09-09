@@ -8,16 +8,17 @@ import GlobalChatBox from './global_chat_box';
 class Chatbar extends React.Component {
   constructor() {
     super();
-    this.state = { show: true };
+    this.state = { show: false };
     this.handleClick = this.handleClick.bind(this);
   }
 
 
   handleClick() {
-    this.setState({ show: !this.state.show });
+    document.getElementById('chat-dropdown').click();
   }
 
   render() {
+    const { show } = this.state;
 
     const chatBoxes = Object.values(this.props.chats).map((chat) => {
       return (
@@ -33,14 +34,15 @@ class Chatbar extends React.Component {
       );
     });
 
+
     return (
-      <div className="chatbar">
+      <div className='chatbar'>
         <div className="chat-boxes">
           <ul className="chat-boxes-ul">
             {chatBoxes}
             <div className="global-chat-box-duo">
-              {this.state.show && <GlobalChatBox />}
-              <div onClick={this.handleClick} className="chat-main">
+              {show && <GlobalChatBox />}
+              <div onClick={this.handleClick} className={`chat-main ${!show && 'chatmain-closed'}`}>
                 Chat
               </div>
             </div>

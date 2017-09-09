@@ -65,9 +65,15 @@
 }
 
 .chat-main {
-  padding: 10px 225px 6px 10px;
+  padding: 10px 120px 6px 10px;
   margin-left: 15px;
 }
+
+.chatmain-closed {
+  padding-right: 225px;
+}
+
+
 
 .chatbox-item {
   position: relative;
@@ -423,3 +429,5 @@
   display: flex;
   flex-direction: column;
 }
+
+
