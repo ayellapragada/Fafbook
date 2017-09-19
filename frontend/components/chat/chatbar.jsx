@@ -42,7 +42,10 @@ class Chatbar extends React.Component {
             {chatBoxes}
             <div className="global-chat-box-duo">
               {show && <GlobalChatBox />}
-              <div onClick={this.handleClick} className={`chat-main ${!show && 'chatmain-closed'}`}>
+              <div 
+                onClick={this.handleClick} 
+                className={`chat-main ${!show && 'chatmain-closed'}`}
+              >
                 Chat
               </div>
             </div>
