@@ -2,6 +2,7 @@ json.extract! post, :body, :id
 json.likes post.likers(User) 
 json.liked post.liked_by?(current_user)
 json.created_at post.updated_at
+# oh man. it's dissappointing that I'm using created at and updated at together
 
 
 json.comments post.comments do |comment|
