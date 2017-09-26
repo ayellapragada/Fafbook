@@ -18,14 +18,15 @@ class MessageItem extends React.Component {
           </div> 
         </div>
       );
-    } else 
-      return (
-        <div className="message-item right-message-item">
-          <div className="message-body our-message">
-            {emoji(this.props.message.body)}
-          </div> 
-        </div>
-      );
+    } 
+
+    return (
+      <div className="message-item right-message-item">
+        <div className="message-body our-message">
+          {emoji(this.props.message.body)}
+        </div> 
+      </div>
+    );
   }
 }
 
