@@ -32,5 +32,12 @@ module Fafbook
       }
     }
     config.action_view.logger = nil
+
+    config.generators do |g|
+      g.test_framework :rspec,
+        fixtures: true
+      g.fixture_replacement :factory_girl, dir: 'spec/factories'
+    end
   end
+
 end
