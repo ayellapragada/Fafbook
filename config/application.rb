@@ -22,17 +22,15 @@ module Fafbook
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.paperclip_defaults = {
-      :storage => :s3,
-      :s3_protocol => :https,
-      :s3_credentials => {
-        :bucket => ENV["s3_bucket"],
-        :access_key_id => ENV["s3_access_key_id"],
-        :secret_access_key => ENV["s3_secret_access_key"],
-        :s3_region => ENV["s3_region"]
+      storage:  :s3,
+      s3_protocol:  :https,
+      s3_credentials:  {
+        bucket:  ENV["s3_bucket"],
+        access_key_id:  ENV["s3_access_key_id"],
+        secret_access_key:  ENV["s3_secret_access_key"],
+        s3_region:  ENV["s3_region"]
       }
     }
-    j
-    config.active_record.raise_in_transactional_callbacks = true
     config.action_view.logger = nil
   end
 end
