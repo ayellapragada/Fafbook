@@ -1,6 +1,6 @@
 # README
 
-Fafbook - Fafbook ain't Facebook.
+Fafbook - Fafbook ain't Facebook. [![Build Status](https://travis-ci.org/ayellapragada/Fafbook.svg?branch=master)][https://travis-ci.org/ayellapragada/Fafbook]
 
 [Fafbook][livesite]
 
