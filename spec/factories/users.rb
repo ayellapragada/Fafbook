@@ -4,8 +4,8 @@ FactoryGirl.define do
     password 'password'
     fname 'akshith'
     lname 'yell'
-    date '9'
-    month '2'
+    date '09'
+    month 'Feb'
     year '1995'
     gender true
   end
