@@ -8,6 +8,15 @@ jobs:
     docker:
       # specify the version you desire here
        - image: circleci/ruby:2.4.1-node-browsers
+         environment:
+          PGHOST: 127.0.0.1
+          PGUSER: fafbook-test
+          RAILS_ENV: test
+      - image: circleci/postgres:9.5-alpine
+        environment:
+          POSTGRES_USER: fafbook
+          POSTGRES_DB: fafbook-test
+          POSTGRES_PASSWORD: ""
       
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
