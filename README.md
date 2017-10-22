@@ -98,7 +98,7 @@ Similar to messaging, notifications are now also done in real time, whenever a u
 In addition to what's been done already, I will continue to work on this
 project.
 
-### Improved CSS 
+### Improved Tests 
 
-The last big step is to improve the css, by adding in responsiveness for different screen sizes, and optimizing the site for mobile. 
-
+Now that there's a proper CI server setup, with a few tests, the last big step
+is to write some more tests for this to concrete code stability.
