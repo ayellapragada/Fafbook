@@ -76,6 +76,12 @@ class LeftBar extends React.Component {
               <i className="fa fa-database" aria-hidden="true"></i>
               <p>Easy Save</p>
             </a>
+            <a 
+              className="front-github" 
+              href="https://www.npmjs.com/package/react-harry-potter">
+              <i className="fa fa-magic" aria-hidden="true"></i>
+              <p>React Harry Potter</p>
+            </a>
           </div>
         </div>
       );
