@@ -12,7 +12,7 @@ class Messages extends React.Component {
   }
 
   componentDidMount() {
-    this.updateScroll();
+    this.messagesEnd.scrollIntoView({behavior: "instant"});
   }
 
   componentDidUpdate(prevProps, prevState) {

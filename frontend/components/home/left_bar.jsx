@@ -82,6 +82,12 @@ class LeftBar extends React.Component {
               <i className="fa fa-magic" aria-hidden="true"></i>
               <p>React Harry Potter</p>
             </a>
+            <a 
+              className="front-go" 
+              href="awesome-go.herokuapp.com">
+              <i className="fa fa-gamepad" aria-hidden="true"></i>
+              <p>Awesome Go</p>
+            </a>
           </div>
         </div>
       );
