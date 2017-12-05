@@ -84,7 +84,7 @@ class LeftBar extends React.Component {
             </a>
             <a 
               className="front-go" 
-              href="awesome-go.herokuapp.com">
+              href="https://awesome-go.herokuapp.com">
               <i className="fa fa-gamepad" aria-hidden="true"></i>
               <p>Awesome Go</p>
             </a>
